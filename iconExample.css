@@ -23,12 +23,11 @@
 	transition: background 0.5s;
 }
 .inner-header-icon:hover{
-	/* 鼠标触碰三线下拉按时的变动颜色 */
 	background-color: rgba(171, 139, 223, 0.2);
 	cursor: pointer;
 }
 .inner-header-icon span{
-	/* 三条线的颜色，位置 */
+	/* three lines color, position*/
 	position: absolute;
 	left: calc((100% - 25px) / 2);
 	top: calc((100% + 40px) / 2);
