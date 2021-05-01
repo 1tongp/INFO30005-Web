@@ -1,0 +1,152 @@
+/* @import '~antd/dist/antd.css'; */
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 100px;
+    max-width: 1200px;
+}
+
+/* All page headings */
+h1 {
+    font-size: 25pt;
+    font-weight: bold;
+    margin-top: 80px;
+    margin-bottom: 100px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+/* Subheadings */
+h2 {
+    font-weight: bold;
+    font-size: 18pt;
+    margin-bottom: 30px;
+}
+
+/* Heading in bodytext */
+h3 {
+    font-size: 16pt;
+}
+
+/* Menu bar, buttons */
+h4 {
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+p {
+    font-size: 16pt;
+}
+
+a {
+    font-size: 12pt;
+    text-decoration: underline;
+}
+
+.warning {
+    font-size: 12pt;
+    color: #ea7a58;
+}
+
+.small_grey_text {
+    font-size: 12pt;
+    color: #585555;
+    /* margin-left: 20px; */
+}
+
+Header, Footer {
+    background-color: #73412f;
+    width: 100%;
+    display: block;
+    margin: 0;
+    height: 60px;
+
+}
+
+Footer {
+    position:absolute;
+    bottom:0;
+}
+
+Footer p {
+    font-size: 8pt;
+    color: #d9c2a7;
+    text-align: center;
+    display: block;
+    padding-top: 15px;
+    line-height: 150%;
+}
+
+
+.icon{
+    font-size: 40px;
+    color: #73412f;
+}
+
+Header .icon {
+    font-size: 40px;
+    color: #d9c2a7;
+}
+
+.centre_content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.centre_content .icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+Button {
+    background-color: #d9c2a7;
+    padding: 15px;
+    border:#A07D50;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.left_arrow {
+    margin-right: 5px;
+}
+
+.row {
+    
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.item_list {
+    float:left;
+    width: 70%;
+}
+
+.item {
+
+}
+
+.summary {
+    float:left;
+    width: 30%;
+}
+
+@media only screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+
