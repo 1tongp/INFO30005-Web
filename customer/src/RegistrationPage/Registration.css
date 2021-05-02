@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+
+h2{
+    letter-spacing: 5px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+p{
+    font-size: small;
+}
+
+input{
+    margin-bottom: 6%;
+    background-color: white;
+    border-color: #707070;
+    border-width: 0.5px;
+}
+
+.button{
+    float: right;
+
+}
+
+.signupContainer{
+    position: relative;
+    width: 50%;
+    height: 100%;
+  
+    padding-left: 40px;
+
+}
+.signupBackground{
+    background-color: #E8E6DF;   
+    background-image: url(background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-size: cover;
+    
+    
+}
+
+
+.fnameinput{
+    width: 45%;   
+    margin-right: 21px;
+}
+
+.lnameinput{
+    width: 45%;
+   
+    
+}
+
+.footer{
+    position: static;
+}
+
+.btnSignup{
+    border:none;
+    background-color: #D9C2A7;
+    width: 200px;
+    height: 30px;
+    float: right;
+}
+
+.btnCancel{
+    border-color: #CCCCCC;
+    background-color: #ECECEC;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
