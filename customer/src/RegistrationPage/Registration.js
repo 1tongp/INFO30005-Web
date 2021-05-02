@@ -64,6 +64,7 @@ export default function registrationPage () {
                 All Rights Reserved
                 </p>
             </Footer>
+            
 
         </Layout>
     )
