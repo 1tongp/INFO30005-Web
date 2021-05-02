@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+p{
+    font-size: small;
+    
+}
+
+input{
+    
+    border: solid;
+    border-radius: 50px;
+    border-color: #707070;
+    border-width: 1px;
+    padding-left: 10px;
+    width: 100%;
+    height: 27px;
+}
+.btnContinue{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    border:none;
+    border-radius: 50px;
+    background-color:#D9C2A7;
+    
+}
+
+.forgotPasswordLink{
+    color: #009DFF;
+    font-size: small;
+    float: right;
+    margin-top: 5px;
+}
+.signupLink{
+    color:#EA7A58;
+    font-size: small;
+    
+}
+
+.loginContainer{
+    width: 500px;
+    
+    position: relative;
+    border: solid;
+    border-color: white;
+    text-align: center;
+
+}
+
+.loginForm{
+    top:50%;
+    left:50%;
+    border:none;
+    margin: 50px 70px;
+
+}
+
+.closeIcon{
+    float:right;
+}
