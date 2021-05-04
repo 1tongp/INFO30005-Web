@@ -38,8 +38,8 @@ server.use('/vendor', vendor);
 server.use('/snack', snack);
 server.use('/order', order);
 
-server.listen(process.env.PORT || 8080,() => {
-    console.log(`Server now listening at http://localhost:8080`)
+server.listen(process.env.PORT || 5000,() => {
+    console.log(`Server now listening at http://localhost:5000`)
 })
 
 
