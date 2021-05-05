@@ -42,10 +42,8 @@ export default function OrderDetail(props){
                 <tr>                    
                     <th>{props.order.createTime.slice(0,10)}</th>
                 </tr>
-            
 
                 <div className="row">
-                  
                     <div className="column">
                     <table>
                         <tr>

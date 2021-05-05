@@ -1,4 +1,4 @@
-import '../styles.css';
+import './styles.css';
 import logo from '../images/logo.png';
 // import 'antd/dist/antd.css';
 import { Layout, Button} from 'antd';

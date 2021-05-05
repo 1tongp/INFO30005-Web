@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import { Layout} from 'antd';
 import './Login.css'
 import {
@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons';
 import{message} from 'antd';
 import axios from '../API/axios.js';
-
+import Menu from '../Menu/Menu.js'
 const {  Content } = Layout;
 
 
@@ -27,7 +27,7 @@ export default function LoginPage(props) {
         console.log(response);
         if(response.data.success){
           // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
-          props.history.push('/order', {customer: response.data.customer});
+          props.history.push('/customer', {customer: response.data.customer});
         }
         else{
           message.error(response.data.error)
@@ -36,9 +36,10 @@ export default function LoginPage(props) {
         console.log(error)
       })
     }
+
     return (
         <Layout>
-            <Content className="loginContainer">
+            <Content className="loginContainer" >
                 <CloseCircleOutlined className="closeIcon" href=""/>
                 {/* click continue button and the form data will be sent to ... */}
                 <form 

@@ -33,18 +33,18 @@ function MyOrder (props) {
     const [orders, setOrders] = useState([]);
     const [snacks, setSnacks] = useState([]);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // orderListGet
-        axios.get('/order?customer=' + props.location.state.customer.id).then(response => {
-            setOrders(response.data.customerOrders)
-        })
+    //     // orderListGet
+    //     axios.get('/order?customer=' + props.location.state.customer.id).then(response => {
+    //         setOrders(response.data.customerOrders)
+    //     })
 
-        // snackMenuGet
-        axios.get('/snack').then(response => {
-            setSnacks(response.data.snacks)
-        })
-    }, [props.location.state.customer.id]);
+    //     // snackMenuGet
+    //     axios.get('/snack').then(response => {
+    //         setSnacks(response.data.snacks)
+    //     })
+    // }, [props.location.state.customer.id]);
 
     return (
         <Layout>
