@@ -18,12 +18,6 @@ export default function AppStart(props) {
   const [loginEmail, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      feature still in progress
-    </Tooltip>
-  );
-
   // compare the props information with the database
   // check if the loginEmail and password are all correct
   const onLogin = () => {

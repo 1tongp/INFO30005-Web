@@ -5,6 +5,7 @@ import shoppingCartEmpty from './ShoppingCart/ShoppingCartEmpty.js';
 import LoginPage from './loginPage/Login.js';
 import registrationPage from './RegistrationPage/Registration.js'
 import CustomerMain from './customerMain.js';
+import MyOrder from './myOrderPage/MyOrder.js'
 
 class Router extends React.Component{
     render(){
@@ -12,7 +13,7 @@ class Router extends React.Component{
             <BrowserRouter>
                 <Switch>
                     {/* <Route path="/" exact component={App}></Route> */}
-                    
+
                     {/* Routes should be same as the backend routes, /shoppingcart/empty, 
                     /shoppingcart, /signup are not connected to the backend interaction*/}
                     <Route path="/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
@@ -20,6 +21,7 @@ class Router extends React.Component{
                     <Route path="/customer/login" exact component={LoginPage}></Route>
                     <Route path="/customer" exact component={CustomerMain}></Route>
                     <Route path="/signup" exact component={registrationPage}></Route>
+                    <Route path="/order" exact component={MyOrder}></Route>
 
                 </Switch>
             </BrowserRouter>

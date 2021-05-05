@@ -20,13 +20,14 @@ export default function LoginPage(props) {
     const [password, setPassword] = useState('');
 
     // 用这个信息去跟后端核对
+    // delete console
     const onLogin = () => {
         axios.post('/customer/login', {loginEmail: loginEmail, password: password}).then(response =>{
         console.log(props);
         console.log(response);
         if(response.data.success){
           // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
-          props.history.push('/customer', {customer: response.data.customer});
+          props.history.push('/order', {customer: response.data.customer});
         }
         else{
           message.error(response.data.error)
