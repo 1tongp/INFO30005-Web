@@ -34,10 +34,12 @@ function MyOrder (props) {
     const [snacks, setSnacks] = useState([]);
 
     useEffect(() => {
+
         // orderListGet
         axios.get('/order?customer=' + props.location.state.customer.id).then(response => {
             setOrders(response.data.customerOrders)
         })
+
         // snackMenuGet
         axios.get('/snack').then(response => {
             setSnacks(response.data.snacks)
@@ -50,7 +52,7 @@ function MyOrder (props) {
 
             </Header>
             
-            <Content >
+            <Content>
                 <br></br>
                 <h1>MY ORDERS</h1>
                 <br></br>
