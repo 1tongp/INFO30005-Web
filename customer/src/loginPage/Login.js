@@ -1,30 +1,24 @@
-import React , {useState, useEffect} from 'react'
-import { Layout} from 'antd';
+import React , {useState} from 'react'
+import {Layout, message} from 'antd';
 import './Login.css'
-import {
-    CloseCircleOutlined
-} from '@ant-design/icons';
-import{message} from 'antd';
+import {CloseCircleOutlined} from '@ant-design/icons';
 import axios from '../API/axios.js';
-import Menu from '../Menu/Menu.js'
+
 const { Content } = Layout;
 
 export default function LoginPage(props) {
     console.log(props);
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+
     const [loginEmail, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // 用这个信息去跟后端核对
-    // delete console
+    // an action to complete the login by given correct email and password
     const onLogin = () => {
         axios.post('/customer/login', {loginEmail: loginEmail, password: password}).then(response =>{
         console.log(props);
         console.log(response);
         if(response.data.success){
-          // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
+          // push the customer information
           props.history.push('/customer', {customer: response.data.customer});
         }
         else{
