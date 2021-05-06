@@ -17,7 +17,7 @@ import {
 
 const { Header, Footer, Content } = Layout;
 
-export default function Main () {
+export default function Main (props) {
     const onSkip = () => {
         props.history.push('/menupreview',{
             vendor: "6082092adf7e59001590d377"
