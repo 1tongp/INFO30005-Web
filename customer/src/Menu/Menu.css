@@ -84,7 +84,7 @@
     left:25%;
     z-index: 10;
     -webkit-animation: popwindow 0s ease-in 1.5s forwards;
-    animation: popwindow 0s ease-in 1.5s forwards;
+    animation: popwindow 0s ease-in 6s forwards;
 }
 
 @keyframes popwindow {

@@ -1,3 +1,4 @@
+//import the functions will be used
 import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap';
 import axios from '../API/axios';
@@ -9,7 +10,7 @@ import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
 const { Header} = Layout;
 
-
+// MenuPreview function will load the snack data and show them out, these snack can only be viewed by customer who hasn't loggin yet
 function MenuPreview(props){
     console.log(props);
     const [snacks, setSnacks] = useState([]);
@@ -49,6 +50,7 @@ function MenuPreview(props){
                 </div>
 
             </Header>
+            {/* return the snacks details */}
             <MenuPre key='0' snacks={snacks} />
         </Layout>  
     )

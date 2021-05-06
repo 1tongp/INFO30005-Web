@@ -1,3 +1,4 @@
+//import the functions will be used
 import React,{useState, useEffect} from 'react';
 import '../ShoppingCart/styles.css';
 import './Menu.css';
@@ -9,6 +10,7 @@ import axios from '../API/axios';
 const { Footer, Content } = Layout;
 const {Meta} = Card;
 
+//this function will implement the Menu page strcture
 export default function Menu (props) {
     console.log(props);
     const [order, setOrders] = useState([]);
@@ -21,12 +23,14 @@ export default function Menu (props) {
     window.onclick = function(e) { // checks were clicked
         let str = String(e.srcElement.className);
         console.log(str);
+
         // checks if user clicked the "x" icon on message
         let clickedClose = str.includes("anticon") || str == "[object SVGAnimatedString]";
         console.log(clickedClose); 
         // TODO: remove message
     }
 
+    //record the action submit, which summary the order and price, then push the order to database
     const onSubmit = () =>{
         var submitOrder = []
         var sumPrice = 0;
@@ -68,6 +72,7 @@ export default function Menu (props) {
         <Layout>                      
             <Content className='container'>
                 <h1>MENU</h1>
+                {/* loop each snack in the database and show them out as a menu, the customer can choose the amount they want to order */} 
                 {props.snacks.map((snack, index) => (
                         <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath}/>} key={snack._id}>
                             <div className='card-content'>
@@ -77,6 +82,7 @@ export default function Menu (props) {
                         </Card>
                     ))}
 
+                {/* click the button and submit the order*/} 
                 <Button className='place' onClick={onSubmit}>
                     PLACE ORDER
                     <LikeOutlined className='place_icon'/>
