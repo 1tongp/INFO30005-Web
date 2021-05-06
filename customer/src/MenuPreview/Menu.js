@@ -21,8 +21,8 @@ export default function MenuPre (props) {
                             </div>
                         </Card>
                 ))}
-                <Button className='place' href='/customer/login'>
-                    Sign in and Place order
+                <Button className='place' href='../'>
+                    Back to Home Page and Signin to Order
                     <LikeOutlined className='place_icon'/>
                 </Button>
                 <br /><br />

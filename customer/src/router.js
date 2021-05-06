@@ -4,9 +4,7 @@ import shoppingCart from './ShoppingCart/ShoppingCart.js';
 import shoppingCartEmpty from './ShoppingCart/ShoppingCartEmpty.js';
 import LoginPage from './loginPage/Login.js';
 import registrationPage from './RegistrationPage/Registration.js'
-// import CustomerMain from './customerMain.js';
 import AfterLoginMain from './Menu/anchor.js';
-import MyOrder from './myOrderPage/MyOrder.js';
 import Menu from './Menu/Menu.js';
 import OrderList from './myOrderPage/OrderList.js';
 import Main from './HomePage/Main.js';

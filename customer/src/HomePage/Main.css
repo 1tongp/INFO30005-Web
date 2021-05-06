@@ -52,9 +52,62 @@
     width: 35%;
 }
 
+
+/* following are edited modal part  */
+.ant-btn{
+    padding:8px 22px;
+}
+
+button.close{
+    width: 20%;
+    margin-right: 0;
+}
+
+div.modal-title.h4{
+    margin-left: 40%;
+}
+
+div.button_container{
+    margin-top: 40px;
+}
+
+div.modal-content{
+    padding: 10px !important;
+ 
+}
+
+#formBasicEmail{
+    border-radius: 50px;
+}
+
+#formBasicPassword{
+    border-radius: 50px;
+}
+
+.ant-btn{
+    border-radius: 50px;
+}
+
+/* --------------------------stop here---------------------- */
+
+
+.about-card>div{
+    
+    width: 400px;
+}
+
 .main_btn {
     margin-right: 10px;
 }
+
+.section > h1{
+    margin-top: 50px;
+
+}
+
+
+
+
 
 @media (max-width:800px) {
     .about {

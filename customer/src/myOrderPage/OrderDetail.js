@@ -1,18 +1,9 @@
 import React, {useState} from 'react';
-import {Tooltip, OverlayTrigger} from 'react-bootstrap';
-import {Card, Modal} from 'antd';
-import {ArrowsAltOutlined, EditOutlined} from '@ant-design/icons';
 import './MyOrder.css';
-// import 'antd/dist/antd.css';
-import { Layout, Button, Space} from 'antd';
-import {
-    StarFilled,
-    StarOutlined
-} from '@ant-design/icons';
-import { Rate } from 'antd';
+import { Layout } from 'antd';
+import {StarFilled, StarOutlined} from '@ant-design/icons';
 
-const { Header, Footer, Content } = Layout;
-const {Meta} = Card;
+const {Content } = Layout;
 
 export default function OrderDetail(props){
     console.log(props);
@@ -23,20 +14,13 @@ export default function OrderDetail(props){
             <td>{singleSnack.qty}</td>
             <td>{singleSnack.qty * singleSnack.snackPrice}</td>
         </tr>);
-
-    const [modalVisible, setModalVisible] = useState(false);
-    const handleClose = () => setModalVisible(false);
-    const handleShow = () => setModalVisible(true);
     
-
     return (
         <Content className="content">
         <tr >                    
             <th >{props.order.createTime.slice(0,10)}</th>
         </tr>
-
-        <div className="flex">
-       
+        <div className="flex">  
             <div className="flex--child">
             <table>
                 <tr>
@@ -81,7 +65,6 @@ export default function OrderDetail(props){
             </table>
             </div>
         
-
             <div className="flex--child flex--column">
                 <div className="flex--column--child">
                     <tr>
@@ -90,7 +73,6 @@ export default function OrderDetail(props){
                     </tr>
 
                     <tr>
-                        {/* 这个rating是假的，可以看看怎么改 同下*/}
                         <td> 
                             <StarFilled />
                             <StarFilled />
@@ -113,24 +95,15 @@ export default function OrderDetail(props){
                         <th>Comment:</th>
                     </tr>
                     <tr>
-                    {/* comment因为model定义时候没有default value，并且订单都是outstanding
-                    还没到rating 和comment那步，可以看看怎么改， 或者看看怎么加到readme里*/}
                         <td>comments</td>
                     </tr>
                 </div>
-
             </div> 
-         
-
         </div>
-
         <br></br>
-
         <center>
         <hr></hr>
         </center>
-   
     </Content>
-
     )
 }
