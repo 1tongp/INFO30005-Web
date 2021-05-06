@@ -69,49 +69,27 @@ export default function Menu (props) {
             vendor:"6082092adf7e59001590d377", // will be changed in the future
             snacks: submitOrder
         }).then(response =>{
-            if(response.data.success){
+            console.log(response);
+            if(response.data.message == "created a new order"){
+                // change the message print to a pop up page
                 message.success("Order has been places!")
                 setModalVisible(false)
             }
             else{
+                // change the message print to a pop up page
                 message.error("Order placing errored!")
             }
         })
     
     }
     return(
-        // <>
-        //     <Button variant="primary"
-        //         onClick = {handleModalShow}>See Menu</Button>
-        //     <Modal show={modalVisible} onHide={handleModalClose}>
-        //         <Modal.Header closeButton>
-        //             <Modal.Title>Menu</Modal.Title>
-        //         </Modal.Header>
-        //         <Modal.Body>
-        //             {props.snacks.map((snack, index) => (
-        //                 <Card cover={<img alt="example" src={snack.snackPhotoPath} />} style={{marginBottom:"2vh"}} size={'small'} key={snack._id}>
-        //                     <Meta title={snack.snackName + "      $" + snack.snackPrice} />
-        //                     <InputNumber key={snack._id} min={0} defaultValue={0} style={{marginLeft:"80%"}} onChange={e=>onChange(index, e)} />
-        //                 </Card>
-        //             ))}
-        //         </Modal.Body>
-        //         <Modal.Footer>
-        //             <Button variant="primary" onClick={onSubmit}>
-        //                 Submit
-        //             </Button>
-        //         </Modal.Footer>
-        //     </Modal>
-        // </>
-
-
 
         <Layout>
-            
-            
+                       
             <Content className='container'>
                 <h1>MENU</h1>
                 {props.snacks.map((snack, index) => (
-                        <Card cover={<img alt={snack.snackName} src={snack.snackPhotoPath} />} style={{marginBottom:"2vh"}} size={'small'} key={snack._id}>
+                        <Card cover={<img alt={snack.snackName} src={snack.snackPhotoPath} width={400} height={300}/>} style={{marginBottom:"2vh"}} size={'small'} key={snack._id}>
                             <Meta title={snack.snackName + " :$" + snack.snackPrice} />
                             <InputNumber key={snack._id} min={0} defaultValue={0} style={{marginLeft:"80%"}} onChange={e=>onChange(index, e)} />
                         </Card>

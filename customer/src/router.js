@@ -16,8 +16,7 @@ class Router extends React.Component{
                 <Switch>
                     {/* <Route path="/" exact component={App}></Route> */}
 
-                    {/* Routes should be same as the backend routes, /shoppingcart/empty, 
-                    /shoppingcart, /signup are not connected to the backend interaction*/}
+                    
                     <Route path="/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
                     <Route path="/shoppingcart" exact component={shoppingCart}></Route>
                     <Route path="/customer/login" exact component={LoginPage}></Route>

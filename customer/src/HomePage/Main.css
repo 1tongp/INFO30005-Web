@@ -1,0 +1,88 @@
+.main_img {
+    width: 100%;
+    display: block;
+}
+
+.section {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 100px;
+    max-width: 1200px;
+    z-index: 30;
+}
+
+.col-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #D9C2A7;
+    align-items: center;
+}
+
+.col-img img {
+    width: 60%;
+    padding: 20px;
+}
+
+.about {
+    background-image: url("../images/about.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+}
+
+.about-card {
+    width: 40vw;
+    height: 60vh;
+    padding: 10vh 5vw 0 55vw;
+
+}
+
+.button_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.section Button {
+    width: 35%;
+}
+
+.main_btn {
+    margin-right: 10px;
+}
+
+@media (max-width:800px) {
+    .about {
+        background-image: none;
+        background-color: #f2d6b6;
+        height: auto;
+        padding: 20px;
+        
+    }
+
+    .about-card {
+        width: 90%;
+        height: fit-content;
+        padding: 5% 5%;
+        overflow: hidden;
+    }
+
+    .button_container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    
+    }
+
+    .section Button {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
