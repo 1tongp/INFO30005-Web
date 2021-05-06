@@ -54,25 +54,40 @@ export default function Menu (props) {
         setOrders(newArray);
     }
 
+    window.onclick = function(e) { // checks were clicked
+        let str = String(e.srcElement.className);
+        console.log(str);
+        // checks if user clicked the "x" icon on message
+        let clickedClose = str.includes("anticon") || str == "[object SVGAnimatedString]";
+        console.log(clickedClose); 
+        // TODO: remove message
+
+    }
+
     const onSubmit = () =>{
         var submitOrder = []
+        var sumPrice = 0;
         for(var i = 0; i < order.length; i++){
             if(Number.isFinite(order[i])){
                 submitOrder.push({
-                    "name":props.snacks[i].snackName,
-                    "qty":order[i]
+                    "snackName":props.snacks[i].snackName,
+                    "qty":order[i],
+                    "snackPrice":props.snacks[i].snackPrice
                 })
+                sumPrice += props.snacks[i].snackPrice * order[i]
             }
         }
+        
         axios.post('/order/create', {
             customer: props.customer,
             vendor:"6082092adf7e59001590d377", // will be changed in the future
-            snacks: submitOrder
+            snacksList: submitOrder,
+            totalPrice: sumPrice
         }).then(response =>{
             console.log(response);
             if(response.data.message == "created a new order"){
                 // change the message print to a pop up page
-                message.success("Order has been places!")
+                message.success("Order has been places! You can check your order in your Shopping Cart and view previous orders in My Order page")
                 setModalVisible(false)
             }
             else{
