@@ -1,6 +1,8 @@
+//import the functions will be used
 import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap';
 import {Divider, Drawer, PageHeader} from 'antd';
+
 // import 'antd/dist/antd.css';
 import axios from '../API/axios';
 
@@ -27,6 +29,7 @@ function onChange(value) {
     console.log('changed', value);
   }
 
+//function used to control the data after customer login 
 function AfterLoginMain(props){
     console.log(props);
     const [drawerVisible, setDrawerVisible] = useState(false);
@@ -41,11 +44,13 @@ function AfterLoginMain(props){
     const [password, setPassword] = useState('');
 
     useEffect(() => {
+
         //orderListGet
         axios.get('/order?customer=' + props.location.state.customer.id).then(response => {
             console.log(response);
             setOrders(response.data.customerOrders)
         })
+
         //snackMenuGet
         axios.get('/snack').then(response => {
             console.log(response)
@@ -53,13 +58,15 @@ function AfterLoginMain(props){
         })
     }, [props.location.state.customer.id]);
 
+    //get the current order from the customer
     const onOrder = () => {
         axios.get('/order?customer=' + props.location.state.customer.id).then(response =>{
         console.log(props);
         console.log(response);
         if(response.data){
             console.log("get");
-          // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
+
+          // props push the useful data
           props.history.push('/order', {customerOrders: response.data.customerOrders});
         }
         else{
@@ -112,7 +119,7 @@ function AfterLoginMain(props){
                                 <a href=''>Sign Up</a> */}
 
                                 {/* after log in */}
-
+                                {/* the drop-down window contains the clickable button */}
                                 <Button href=''>Hi {props.location.state.customer.givenName}</Button>
                                 <Button href='' key="1" onClick = {onOrder}>My Order</Button>
                                 <Button href='../'>Log Out</Button>
@@ -123,6 +130,7 @@ function AfterLoginMain(props){
                 </div>
 
             </Header>
+            {/* return the snacks and customer details */}
             <Menu key='0' snacks={snacks} customer={props.location.state.customer.id} />
         </Layout>
         

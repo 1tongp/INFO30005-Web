@@ -1,6 +1,8 @@
+//import the functions will be used
 import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap';
 import {Divider, Drawer, PageHeader} from 'antd';
+
 // import 'antd/dist/antd.css';
 import axios from '../API/axios';
 
@@ -25,6 +27,7 @@ function onChange(value) {
     console.log('changed', value);
   }
 
+//MenuPreview function will load the snack data and show them out, these snack can only be viewed by customer who hasn't loggin yet
 function MenuPreview(props){
     console.log(props);
     const [drawerVisible, setDrawerVisible] = useState(false);
@@ -86,7 +89,7 @@ function MenuPreview(props){
                                 <a href=''>Sign Up</a> */}
 
                                 {/* after log in */}
-
+                                {/* the drop-down window contains the clickable button */}
                                 <Button href='/customer/login'>Log In</Button>
                                 <Button href=''>Sign Up</Button>
 
@@ -96,6 +99,7 @@ function MenuPreview(props){
                 </div>
 
             </Header>
+            {/* return the snacks details */}
             <MenuPre key='0' snacks={snacks} />
         </Layout>
         

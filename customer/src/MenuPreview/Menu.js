@@ -1,3 +1,4 @@
+//import the functions will be used
 import React from 'react';
 import '../ShoppingCart/styles.css';
 import '../Menu/Menu.css';
@@ -8,11 +9,13 @@ import { CopyrightOutlined , LikeOutlined } from '@ant-design/icons';
 const { Footer, Content } = Layout;
 const {Meta} = Card;
 
+//this function will implement the view only Menu page strcture
 export default function MenuPre (props) {
     return(
         <Layout>       
             <Content className='container'>
                 <h1>MENU（View Only）</h1>
+                {/* loop each snack in the database and show them out as a menu */}
                 {props.snacks.map((snack) => (
                         <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath}/>} key={snack._id}>
                             <div>
@@ -21,6 +24,7 @@ export default function MenuPre (props) {
                             </div>
                         </Card>
                 ))}
+                {/* if the customer want to place order they need to go to sign in first */}
                 <Button className='place' href='/customer/login'>
                     Sign in and Place order
                     <LikeOutlined className='place_icon'/>
