@@ -1,19 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import '../ShoppingCart/styles.css';
 import './Menu.css';
-import logo from '../images/logo.png';
-import Cap from '../images/Cappuccino.jpg';
-import LongB from '../images/Long Black.jpg';
-import Latte from '../images/Latte.jpg';
-import FlatW from '../images/Flat White.jpg';
-import Big from '../images/Big Cake.jpg';
-import Small from '../images/Small Cake.jpg';
-import Fancy from '../images/Fancy Biscuit.jpg';
-import Plain from '../images/Plain Biscuit.jpg';
 import { Layout, InputNumber, message,Card } from 'antd';
 import {Modal, Button} from 'react-bootstrap';
 import {
-    ShoppingOutlined,
     CopyrightOutlined,
     UserOutlined,
     LikeOutlined,
@@ -104,9 +94,11 @@ export default function Menu (props) {
             <Content className='container'>
                 <h1>MENU</h1>
                 {props.snacks.map((snack, index) => (
-                        <Card cover={<img alt={snack.snackName} src={snack.snackPhotoPath} width={400} height={300}/>} style={{marginBottom:"2vh"}} size={'small'} key={snack._id}>
-                            <Meta title={snack.snackName + " :$" + snack.snackPrice} />
-                            <InputNumber key={snack._id} min={0} defaultValue={0} style={{marginLeft:"80%"}} onChange={e=>onChange(index, e)} />
+                        <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath}/>} key={snack._id}>
+                            <div className='card-content'>
+                                <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info'/>
+                                <InputNumber key={snack._id} min={0} defaultValue={0}  onChange={e=>onChange(index, e)} className='input' />
+                            </div>
                         </Card>
                     ))}
 

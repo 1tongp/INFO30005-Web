@@ -78,7 +78,8 @@ export default function Main (props) {
                             Login and Order
                         </Button>
                         
-                        <Button onClick={onSkip}>                          
+                        <Button onClick={onSkip}>     
+                            <ProfileOutlined className='main_btn'/>                      
                             View Menu without Login
                         </Button>
                     </div>

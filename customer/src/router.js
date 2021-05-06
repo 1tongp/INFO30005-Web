@@ -22,7 +22,6 @@ class Router extends React.Component{
                     <Route path="/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
                     <Route path="/shoppingcart" exact component={shoppingCart}></Route>
                     <Route path="/customer/login" exact component={LoginPage}></Route>
-                    {/* <Route path="/customer" exact component={CustomerMain}></Route> */}
                     <Route path="/signup" exact component={registrationPage}></Route>
                     <Route path="/order" exact component={OrderList}></Route>
                     <Route path="/snack" exact component={Menu}></Route>
