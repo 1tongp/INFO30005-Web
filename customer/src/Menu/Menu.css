@@ -74,18 +74,43 @@
     
 }
 
-
-Button {
+.ant-message {
+    width: 50vw;
+    height: auto;
     background-color: #d9c2a7;
-    padding: 10px;
-    border:#A07D50 1px solid;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 12pt;
-    font-weight: bold;
+    position: fixed;
+    opacity: 0.75;
+    top: 40%;
+    left:25%;
+    z-index: 10;
+    -webkit-animation: popwindow 0s ease-in 1.5s forwards;
+    animation: popwindow 0s ease-in 1.5s forwards;
 }
 
+@keyframes popwindow {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes popwindow {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
 
+.ant-message div div {
+    padding: 1vh;
+    text-align: center;
+
+}
+
+.ant-message div div div div span:not(:last-child) {
+    padding-right: 20px;
+}
 
 
 @media (max-width:850px) { 
