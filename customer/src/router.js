@@ -9,14 +9,13 @@ import AfterLoginMain from './Menu/anchor.js';
 import MyOrder from './myOrderPage/MyOrder.js';
 import Menu from './Menu/Menu.js';
 import OrderList from './myOrderPage/OrderList.js';
+import Main from './HomePage/Main.js';
 class Router extends React.Component{
     render(){
         return(
             <BrowserRouter>
                 <Switch>
-                    {/* <Route path="/" exact component={App}></Route> */}
-
-                    
+                    <Route path="/" exact component={Main}></Route>
                     <Route path="/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
                     <Route path="/shoppingcart" exact component={shoppingCart}></Route>
                     <Route path="/customer/login" exact component={LoginPage}></Route>
