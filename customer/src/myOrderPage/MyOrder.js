@@ -5,25 +5,25 @@ import {ShoppingOutlined, CaretLeftOutlined, CopyrightOutlined} from '@ant-desig
 import { Rate } from 'antd';
 import axios from '../API/axios';
 import OrderDetail from './OrderDetail.js';
-
+import OrderList from './OrderList.js';
 const { Header, Footer, Content } = Layout;
 
-// function to loop particular custmomer's orders
-function OrderList(props){
-    console.log(props);
-    const loopOrders = props.orders.map((singleOrder) => {
-        return(
-            <OrderDetail
-            key = {singleOrder._id}
-            order = {singleOrder} />
-        )
-    })
-    return(
-        <div>
-            {loopOrders}
-        </div>
-    )
-}
+// // function to loop particular custmomer's orders
+// function OrderList(props){
+//     console.log(props);
+//     const loopOrders = props.orders.map((singleOrder) => {
+//         return(
+//             <OrderDetail
+//             key = {singleOrder._id}
+//             order = {singleOrder} />
+//         )
+//     })
+//     return(
+//         <div>
+//             {loopOrders}
+//         </div>
+//     )
+// }
 
 function MyOrder (props) {
     console.log(props);
@@ -36,7 +36,7 @@ function MyOrder (props) {
     // useEffect(() => {
 
     //     // orderListGet
-    //     axios.get('/order?customer=' + props.location.state.customer.id).then(response => {
+    //     axios.get('/order?customer=' + props.location.state.customerOrder.customer.id).then(response => {
     //         setOrders(response.data.customerOrders)
     //     })
 
@@ -44,7 +44,7 @@ function MyOrder (props) {
     //     axios.get('/snack').then(response => {
     //         setSnacks(response.data.snacks)
     //     })
-    // }, [props.location.state.customer.id]);
+    // }, [props.location.state.customerOrder.customer.id]);
 
     return (
         <Layout>

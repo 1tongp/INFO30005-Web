@@ -7,9 +7,7 @@ import {
 import{message} from 'antd';
 import axios from '../API/axios.js';
 import Menu from '../Menu/Menu.js'
-const {  Content } = Layout;
-
-
+const { Content } = Layout;
 
 export default function LoginPage(props) {
     console.log(props);
@@ -73,8 +71,6 @@ export default function LoginPage(props) {
                     {/* go to registration page */}
                     <p>New user? <a href="url" className = 'signupLink'>Sign up now!</a></p>
                 </form>
-
-
             </Content>
         </Layout>
     )

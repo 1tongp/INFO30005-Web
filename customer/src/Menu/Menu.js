@@ -103,52 +103,21 @@ export default function Menu (props) {
         //     </Modal>
         // </>
 
+
+
         <Layout>
-            <Header className='header_container'>
-                
-                <img src={logo} className='logo'/>
-                <p className='header_loc'>Current Location: <a className='lc_url'> Union House</a></p>
-                    
-                <div className='mid_nav'>
-                    <input type='checkbox' id='n_check'></input>
-                    <div class='hamburger'>
-                        <label for='n_check'>
-                            <MenuOutlined className='icon'/>
-                        </label>
-                    </div>
-                    <div className='links'>
-                        <a className='header_text' href=''>HOME</a>
-                        <a className='header_text' href=''>MENU</a>
-                        <a className='icon' href=''><ShoppingOutlined /></a>
-                        <div className='drop'>
-                            <a className='icon'><UserOutlined /></a>
-                            <div className='u_drop_content'>
-                                <a href=''>Log In</a>
-                                <a href=''>Sign Up</a>
-
-                                {/* after log in */}
-
-                                {/* <a href=''>Profile</a>
-                                <a href=''>My Orders</a>
-                                <a href=''>Log Out</a> */}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </Header>
+            
             
             <Content className='container'>
                 <h1>MENU</h1>
                 {props.snacks.map((snack, index) => (
-                        <Card cover={<img alt="example" src={snack.snackPhotoPath} />} style={{marginBottom:"2vh"}} size={'small'} key={snack._id}>
-                            <Meta title={snack.snackName + "      $" + snack.snackPrice} />
+                        <Card cover={<img alt={snack.snackName} src={snack.snackPhotoPath} />} style={{marginBottom:"2vh"}} size={'small'} key={snack._id}>
+                            <Meta title={snack.snackName + " :$" + snack.snackPrice} />
                             <InputNumber key={snack._id} min={0} defaultValue={0} style={{marginLeft:"80%"}} onChange={e=>onChange(index, e)} />
                         </Card>
                     ))}
 
-                <Button className='place'>
+                <Button className='place' onClick={onSubmit}>
                     PLACE ORDER
                     <LikeOutlined className='place_icon'/>
                 </Button>
