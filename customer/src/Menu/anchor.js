@@ -102,8 +102,8 @@ function AfterLoginMain(props){
                         </label>
                     </div>
                     <div className='links'>
-                        <a className='header_text' href=''>HOME</a>
-                        <a className='header_text' href=''>MENU</a>
+                        <a className='header_text' href='../'>HOME</a>
+                        <a className='header_text' href='../customer'>MENU</a>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
@@ -115,7 +115,7 @@ function AfterLoginMain(props){
 
                                 <Button href=''>Hi {props.location.state.customer.givenName}</Button>
                                 <Button href='' key="1" onClick = {onOrder}>My Order</Button>
-                                <Button href=''>Log Out</Button>
+                                <Button href='../'>Log Out</Button>
 
                             </div>
                         </div>

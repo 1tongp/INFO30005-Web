@@ -31,7 +31,8 @@ export default function LoginPage(props) {
           message.error(response.data.error)
         }
       }).catch(error => {
-        console.log(error)
+        console.log(error.response.data.message)
+        message.error(error.response.data.message)
       })
     }
 

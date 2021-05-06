@@ -18,6 +18,12 @@ import {
 const { Header, Footer, Content } = Layout;
 
 export default function Main () {
+    const onSkip = () => {
+        props.history.push('/menupreview',{
+            vendor: "6082092adf7e59001590d377"
+        });  
+    }
+    
     return (
         <Layout>
             <Header className='header_container'>
@@ -72,8 +78,7 @@ export default function Main () {
                             Login and Order
                         </Button>
                         
-                        <Button >
-                            <ProfileOutlined className='main_btn'/>
+                        <Button onClick={onSkip}>                          
                             View Menu without Login
                         </Button>
                     </div>

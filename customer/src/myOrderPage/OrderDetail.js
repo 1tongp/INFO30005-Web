@@ -6,9 +6,8 @@ import './MyOrder.css';
 // import 'antd/dist/antd.css';
 import { Layout, Button, Space} from 'antd';
 import {
-    ShoppingOutlined,
-    CaretLeftOutlined,
-    CopyrightOutlined
+    StarFilled,
+    StarOutlined
 } from '@ant-design/icons';
 import { Rate } from 'antd';
 
@@ -25,104 +24,113 @@ export default function OrderDetail(props){
             <td>{singleSnack.qty * singleSnack.snackPrice}</td>
         </tr>);
 
-    // 不太会写 还没写完
-    function totalPrice(props){
-        const sum = 0;
-        const totalPrice = props.order.snacksList.map(
-        (singleSnack) =><li key={singleSnack.snackName}>{singleSnack.snackName} - qty: {singleSnack.qty}</li>);
-
-    }    
     const [modalVisible, setModalVisible] = useState(false);
     const handleClose = () => setModalVisible(false);
     const handleShow = () => setModalVisible(true);
     
 
     return (
-            <Content>
-                <tr>                    
-                    <th>{props.order.createTime.slice(0,10)}</th>
+        <Content className="content">
+        <tr >                    
+            <th >{props.order.createTime.slice(0,10)}</th>
+        </tr>
+
+        <div className="flex">
+       
+            <div className="flex--child">
+            <table>
+                <tr>
+                    <td>Time:</td>
+                    <td>{props.order.createTime.slice(11,19)}</td>
+                </tr>
+                <tr>
+                    <td>Order Id:</td>
+                    <td>{props.order._id}</td>
+                </tr>
+                <tr>
+                    <td>Van Name:</td>
+                    <td>{props.order.vendor.name}</td>
+                </tr>
+                <tr>
+                    <td>Order Status:</td>
+                    <td>{props.order.status}</td>
+                </tr>
+                
+            </table>
+            </div>
+        
+            <div className="flex--child centertable">
+            <table >
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>$Price</th>
                 </tr>
 
-                <div className="row">
-                    <div className="column">
-                    <table>
-                        <tr>
-                            <td>Time:</td>
-                            <td>{props.order.createTime.slice(11,19)}</td>
-                        </tr>
-                        <tr>
-                            <td>Order Id:</td>
-                            <td>{props.order._id}</td>
-                        </tr>
-                        <tr>
-                            <td>Van Name:</td>
-                            <td>{props.order.vendor.name}</td>
-                        </tr>
-                        <tr>
-                            <td>Order Status:</td>
-                            <td>{props.order.status}</td>
-                        </tr>
-                        
-                    </table>
-                    </div>
-                
-                    <div className="column">
-                    <table >
-                        <tr>
-                            <th>Item</th>
-                            <th>Quantity</th>
-                            <th>$Price</th>
-                        </tr>
+                {/* a function to fetch data? */}
 
-                        {/* a function to fetch data? */}
+                {snacks}
 
-                        {snacks}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <th>$Total Price</th>
+                    <th>{props.order.totalPrice}</th>
+                </tr>
 
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <th>$Total Price</th>
-                        </tr>
+            </table>
+            </div>
+        
 
-                    </table>
+            <div className="flex--child flex--column">
+                <div className="flex--column--child">
+                    <tr>
+                        <th>Service</th>
+                        <th>Food</th>
+                    </tr>
+
+                    <tr>
+                        {/* 这个rating是假的，可以看看怎么改 同下*/}
+                        <td> 
+                            <StarFilled />
+                            <StarFilled />
+                            <StarFilled />
+                            <StarFilled />
+                            <StarOutlined />
+                        </td>
+                        <td> 
+                            <StarFilled />
+                            <StarFilled />
+                            <StarFilled />
+                            <StarFilled />
+                            <StarOutlined />
+                        </td>
+                    </tr>
+                </div>
+        
+                <div>
+                    <tr>
+                        <th>Comment:</th>
+                    </tr>
+                    <tr>
+                    {/* comment因为model定义时候没有default value，并且订单都是outstanding
+                    还没到rating 和comment那步，可以看看怎么改， 或者看看怎么加到readme里*/}
+                        <td>comments</td>
+                    </tr>
                 </div>
 
-                <div className="column">
+            </div> 
+         
 
-                </div>
-                    <div>
-                        <tr>
-                            <th>Service</th>
-                            <th>Food</th>
-                        </tr>
+        </div>
 
-                        <tr>
-                            {/* 这个rating是假的，可以看看怎么改 同下*/}
-                            <td><Rate disabled defaultValue={4} /></td>
-                            <td><Rate disabled defaultValue={5} /></td>
-                        </tr>
-                    </div>
-                
-                    <div>
-                        <tr>
-                            <th>Comment:</th>
-                        </tr>
-                        <tr>
-                            {/* comment因为model定义时候没有default value，并且订单都是outstanding
-                            还没到rating 和comment那步，可以看看怎么改， 或者看看怎么加到readme里*/}
-                            <td>comments</td>
-                        </tr>
-                    </div>
+        <br></br>
 
-                </div>  
-
-                <br></br>
-
-                <center>
-                <hr></hr>
-                </center>
-           
-            </Content>
+        <center>
+        <hr></hr>
+        </center>
+   
+    </Content>
 
     )
 }
