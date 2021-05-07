@@ -99,6 +99,10 @@ Header .mid_nav {
     display: inline-block;
 }
 
+.mid_nav a:hover {
+    color: #c2a88b;
+}
+
 .mid_nav > #n_check {
     display: none;
 }
@@ -337,6 +341,7 @@ Button {
         width: 30px;
         height: 20px;
         padding: 20px;
+        margin-right: 20px;
     }
 
     .mid_nav > .hamburger > label:hover,.mid_nav  #n_check:checked ~ .hamburger > label {
@@ -357,7 +362,6 @@ Button {
         height: 0;
         transition: all 0.2s ease-in;
         overflow-y: hidden;
-        top: 60px;
         right: 0px;
     }
 
@@ -365,7 +369,6 @@ Button {
         display: block;
         width: 95%;
         float: left;
-        margin-top: 30px;
         color: #73412F;
     }
 
@@ -373,7 +376,7 @@ Button {
         display: block;
         width: 95%;
         float: left;
-        margin-top: 30px;
+        margin-top: 20px;
         color: #73412F;
     }
 
@@ -401,9 +404,5 @@ Button {
         display: inline-block;
         position: relative;
     }
-
-
-
-
 
 }

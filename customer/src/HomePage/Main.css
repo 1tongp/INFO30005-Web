@@ -48,8 +48,16 @@
 
 }
 
-.section Button {
+.section .btn {
     width: 35%;
+    background-color: #d9c2a7;
+    padding: 10px;
+    border:#A07D50 1px solid;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
 }
 
 
@@ -92,21 +100,21 @@ div.modal-content{
 
 
 .about-card>div{
-    
     width: 400px;
 }
 
+
+
 .main_btn {
     margin-right: 10px;
+    text-align: center;
+    font-size: 14pt;
 }
 
-.section > h1{
+.about-card > h2{
     margin-top: 50px;
-
+    white-space: nowrap;
 }
-
-
-
 
 
 @media (max-width:800px) {
@@ -115,7 +123,6 @@ div.modal-content{
         background-color: #f2d6b6;
         height: auto;
         padding: 20px;
-        
     }
 
     .about-card {
@@ -123,6 +130,8 @@ div.modal-content{
         height: fit-content;
         padding: 5% 5%;
         overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .button_container{
@@ -134,7 +143,7 @@ div.modal-content{
     
     }
 
-    .section Button {
+    .section .btn {
         width: 100%;
         margin-top: 20px;
     }

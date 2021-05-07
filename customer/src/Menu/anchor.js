@@ -5,7 +5,7 @@ import axios from '../API/axios';
 import Menu from './Menu.js';
 import '../ShoppingCart/styles.css';
 import logo from '../images/logo.png';
-import { Layout, message,Card } from 'antd';
+import { Layout, message } from 'antd';
 import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
 const { Header } = Layout;
@@ -31,7 +31,7 @@ function AfterLoginMain(props){
         console.log(response);
         if(response.data){
             // props push the useful data
-            props.history.push('/order', {customerOrders: response.data.customerOrders});
+            props.history.push('/customer/order', {customerOrders: response.data.customerOrders});
         }
         else{
           message.error(response.data.error)
@@ -63,7 +63,6 @@ function AfterLoginMain(props){
                                 <Button href=''>Hi {props.location.state.customer.givenName}</Button>
                                 <Button href='' key="1" onClick = {onOrder}>My Order</Button>
                                 <Button href='../'>Log Out</Button>
-
                             </div>
                         </div>
                     </div>

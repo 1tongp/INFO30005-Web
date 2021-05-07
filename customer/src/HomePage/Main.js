@@ -3,49 +3,25 @@ import cart from '../images/landing.png'
 import m from '../images/menu.png';
 import click from '../images/click.png';
 import discount from '../images/discount.png';
-import React,{useState} from 'react';
+import React from 'react';
 import '../ShoppingCart/styles.css';
-import './main.css';
+import './Main.css';
 import { Layout, Button} from 'antd';
 import {ShoppingOutlined, CopyrightOutlined, UserOutlined, MenuOutlined, ProfileOutlined} from '@ant-design/icons';
-import{Modal, Form} from 'react-bootstrap';
-// import 'antd/dist/antd.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from '../API/axios.js';
 
 const { Header, Footer, Content } = Layout;
 
 //this function will implement the customer page strcture (the map and choosing vans have not been implemented yet)
 export default function Main (props) {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [loginEmail, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const onLogin = () => {
-        axios.post('/customer/login', {loginEmail: loginEmail, password: password}).then(response =>{
-        console.log(props);
-        console.log(response);
-        if(response.data.success){
-          // props push the customer information
-          props.history.push('/customer', {customer: response.data.customer});
-        }
-        else{
-          alert(response.data.error)
-        }
-      }).catch(error => {
-        console.log(error.response.data.message)
-        alert(error.response.data.message)
-      })
-    }
 
     // if customer want to view menu without loggin, the loggin step can be skip
     // since the map feature has not been placed yet, we assume that customer will order the snacks from a given vendor
+    const toLogin = () =>{
+        props.history.push('/customer/login')
+    }
     const onSkip = () => {
-        props.history.push('/menupreview',{
-            vendor: "6082092adf7e59001590d377"
-        });  
+        props.history.push('/customer/menupreview')
+            // vendor: "6082092adf7e59001590d377")
     }
     
     return (
@@ -61,13 +37,13 @@ export default function Main (props) {
                         </label>
                     </div>
                     <div className='links'>
-                        <a className='header_text' href=''>HOME</a>
-                        <a className='header_text' href=''>MENU</a>
+                        <a className='header_text' href='../'>HOME</a>
+                        <a className='header_text' href='../customer/menupreview'>MENU</a>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <a href=''>Log In</a>
+                                <a href='../customer/login'>Log In</a>
                                 <a href=''>Sign Up</a>
                             </div>
                         </div>
@@ -75,39 +51,6 @@ export default function Main (props) {
                 </div>
 
             </Header>
-
-            <Modal show={show} onHide={handleClose} style={{ marginTup: '2vh' }}
-                size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-                <Modal.Header closeButton>                  
-                    <Modal.Title>LOG IN</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email Address</Form.Label>
-                            <Form.Control type="loginEmail" placeholder="Enter email"
-                                onChange={e => setEmail(e.target.value)} />
-                            <Form.Text className="text-mutes">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password"
-                                onChange={e => setPassword(e.target.value)} />
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="danger" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <br />
-                    <Button variant="success" onClick={onLogin}>
-                        Login
-                    </Button>
-                </Modal.Footer>
-            </Modal>
 
             <Content className=''>
                 <img src={cart} className='main_img'/>
@@ -122,13 +65,13 @@ export default function Main (props) {
                     <br /><br /><br /><br />
 
                     <div className='button_container'>
-                        <Button onClick={handleShow}>
+                        <Button onClick={toLogin} className = 'btn'>
                             <UserOutlined className='main_btn'/>
                             Login and Order
                         </Button>
 
                         {/* click the button to skip the login step*/} 
-                        <Button onClick={onSkip}>     
+                        <Button onClick={onSkip} className = 'btn'>     
                             <ProfileOutlined className='main_btn'/>                      
                             View Menu without Login
                         </Button>

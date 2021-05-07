@@ -1,10 +1,11 @@
-import React,{useState, useEffect}from 'react';
+import React from 'react';
 import './MyOrder.css';
 import { Layout, Button } from 'antd';
 import {ShoppingOutlined, UserOutlined, MenuOutlined, CopyrightOutlined} from '@ant-design/icons';
 import '../ShoppingCart/styles.css';
 import OrderDetail from './OrderDetail.js';
 import {useHistory} from "react-router-dom";
+import logo from '../images/logo.png';
 const { Header, Footer, Content } = Layout;
 
 // function to loop particular custmomer's orders
@@ -22,7 +23,7 @@ export default function OrderList(props){
     return(
         <Layout>
            <Header className='header_container'>                
-                <img src="logo.png" className='logo'/>
+                <img src={logo} alt = 'logo image' className='logo'/>
                 <p className='header_loc'>Current Location: <a className='lc_url'> Union House</a></p>                 
                 <div className='mid_nav'>
                     <input type='checkbox' id='n_check'></input>

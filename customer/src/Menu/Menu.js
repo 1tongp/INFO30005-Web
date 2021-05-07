@@ -1,8 +1,8 @@
 //import the functions will be used
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import '../ShoppingCart/styles.css';
 import './Menu.css';
-import { Layout, InputNumber, message,Card } from 'antd';
+import { Layout, InputNumber, Card } from 'antd';
 import {Button} from 'react-bootstrap';
 import {CopyrightOutlined, LikeOutlined} from '@ant-design/icons';
 import axios from '../API/axios';
@@ -55,7 +55,7 @@ export default function Menu (props) {
                 totalPrice: sumPrice
             }).then(response => {
                 console.log(response);
-                if (response.data.message == "created a new order") {
+                if (response.data.message === "created a new order") {
                     // change the message print to a pop up page
                     alert("Order has been places! You can check your order and view previous orders in My Order page")
                 }
