@@ -10,12 +10,13 @@ import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
 const { Header} = Layout;
 
-const toMain = () => {
-    props.history.push('../');
-  }
-
 // MenuPreview function will load the snack data and show them out, these snack can only be viewed by customer who hasn't loggin yet
-function MenuPreview(){
+function MenuPreview(props){
+    
+    const toMain = () => {
+        props.history.push('../');
+    }
+
     const [snacks, setSnacks] = useState([]);
     useEffect(() => {
         //snackMenuGet

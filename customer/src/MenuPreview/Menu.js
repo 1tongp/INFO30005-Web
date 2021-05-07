@@ -9,12 +9,11 @@ import { CopyrightOutlined , LikeOutlined } from '@ant-design/icons';
 const { Footer, Content } = Layout;
 const {Meta} = Card;
 
-const toMain = () => {
-    props.history.push('../');
-  }
-
 //this function will implement the view only Menu page strcture
 export default function MenuPre (props) {
+    const toMain = () => {
+        props.history.push('../');
+    }
     return(
         <Layout>       
             <Content className='container'>
