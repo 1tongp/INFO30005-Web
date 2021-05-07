@@ -17,7 +17,7 @@ export default function MenuPre (props) {
                 <h1>MENU（View Only）</h1>
                 {/* loop each snack in the database and show them out as a menu */}
                 {props.snacks.map((snack) => (
-                        <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath}/>} key={snack._id}>
+                        <Card cover={<img className='card' alt={snack.snackName} src={snack.snackPhotoPath}/>} key={snack._id}>
                             <div>
                                 <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info'/>
                                 <br /><br /><br /><br />

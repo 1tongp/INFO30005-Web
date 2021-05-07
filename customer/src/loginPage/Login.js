@@ -57,7 +57,7 @@ export default function LoginPage(props) {
                     <br></br>
 
                     {/* go to forget password page */}
-                    <a href = "url" className='forgotPasswordLink'>Forgot password?</a>
+                    <a href = "" className='forgotPasswordLink'>Forgot password?</a>
                     <br></br>
                     <br></br>
                     <br></br>
@@ -69,7 +69,7 @@ export default function LoginPage(props) {
                     <br /><br />
 
                     {/* go to registration page */}
-                    <p>New user? <a href="url" className = 'signupLink'>Sign up now!</a></p>
+                    <p>New user? <a href="" className = 'signupLink'>Sign up now!</a></p>
                 </form>
             </Content>
         </Layout>

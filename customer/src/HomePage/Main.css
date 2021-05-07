@@ -147,4 +147,8 @@ div.modal-content{
         width: 100%;
         margin-top: 20px;
     }
+    .mid_nav a:hover {
+        color: #c2a88b;
+    }
+    
 }

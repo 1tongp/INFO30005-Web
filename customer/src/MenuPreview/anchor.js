@@ -40,8 +40,8 @@ function MenuPreview(){
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <Button href='../'>Log In</Button>
-                                <Button href=''>Sign Up</Button>
+                                <Button href='../customer/login'>Log In</Button>
+                                <Button href='../'>Sign Up</Button>
 
                             </div>
                         </div>

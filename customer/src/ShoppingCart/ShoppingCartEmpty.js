@@ -22,10 +22,10 @@ export default function shoppingCartEmpty () {
                         </label>
                     </div>
                     <div className='links'>
-                        <a className='header_text' href=''>HOME</a>
-                        <a className='header_text' href=''>MENU</a>
-                        <a className='icon' href=''><ShoppingOutlined /></a>
-                        <a className='icon' href=''><UserOutlined /></a>
+                        <a className='header_text' href='!#'>HOME</a>
+                        <a className='header_text' href='!#'>MENU</a>
+                        <a className='icon' href='!#'><ShoppingOutlined /></a>
+                        <a className='icon' href='!#'><UserOutlined /></a>
                     </div>
                 </div>
                     

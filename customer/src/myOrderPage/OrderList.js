@@ -34,7 +34,7 @@ export default function OrderList(props){
                     </div>
                     <div className='links'>
                         <a className='header_text' href='../'>HOME</a>
-                        <Button onClick = {history.goBack}> MENU </Button>
+                        <Button onClick = {history.goBack} id='btnMenu'> MENU </Button>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>

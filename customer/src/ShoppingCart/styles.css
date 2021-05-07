@@ -116,14 +116,13 @@ Header .mid_nav {
 .u_drop_content {
     display: none;
     position: absolute;
-    background-color: #fff3e4;
+    background-color: #fee8cf;
     border: #c2a88b 1px solid;
     /* overflow: auto; */
     box-shadow:#585555;
     width: auto;
-    margin-top: 30px;
-
 }
+
 
 .u_drop_content a {
     text-decoration: none;
@@ -137,7 +136,7 @@ Header .mid_nav {
 
 .drop:hover .u_drop_content {
     display: block;
-    
+    margin-top: 25px;
 }
 
 .mid_nav > .hamburger  {
@@ -315,8 +314,8 @@ Button {
         margin-right: 0;
         margin-bottom: 2rem;
         border-right: 0;
-        
     }
+
     Button {
         width: 100%;
     }
@@ -332,16 +331,17 @@ Button {
     Header .logo {
         margin-left: -40px;
     }
+
     .container {
         margin-left: 30px;
         margin-right: 30px;
     }
+    
     .mid_nav > .hamburger, .user_drop > label {
         display: inline-block;
         width: 30px;
         height: 20px;
-        padding: 20px;
-        margin-right: 20px;
+        /* padding: 20px; */
     }
 
     .mid_nav > .hamburger > label:hover,.mid_nav  #n_check:checked ~ .hamburger > label {
@@ -404,5 +404,9 @@ Button {
         display: inline-block;
         position: relative;
     }
+
+
+
+
 
 }

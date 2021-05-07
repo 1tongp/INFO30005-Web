@@ -62,7 +62,7 @@ function AfterLoginMain(props){
                             <div className='u_drop_content'>
                                 <Button href=''>Hi {props.location.state.customer.givenName}</Button>
                                 <Button href='' key="1" onClick = {onOrder}>My Order</Button>
-                                <Button href='../'>Log Out</Button>
+                                <Button href=''>Log Out</Button>
                             </div>
                         </div>
                     </div>

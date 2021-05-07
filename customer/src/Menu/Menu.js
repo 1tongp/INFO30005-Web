@@ -20,16 +20,6 @@ export default function Menu (props) {
         setOrders(newArray);
     }
 
-    // window.onclick = function(e) { // checks were clicked
-    //     let str = String(e.srcElement.className);
-    //     console.log(str);
-
-    //     // checks if user clicked the "x" icon on message
-    //     let clickedClose = str.includes("anticon") || str == "[object SVGAnimatedString]";
-    //     console.log(clickedClose); 
-    //     // TODO: remove message
-    // }
-
     //record the action submit, which summary the order and price, then push the order to database
     const onSubmit = () =>{
         var submitOrder = []
