@@ -13,6 +13,11 @@ before run the code, please "npm install node" under the project-frontend-t03-ke
 
 all frontend code are written in the project-frontend-t03-keepsimple\customer folder, and all backend code are writtten in the project-frontend-t03-keepsimple folder
 
+## MongoDB connection, below is the access link
+"mongodb+srv://Project-Connection:666@keepitsimple-project.zvwkr.mongodb.net/KeepItSimple-Project?retryWrites=true&w=majority"
+- project: keepitsimple-project
+- account name: Project-Connection
+- password: 666
 
 ## Features: 
 - Customer login via log in form
