@@ -9,6 +9,8 @@ GROUP:
 before run the code, please "npm install" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple
 
 **frontend and backend**
+
+
 all frontend code are written in the project-frontend-t03-keepsimple\customer folder, and all backend code are writtten in the project-frontend-t03-keepsimple folder
 
 
@@ -60,4 +62,3 @@ After clicking the ‘place order’ button, a pop up window will appear, inform
 
 
 To access all the ongoing and completed orders, users need to click the user icon in the header and click on ‘My Orders’. This will take them to the My Order page, which lists all the information about every order. These include the order time, ID, van name, order status, ordered products, quantity, prices and finally rating/comments.
-
