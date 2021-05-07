@@ -26,18 +26,18 @@ all frontend code are written in the project-frontend-t03-keepsimple\customer fo
 - View order details of all past orders
 
 ## Customer Home page：
-(there should be a enter page which people can choose login as vendor or customer, and when customer enter current customer home page they should be logged in, as the vendor side not finished yet, we move the log in pop up window to that page in order to show the log in process)
+(there should be a enter page which people can choose login as vendor or customer, and when customer enter current customer home page they should be logged in, as the vendor side not finished yet, we change the log in pop up window to a single page to show the log in process)
 When a user arrives at the home page, they can either login and place an order, or view menu without login. This can be done via the two buttons displayed on the page or through the user icon in the header, where a dropdown menu will occur, containing ‘log in’ and ‘sign up’. If the user has logged in, this dropdown will change to ‘Hi ''user first name''’, ‘My Order’ and ‘Log out’.
 
-Click ‘Log in and order’: pop up window will appear as a login form.
-Click ‘View menu without logging in’: users get directed to the menu page
+Click ‘Log in and order’: it will lead customer to the log in page
+Click ‘View menu without logging in’: users get directed to the menu page but they cannot order
 
 
 ## Feature 1: Customer login via log in form
 - Username: keepsimple@h1.com
 - Password: 666
 
-The login form is implemented as a pop up window, which can be accessed through the header dropdown or the ‘login and order’ button on the homepage. After a user submits the correct username and password (that is already stored in the database from sign up form), they will get redirected to the menu page, where they can view and order snacks.
+The login form is implemented as a single page(it should be popup window in the next due), which can be accessed through the ‘login and order’ button on the homepage. After a user submits the correct username and password (that is already stored in the database from sign up form), they will get redirected to the menu page, where they can view and order snacks.
 if you enter a wrong email address or password there will be a warning to alert you and you cannot login successfully.
 
 NOTE: the signup form is not yet implemented for the current site
@@ -47,9 +47,9 @@ NOTE: the signup form is not yet implemented for the current site
 The menu page shows all the available snacks that users can choose from; prices and images are also listed. Users will only be able to place an order if they have logged in. Therefore, the menu has two status:
 - Logged in status: the bottom button will display ‘Place Order’
 
-(since we put the login pop up window on the customer home page at current stage, if the customer go back to home page from menu they need to login again, but we will fix this problem in next due so that when customer enter the customer main page they are logged in, and they can go back to choose vendor again from the menu page)
+(since we use the loggin page at current stage, if the customer go back to home page from menu they need to login again, but we will fix this problem in next due so that when customer enter the customer main page they are logged in, and they can go back to choose vendor again from the menu page)
 
-- Not logged in status: the page title will show ‘view only’, no quantity input box is provided and button at the bottom will display ‘Back to main’
+- Not logged in status: the page title will show ‘view only’, no quantity input box is provided and button at the bottom will display ‘sign in to order’, which lead the customer to the main page (since the sign in pop up window not yet implemented, if the customer want to sign in they need to go back to enter page, but at current stage when log in at the customer main page so it will lead back to main)
 
 ## Feature 3: Order three different snacks
 (as we not finished the choosing between 5 nearest vendor on the map at current stage, we will give a vendor id as a selected vendor)
