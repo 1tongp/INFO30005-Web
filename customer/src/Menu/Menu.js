@@ -20,15 +20,15 @@ export default function Menu (props) {
         setOrders(newArray);
     }
 
-    window.onclick = function(e) { // checks were clicked
-        let str = String(e.srcElement.className);
-        console.log(str);
+    // window.onclick = function(e) { // checks were clicked
+    //     let str = String(e.srcElement.className);
+    //     console.log(str);
 
-        // checks if user clicked the "x" icon on message
-        let clickedClose = str.includes("anticon") || str == "[object SVGAnimatedString]";
-        console.log(clickedClose); 
-        // TODO: remove message
-    }
+    //     // checks if user clicked the "x" icon on message
+    //     let clickedClose = str.includes("anticon") || str == "[object SVGAnimatedString]";
+    //     console.log(clickedClose); 
+    //     // TODO: remove message
+    // }
 
     //record the action submit, which summary the order and price, then push the order to database
     const onSubmit = () =>{
@@ -46,22 +46,22 @@ export default function Menu (props) {
         }
         
         if (submitOrder.length === 0) {
-            message.error("Please do not submit empty order")
+            alert("Please do not submit empty order")
         } else {
             axios.post('/order/create', {
                 customer: props.customer,
-                vendor: "6082092adf7e59001590d377", // will be changed in the future
+                vendor: "6094951d171c4dcfb88a596f", // will be changed in the future
                 snacksList: submitOrder,
                 totalPrice: sumPrice
             }).then(response => {
                 console.log(response);
                 if (response.data.message == "created a new order") {
                     // change the message print to a pop up page
-                    message.success("Order has been places! You can check your order and view previous orders in My Order page")
+                    alert("Order has been places! You can check your order and view previous orders in My Order page")
                 }
                 else {
                     // change the message print to a pop up page
-                    message.error("Order placing errored!")
+                    alert("Order placing errored!")
                 }
             })
         }
