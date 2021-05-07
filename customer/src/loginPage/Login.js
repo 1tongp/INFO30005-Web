@@ -1,7 +1,6 @@
 import React , {useState} from 'react'
-import {Layout, message} from 'antd';
+import {Layout} from 'antd';
 import './Login.css'
-import {CloseCircleOutlined} from '@ant-design/icons';
 import axios from '../API/axios.js';
 
 const { Content } = Layout;
@@ -19,21 +18,25 @@ export default function LoginPage(props) {
         console.log(response);
         if(response.data.success){
           // push the customer information
-          props.history.push('/customer', {customer: response.data.customer});
+          props.history.push('/customer/menu', {customer: response.data.customer});
         }
         else{
-          message.error(response.data.error)
+          alert(response.data.error)
         }
       }).catch(error => {
         console.log(error.response.data.message)
-        message.error(error.response.data.message)
+        alert(error.response.data.message)
       })
+    }
+
+    const toMain = () => {
+      props.history.push('../');
     }
 
     return (
         <Layout>
             <Content className="loginContainer" >
-                <CloseCircleOutlined className="closeIcon" href=""/>
+                <br /><br />
                 {/* click continue button and the form data will be sent to ... */}
                 <form 
                 className="loginForm" 
@@ -59,9 +62,11 @@ export default function LoginPage(props) {
                     <br></br>
                     <br></br>
                     <br></br>
+                    <input type="button" value="BACK" onClick = {toMain} className="btnBack"/>
                     <input type="button" value="CONTINUE" onClick = {onLogin} className="btnContinue"/>
                     <br></br>
                     <br></br>
+                    <br /><br />
 
                     {/* go to registration page */}
                     <p>New user? <a href="url" className = 'signupLink'>Sign up now!</a></p>
