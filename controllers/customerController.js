@@ -118,7 +118,7 @@ exports.customerLoginPost = function(req, res){
                 });
             }
             else{
-                res.status(200).json({success: false, message:'password incorrect'});
+                res.status(200).json({success: false, error:'password incorrect'});
             }      
         }
     })
