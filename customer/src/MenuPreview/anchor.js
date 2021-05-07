@@ -8,10 +8,12 @@ import logo from '../images/logo.png';
 import { Layout } from 'antd';
 import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
+import {useHistory} from "react-router-dom";
 const { Header} = Layout;
 
 // MenuPreview function will load the snack data and show them out, these snack can only be viewed by customer who hasn't loggin yet
-function MenuPreview(){
+function MenuPreview(props){
+    let history = useHistory();
     const [snacks, setSnacks] = useState([]);
     useEffect(() => {
         //snackMenuGet
@@ -20,6 +22,7 @@ function MenuPreview(){
             setSnacks(response.data.snacks)
         })
     });
+
 
     return (
         <Layout>
@@ -40,7 +43,7 @@ function MenuPreview(){
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <Button href='../customer/login'>Log In</Button>
+                                <Button onClick = {history.goBack}>Log In</Button>
                                 <Button href='../'>Sign Up</Button>
 
                             </div>

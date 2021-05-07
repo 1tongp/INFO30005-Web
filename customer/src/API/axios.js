@@ -3,7 +3,7 @@ import _axios from 'axios';
 
 const axios = baseUrl => {
     const instance = _axios.create({
-        baseURL: 'https://t03keepitsimple.herokuapp.com/' || 'http://localhost:5000'
+        baseURL: 'https://frontend-keepitsimple.herokuapp.com/' || 'http://localhost:5000'
 
     });
     return instance;

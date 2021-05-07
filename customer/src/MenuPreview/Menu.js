@@ -5,12 +5,14 @@ import '../Menu/Menu.css';
 import { Layout , Card } from 'antd';
 import { Button } from 'react-bootstrap';
 import { CopyrightOutlined , LikeOutlined } from '@ant-design/icons';
+import {useHistory} from "react-router-dom";
 
 const { Footer, Content } = Layout;
 const {Meta} = Card;
 
 //this function will implement the view only Menu page strcture
 export default function MenuPre (props) {
+    let history = useHistory();
     return(
         <Layout>       
             <Content className='container'>
@@ -25,7 +27,7 @@ export default function MenuPre (props) {
                         </Card>
                 ))}
 
-                <Button className='place' href='../customer/login'>
+                <Button className='place' onClick={history.goBack}>
                     Signin to Order
                     <LikeOutlined className='place_icon'/>
                 </Button>

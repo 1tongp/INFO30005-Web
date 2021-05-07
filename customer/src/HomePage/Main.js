@@ -37,8 +37,8 @@ export default function Main (props) {
                         </label>
                     </div>
                     <div className='links'>
-                        <a className='header_text' href='../'>HOME</a>
-                        <a className='header_text' href='../customer/menupreview'>MENU</a>
+                        <a className='header_text' href='./'>HOME</a>
+                        <a className='header_text' href='./customer/menupreview'>MENU</a>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
