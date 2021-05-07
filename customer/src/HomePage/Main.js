@@ -5,7 +5,7 @@ import click from '../images/click.png';
 import discount from '../images/discount.png';
 import React,{useState} from 'react';
 import '../ShoppingCart/styles.css';
-import './main.css';
+import './Main.css';
 import { Layout, Button} from 'antd';
 import {ShoppingOutlined, CopyrightOutlined, UserOutlined, MenuOutlined, ProfileOutlined} from '@ant-design/icons';
 import{Modal, Form} from 'react-bootstrap';
