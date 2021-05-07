@@ -43,7 +43,8 @@ export default function Main (props) {
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <a href='../customer/login'>Log In</a>
+                                <Button onClick={toLogin} className = 'btn'> 
+                                Sign In </Button> 
                                 <a href=''>Sign Up</a>
                             </div>
                         </div>
