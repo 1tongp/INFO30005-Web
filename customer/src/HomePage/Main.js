@@ -6,9 +6,10 @@ import discount from '../images/discount.png';
 import React,{useState} from 'react';
 import '../ShoppingCart/styles.css';
 import './main.css';
-import { Layout, Button, message} from 'antd';
+import { Layout, Button} from 'antd';
 import {ShoppingOutlined, CopyrightOutlined, UserOutlined, MenuOutlined, ProfileOutlined} from '@ant-design/icons';
 import{Modal, Form} from 'react-bootstrap';
+// import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from '../API/axios.js';
 
@@ -31,11 +32,11 @@ export default function Main (props) {
           props.history.push('/customer', {customer: response.data.customer});
         }
         else{
-          message.error(response.data.error)
+          alert(response.data.error)
         }
       }).catch(error => {
         console.log(error.response.data.message)
-        message.error(error.response.data.message)
+        alert(error.response.data.message)
       })
     }
 
@@ -50,7 +51,7 @@ export default function Main (props) {
     return (
         <Layout>
             <Header className='header_container'>              
-                <img src={logo} className='logo'/>
+                <img src={logo} alt="logo image" className='logo'/>
                 <p className='header_loc'>Current Location: <a className='lc_url'> Union House</a></p>                   
                 <div className='mid_nav'>
                     <input type='checkbox' id='n_check'></input>
