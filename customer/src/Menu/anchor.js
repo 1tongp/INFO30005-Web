@@ -1,7 +1,6 @@
 //import the functions will be used
 import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap';
-// import 'antd/dist/antd.css';
 import axios from '../API/axios';
 import Menu from './Menu.js';
 import '../ShoppingCart/styles.css';

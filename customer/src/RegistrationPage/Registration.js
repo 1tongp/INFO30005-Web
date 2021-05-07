@@ -1,9 +1,7 @@
 import React from 'react';
 import './Registration.css'
 import { Layout} from 'antd';
-import {
-    CopyrightOutlined
-} from '@ant-design/icons';
+import { CopyrightOutlined} from '@ant-design/icons';
 
 
 const { Header, Footer, Content } = Layout;
@@ -46,12 +44,8 @@ export default function registrationPage () {
                     <br/>
                     <br/>
                     <br/>
-
-                
                 
                 <input type="button" value="◀︎ CANCEL" className="btnCancel" />
-                    
-
 
              </div>
 

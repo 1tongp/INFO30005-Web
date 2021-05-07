@@ -2,14 +2,7 @@ import './styles.css';
 import logo from '../images/logo.png';
 // import 'antd/dist/antd.css';
 import { Layout, Button} from 'antd';
-import {
-    ShoppingOutlined,
-    CaretLeftOutlined,
-    CaretRightOutlined,
-    CopyrightOutlined,
-    UserOutlined,
-    MenuOutlined
-} from '@ant-design/icons';
+import {ShoppingOutlined, CaretLeftOutlined, CopyrightOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 
 const { Header, Footer, Content } = Layout;
 

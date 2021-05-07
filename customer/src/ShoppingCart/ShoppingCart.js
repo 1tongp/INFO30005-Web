@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles.css';
 import logo from '../images/logo.png';
-// import 'antd/dist/antd.css';
 import { Layout, Button} from 'antd';
 import {
     ShoppingOutlined,
