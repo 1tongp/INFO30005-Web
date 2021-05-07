@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles.css';
+import './styles.css';
 import logo from '../images/logo.png';
-// import 'antd/dist/antd.css';
 import { Layout, Button} from 'antd';
 import {
     ShoppingOutlined,
@@ -30,10 +29,10 @@ export default function shoppingCart () {
                         </label>
                     </div>
                     <div className='links'>
-                        <a className='header_text' href=''>HOME</a>
-                        <a className='header_text' href=''>MENU</a>
-                        <a className='icon' href=''><ShoppingOutlined /></a>
-                        <a className='icon' href=''><UserOutlined /></a>
+                        <a className='header_text' href='!#'>HOME</a>
+                        <a className='header_text' href='!#'>MENU</a>
+                        <a className='icon' href='!#'><ShoppingOutlined /></a>
+                        <a className='icon' href='!#'><UserOutlined /></a>
                     </div>
                 </div>
                     

@@ -1,0 +1,154 @@
+.main_img {
+    width: 100%;
+    display: block;
+}
+
+.section {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 100px;
+    max-width: 1200px;
+    z-index: 30;
+}
+
+.col-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #D9C2A7;
+    align-items: center;
+}
+
+.col-img img {
+    width: 60%;
+    padding: 20px;
+}
+
+.about {
+    background-image: url("../images/about.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+}
+
+.about-card {
+    width: 40vw;
+    height: 60vh;
+    padding: 10vh 5vw 0 55vw;
+
+}
+
+.button_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.section .btn {
+    width: 35%;
+    background-color: #d9c2a7;
+    padding: 10px;
+    border:#A07D50 1px solid;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* following are edited modal part  */
+.ant-btn{
+    padding:8px 22px;
+}
+
+button.close{
+    width: 20%;
+    margin-right: 0;
+}
+
+div.modal-title.h4{
+    margin-left: 40%;
+}
+
+div.button_container{
+    margin-top: 40px;
+}
+
+div.modal-content{
+    padding: 10px !important;
+ 
+}
+
+#formBasicEmail{
+    border-radius: 50px;
+}
+
+#formBasicPassword{
+    border-radius: 50px;
+}
+
+.ant-btn{
+    border-radius: 50px;
+}
+
+/* --------------------------stop here---------------------- */
+
+
+.about-card>div{
+    width: 400px;
+}
+
+
+
+.main_btn {
+    margin-right: 10px;
+    text-align: center;
+    font-size: 14pt;
+}
+
+.about-card > h2{
+    margin-top: 50px;
+    white-space: nowrap;
+}
+
+
+@media (max-width:800px) {
+    .about {
+        background-image: none;
+        background-color: #f2d6b6;
+        height: auto;
+        padding: 20px;
+    }
+
+    .about-card {
+        width: 90%;
+        height: fit-content;
+        padding: 5% 5%;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button_container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    
+    }
+
+    .section .btn {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .mid_nav a:hover {
+        color: #c2a88b;
+    }
+    
+}

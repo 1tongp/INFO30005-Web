@@ -18,6 +18,12 @@ var OrderSchema = new Schema({
         default: []
     },
 
+    totalPrice:{
+        type: Number,
+        required: true,
+        default: 0
+    },
+
     // isChangeable === true for able to change, false otherwise
     isChangeable:{
         type: Boolean,

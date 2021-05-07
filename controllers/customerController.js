@@ -113,11 +113,12 @@ exports.customerLoginPost = function(req, res){
                         givenName: customer.givenName,
                         familyName: customer.familyName,
                         loginEmail: customer.loginEmail,
+                        password : customer.password,
                     },
                 });
             }
             else{
-                res.status(409).json({error:err,message:'password incorrect'});
+                res.status(200).json({success: false, error:'password incorrect'});
             }      
         }
     })

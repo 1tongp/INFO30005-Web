@@ -8,28 +8,43 @@
 
 p{
     font-size: small;
-    
 }
 
-input{
-    
+input{ 
     border: solid;
     border-radius: 50px;
     border-color: #707070;
     border-width: 1px;
     padding-left: 10px;
     width: 100%;
-    height: 27px;
+    height: 35px;
 }
+
 .btnContinue{
-    width: 100%;
+    width: 45%;
     height: 30px;
-    text-align: center;
     border:none;
     border-radius: 50px;
     background-color:#D9C2A7;
+    cursor: pointer;
+    float: right;
+
+    
     
 }
+
+.btnBack{
+    width: 45%;
+    height: 30px;
+    border:none;
+    border-radius: 50px;
+    background-color:lightgray;
+    cursor: pointer;
+    float: left;
+
+}
+
+
 
 .forgotPasswordLink{
     color: #009DFF;
@@ -37,6 +52,7 @@ input{
     float: right;
     margin-top: 5px;
 }
+
 .signupLink{
     color:#EA7A58;
     font-size: small;
@@ -44,12 +60,15 @@ input{
 }
 
 .loginContainer{
-    width: 500px;
+    width: 70%;
     
     position: relative;
-    border: solid;
+    border: none;
     border-color: white;
     text-align: center;
+   
+    margin-right: auto;
+    margin-left: auto;
 
 }
 
@@ -57,10 +76,40 @@ input{
     top:50%;
     left:50%;
     border:none;
-    margin: 50px 70px;
+    margin: 40px 80px;
 
+}
+
+h2{
+    margin-top: 30px;
 }
 
 .closeIcon{
     float:right;
+    cursor: pointer;
 }
+
+
+
+@media screen and (max-width: 500px) {
+   
+
+    .loginForm{
+        margin: 30px;
+    }
+    .btnContinue{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .btnBack{
+        width: 100%;
+        height: 30px;
+        margin-bottom: 20px;
+    }
+
+
+}
+    
+
+  

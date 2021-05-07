@@ -1,3 +1,4 @@
+// function to handle with the connection between the front-end and the back-end
 import _axios from 'axios';
 
 const axios = baseUrl => {

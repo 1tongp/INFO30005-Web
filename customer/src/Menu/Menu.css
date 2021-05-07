@@ -1,0 +1,264 @@
+/* header */
+.links a:hover {
+    text-decoration: none;
+    color: seashell;
+}
+
+.u_drop_content {
+    background-color: #d9c2a7;
+    border:#A07D50 1px solid;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+    top: 5px;
+}
+
+a .btn-primary .btn  {
+    background-color: #d9c2a7;
+    padding: 0;
+}
+
+.links .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:  #d9c2a7 ;
+    border: 0;
+    padding: 20px;
+    white-space: nowrap;
+    color: #A07D50;
+    width: 100%;
+    border-radius: 0;
+}
+
+.links .btn-primary:hover {
+    color: white;
+}
+
+.hamburger ,label, span {
+    right: 30px;
+    bottom: 5px;
+}
+
+
+@media (max-width:850px) {
+    .links{
+        display: block;
+        z-index: 5 !important;
+        visibility: visible;
+    }
+
+    .links .btn-primary, a, Button {
+        width: 30%;
+        display: inline-block;
+        position: relative;
+        justify-content: space-evenly;
+    }
+ 
+    .u_drop_content {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .u_drop_content .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        background-color:  #d9c2a7 !important;
+    }
+}
+
+.menu_container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.menu_container h2{
+    margin-bottom: 70px;
+}
+
+
+.card {
+    width: 50%;
+    height: auto;
+    /* border: springgreen 1px solid; */
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* .card-image {
+    width: 50%;
+    height: auto;
+    flex-direction: row;
+} */
+
+.card-info {
+    display: flex;
+    font-size: 16pt;
+    font-weight: bold;
+    flex-direction: column;
+    white-space: nowrap;
+    margin-left: auto;
+    /* margin-right: auto; */
+    text-align: center;
+}
+
+.card-content {
+    display: block;
+    text-align: center;
+    /* border: springgreen 1px solid; */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.input {
+    width: 30%;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+
+}
+
+.place {
+    padding: 10px;
+    width: 30%;
+    float: right;
+    text-align: center;
+}
+
+.place_icon {
+    margin-left: 10px;
+    font-size: 16pt;
+    
+}
+
+.ant-message {
+    width: 50vw;
+    height: auto;
+    background-color: #d9c2a7;
+    position: fixed;
+    opacity: 0.75;
+    top: 40%;
+    left:25%;
+    z-index: 10;
+    -webkit-animation: popwindow 0s ease-in 1.5s forwards;
+    animation: popwindow 0s ease-in 6s forwards;
+}
+
+@keyframes popwindow {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes popwindow {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+.ant-message div div {
+    padding: 1vh;
+    text-align: center;
+
+}
+
+.ant-message div div div div span:not(:last-child) {
+    padding-right: 20px;
+}
+
+
+img.card{
+    border:none !important;
+    z-index: 200;
+    border-radius: 20px;
+    
+}
+
+.container>h1{
+    margin-top: 52px;
+    margin-bottom: 40px;
+    font-family: "Arial Black", Helvetica, sans-serif;
+}
+
+a.btn-primary, .btn, .place{
+    border-radius: 50px;
+    background-color: #d9c2a7;
+    border-color: #73412f;
+    color: black;
+    font-family: "Arial Black", Helvetica, sans-serif;
+    padding: 10px 30px;
+    
+
+}
+
+a.btn-primary:hover{
+    border-radius: 50px;
+    background-color: #73412f;
+    border-color: #73412f;
+    color: white;
+    font-family: "Arial Black", Helvetica, sans-serif;
+    padding: 10px 30px;
+    
+
+}
+
+
+
+@media (max-width:850px) { 
+    .links{
+        display: block;
+        z-index: 5 !important;
+        visibility: visible;
+    }
+
+
+    .card {
+        width: 100%;
+        flex-direction: row;
+        margin: 0 auto;
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 20px;
+        z-index: 1;
+    }
+
+    .card-image {
+        width: 40%;
+ 
+    }
+
+    .card-content {
+        display: block;
+        text-align: center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+       
+    
+    }
+
+    .input {
+        width: 50%;
+        margin-top: 20px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    
+    }
+
+    .place {
+        margin-top: 30px;
+        width: 100%;
+        padding: 15px;
+    }
+}

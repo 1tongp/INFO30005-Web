@@ -2,13 +2,14 @@ const Order = require('../models/order');
 
 // POST request for customer order create
 exports.customerOrderCreatePost = function(req, res){
-    const{customer, vendor, snacksList} = req.body;
+    const{customer, vendor, snacksList, totalPrice} = req.body;
 
     // create a new order
     const newOrder = new Order({
         customer,
         vendor,
         snacksList,
+        totalPrice
     });
 
     // save new order's data
@@ -68,10 +69,10 @@ exports.orderChangePost = function(req, res){
 /* url: http://localhost:8080/order?customer=:customerID&status=outstanding to get all outstanding orders */
 // Get request for customer to get their order details
 exports.customerOrderListGet = function(req, res){
-    Order.find(req.query).populate("customer").then((orders)=>{
+    Order.find(req.query).populate("vendor").populate("customer").then((orders)=>{
         //if for perticular vendor, the order list for required status is an empty list, return error message
-        if(orders.length == 0 ){
-            res.status(404).send("Order is not found")
+        if(orders.length == 0){
+            res.status(404).send("Order is not found. You don't have any orders.")
         }
         else{
            res.status(200).json({customerOrders: orders})
