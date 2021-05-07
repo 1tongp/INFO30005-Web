@@ -14,10 +14,6 @@ const vendor = require('./routes/vendor');
 const snack = require('./routes/snack');
 const order = require('./routes/order');
 
-server.get('/', (req, res) => {
-    res.status(200).send("Welcome to Keepitsimple Web App!")
-})
-
 server.use(cors());
 
 // Bodyparser Middleware
@@ -29,7 +25,6 @@ mongoose
     .connect(database, 
         {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => console.log("Successfully Connected to MongoDB!! Start run the request!"))
-    
     
 
 // use the routes
