@@ -9,6 +9,10 @@ import { CopyrightOutlined , LikeOutlined } from '@ant-design/icons';
 const { Footer, Content } = Layout;
 const {Meta} = Card;
 
+const toMain = () => {
+    props.history.push('../');
+  }
+
 //this function will implement the view only Menu page strcture
 export default function MenuPre (props) {
     return(
@@ -25,7 +29,7 @@ export default function MenuPre (props) {
                         </Card>
                 ))}
 
-                <Button className='place' href='../customer/login'>
+                <Button className='place' onClick={toMain}>
                     Signin to Order
                     <LikeOutlined className='place_icon'/>
                 </Button>

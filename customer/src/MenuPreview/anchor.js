@@ -10,6 +10,10 @@ import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
 const { Header} = Layout;
 
+const toMain = () => {
+    props.history.push('../');
+  }
+
 // MenuPreview function will load the snack data and show them out, these snack can only be viewed by customer who hasn't loggin yet
 function MenuPreview(){
     const [snacks, setSnacks] = useState([]);
@@ -20,6 +24,7 @@ function MenuPreview(){
             setSnacks(response.data.snacks)
         })
     });
+
 
     return (
         <Layout>
@@ -40,7 +45,7 @@ function MenuPreview(){
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <Button href='../customer/login'>Log In</Button>
+                                <Button onClick = {toMain}>Log In</Button>
                                 <Button href='../'>Sign Up</Button>
 
                             </div>
