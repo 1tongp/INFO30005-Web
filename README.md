@@ -6,6 +6,12 @@
 GROUP: 
 ## project-t03-keepsimple
 
+before run the code, please "npm install" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple
+
+**frontend and backend**
+all frontend code are written in the project-frontend-t03-keepsimple\customer folder, and all backend code are writtten in the project-frontend-t03-keepsimple folder
+
+
 ## Features: 
 - Customer login via log in form
 - View menu of snacks
@@ -32,6 +38,9 @@ NOTE: the signup form is not yet implemented for the current site
 (for the design order in our due1, the order we will implement at the end is log in -> main page -> select vendor -> menu and place order, since the map not finished yet the order changed to log in -> menu and place order, we will change to correct order next time)
 The menu page shows all the available snacks that users can choose from; prices and images are also listed. Users will only be able to place an order if they have logged in. Therefore, the menu has two status:
 - Logged in status: the bottom button will display ‘Place Order’
+
+(since we put the login pop up window on the customer home page at current stage, if the customer go back to home page from menu they need to login again, but we will fix this problem in next due so that when customer enter the customer main page they are logged in, and they can go back to choose vendor again from the menu page)
+
 - Not logged in status: the page title will show ‘view only’, no quantity input box is provided and button at the bottom will display ‘Back to main’
 
 ## Feature 3: Order three different snacks

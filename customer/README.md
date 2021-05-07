@@ -69,8 +69,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+
+**The University of Melbourne**
+# INFO30005 – Web Information Technologies
+
+# Group Project Repository-Frontend
+
 GROUP: 
 ## project-t03-keepsimple
+
+before run the code, please "npm install" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple
+
+**frontend and backend**
+all frontend code are written in the project-frontend-t03-keepsimple\customer folder, and all backend code are writtten in the project-frontend-t03-keepsimple folder
+
 
 ## Features: 
 - Customer login via log in form
@@ -98,6 +110,9 @@ NOTE: the signup form is not yet implemented for the current site
 (for the design order in our due1, the order we will implement at the end is log in -> main page -> select vendor -> menu and place order, since the map not finished yet the order changed to log in -> menu and place order, we will change to correct order next time)
 The menu page shows all the available snacks that users can choose from; prices and images are also listed. Users will only be able to place an order if they have logged in. Therefore, the menu has two status:
 - Logged in status: the bottom button will display ‘Place Order’
+
+(since we put the login pop up window on the customer home page at current stage, if the customer go back to home page from menu they need to login again, but we will fix this problem in next due so that when customer enter the customer main page they are logged in, and they can go back to choose vendor again from the menu page)
+
 - Not logged in status: the page title will show ‘view only’, no quantity input box is provided and button at the bottom will display ‘Back to main’
 
 ## Feature 3: Order three different snacks
@@ -117,7 +132,3 @@ After clicking the ‘place order’ button, a pop up window will appear, inform
 
 
 To access all the ongoing and completed orders, users need to click the user icon in the header and click on ‘My Orders’. This will take them to the My Order page, which lists all the information about every order. These include the order time, ID, van name, order status, ordered products, quantity, prices and finally rating/comments.
-
-
-
-
