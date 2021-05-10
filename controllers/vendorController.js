@@ -76,3 +76,31 @@ exports.vendorParkPost = function(req,res){
         }
     })
 }
+
+//GET five nearest vendors
+exports.vendorNearestGet = function (req,res) {
+    Vendor.find().exec((err, vendors) => {
+        if (err) {
+            res.status(404).json({err: err})
+        } else {
+            var findDistance = []
+            for (i=0; i < vendors.length; i++) {
+                var distance = Math.sqrt(Math.hypot(
+                    req.query.lat - vendors[i].location.coordinates[0],
+                    req.query.lng - vendors[i].location.coordinates[1]
+                ))
+                if (Number.isFinite(distance)){
+                    findDistance.push({
+                        "id": vendors[i].id,
+                        "name": vendors[i].name,
+                        "currentAddress": vendors[i].currentAddress,
+                        "distance": parseFloat(distance).toFixed(4),
+                        "location": vendors[i].location.coordinates
+                    })
+                }
+            }
+            findDistance = findDistance.sort(({distance: a}, {distance: b}) => a - b).slice(0,5)
+            res.status(200).json({success: true, vendors: findDistance})
+        }
+    })
+};
