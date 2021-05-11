@@ -8,6 +8,7 @@ import AfterLoginMain from './Menu/anchor.js';
 import OrderList from './myOrderPage/OrderList.js';
 import Main from './HomePage/Main.js';
 import MenuPreview from './MenuPreview/anchor.js';
+import Component from './TestComponent/TestComponent.js'
 
 class Router extends React.Component{
     render(){
@@ -24,6 +25,7 @@ class Router extends React.Component{
                     <Route path="/customer/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
                     <Route path="/customershoppingcart" exact component={shoppingCart}></Route>
                     <Route path="/customer/signup" exact component={registrationPage}></Route>
+                    <Route path="/component" exact component={Component}></Route>
                 </Switch>
             </BrowserRouter>
         )
