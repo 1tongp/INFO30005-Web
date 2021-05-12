@@ -24,6 +24,7 @@ class FulfilledCheckButton extends React.Component{
             </button>
             <Modal className='popup'
             centered
+            closable={false}
             visible={this.state.modal1Visible}
             onOk={() => this.setModal1Visible(false)}
             onCancel={() => this.setModal1Visible(false)}

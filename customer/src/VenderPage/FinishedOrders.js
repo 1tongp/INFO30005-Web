@@ -10,6 +10,7 @@ import Searchbar from './Searchbar.js'
 import FinishedOrderList from './FinishedOrderList.js'
 import FinishedOrderDetail from './FinishedOrderDetail.js'
 import FinishedOrderDetailCancel from './FinishedCancel'
+import Sidebar from './Sider.js'
 
 
 
@@ -30,24 +31,7 @@ class Finished extends React.Component {
   render() {
     return (
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <img src="logo.png" className="logo"></img>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']}>
-            <Menu.Item key="1" >
-              PREPARING
-            </Menu.Item>
-            <Menu.Item key="2" >
-              FULFILLED
-            </Menu.Item>
-            <Menu.Item key="3" >
-              FINISHED 
-              ORDERS
-            </Menu.Item>
-            <button className="closevan">
-              CLOSE VAN
-            </button>
-          </Menu>
-        </Sider>
+        <Sidebar />
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <p>SNACK IN A VAN</p>
