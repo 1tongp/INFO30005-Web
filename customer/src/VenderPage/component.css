@@ -284,6 +284,20 @@ li.ant-menu-item-selected{
 }
 
 
+/* POP UP */
+.popup p{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    font-size: 18pt;
+    font-weight: bold;
+}
 
+.popup button{
+    font-size: 14pt;
+    border-radius: 25px;
+    height: 30pt;
+    width: 100px;
+}
 
 
