@@ -76,3 +76,31 @@ exports.vendorParkPost = function(req,res){
         }
     })
 }
+
+exports.vendorLoginPost = function(req, res){
+    const{name, password} = req.body;
+
+    // Match vendor
+    Vendor.findOne({
+        name : name,
+    }).then((vendor) => {
+        if(!vendor){
+            res.status(200).json({success: false, error: "Name not registered"});
+        }
+        else{
+            if(password === vendor.password){
+                res.status(200).json({
+                    success:true,
+                    vendor:{
+                        id: vendor.id,
+                        name: vendor.name,
+                        password : password,
+                    },
+                });
+            }
+            else{
+                res.status(200).json({error:err, message:'password incorrect'});
+            }      
+        }
+    })
+}
