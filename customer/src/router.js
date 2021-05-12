@@ -6,15 +6,17 @@ import LoginPage from './loginPage/Login.js';
 import registrationPage from './RegistrationPage/Registration.js'
 import AfterLoginMain from './Menu/anchor.js';
 import OrderList from './myOrderPage/OrderList.js';
-import Main from './HomePage/Main.js';
+import CustomerMain from './HomePage/Main.js';
 import MenuPreview from './MenuPreview/anchor.js';
+import App from './App.js';
 
 class Router extends React.Component{
     render(){
         return(
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" exact component={Main}></Route>
+                    <Route path="/" exact component={App}></Route>
+                    <Route path="/customer" exact component={CustomerMain}></Route>
                     <Route path="/customer/login" exact component={LoginPage}></Route>
                     <Route path="/customer/order" exact component={OrderList}></Route>
                     <Route path="/customer/menu" exact component={AfterLoginMain}></Route>

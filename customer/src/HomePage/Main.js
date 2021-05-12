@@ -12,7 +12,7 @@ import {ShoppingOutlined, CopyrightOutlined, UserOutlined, MenuOutlined, Profile
 const { Header, Footer, Content } = Layout;
 
 //this function will implement the customer page strcture (the map and choosing vans have not been implemented yet)
-export default function Main (props) {
+export default function CustomerMain (props) {
 
     // if customer want to view menu without loggin, the loggin step can be skip
     // since the map feature has not been placed yet, we assume that customer will order the snacks from a given vendor
