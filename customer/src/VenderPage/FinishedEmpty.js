@@ -3,6 +3,7 @@ import Orderlist from './Orderlist.js'
 import 'antd/dist/antd.css';
 import './component.css'
 import './FulfilledOrderlist'
+import logo from '../images/logo.png';
 
 import { Layout, Menu } from 'antd';
 import FulfilledOrderlist from './FulfilledOrderlist';
@@ -15,7 +16,7 @@ import FinishedOrderDetail from './FinishedOrderDetail.js'
 
 const { Header, Sider, Content } = Layout;
 
-class SiderDemo extends React.Component {
+class FinishedEmpty extends React.Component {
   state = {
     collapsed: false,
   };
@@ -30,8 +31,8 @@ class SiderDemo extends React.Component {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <img src="logo.png" className="logo"></img>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <img src={logo} className="logo"></img>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']}>
             <Menu.Item key="1" >
               PREPARING
             </Menu.Item>
@@ -59,26 +60,19 @@ class SiderDemo extends React.Component {
               minHeight: 280,
             }}
           >
-            {/* {this.props.orderlist}
-            <br></br> */}
-
-
-
-            {/* The Preparing orders page component(list) */}
-            <Orderlist></Orderlist>
-
-            {/* The fulfilled orders page components(list) */}
-            <FulfilledOrderlist></FulfilledOrderlist>
-
-
+           
             {/* The finished orders page components */}
             <Searchbar></Searchbar>
-            <div className="cluster">
+            <div className="cluster container--FinishedContent">
               <div className="container--FinishedOrderList">
                 <FinishedOrderList></FinishedOrderList>
               </div>
               <div className="container--FinishedOrderDetail">
-                <FinishedOrderDetail></FinishedOrderDetail>
+                <div className="container--orderdetail container--empty">
+                    <p>CHOOSE AN ORDER FROM THE LEFT</p>
+                    <p>TO VIEW DETAILS</p>
+                    
+                </div>
               </div>
 
               
@@ -93,4 +87,4 @@ class SiderDemo extends React.Component {
   }
 }
 
-export default SiderDemo;
+export default FinishedEmpty;

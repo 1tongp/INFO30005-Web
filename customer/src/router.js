@@ -8,7 +8,11 @@ import AfterLoginMain from './Menu/anchor.js';
 import OrderList from './myOrderPage/OrderList.js';
 import Main from './HomePage/Main.js';
 import MenuPreview from './MenuPreview/anchor.js';
-import Component from './TestComponent/TestComponent.js'
+import Component from './VenderPage/TestComponent.js'
+import Fulfilled from './VenderPage/Fulfilled.js'
+import Finished from './VenderPage/FinishedOrders'
+import PrepareNoOrder from './VenderPage/PrepareNoOrder'
+import FinishedEmpty from './VenderPage/FinishedEmpty'
 
 class Router extends React.Component{
     render(){
@@ -25,7 +29,11 @@ class Router extends React.Component{
                     <Route path="/customer/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
                     <Route path="/customershoppingcart" exact component={shoppingCart}></Route>
                     <Route path="/customer/signup" exact component={registrationPage}></Route>
-                    <Route path="/component" exact component={Component}></Route>
+                    <Route path="/preparing" exact component={Component}></Route>
+                    <Route path="/fulfilled" exact component={Fulfilled}></Route>
+                    <Route path="/finished" exact component={Finished}></Route>
+                    <Route path="/preparing/noorder" exact component={PrepareNoOrder}></Route>
+                    <Route path="/finished/empty" exact component={FinishedEmpty}></Route>
                 </Switch>
             </BrowserRouter>
         )
