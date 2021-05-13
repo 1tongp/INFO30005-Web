@@ -4,6 +4,7 @@ import m from '../images/menu.png';
 import click from '../images/click.png';
 import discount from '../images/discount.png';
 import React from 'react';
+import LeafMap from '../components/LeafMap.js';
 import '../ShoppingCart/styles.css';
 import './Main.css';
 import { Layout, Button} from 'antd';
@@ -52,7 +53,7 @@ export default function CustomerMain (props) {
                 </div>
 
             </Header>
-
+            
             <Content className=''>
                 <img src={cart} className='main_img'/>
                 <div className="col-menu">
@@ -60,10 +61,11 @@ export default function CustomerMain (props) {
                     <div className="col-img"><img src={click} alt="" /></div>
                     <div className="col-img"><img src={discount} alt="" /></div>
                 </div>
-
-                {/* the map will be implement in next due, also the choosing vans on the map*/} 
+               
                 <div className='section'>
                     <br /><br /><br /><br />
+                    
+                     <LeafMap />
 
                     <div className='button_container'>
                         <Button onClick={toLogin} className = 'btn'>

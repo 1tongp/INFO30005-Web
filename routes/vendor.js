@@ -15,4 +15,7 @@ vendorRouter.get('/:id', vendorController.vendorDetailGet);
 // POST request to set the vendor's part status
 vendorRouter.post('/park/:id',vendorController.vendorParkPost);
 
+//GET request to get five nearest vendors
+vendorRouter.get('/', vendorController.vendorNearestGet);
+
 module.exports = vendorRouter;
