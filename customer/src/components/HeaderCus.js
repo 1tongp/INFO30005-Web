@@ -14,6 +14,7 @@ const { Header } = Layout;
 export default function HeaderCus(props) {
 
     const [vendorAddress, setVendorAddress] = useState('');
+    const [title, setTitle] = useState('');
 
     const onOrder = () => {
         //orderListGet
@@ -38,8 +39,13 @@ export default function HeaderCus(props) {
         }else {
             setVendorAddress("Please select your vendor first!")
         }
+        if (props.data.location.state.customer){
+            setTitle("Hi" + props.data.location.state.customer.givenName)
+        }else{
+            setTitle("Hi customer")
+        }
         
-    },[props.data.location.state.vendor]);
+    },[props.data.location.state.vendor, props.data.location.state.customer]);
         
     
     return (
@@ -62,7 +68,7 @@ export default function HeaderCus(props) {
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <Button href=''>Hi {props.data.location.state.customer.givenName}</Button>
+                                <Button href=''>{title}</Button>
                                 <Button href='' key="1" onClick = {onOrder}>My Order</Button>
                                 <Button href=''>Log Out</Button>
                             </div>
