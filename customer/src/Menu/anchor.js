@@ -45,7 +45,7 @@ function AfterLoginMain(props){
         <Layout>
             <Header className='header_container'>
                 <img src={logo} className='logo'/>
-                <p className='header_loc'>Current Location: <a className='lc_url'>{}</a></p>                   
+                <p className='header_loc'>Current Location: <a className='lc_url'>{props.location.state.vendor.currentAddress}</a></p>                   
                 <div className='mid_nav'>
                     <input type='checkbox' id='n_check'></input>
                     <div class='hamburger'>

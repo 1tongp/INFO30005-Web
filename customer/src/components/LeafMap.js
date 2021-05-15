@@ -3,7 +3,6 @@ import { Icon } from "leaflet" ;
 import logo from '../images/coffee-marker.png';
 import personlogo from '../images/map-marker.png';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import axios from "../API/axios.js";
 
 export default function LeafMap(props) {
     console.log(props);
@@ -37,7 +36,11 @@ export default function LeafMap(props) {
                 {
                     props.data.location.state.vendors.map((vendor) => (
                         <Marker key = {vendor.id} position={vendor.location} icon = { vendorIcon } 
-                            eventHandlers={{click : toMenu}}>
+                            eventHandlers={{click : () => {
+                                props.data.history.push('/customer/menu', {
+                                    customer: props.data.location.state.customer, 
+                                    vendor: vendor}); 
+                            }}}>
 
                         </Marker>
                     ))
