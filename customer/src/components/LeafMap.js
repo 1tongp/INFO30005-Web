@@ -11,13 +11,13 @@ export default function LeafMap(props) {
 
     return (
         <div>
-            <MapContainer center={[-37.7963, 144.9614]} zoom={18} scrollWheelZoom={false}
+            <MapContainer center={props.center} zoom={18} scrollWheelZoom={false}
                 style={{height : "65vh"}}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={[-37.7963, 144.9614]} icon = { vendorIcon }>
+                <Marker position={props.center} icon = { vendorIcon }>
                     <Popup>
                         You are here.
                     </Popup>

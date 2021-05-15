@@ -9,6 +9,7 @@ import '../ShoppingCart/styles.css';
 import './Main.css';
 import { Layout, Button} from 'antd';
 import {ShoppingOutlined, CopyrightOutlined, UserOutlined, MenuOutlined, ProfileOutlined} from '@ant-design/icons';
+//import Footer from '../components/Footer.js';
 
 const { Header, Footer, Content } = Layout;
 
@@ -66,7 +67,8 @@ export default function CustomerMain (props) {
                 <div className='section'>
                     <br /><br /><br /><br />
                     
-                     <LeafMap />
+                     <LeafMap center = {props.location.state.position}
+                              vendors = {props.location.state.vendors}/>
 
                     <div className='button_container'>
                         <Button onClick={toLogin} className = 'btn'>
