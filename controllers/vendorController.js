@@ -106,7 +106,8 @@ exports.vendorLoginPost = function(req, res){
     })
 }
 
-//GET five nearest vendors
+// GET five nearest vendors
+// example : http://localhost:5000/vendor?lat=-37.7963&lng=144.9614
 exports.vendorNearestGet = function (req,res) {
     Vendor.find().exec((err, vendors) => {
         if (err) {
@@ -114,10 +115,12 @@ exports.vendorNearestGet = function (req,res) {
         } else {
             var findDistance = []
             for (i=0; i < vendors.length; i++) {
-                var distance = Math.sqrt(Math.hypot(
-                    req.query.lat - vendors[i].location.coordinates[0],
-                    req.query.lng - vendors[i].location.coordinates[1]
-                ))
+                if(vendors[i].location.coordinates != null){
+                    var distance = Math.sqrt(Math.hypot(
+                        req.query.lat - vendors[i].location.coordinates[0],
+                        req.query.lng - vendors[i].location.coordinates[1]
+                    ))
+                }
                 if (Number.isFinite(distance)){
                     findDistance.push({
                         "id": vendors[i].id,

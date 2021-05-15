@@ -1,9 +1,10 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import{Jumbotron, Button, Modal, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'antd/dist/antd.css';
 import{message} from 'antd';
 import axios from './API/axios.js';
+
 
 function App(props) {
 
@@ -25,9 +26,24 @@ function App(props) {
 
   const [loginEmail, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
+  const [vendors, setVendors] = useState([]);
   const [name, setName] = useState('');
   const [modal, setModal] = useState('');
 
+  useEffect(() =>{
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position);
+      setLat(position.coords.latitude)
+      setLng(position.coords.longitude)
+    });
+    axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
+      console.log(response)
+      setVendors(response.data.vendors)
+    })
+  },[lat, lng])
+  
   // 用这个信息去跟后端核对
   const onCustomerLogin = () => {
     axios.post('/customer/login', {loginEmail: loginEmail, password: password}).then(response =>{
@@ -35,8 +51,11 @@ function App(props) {
       console.log(response);
       if(response.data.success){
         // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
-        props.history.push('/customer', {customer: response.data.customer});
-      }
+        props.history.push('/customer', {
+          customer: response.data.customer,
+          vendors: vendors,
+          position: [lat, lng]});
+      } 
       else{
         message.error(response.data.error)
       }
@@ -44,6 +63,8 @@ function App(props) {
       console.log(error)
     })
   }
+
+
 
   const onVendorLogin = () => {
     axios.post('/vendor/login', {name : name, password: password}).then(response =>{
