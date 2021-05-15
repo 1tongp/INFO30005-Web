@@ -5,13 +5,14 @@ import click from '../images/click.png';
 import discount from '../images/discount.png';
 import React from 'react';
 import LeafMap from '../components/LeafMap.js';
+import HeaderCus from '../components/HeaderCus.js'
 import '../ShoppingCart/styles.css';
 import './Main.css';
 import { Layout, Button} from 'antd';
 import {ShoppingOutlined, CopyrightOutlined, UserOutlined, MenuOutlined, ProfileOutlined} from '@ant-design/icons';
 //import Footer from '../components/Footer.js';
 
-const { Header, Footer, Content } = Layout;
+const {Footer, Content } = Layout;
 
 //this function will implement the customer page strcture (the map and choosing vans have not been implemented yet)
 export default function CustomerMain (props) {
@@ -29,32 +30,7 @@ export default function CustomerMain (props) {
     
     return (
         <Layout>
-            <Header className='header_container'>              
-                <img src={logo} alt="logo image" className='logo'/>
-                <p className='header_loc'>Current Location: <a className='lc_url'> Union House</a></p>                   
-                <div className='mid_nav'>
-                    <input type='checkbox' id='n_check'></input>
-                    <div class='hamburger'>
-                        <label for='n_check'>
-                            <MenuOutlined className='icon'/>
-                        </label>
-                    </div>
-                    <div className='links'>
-                        <a className='header_text' href='./'>HOME</a>
-                        <a className='header_text' href='./customer/menupreview'>MENU</a>
-                        <a className='icon' href=''><ShoppingOutlined /></a>
-                        <div className='drop'>
-                            <a className='icon'><UserOutlined /></a>
-                            <div className='u_drop_content'>
-                                <Button onClick={toLogin} className = 'btn'> 
-                                Sign In </Button> 
-                                <a href=''>Sign Up</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </Header>
+            <HeaderCus data = {props}/>
             
             <Content className=''>
                 <img src={cart} className='main_img'/>
