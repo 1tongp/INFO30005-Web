@@ -70,7 +70,7 @@ function AfterLoginMain(props){
 
             </Header>
             {/* return the snacks and customer details */}
-            <Menu key='0' snacks={snacks} customer={props.location.state.customer.id} />
+            <Menu key='0' snacks={snacks} customer={props.location.state.customer.id} vendor={props.location.state.vendor.id} />
         </Layout>
     )
 }

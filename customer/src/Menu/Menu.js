@@ -40,7 +40,7 @@ export default function Menu (props) {
         } else {
             axios.post('/order/create', {
                 customer: props.customer,
-                vendor: props.vendor.id, // will be changed in the future
+                vendor: props.vendor, // will be changed in the future
                 snacksList: submitOrder,
                 totalPrice: sumPrice
             }).then(response => {

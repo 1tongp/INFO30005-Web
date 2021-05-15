@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import{message} from 'antd';
 import axios from './API/axios.js';
 
+// const {link} = Typography;
 
 function App(props) {
 
