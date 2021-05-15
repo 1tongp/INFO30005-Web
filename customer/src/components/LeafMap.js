@@ -16,7 +16,7 @@ export default function LeafMap(props) {
 
     return (
         <div>
-            <MapContainer center={props.center} zoom={18} scrollWheelZoom={false}
+            <MapContainer center={props.center} zoom={17} scrollWheelZoom={false}
                 style={{height : "65vh"}}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -27,6 +27,12 @@ export default function LeafMap(props) {
                         You are here.
                     </Popup>
                 </Marker>
+                {
+                    props.vendors.map((vendor) => (
+                        <Marker key = {vendor.id} position={vendor.location} icon = { vendorIcon }>
+                        </Marker>
+                    ))
+                }
             </MapContainer>
         </div>
     )

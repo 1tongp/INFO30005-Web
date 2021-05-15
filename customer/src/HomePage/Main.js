@@ -67,8 +67,9 @@ export default function CustomerMain (props) {
                 <div className='section'>
                     <br /><br /><br /><br />
                     
-                     <LeafMap center = {props.location.state.position}
-                              vendors = {props.location.state.vendors}/>
+                     <LeafMap 
+                            center = {props.location.state.position}
+                            vendors = {props.location.state.vendors}/>
 
                     <div className='button_container'>
                         <Button onClick={toLogin} className = 'btn'>
