@@ -1,7 +1,7 @@
 import React from 'react'
 import { Icon } from "leaflet" ;
 import logo from '../images/coffee-marker.png';
-import personlogo from '../images/maps-marker.png';
+import personlogo from '../images/map-marker.png';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function LeafMap(props) {
