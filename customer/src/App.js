@@ -2,10 +2,10 @@ import {useState, useEffect} from 'react';
 import{Jumbotron, Button, Modal, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'antd/dist/antd.css';
-import{message} from 'antd';
+import{message, Typography} from 'antd';
 import axios from './API/axios.js';
 
-// const {link} = Typography;
+const {Link} = Typography;
 
 function App(props) {
 
@@ -45,6 +45,14 @@ function App(props) {
     })
   },[lat, lng])
   
+  // view menu without login
+  const onSkip = () => {
+    props.history.push('/customer',{
+      position : [lat, lng],
+      vendors: vendors
+    });
+  }
+
   // 用这个信息去跟后端核对
   const onCustomerLogin = () => {
     axios.post('/customer/login', {loginEmail: loginEmail, password: password}).then(response =>{
@@ -105,6 +113,9 @@ function App(props) {
             onChange={e => setPassword(e.target.value)} />
         </Form.Group>
       </Form>
+      <Link onClick = {onSkip}>
+        View Menu Without Login
+      </Link>
     </Modal.Body>    
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
