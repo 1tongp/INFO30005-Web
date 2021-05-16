@@ -48,6 +48,7 @@ function App(props) {
   // view menu without login
   const onSkip = () => {
     props.history.push('/customer',{
+      customer: [],
       position : [lat, lng],
       vendors: vendors
     });

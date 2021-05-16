@@ -12,21 +12,20 @@ import HeaderCus from '../components/HeaderCus.js'
 function AfterLoginMain(props){
     console.log(props);
     const [snacks, setSnacks] = useState([]);
-    const [orders, setOrders] = useState([]);
+    const [customerId, setCustomer] = useState([]);
 
     useEffect(() => {
         //snackMenuGet
         if(props.location.state.customer){
-            axios.get('/order?customer=' + props.location.state.customer.id).then(response => {
-                console.log(response);
-                setOrders(response.data.customerOrders)
-            })
+            setCustomer(props.location.state.customer.id)
         }
         axios.get('/snack').then(response => {
             console.log(response)
             setSnacks(response.data.snacks)
         })
     }, [props.location.state.position, props.location.state.vendor, props.location.state.customer]);
+
+
 
     //get the current order from the customer
     // const onOrder = () => {
@@ -51,7 +50,7 @@ function AfterLoginMain(props){
             <HeaderCus data = {props}/>
 
             {/* return the snacks and customer details */}
-            <Menu key='0' snacks={snacks} customer={props.location.state.customer.id} vendor={props.location.state.vendor.id} orders={orders}/>
+            <Menu key='0' history = {props.history} snacks={snacks} customer={customerId} vendor={props.location.state.vendor.id} />
         </Layout>
     )
 }
