@@ -54,6 +54,10 @@ function App(props) {
     });
   }
 
+  const Signup = () =>{
+    props.history.push('/customer/signup');
+  } 
+
   // 用这个信息去跟后端核对
   const onCustomerLogin = () => {
     axios.post('/customer/login', {loginEmail: loginEmail, password: password}).then(response =>{
@@ -116,6 +120,10 @@ function App(props) {
       </Form>
       <Link onClick = {onSkip}>
         View Menu Without Login
+      </Link>
+      <br />
+      <Link onClick = {Signup}>
+        Don't have an account? Sign Up 
       </Link>
     </Modal.Body>    
       <Modal.Footer>

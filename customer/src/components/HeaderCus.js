@@ -7,20 +7,21 @@ import logo from '../images/logo.png';
 import { Layout, message } from 'antd';
 import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
+import {useHistory} from "react-router-dom";
 const { Header } = Layout;
 
 
 
 export default function HeaderCus(props) {
-    //let history = useHistory();
+    let history = useHistory();
     console.log(props);
 
     const [vendorAddress, setVendorAddress] = useState('');
     const [title, setTitle] = useState('');
     const [buttonMyOrder, setButtonMyOrder] = useState([]);
     const [buttonLogOut, setButtonLogOut] = useState([]);
+    const [buttonHome, setButtonHome] = useState([]);
     const [buttonMyProfile, setButtonProfile] = useState([]);
-
 
     const toLogin = () =>{
         props.data.history.push('../');
@@ -76,6 +77,11 @@ export default function HeaderCus(props) {
         }else{
             setTitle([<Button href='' key="1" onClick = {toLogin}>Log In</Button>])
         }
+        // if(props.data.location.state.position){
+        //     setButtonHome([<Button href = '' key = "1" onClick = {history.goBack}>Back</Button>])
+        // }else{
+        //     setButtonHome([<Button href = '' key = "1" onClick = {history.goBack}>Home</Button>])
+        // }
         
     },[props.data.location.state.vendor, props.data.location.state.customer]);
         
@@ -94,7 +100,8 @@ export default function HeaderCus(props) {
                         </label>
                     </div>
                     <div className='links'>
-                        <a className='header_text' href='../'>HOME</a>
+                        <a className='header_text' href='../customer'>HOME</a>
+                        {/* {buttonHome} */}
                         <a className='header_text' href=''>MENU</a>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>

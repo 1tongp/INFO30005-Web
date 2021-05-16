@@ -8,7 +8,7 @@ exports.customerRegisterPost = function(req,res){
 
         // for the case when email is already registered
         if(emailExist) {
-            res.status(409).send('This email has been registered!');
+            res.status(409).json({success: false, message : "This email has been registered!"});
         }
 
         // otherwise, create a new account for customer
@@ -43,8 +43,17 @@ exports.customerRegisterPost = function(req,res){
                     res.status(400).json({err});
                 } 
                 else{
-                    res.status(200).json({message:"customer registered successfully", result});
-
+                    res.status(200).json({
+                        success: true,
+                        message:"customer registered successfully",
+                        customer:{
+                            id: newCustomer.id,
+                            givenName: newCustomer.givenName,
+                            familyName: newCustomer.familyName,
+                            loginEmail: newCustomer.loginEmail,
+                            password : newCustomer.password,
+                        },
+                    });
                 }
             })
         }
