@@ -81,8 +81,8 @@ a .btn-primary .btn  {
     /* border: springgreen 1px solid; */
     display: flex;
     flex-direction: row;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
 
@@ -109,7 +109,7 @@ a .btn-primary .btn  {
     display: block;
     text-align: center;
     /* border: springgreen 1px solid; */
-    width: 50%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
 

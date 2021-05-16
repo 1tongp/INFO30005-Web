@@ -72,8 +72,11 @@ export default function Menu(props) {
                 {props.snacks.map((snack, index) => (
                     <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath} />} key={snack._id}>
                         <div className='card-content'>
-                            <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info' />
+                            <br />
+                            <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info' description={snack.snackDescription}/>
                             <InputNumber key={snack._id} min={0} defaultValue={0} onChange={e => onChange(index, e)} className='input' />
+                            
+
                         </div>
                     </Card>
                 ))}
