@@ -12,10 +12,19 @@ const { Header } = Layout;
 
 
 export default function HeaderCus(props) {
+    //let history = useHistory();
+    console.log(props);
 
     const [vendorAddress, setVendorAddress] = useState('');
     const [title, setTitle] = useState('');
+    const [buttonMyOrder, setButtonMyOrder] = useState([]);
+    const [buttonLogOut, setButtonLogOut] = useState([]);
 
+    const toLogin = () =>{
+        props.data.history.push('../');
+    }
+
+    // get the current order from the customer
     const onOrder = () => {
         //orderListGet
         axios.get('/order?customer=' + props.data.location.state.customer.id).then(response =>{
@@ -33,16 +42,19 @@ export default function HeaderCus(props) {
       })
     }
 
+
     useEffect(() => {
         if (props.data.location.state.vendor){
             setVendorAddress(props.data.location.state.vendor.currentAddress)
         }else {
             setVendorAddress("Please select your vendor first!")
         }
-        if (props.data.location.state.customer){
-            setTitle("Hi" + props.data.location.state.customer.givenName)
+        if (props.data.location.state.customer.length != 0){
+            setTitle([<Button href='' key="1" >Hi {props.data.location.state.customer.givenName}</Button>])
+            setButtonMyOrder([<Button href='' key="1" onClick = {onOrder}>My Order</Button>])
+            setButtonLogOut([<Button href='' key="1" onClick = {toLogin}>Log Out</Button>])
         }else{
-            setTitle("Hi customer")
+            setTitle([<Button href='' key="1" onClick = {toLogin}>Log In</Button>])
         }
         
     },[props.data.location.state.vendor, props.data.location.state.customer]);
@@ -68,9 +80,9 @@ export default function HeaderCus(props) {
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <Button href=''>{title}</Button>
-                                <Button href='' key="1" onClick = {onOrder}>My Order</Button>
-                                <Button href=''>Log Out</Button>
+                                {title}
+                                {buttonMyOrder}
+                                {buttonLogOut}                               
                             </div>
                         </div>
                     </div>
