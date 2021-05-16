@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import shoppingCart from './ShoppingCart/ShoppingCart.js';
 import shoppingCartEmpty from './ShoppingCart/ShoppingCartEmpty.js';
 import LoginPage from './loginPage/Login.js';
-import registrationPage from './RegistrationPage/Registration.js'
+import RegistrationPage from './RegistrationPage/Registration.js'
 import AfterLoginMain from './Menu/anchor.js';
 import OrderList from './myOrderPage/OrderList.js';
 import CustomerMain from './HomePage/Main.js';
@@ -30,7 +30,7 @@ class Router extends React.Component{
                     {/* below url haven't use */}
                     <Route path="/customer/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
                     <Route path="/customershoppingcart" exact component={shoppingCart}></Route>
-                    <Route path="/customer/signup" exact component={registrationPage}></Route>
+                    <Route path="/customer/signup" exact component={RegistrationPage}></Route>
                     <Route path="/preparing" exact component={Component}></Route>
                     <Route path="/fulfilled" exact component={Fulfilled}></Route>
                     <Route path="/finished" exact component={Finished}></Route>
