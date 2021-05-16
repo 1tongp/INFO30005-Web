@@ -2,8 +2,11 @@ import React from 'react';
 import './MyOrder.css';
 import { Layout } from 'antd';
 import {StarFilled, StarOutlined} from '@ant-design/icons';
+import CountUp from '../components/CountUp.js';
 
 const {Content } = Layout;
+
+// line 25 createTime -> updateTime
 
 export default function OrderDetail(props){
     console.log(props);
@@ -19,6 +22,8 @@ export default function OrderDetail(props){
         <Content className="content">
         <tr >                    
             <th >{props.order.createTime.slice(0,10)}</th>
+            <CountUp updatedAt={props.order.createTime}/>
+
         </tr>
         <div className="flex">  
             <div className="flex--child">
