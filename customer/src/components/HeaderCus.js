@@ -21,6 +21,7 @@ export default function HeaderCus(props) {
     const [buttonMyOrder, setButtonMyOrder] = useState([]);
     const [buttonLogOut, setButtonLogOut] = useState([]);
     const [buttonHome, setButtonHome] = useState([]);
+    const [buttonMyProfile, setButtonProfile] = useState([]);
 
     const toLogin = () =>{
         props.data.history.push('../');
@@ -44,6 +45,23 @@ export default function HeaderCus(props) {
       })
     }
 
+    const onProfile = () => {
+        //orderListGet
+        axios.get('/customer/' + props.data.location.state.customer.id).then(response =>{
+        console.log(props.data.location.state.customer.id);
+        console.log(response);
+        if(response.data){
+            // props push the useful data
+            props.data.history.push('/customer/myprofile', {customer: response.data.customer});
+        }
+        else{
+          message.error(response.data.error)
+        }
+      }).catch(error => {
+        console.log(error)
+      })
+    }
+
 
     useEffect(() => {
         if (props.data.location.state.vendor){
@@ -54,6 +72,7 @@ export default function HeaderCus(props) {
         if (props.data.location.state.customer.length != 0){
             setTitle([<Button href='' key="1" >Hi {props.data.location.state.customer.givenName}</Button>])
             setButtonMyOrder([<Button href='' key="1" onClick = {onOrder}>My Order</Button>])
+            setButtonProfile([<Button href='' key="1" onClick = {onProfile}> My Profile</Button>])
             setButtonLogOut([<Button href='' key="1" onClick = {toLogin}>Log Out</Button>])
         }else{
             setTitle([<Button href='' key="1" onClick = {toLogin}>Log In</Button>])
@@ -90,6 +109,7 @@ export default function HeaderCus(props) {
                             <div className='u_drop_content'>
                                 {title}
                                 {buttonMyOrder}
+                                {buttonMyProfile}
                                 {buttonLogOut}                               
                             </div>
                         </div>

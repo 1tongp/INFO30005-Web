@@ -14,6 +14,7 @@ import Fulfilled from './VenderPage/Fulfilled.js'
 import Finished from './VenderPage/FinishedOrders'
 import PrepareNoOrder from './VenderPage/PrepareNoOrder'
 import FinishedEmpty from './VenderPage/FinishedEmpty'
+import MyProfile from './MyProfile/MyProfile.js'
 
 class Router extends React.Component{
     render(){
@@ -31,6 +32,8 @@ class Router extends React.Component{
                     <Route path="/customer/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
                     <Route path="/customershoppingcart" exact component={shoppingCart}></Route>
                     <Route path="/customer/signup" exact component={RegistrationPage}></Route>
+                    <Route path="/customer/signup" exact component={registrationPage}></Route>
+                    <Route path="/customer/myprofile" exact component={MyProfile}></Route>
                     <Route path="/preparing" exact component={Component}></Route>
                     <Route path="/fulfilled" exact component={Fulfilled}></Route>
                     <Route path="/finished" exact component={Finished}></Route>
