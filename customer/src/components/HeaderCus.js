@@ -2,12 +2,13 @@ import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap';
 import axios from '../API/axios';
 import Menu from '../Menu/Menu.js';
-import '../ShoppingCart/styles.css';
+// import '../ShoppingCart/styles.css';
 import logo from '../images/logo.png';
 import { Layout, message } from 'antd';
 import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
 import {useHistory} from "react-router-dom";
+import './headerstyle.css';
 const { Header } = Layout;
 
 
@@ -88,25 +89,43 @@ export default function HeaderCus(props) {
     
     return (
         <div>
-            <Header className='header_container'>
-                <img src={logo} className='logo'/>
+            <Header id='header_container'>
+                <div id="left_container">
+                <img src={logo} id='logo'/>
+                <div id="header_loc">
+                    <div id="loc-text">
+                        <p >Current Location: </p>
+                    </div>
+                    <div id="loc-url">
+                        <a className='lc_url'>{vendorAddress}</a>
 
-                <p className='header_loc'>Current Location: <a className='lc_url'>{vendorAddress}</a></p>            
+                    </div>
+                
+                
+
+                </div>
+                
+                </div>
+                
+
+                           
                 <div className='mid_nav'>
                     <input type='checkbox' id='n_check'></input>
-                    <div class='hamburger'>
+                    <div className='hamburger' id="menubutton">
                         <label for='n_check'>
                             <MenuOutlined className='icon'/>
                         </label>
                     </div>
-                    <div className='links'>
+                    <div className='links' id="right-container">
+                        <a></a>
                         <a className='header_text' href='../customer'>HOME</a>
                         {/* {buttonHome} */}
                         <a className='header_text' href=''>MENU</a>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
-                            <div className='u_drop_content'>
+                            <div className='u_drop_content' >
+                                
                                 {title}
                                 {buttonMyOrder}
                                 {buttonMyProfile}
