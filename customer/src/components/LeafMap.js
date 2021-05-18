@@ -2,7 +2,8 @@ import React from 'react'
 import { Icon } from "leaflet" ;
 import logo from '../images/coffee-marker.png';
 import personlogo from '../images/map-marker.png';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import '../HomePage/Main.css';
 
 export default function LeafMap(props) {
     console.log(props);
@@ -21,7 +22,7 @@ export default function LeafMap(props) {
     }
 
     return (
-        <div>
+        <div className='map-container'>
             <MapContainer center={props.data.location.state.position} zoom={16} scrollWheelZoom={false}
                 style={{height : "65vh"}}>
                 <TileLayer
