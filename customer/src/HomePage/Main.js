@@ -5,7 +5,8 @@ import click from '../images/click.png';
 import discount from '../images/discount.png';
 import React from 'react';
 import LeafMap from '../components/LeafMap.js';
-import HeaderCus from '../components/HeaderCus.js'
+import HeaderCus from '../components/HeaderCus.js';
+import MapList from '../components/MapList.js';
 import '../ShoppingCart/styles.css';
 import './Main.css';
 import { Layout, Button} from 'antd';
@@ -42,21 +43,27 @@ export default function CustomerMain (props) {
                
                 <div className='section'>
                     <br /><br /><br /><br />
-                    
-                     <LeafMap data = {props}/>
 
-                    <div className='button_container'>
+                    <h2>FIND A VAN</h2>
+                    <div className='map'>
+                     <LeafMap data = {props}/>
+                     <MapList data = {props}/>
+                    
+                        
+                    </div>
+
+                    {/* <div className='button_container'>
                         <Button onClick={toLogin} className = 'btn'>
                             <UserOutlined className='main_btn'/>
                             Login and Order
-                        </Button>
+                        </Button> */}
 
                         {/* click the button to skip the login step*/} 
-                        <Button onClick={onSkip} className = 'btn'>     
+                        {/* <Button onClick={onSkip} className = 'btn'>     
                             <ProfileOutlined className='main_btn'/>                      
                             View Menu without Login
                         </Button>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="about">
