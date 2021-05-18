@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import '../ShoppingCart/styles.css';
 import './Menu.css';
+import './menu-alex.css';
+import './menu-card.css';
 import { Layout, InputNumber, Card } from 'antd';
 import { Button } from 'react-bootstrap';
 import { CopyrightOutlined, LikeOutlined } from '@ant-design/icons';
@@ -69,18 +71,47 @@ export default function Menu(props) {
             <Content className='container'>
                 <h1>MENU</h1>
                 {/* loop each snack in the database and show them out as a menu, the customer can choose the amount they want to order */}
+                <div className="menu">
                 {props.snacks.map((snack, index) => (
-                    <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath} />} key={snack._id}>
-                        <div className='card-content'>
-                            <br />
-                            <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info' description={snack.snackDescription}/>
-                            <InputNumber key={snack._id} min={0} defaultValue={0} onChange={e => onChange(index, e)} className='input' />
+                    // <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath} />} key={snack._id}>
+                    //     <div className='card-content'>
+                    //         <br />
+                    //         <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info' description={snack.snackDescription}/>
+                    //         <InputNumber key={snack._id} min={0} defaultValue={0} onChange={e => onChange(index, e)} className='input' />
                             
 
-                        </div>
-                    </Card>
-                ))}
+                    //     </div>
+                    // </Card>
 
+                    <div className="menu-card">
+                    
+                <div className="card-image"  style={{ 
+          backgroundImage:  `url(${snack.snackPhotoPath})` 
+        }}>
+                        </div>
+                        <div className="card-info">
+                            <div className="card-name">
+                                <h3>{snack.snackName}</h3>
+                            </div>
+                            <div className="cost-wrapper">
+                                <h4 className="cost">
+                                    $ {snack.snackPrice}
+                            </h4>
+                            </div>
+                            <div className="description-wrapper">
+                                <p>{snack.snackDescription}</p>
+                            </div>
+                            <div className="card-btns">
+                            <InputNumber key={snack._id} min={0} defaultValue={0}  onChange={e=>onChange(index, e)} className='input' />
+                                {/* <img src={minus} alt="" />
+                                    <p className="order-number">1</p>
+                                    <img src={plus} alt="" />
+                                        <img src={cart} alt="" /> */}
+                            </div>
+                    </div>
+                </div>
+                ))}
+                </div>
                 {/* click the button and submit the order*/}
                 <Button className='place' onClick={onSubmit}>
                     PLACE ORDER
