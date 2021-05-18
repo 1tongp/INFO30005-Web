@@ -84,7 +84,7 @@ export default function MyProfile (props) {
 
             </Content>
 
-            <Footer classname="footer"> 
+            <Footer className="footer"> 
                 <p>
                 <CopyrightOutlined /> SNACKS IN A VAN
                 <br />
