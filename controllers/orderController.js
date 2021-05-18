@@ -56,26 +56,34 @@ exports.orderChangePost = function(req, res){
                 {new: true},
                 function(err, changeOrderDetails){
                     if(err){
-                        res.status(404).json({err})
+                        res.status(404).json({success: false, err})
                     }
                     else{
-                        res.status(200).json({changeOrderDetails: changeOrderDetails})
+                        res.status(200).json({success: true, changeOrderDetails: changeOrderDetails})
                     }
                 })    
         }
     })
 }
 
-/* url: http://localhost:8080/order?customer=:customerID&status=outstanding to get all outstanding orders */
+
+/* url: http://localhost:5000/order?customer=:customerID&status=outstanding to get all outstanding orders */
 // Get request for customer to get their order details
+// exports.customerOrderListGet = function(req, res){
+//     Order.find(req.query).populate("vendor").populate("customer").then((orders)=>{
+//         //if for perticular vendor, the order list for required status is an empty list, return error message
+//         if(orders.length == 0){
+//             res.status(200).json({success : "Order is not found. You don't have any orders."})
+//         }
+//         else{
+//            res.status(200).json({success: true, customerOrders: orders})
+//         }
+//     })       
+// };
+
 exports.customerOrderListGet = function(req, res){
     Order.find(req.query).populate("vendor").populate("customer").then((orders)=>{
         //if for perticular vendor, the order list for required status is an empty list, return error message
-        if(orders.length == 0){
-            res.status(404).send("Order is not found. You don't have any orders.")
-        }
-        else{
-           res.status(200).json({customerOrders: orders})
-        }
+        res.status(200).json({customerOrders: orders})
     })       
 };
