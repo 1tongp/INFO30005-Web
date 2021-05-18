@@ -19,7 +19,7 @@
 
 .section h3 {
     font-size: 18pt;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -84,6 +84,7 @@
 .map-container {
     width: 70%;
     float: left;
+    height: 100%;
 }
 
 .map-list-container {
@@ -95,9 +96,10 @@
 
 .map-item {
     margin-bottom: 5px;
+    position: relative;
     margin-top: 5px;
     padding: 15px;
-    /* border-top: 1px #A07D50 solid; */
+    border-top: 1px #A07D50 solid;
 }
 
 .map-item:hover {
@@ -107,9 +109,20 @@
 .list-name {
     font-size: 14pt;
 }
+
 .list-location {
     font-size: 12pt;
     color: #6a4c25;
+    display: inline;
+}
+
+.list-distance {
+    display: inline;
+    position: absolute;
+    right: 0px;
+    font-size: 12pt;
+
+
 }
 
 hr {
