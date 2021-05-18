@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import shoppingCart from './ShoppingCart/ShoppingCart.js';
-import shoppingCartEmpty from './ShoppingCart/ShoppingCartEmpty.js';
+import ShoppingCartEmpty from './ShoppingCart/ShoppingCartEmpty.js';
 import LoginPage from './loginPage/Login.js';
 import RegistrationPage from './RegistrationPage/Registration.js'
 import AfterLoginMain from './Menu/anchor.js';
@@ -29,7 +29,7 @@ class Router extends React.Component{
                     <Route path="/customer/menupreview" exact component={MenuPreview}></Route>
 
                     {/* below url haven't use */}
-                    <Route path="/customer/shoppingcart/empty" exact component={shoppingCartEmpty}></Route>
+                    <Route path="/customer/shoppingcart/empty" exact component={ShoppingCartEmpty}></Route>
                     <Route path="/customershoppingcart" exact component={shoppingCart}></Route>
                     <Route path="/customer/signup" exact component={RegistrationPage}></Route>
                     <Route path="/customer/myprofile" exact component={MyProfile}></Route>
