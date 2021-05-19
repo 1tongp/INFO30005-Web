@@ -10,8 +10,8 @@ export default function MapList(props){
                 <div className='map-item'>
                     <div className='list-name'>{vendor.name}</div>
                     <div className='list-location'>{vendor.currentAddress}</div>
-                    <div className='list-location'>Distance: {vendor.distance}KM</div>
-                    <hr />
+                    <div className='list-distance'>{vendor.distance}KM</div>
+                    
                 </div>
                 ))
             }

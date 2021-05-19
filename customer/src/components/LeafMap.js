@@ -25,7 +25,7 @@ export default function LeafMap(props) {
     return (
         <div className='map-container'>
             <MapContainer center={props.data.location.state.position} zoom={16} scrollWheelZoom={false}
-                style={{height : "65vh"}}>
+                style={{height : "100%"}}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

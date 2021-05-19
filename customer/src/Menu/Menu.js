@@ -85,10 +85,7 @@ export default function Menu(props) {
 
                     <div className="menu-card">
                     
-                <div className="card-image"  style={{ 
-          backgroundImage:  `url(${snack.snackPhotoPath})` 
-        }}>
-                        </div>
+                        <div className="card-image"  style={{backgroundImage:  `url(${snack.snackPhotoPath})`}}></div>
                         <div className="card-info">
                             <div className="card-name">
                                 <h3>{snack.snackName}</h3>
@@ -96,13 +93,13 @@ export default function Menu(props) {
                             <div className="cost-wrapper">
                                 <h4 className="cost">
                                     $ {snack.snackPrice}
-                            </h4>
+                                </h4>
                             </div>
                             <div className="description-wrapper">
                                 <p>{snack.snackDescription}</p>
                             </div>
                             <div className="card-btns">
-                            <InputNumber key={snack._id} min={0} defaultValue={0}  onChange={e=>onChange(index, e)} className='input' />
+                            <InputNumber key={snack._id} min={0} defaultValue={0}  onChange={e=>onChange(index, e)} />
                                 {/* <img src={minus} alt="" />
                                     <p className="order-number">1</p>
                                     <img src={plus} alt="" />
