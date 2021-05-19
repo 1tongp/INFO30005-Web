@@ -80,15 +80,23 @@ function App(props) {
   }
 
 
-
+  const [vendorDetail, setVendorDetail] = useState('');
   const onVendorLogin = () => {
     axios.post('/vendor/login', {name : name, password: password}).then(response =>{
       console.log(props);
       console.log(response);
       if(response.data.success){
-        message.success('Logged in successfully!')
-        // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
-        props.history.push('/vendor', {vendor: response.data.vendor});
+        setVendorDetail(response.data.vendor);
+        message.success('Logged in successfully!')        
+        axios.get('/order/' + response.data.vendor.id + '?status=outstanding').then(response2 =>{
+          console.log(response2);
+          if(!response2.data.success){
+            props.history.push('/vendor/preparing/noorder', {vendor: response.data.vendor})
+          }
+          else{
+            props.history.push('/vendor/preparing', {vendor: response.data.vendor, orders: response2.data.orders});
+          }
+        })
       }
       else{
         message.error(response.data.error)

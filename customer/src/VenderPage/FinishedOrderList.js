@@ -4,6 +4,11 @@ import './component.css'
 
 // This is order list component for finished orders page 
 class FinishedOrderList extends React.Component{
+    constructor(props){
+        super(props);
+        console.log(this.props)
+        var children;
+      }
     render(){
         return <div className="cluster container--finishedorderlist">
            <div>

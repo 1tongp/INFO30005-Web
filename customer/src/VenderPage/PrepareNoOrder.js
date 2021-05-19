@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './component.css'
 import './FulfilledOrderlist'
 import logo from '../images/logo.png';
-
+import Sidebar from './Sider.js'
 import { Layout, Menu } from 'antd';
 
 import {
@@ -17,6 +17,13 @@ import {
 const { Header, Sider, Content } = Layout;
 
 class PrepareNoOrder extends React.Component {
+
+  // 用下面这段把props给console出来
+  constructor(props){
+    super(props);
+    console.log(this.props)
+  }
+
   state = {
     collapsed: false,
   };
@@ -30,24 +37,7 @@ class PrepareNoOrder extends React.Component {
   render() {
     return (
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <img src={logo} alt="logo" className="logo"></img>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1" >
-              PREPARING
-            </Menu.Item>
-            <Menu.Item key="2" >
-              FULFILLED
-            </Menu.Item>
-            <Menu.Item key="3" >
-              FINISHED 
-              ORDERS
-            </Menu.Item>
-            <button className="closevan">
-              CLOSE VAN
-            </button>
-          </Menu>
-        </Sider>
+        <Sidebar>{this.props}</Sidebar>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <p>SNACK IN A VAN</p>
