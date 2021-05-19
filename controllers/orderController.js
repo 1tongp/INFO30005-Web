@@ -30,10 +30,10 @@ exports.vendorOrderListGet = function(req, res){
 
         //if for perticular vendor, the order list for required status is an empty list, return error message
         if(orders.length == 0 ){
-            res.status(404).send("Order is not found")
+            res.status(200).json({success: false, message:"Order is not found"})
         }
         else{
-           res.status(200).json({orders: orders})
+           res.status(200).json({success: true, orders: orders})
         }
     })       
 };
