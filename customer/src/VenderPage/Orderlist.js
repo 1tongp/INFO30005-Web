@@ -9,13 +9,19 @@ import SingleOrder from './SingleOrder.js'
 // This is the white order list for preparing page
 
 class Orderlist extends React.Component{
+    constructor(props){
+        super(props);
+        console.log(this.props)
+    }
     render(){
         return (
         <div className="cluster">
-            <SingleOrder />
-            <SingleOrder />
-            <SingleOrder />
-            <SingleOrder />
+            {
+                this.props.children.children.location.state.orders.map((order) =>(
+                    <SingleOrder>{order}</SingleOrder>
+                ))
+            }
+            {/* <SingleOrder>{this.props}</SingleOrder> */}
             {/* {
                 this.props.children.children.location.state.orders.map((order) =>(
                 <div className="container--basicinfo">
