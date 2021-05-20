@@ -11,6 +11,20 @@
     z-index: 30;
 }
 
+.section h2 {
+    font-size: 24pt;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.section h3 {
+    font-size: 18pt;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 .col-menu {
     width: 100%;
     display: flex;
@@ -36,7 +50,6 @@
     width: 40vw;
     height: 60vh;
     padding: 10vh 5vw 0 55vw;
-
 }
 
 .button_container{
@@ -60,7 +73,64 @@
     text-align: center;
 }
 
+.map {
+    height: 600px;
+    padding: 15px;
+    border-radius: 25px;
+    background-color: #f2d6b6;
+    border: solid 1px #A07D50;
+    flex-direction: column;
+}
 
+.map-container {
+    width: 70%;
+    float: left;
+    height: 100%;
+}
+
+.map-list-container {
+    float: left;
+    width: 30%;
+    height: 100%;
+    padding: 25px;
+}
+
+.map-item {
+    margin-bottom: 5px;
+    position: relative;
+    margin-top: 5px;
+    padding: 15px;
+    border-top: 1px #A07D50 solid;
+}
+
+.map-item:hover {
+    background-color: #f9e1c6e2;
+}
+
+.list-name {
+    font-size: 14pt;
+}
+
+.list-location {
+    font-size: 12pt;
+    color: #6a4c25;
+    display: inline;
+}
+
+.list-distance {
+    display: inline;
+    position: absolute;
+    right: 0px;
+    font-size: 12pt;
+
+
+}
+
+hr {
+    border: #A07D50 1px solid ;
+    margin: 0;
+    width: 100%;
+}
 /* following are edited modal part  */
 .ant-btn{
     padding:8px 22px;
@@ -121,18 +191,32 @@ div.modal-content{
     .about {
         background-image: none;
         background-color: #f2d6b6;
-        height: auto;
+        height: 400px;
+        position: absolute;
+        width: 100%;
+        display: block;
+        float: left;
         padding: 20px;
     }
 
     .about-card {
         width: 90%;
-        height: fit-content;
-        padding: 5% 5%;
-        overflow: hidden;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
+        text-align: center;
+        /* border: red 1px solid; */
+        display: block;
+        padding: 0;
     }
+
+    .about-card > div{
+        width: 100%;
+        margin: 0px;
+        /* border: black 1px solid; */
+    }
+
+   
 
     .button_container{
         width: 100%;
@@ -150,5 +234,33 @@ div.modal-content{
     .mid_nav a:hover {
         color: #c2a88b;
     }
+
+    .map {
+        height: 1050px;
+        padding: 0px;
+        border-radius: 0;
+        border: solid 0px #A07D50;
+        flex-direction: column;
+        margin-bottom: 0;
+        /* border: black 1px solid; */
+    }
+    
+    .map-container {
+        width: 100%;
+        float: left;
+        height: 500px;
+        margin-bottom: 0;
+        display: block;
+
+    }
+    
+    .map-list-container {
+        float: left;
+        width: 100%;
+        height: 100%;
+        padding: 25px;
+        margin-bottom: 0;
+    }
+
     
 }

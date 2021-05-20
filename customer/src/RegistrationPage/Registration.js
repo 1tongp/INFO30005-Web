@@ -59,44 +59,38 @@ export default function RegistrationPage(props) {
         }
     }
     return (
-        <Layout className="signupBackground">
+        <Layout>
             <Header >
 
             </Header>
 
             <Content >
-                <h2>CREATE AN ACCOUNT</h2>
+                <br /><br /><br />
+                <h1>CREATE AN ACCOUNT</h1>
                 <br />
                 <div className="signupContainer">
                     <form >
                         <input type="firstName" placeholder="First Name" className="fnameinput" onChange={e => setFirstName(e.target.value)} />
                         <input type="lastName" placeholder="Last Name" className="lnameinput" onChange={e => setLastName(e.target.value)} />
-                        <br />
-                        <br />
-                        <input type="loginEmail" placeholder="E-mail Address" onChange={e => setEmail(e.target.value)} />
-                        <br />
-                        <br />
+                        
+                        <input type="loginEmail" placeholder="Email Address" onChange={e => setEmail(e.target.value)} />
+                        
                         <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-                        <br />
-                        <br />
+                       
                         <input type="password" placeholder="Confirm Password" onChange={e => setPasswordConfirm(e.target.value)} />
                         <br />
                         <br />
 
                         <br />
 
-                        <input type="submit" value="SIGN UP NOW ►" className="btnSignup" onClick={onSignUp} />
-
-
+                        <input type="submit" value="SIGN UP NOW >>" className="btnSignup" onClick={onSignUp} />
 
                     </form>
-
-
                     <br />
                     <br />
                     <br />
 
-                    <input type="button" value="◀︎ CANCEL" className="btnCancel" onClick={toLogin} />
+                    <input type="button" value="<< CANCEL" className="btnCancel" onClick={toLogin} />
 
                 </div>
 

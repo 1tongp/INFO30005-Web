@@ -22,12 +22,13 @@ class FulfilledCheckButton extends React.Component{
             <button className="fulfilledCheck" onClick={() => this.setModal1Visible(true)}>
             <CheckOutlined />
             </button>
-            <Modal className='popup'
+            <Modal className='popup vendor-popup'
             centered
             closable={false}
             visible={this.state.modal1Visible}
             onOk={() => this.setModal1Visible(false)}
             onCancel={() => this.setModal1Visible(false)}
+            okText={'Confirm'}
             >
             <p>Order Fulfilled?</p>
 

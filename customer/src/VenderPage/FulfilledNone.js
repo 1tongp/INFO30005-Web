@@ -16,13 +16,13 @@ import {
 
 const { Header, Sider, Content } = Layout;
 
-class PrepareNoOrder extends React.Component {
+class FulfilledNone extends React.Component {
 
-  // 用下面这段把props给console出来
   constructor(props){
     super(props);
-    console.log(this.props)
+    console.log(this.props);
   }
+  
 
   state = {
     collapsed: false,
@@ -33,6 +33,13 @@ class PrepareNoOrder extends React.Component {
       collapsed: !this.state.collapsed,
     });
   };
+  
+// z这里的props传进去的type是： children。location。state。。。。
+// 但是当vendor login进来时候传的数据是 children。children。location。state。。。
+// 并且sider也是按照第二行这个结构写的，所以导致goback时候 找了两遍children， undefined，就会报错
+// 所以现在 登陆近vendor， 直接看到preparing， 然后点击fulfilled或者finished orders其中一页是可以的
+// eg： 上一步中如果从prepare 点去fulfilled，n那么这时候你如果想back to prepare或点去finished， 则会报错
+
 
   render() {
     return (
@@ -53,9 +60,8 @@ class PrepareNoOrder extends React.Component {
 
               <div className="container--PrepareNoOrder">
                 <CoffeeOutlined className="coffeeIcon"/>
-             
-                  <p>HAVE A BREAK</p>
-                  <p>THERE IS NO ORDER AT THE MOMENT</p>
+
+                  <p>THERE IS NO FULFILLED ORDER AT THE MOMENT</p>
               </div>
            
 
@@ -67,4 +73,4 @@ class PrepareNoOrder extends React.Component {
   }
 }
 
-export default PrepareNoOrder;
+export default FulfilledNone;

@@ -7,6 +7,7 @@ import SiderDemo from './Preparing'
 const { Content } = Layout;
 
 export default function Component(props) {
+    console.log(props);
     
 
     return (
@@ -16,7 +17,7 @@ export default function Component(props) {
                 <Com type="what"/>
                 <Com /> */}
 
-                <SiderDemo ></SiderDemo>
+                <SiderDemo >{props}</SiderDemo>
                
              
         

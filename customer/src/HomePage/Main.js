@@ -5,7 +5,9 @@ import click from '../images/click.png';
 import discount from '../images/discount.png';
 import React from 'react';
 import LeafMap from '../components/LeafMap.js';
-import HeaderCus from '../components/HeaderCus.js'
+import HeaderCus from '../components/HeaderCus.js';
+import MyFooter from '../components/Footer.js';
+import MapList from '../components/MapList.js';
 import '../ShoppingCart/styles.css';
 import './Main.css';
 import { Layout, Button} from 'antd';
@@ -42,42 +44,45 @@ export default function CustomerMain (props) {
                
                 <div className='section'>
                     <br /><br /><br /><br />
-                    
-                     <LeafMap data = {props}/>
 
-                    <div className='button_container'>
+                    <h2>FIND A VAN</h2>
+                    <div className='map'>
+                     <LeafMap data = {props}/>
+                     <MapList data = {props}/>
+                    
+                        
+                    </div>
+
+                    {/* <div className='button_container'>
                         <Button onClick={toLogin} className = 'btn'>
                             <UserOutlined className='main_btn'/>
                             Login and Order
-                        </Button>
+                        </Button> */}
 
                         {/* click the button to skip the login step*/} 
-                        <Button onClick={onSkip} className = 'btn'>     
+                        {/* <Button onClick={onSkip} className = 'btn'>     
                             <ProfileOutlined className='main_btn'/>                      
                             View Menu without Login
                         </Button>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="about">
                     <div className="about-card">
                         <h2 >ABOUT US</h2>
                         <br/>
-                        <div>
+                        <div className='about-info'>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla pariatur! Laborum odit modi, sapiente ex soluta eum quos natus, optio architecto, porro ab qui corporis quas! Culpa, dolorem illum!
                                 </p>
-                            </div>
+                        </div>
                     </div>
                 </div>     
-            </Content>     
+            </Content>  
 
-            <Footer>
-                <p>
-                <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
+
+            <MyFooter></MyFooter>   
+      
+     
         </Layout>
     )
 }

@@ -4,6 +4,11 @@ import {StarFilled, StarOutlined} from '@ant-design/icons';
 
 // This is the order detail component for finished orders page
 class FinishedOrderDetail extends React.Component{
+    constructor(props){
+        super(props);
+        console.log(this.props)
+        var children;
+    }
     render(){
         return <div className="container--orderdetail">
             <center><h3>ORDER DETAILS</h3></center>

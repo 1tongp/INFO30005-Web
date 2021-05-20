@@ -2,12 +2,13 @@ import {useState, useEffect} from 'react'
 import {Button} from 'react-bootstrap';
 import axios from '../API/axios';
 import Menu from '../Menu/Menu.js';
-import '../ShoppingCart/styles.css';
+// import '../ShoppingCart/styles.css';
 import logo from '../images/logo.png';
 import { Layout, message } from 'antd';
 import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
 import {useHistory} from "react-router-dom";
+import './headerstyle.css';
 const { Header } = Layout;
 
 
@@ -35,7 +36,7 @@ export default function HeaderCus(props) {
         console.log(response);
         if(response.data){
             // props push the useful data
-            props.data.history.push('/customer/order', {customerOrders: response.data.customerOrders});
+            props.data.history.push('/customer/order', {customer: props.data.location.state.customer, customerOrders: response.data.customerOrders});
         }
         else{
           message.error(response.data.error)
@@ -63,6 +64,7 @@ export default function HeaderCus(props) {
     }
 
 
+
     useEffect(() => {
         if (props.data.location.state.vendor){
             setVendorAddress(props.data.location.state.vendor.currentAddress)
@@ -85,28 +87,79 @@ export default function HeaderCus(props) {
         
     },[props.data.location.state.vendor, props.data.location.state.customer]);
         
+    const [lat, setLat] = useState('');
+    const [lng, setLng] = useState('');
+    const [vendors, setVendors] = useState([]);
+    useEffect(() =>{
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log(position);
+          setLat(position.coords.latitude)
+          setLng(position.coords.longitude)
+        });
+        axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
+          console.log(response)
+          setVendors(response.data.vendors)
+        })
+      },[lat, lng])
+
+    const onCustomerLogin = () => {
+        axios.post('/customer/login', {loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.loginEmail}).then(response =>{
+          console.log(props);
+          console.log(response);
+          if(response.data.success){
+            // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
+              props.data.history.push('/customer', {
+              customer: response.data.customer,
+              vendors: vendors,
+              position: [lat, lng]});
+          } 
+          else{
+            message.error(response.data.error)
+          }
+        }).catch(error => {
+          console.log(error)
+        })
+      }
     
     return (
         <div>
-            <Header className='header_container'>
-                <img src={logo} className='logo'/>
+            <Header id='header_container'>
+                <div id="left_container">
+                <img src={logo} id='logo'/>
+                <div id="header_loc">
+                    <div id="loc-text">
+                        <p >Current Location: </p>
+                    </div>
+                    <div id="loc-url">
+                        <a className='lc_url'>{vendorAddress}</a>
 
-                <p className='header_loc'>Current Location: <a className='lc_url'>{vendorAddress}</a></p>            
+                    </div>
+                
+                
+
+                </div>
+                
+                </div>
+                
+
+                           
                 <div className='mid_nav'>
                     <input type='checkbox' id='n_check'></input>
-                    <div class='hamburger'>
+                    <div className='hamburger' id="menubutton">
                         <label for='n_check'>
                             <MenuOutlined className='icon'/>
                         </label>
                     </div>
-                    <div className='links'>
-                        <a className='header_text' href='../customer'>HOME</a>
+                    <div className='links' id="right-container">
+                        <a></a>
+                        <Button onClick={onCustomerLogin} id='btnMenu'> HOME </Button>
                         {/* {buttonHome} */}
-                        <a className='header_text' href=''>MENU</a>
+                        <Button id='btnMenu'> MENU </Button>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
-                            <div className='u_drop_content'>
+                            <div className='u_drop_content' >
+                                
                                 {title}
                                 {buttonMyOrder}
                                 {buttonMyProfile}
