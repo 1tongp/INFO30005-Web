@@ -47,11 +47,7 @@ export default function CustomerMain (props) {
                     <h2>FIND A VAN</h2>
                     <div className='map'>
                      <LeafMap data = {props}/>
-<<<<<<< HEAD
                      <MapList data = {props}/>
-=======
-                     <MapList />
->>>>>>> 78dd29dfdc1fd0b0fbb827a42ac6accedf8b9cf6
                     
                         
                     </div>

@@ -19,11 +19,7 @@
 
 .section h3 {
     font-size: 18pt;
-<<<<<<< HEAD
     margin-bottom: 30px;
-=======
-    margin-bottom: 20px;
->>>>>>> 78dd29dfdc1fd0b0fbb827a42ac6accedf8b9cf6
     text-align: center;
 }
 
@@ -84,7 +80,6 @@
     border: solid 1px #A07D50;
     flex-direction: column;
 }
-<<<<<<< HEAD
 
 .map-container {
     width: 70%;
@@ -128,38 +123,6 @@
     font-size: 12pt;
 
 
-=======
-
-.map-container {
-    width: 70%;
-    float: left;
-}
-
-.map-list-container {
-    float: left;
-    width: 30%;
-    height: 100%;
-    padding: 25px;
-}
-
-.map-item {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    padding: 15px;
-    /* border-top: 1px #A07D50 solid; */
-}
-
-.map-item:hover {
-    background-color: #f9e1c6e2;
-}
-
-.list-name {
-    font-size: 14pt;
-}
-.list-location {
-    font-size: 12pt;
-    color: #6a4c25;
->>>>>>> 78dd29dfdc1fd0b0fbb827a42ac6accedf8b9cf6
 }
 
 hr {
