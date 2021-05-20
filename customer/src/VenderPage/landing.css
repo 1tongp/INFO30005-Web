@@ -1,0 +1,60 @@
+.landing-title {
+    text-align: center;
+}
+
+.landing-wrapper {
+    width: 90vw;
+    height: 75vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 2fr 2fr 2fr 1fr;
+    grid-template-areas: "map current"
+    "map description"
+    "map description"
+    "button button";
+}
+
+.landing-wrapper div {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.landing-wrapper div:not(:last-child) {
+    background-color: white;
+    
+}
+
+.map-wrapper {
+    grid-area: map;
+}
+
+.current-location {
+    grid-area: current;
+    padding: 10px;
+    text-align: center;
+}
+
+.current-location-title {
+    font-weight: 500;
+
+}
+
+.current-location-coords {
+    color: #C60000;
+}
+
+.add-description {
+    grid-area: description;
+    padding: 10px;
+}
+
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(placeholder);
+}
+
+.button-wrapper {
+    grid-area: button;
+    display: flex;
+    justify-content: space-between;
+}
