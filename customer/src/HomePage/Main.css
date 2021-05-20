@@ -11,6 +11,18 @@
     z-index: 30;
 }
 
+.section h2 {
+    font-size: 24pt;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.section h3 {
+    font-size: 18pt;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 .col-menu {
     width: 100%;
     display: flex;
@@ -60,7 +72,64 @@
     text-align: center;
 }
 
+.map {
+    height: 600px;
+    padding: 15px;
+    border-radius: 25px;
+    background-color: #f2d6b6;
+    border: solid 1px #A07D50;
+    flex-direction: column;
+}
 
+.map-container {
+    width: 70%;
+    float: left;
+    height: 100%;
+}
+
+.map-list-container {
+    float: left;
+    width: 30%;
+    height: 100%;
+    padding: 25px;
+}
+
+.map-item {
+    margin-bottom: 5px;
+    position: relative;
+    margin-top: 5px;
+    padding: 15px;
+    border-top: 1px #A07D50 solid;
+}
+
+.map-item:hover {
+    background-color: #f9e1c6e2;
+}
+
+.list-name {
+    font-size: 14pt;
+}
+
+.list-location {
+    font-size: 12pt;
+    color: #6a4c25;
+    display: inline;
+}
+
+.list-distance {
+    display: inline;
+    position: absolute;
+    right: 0px;
+    font-size: 12pt;
+
+
+}
+
+hr {
+    border: #A07D50 1px solid ;
+    margin: 0;
+    width: 100%;
+}
 /* following are edited modal part  */
 .ant-btn{
     padding:8px 22px;
@@ -150,5 +219,29 @@ div.modal-content{
     .mid_nav a:hover {
         color: #c2a88b;
     }
+
+    .map {
+        height: 1150px;
+        padding: 0px;
+        border-radius: 0;
+        border: solid 0px #A07D50;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    
+    .map-container {
+        width: 100%;
+        float: left;
+        margin-bottom: 0;
+    }
+    
+    .map-list-container {
+        float: left;
+        width: 100%;
+        height: 100%;
+        padding: 25px;
+        margin-bottom: 0;
+    }
+
     
 }

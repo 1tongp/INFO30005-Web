@@ -1,14 +1,16 @@
 import React from 'react';
 import './MyOrder.css';
-import { Layout } from 'antd';
+import { Layout,Button } from 'antd';
 import {StarFilled, StarOutlined} from '@ant-design/icons';
 import CountUp from '../components/CountUp.js';
-
+import axios from '../API/axios.js';
+import {useHistory} from "react-router-dom";
 const {Content } = Layout;
 
 // line 25 createTime -> updateTime
 
 export default function OrderDetail(props){
+    let history = useHistory();
     console.log(props);
     const snacks = props.order.snacksList.map(
         (singleSnack) => 
@@ -17,12 +19,22 @@ export default function OrderDetail(props){
             <td>{singleSnack.qty}</td>
             <td>{singleSnack.qty * singleSnack.snackPrice}</td>
         </tr>);
-    
+    const changeOrder = () =>{
+        history.goBack();
+        axios.post('/change/:id' + props.order.id, {snacksList : props.order.snacksList, status: "outstanding"}).then(response => {
+            if(response.data.success){
+                // using socket to implement, have not finish yet
+            }
+
+        })  
+    }
+
     return (
         <Content className="content">
         <tr >                    
             <th >{props.order.createTime.slice(0,10)}</th>
             <CountUp updatedAt={props.order.createTime}/>
+            <Button key='1'>Change Order</Button>
 
         </tr>
         <div className="flex">  

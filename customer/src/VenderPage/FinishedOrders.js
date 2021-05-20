@@ -18,6 +18,11 @@ import Sidebar from './Sider.js'
 const { Header, Sider, Content } = Layout;
 
 class Finished extends React.Component {
+  constructor(props){
+    super(props);
+    console.log(this.props)
+    var children;
+  }
   state = {
     collapsed: false,
   };
@@ -31,7 +36,7 @@ class Finished extends React.Component {
   render() {
     return (
       <Layout>
-        <Sidebar />
+        <Sidebar>{this.props}</Sidebar>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <p>SNACK IN A VAN</p>
@@ -52,8 +57,8 @@ class Finished extends React.Component {
                 <FinishedOrderList></FinishedOrderList>
               </div>
               <div className="container--FinishedOrderDetail">
-                <FinishedOrderDetail></FinishedOrderDetail>
-                <FinishedOrderDetailCancel></FinishedOrderDetailCancel>
+                <FinishedOrderDetail>{this.props}</FinishedOrderDetail>
+                <FinishedOrderDetailCancel>{this.props}</FinishedOrderDetailCancel>
               </div>
 
               

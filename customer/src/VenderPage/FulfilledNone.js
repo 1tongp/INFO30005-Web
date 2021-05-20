@@ -16,12 +16,12 @@ import {
 
 const { Header, Sider, Content } = Layout;
 
-class PrepareNoOrder extends React.Component {
+class FulfilledNone extends React.Component {
 
-  // 用下面这段把props给console出来
   constructor(props){
     super(props);
     console.log(this.props)
+    var children;
   }
 
   state = {
@@ -33,6 +33,7 @@ class PrepareNoOrder extends React.Component {
       collapsed: !this.state.collapsed,
     });
   };
+  
 
   render() {
     return (
@@ -53,9 +54,8 @@ class PrepareNoOrder extends React.Component {
 
               <div className="container--PrepareNoOrder">
                 <CoffeeOutlined className="coffeeIcon"/>
-             
-                  <p>HAVE A BREAK</p>
-                  <p>THERE IS NO ORDER AT THE MOMENT</p>
+
+                  <p>THERE IS NO FULFILLED ORDER AT THE MOMENT</p>
               </div>
            
 
@@ -67,4 +67,4 @@ class PrepareNoOrder extends React.Component {
   }
 }
 
-export default PrepareNoOrder;
+export default FulfilledNone;

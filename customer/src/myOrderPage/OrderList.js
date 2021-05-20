@@ -23,8 +23,7 @@ export default function OrderList(props){
     return(
         <Layout>
            <Header className='header_container'>                
-                <img src={logo} alt = 'logo image' className='logo'/>
-                <p className='header_loc'>Current Location: <a className='lc_url'> Union House</a></p>                 
+                <img src={logo} alt = 'logo image' className='logo'/>                
                 <div className='mid_nav'>
                     <input type='checkbox' id='n_check'></input>
                     <div class='hamburger'>

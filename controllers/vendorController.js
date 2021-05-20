@@ -100,7 +100,7 @@ exports.vendorLoginPost = function(req, res){
                 });
             }
             else{
-                res.status(200).json({error:err, message:'password incorrect'});
+                res.status(200).json({success: false, message:'password incorrect'});
             }      
         }
     })
