@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import{Button} from 'react-bootstrap';
 export default function MapList(props){
 
@@ -15,10 +16,41 @@ export default function MapList(props){
                 </div>
                 ))
             }
+=======
+export default function MapList(){
+    return(
+        <div className='map-list-container'>
+            <h3>Nearest Vans</h3>
+            <div className='map-item'>
+                <div className='list-name'>Van Name</div>
+                <div className='list-location'>Location</div>
+            </div>
+            <hr />
+            <div className='map-item'>
+                <div className='list-name'>Van Name</div>
+                <div className='list-location'>Location</div>
+            </div>
+            <hr />
+            <div className='map-item'>
+                <div className='list-name'>Van Name</div>
+                <div className='list-location'>Location</div>
+            </div>
+            <hr />
+            <div className='map-item'>
+                <div className='list-name'>Van Name</div>
+                <div className='list-location'>Location</div>
+            </div>
+            <hr />
+            <div className='map-item'>
+                <div className='list-name'>Van Name</div>
+                <div className='list-location'>Location</div>
+            </div>
+>>>>>>> 78dd29dfdc1fd0b0fbb827a42ac6accedf8b9cf6
         </div>
     )
 }
 
+<<<<<<< HEAD
 // export default function MapList(props){
 
 //     console.log(props);
@@ -77,3 +109,6 @@ export default function MapList(props){
 //         </div>
 //     )
 // }
+=======
+
+>>>>>>> 78dd29dfdc1fd0b0fbb827a42ac6accedf8b9cf6

@@ -5,6 +5,8 @@
     --darkblue:#015EBA;
 }
 
+
+
 .trigger {
     padding: 0 24px;
     font-size: 18px;
@@ -18,9 +20,9 @@
   }
   
   .logo {
-    height: 32px;
-    margin: 16px;
-    margin-left: 35%;
+    height: 54px;
+    margin-bottom: 10px;
+    margin-left: 30%;
   
   }
   
@@ -53,10 +55,6 @@ li.ant-menu-item{
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 
-
- 
-
-
 }
 
 li.ant-menu-item-selected{
@@ -65,12 +63,7 @@ li.ant-menu-item-selected{
     font-weight: bold;
     color: #000 !important;
     margin-bottom: 10px !important;
-
- 
     text-align: center;
- 
- 
-
 }
 
 .ant-menu.ant-menu-dark{
@@ -81,12 +74,17 @@ li.ant-menu-item-selected{
 
 .site-layout-background-content{
     background: var(--blue) !important;
+    overflow: scroll !important;
+    margin: '0px 0px';
+    padding: 24;
+    
 }
 
 .ant-layout-content{
- 
     border-radius: 10px;
     border-top-left-radius: 0;
+    height: 100% !important;
+    overflow: scroll !important;
 }
 
 .closevan{
@@ -108,12 +106,7 @@ li.ant-menu-item-selected{
 
 
 /* orderlist */
-.cluster{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-}
+
 
 .check{
     margin-right: auto;
@@ -128,24 +121,37 @@ li.ant-menu-item-selected{
 
 }
 
+.cluster{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
 .container--orderlist{
     background-color: white;
     border-radius: 10px;
     border:solid 1px;
     border-color: var(--darkblue);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
 }
-
-
 
 .container--basicinfo{
     color:grey ;
+    /* border: black 1px solid; */
+    width: 30%;
+    float: left;
 }
 
 .orderdetail{
     list-style-type: none;
+    /* border: black 1px solid; */
+    width: 30%;
+    float: left;
 }
 
 .time{
@@ -193,11 +199,6 @@ li.ant-menu-item-selected{
     /* margin-bottom: 15px; */
     width: 15%;
     border-radius: 10px;
-  
-
-    
-    
-    
 }
 
 
@@ -285,6 +286,11 @@ li.ant-menu-item-selected{
 
 
 /* POP UP */
+.vendor-popup {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
 .popup p{
     text-align: center;
     margin-bottom: 50px;
