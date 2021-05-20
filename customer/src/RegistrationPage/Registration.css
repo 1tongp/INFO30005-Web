@@ -6,22 +6,21 @@
    
 }
 
-
-h2{
+h1{
     letter-spacing: 5px;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 80px;
+    font-size: 24pt !important;
+    font-weight: bold !important;
 }
 
-p{
-    font-size: small;
-}
-
-input{
-    margin-bottom: 6%;
+.signupContainer form input{
+    margin-bottom: 40px;
+    height: 40px;
     background-color: white;
     border-color: #707070;
     border-width: 0.5px;
+    padding-left: 20px;
 }
 
 .button{
@@ -31,33 +30,27 @@ input{
 
 .signupContainer{
     position: relative;
-    width: 50%;
-    height: 100%;
-  
-    padding-left: 40px;
-
+    width: 100%;
+    height: auto;
+    padding: 60px;
 }
+
 .signupBackground{
-    background-color: #E8E6DF;   
-    background-image: url(background.png);
+    background-color: #eeede9 !important;   
+    /* background-image: url(background.png); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right;
     background-size: cover;
-    
-    
 }
 
-
 .fnameinput{
-    width: 45%;   
-    margin-right: 21px;
+    width: 48%;   
+    margin-right: 4%;
 }
 
 .lnameinput{
-    width: 45%;
-   
-    
+    width: 48%;
 }
 
 .footer{
@@ -65,17 +58,37 @@ input{
 }
 
 .btnSignup{
-    border:none;
-    background-color: #D9C2A7;
-    width: 200px;
-    height: 30px;
+    border: #cba983 1px solid !important;
+    background-color: #D9C2A7 !important;
+    width: 250px !important;
+    height: 40px !important;
     float: right;
+    font-weight: bold;
+    padding: 0 !important;
 }
 
 .btnCancel{
     border-color: #CCCCCC;
     background-color: #ECECEC;
-    width: 150px;
-    height: 30px;
-    text-align: center;
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media (max-width:800px) {
+    .signupContainer form input{
+        margin-bottom: 30px;
+        height: 40px;
+        width: 100%;
+    }
+
+    .signupContainer{
+        padding: 40px;
+    }
+
+    .btnSignup, .btnCancel{
+        width: 100% !important;
+    }
 }
