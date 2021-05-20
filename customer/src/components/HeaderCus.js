@@ -36,7 +36,7 @@ export default function HeaderCus(props) {
         console.log(response);
         if(response.data){
             // props push the useful data
-            props.data.history.push('/customer/order', {customerOrders: response.data.customerOrders});
+            props.data.history.push('/customer/order', {customer: props.data.location.state.customer, customerOrders: response.data.customerOrders});
         }
         else{
           message.error(response.data.error)
@@ -64,6 +64,7 @@ export default function HeaderCus(props) {
     }
 
 
+
     useEffect(() => {
         if (props.data.location.state.vendor){
             setVendorAddress(props.data.location.state.vendor.currentAddress)
@@ -86,6 +87,39 @@ export default function HeaderCus(props) {
         
     },[props.data.location.state.vendor, props.data.location.state.customer]);
         
+    const [lat, setLat] = useState('');
+    const [lng, setLng] = useState('');
+    const [vendors, setVendors] = useState([]);
+    useEffect(() =>{
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log(position);
+          setLat(position.coords.latitude)
+          setLng(position.coords.longitude)
+        });
+        axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
+          console.log(response)
+          setVendors(response.data.vendors)
+        })
+      },[lat, lng])
+
+    const onCustomerLogin = () => {
+        axios.post('/customer/login', {loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.loginEmail}).then(response =>{
+          console.log(props);
+          console.log(response);
+          if(response.data.success){
+            // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
+              props.data.history.push('/customer', {
+              customer: response.data.customer,
+              vendors: vendors,
+              position: [lat, lng]});
+          } 
+          else{
+            message.error(response.data.error)
+          }
+        }).catch(error => {
+          console.log(error)
+        })
+      }
     
     return (
         <div>
@@ -118,9 +152,9 @@ export default function HeaderCus(props) {
                     </div>
                     <div className='links' id="right-container">
                         <a></a>
-                        <a className='header_text' href='../customer'>HOME</a>
+                        <Button onClick={onCustomerLogin} id='btnMenu'> HOME </Button>
                         {/* {buttonHome} */}
-                        <a className='header_text' href=''>MENU</a>
+                        <Button id='btnMenu'> MENU </Button>
                         <a className='icon' href=''><ShoppingOutlined /></a>
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>

@@ -78,13 +78,7 @@ export default function CustomerMain (props) {
                 </div>     
             </Content>     
 
-            <Footer>
-                <p>
-                <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
+            <myfooter></myfooter>
 
      
         </Layout>
