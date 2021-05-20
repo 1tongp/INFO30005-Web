@@ -40,7 +40,8 @@ class SiderDemo extends React.Component {
             style={{
               margin: '0px 0px',
               padding: 24,
-              minHeight: 280,
+              minHeight: 300,
+              maxHeight: 720,
             }}
           >
             {/* {this.props.orderlist}

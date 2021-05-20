@@ -5,6 +5,7 @@ import './component.css'
 import './FulfilledOrderlist'
 
 import { Layout, Menu, Modal} from 'antd';
+import logo from '../images/logo.png';
 
 const { Header, Sider, Content } = Layout;
 
@@ -28,7 +29,7 @@ class Sidebar extends React.Component {
     return (
         <>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <img src="logo.png" className="logo"></img>
+        <img src={logo} className='logo'/>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1" >
               PREPARING
@@ -43,15 +44,16 @@ class Sidebar extends React.Component {
             <button className="closevan" onClick={() => this.setModal1Visible(true)}>
               CLOSE VAN
             </button>
-            <Modal className='popup'
-            centered
-            closable={false}
-            visible={this.state.modal1Visible}
-            onOk={() => this.setModal1Visible(false)}
-            onCancel={() => this.setModal1Visible(false)}
-            >
-            <p>Done for Today?</p>
-          </Modal>
+            <Modal className='popup vendor-popup'
+              centered
+              closable={false}
+              visible={this.state.modal1Visible}
+              onOk={() => this.setModal1Visible(false)}
+              onCancel={() => this.setModal1Visible(false)}
+              okText={'Confirm and Logout'}
+              >
+              <p>Done for Today?</p>
+            </Modal>
           </Menu>
         </Sider>
     </>
