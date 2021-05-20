@@ -109,11 +109,12 @@ export default function Menu(props) {
                 </div>
                 ))}
                 </div>
+                <br />
                 {/* click the button and submit the order*/}
-                <Button className='place' onClick={onSubmit}>
+                <button className='place' onClick={onSubmit}>
                     PLACE ORDER
                     <LikeOutlined className='place_icon' />
-                </Button>
+                </button>
                 <br /><br />
 
             </Content>

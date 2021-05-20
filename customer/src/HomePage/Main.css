@@ -15,6 +15,8 @@
     font-size: 24pt;
     font-weight: bold;
     margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 5px;
 }
 
 .section h3 {
@@ -48,7 +50,6 @@
     width: 40vw;
     height: 60vh;
     padding: 10vh 5vw 0 55vw;
-
 }
 
 .button_container{
@@ -190,18 +191,32 @@ div.modal-content{
     .about {
         background-image: none;
         background-color: #f2d6b6;
-        height: auto;
+        height: 400px;
+        position: absolute;
+        width: 100%;
+        display: block;
+        float: left;
         padding: 20px;
     }
 
     .about-card {
         width: 90%;
-        height: fit-content;
-        padding: 5% 5%;
-        overflow: hidden;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
+        text-align: center;
+        /* border: red 1px solid; */
+        display: block;
+        padding: 0;
     }
+
+    .about-card > div{
+        width: 100%;
+        margin: 0px;
+        /* border: black 1px solid; */
+    }
+
+   
 
     .button_container{
         width: 100%;
@@ -221,18 +236,22 @@ div.modal-content{
     }
 
     .map {
-        height: 1150px;
+        height: 1050px;
         padding: 0px;
         border-radius: 0;
         border: solid 0px #A07D50;
         flex-direction: column;
         margin-bottom: 0;
+        /* border: black 1px solid; */
     }
     
     .map-container {
         width: 100%;
         float: left;
+        height: 500px;
         margin-bottom: 0;
+        display: block;
+
     }
     
     .map-list-container {

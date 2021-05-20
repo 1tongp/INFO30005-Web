@@ -71,10 +71,10 @@ export default function CustomerMain (props) {
                     <div className="about-card">
                         <h2 >ABOUT US</h2>
                         <br/>
-                        <div>
+                        <div className='about-info'>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla pariatur! Laborum odit modi, sapiente ex soluta eum quos natus, optio architecto, porro ab qui corporis quas! Culpa, dolorem illum!
                                 </p>
-                            </div>
+                        </div>
                     </div>
                 </div>     
             </Content>  

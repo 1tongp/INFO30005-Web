@@ -8,6 +8,7 @@
     flex-wrap: wrap;
     margin: 0 auto;
     justify-content: space-between;
+    width: 100%;
     /* border: solid black 1px; */
 }
 
