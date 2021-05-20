@@ -3,6 +3,7 @@ import './Registration.css'
 import { Layout } from 'antd';
 import { CopyrightOutlined } from '@ant-design/icons';
 import axios from "../API/axios.js";
+import MyFooter from '../components/Footer.js';
 
 const { Header, Footer, Content } = Layout;
 
@@ -96,13 +97,7 @@ export default function RegistrationPage(props) {
 
             </Content>
 
-            <Footer className="footer">
-                <p>
-                    <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
+            <MyFooter></MyFooter>
 
 
         </Layout>

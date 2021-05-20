@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import logo from '../images/logo.png';
 import axios from '../API/axios.js';
 import './myorderheader.css';
+import MyFooter from '../components/Footer.js';
 const { Header, Footer, Content } = Layout;
 
 // function to loop particular custmomer's orders
@@ -110,13 +111,9 @@ export default function OrderList(props) {
                 </div>
             </Content>
 
-            <Footer>
-                <p>
-                    <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
+            <MyFooter></MyFooter>
+
+           
         </Layout>
     )
 }

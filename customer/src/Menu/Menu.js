@@ -8,6 +8,7 @@ import { Layout, InputNumber, Card } from 'antd';
 import { Button } from 'react-bootstrap';
 import { CopyrightOutlined, LikeOutlined } from '@ant-design/icons';
 import axios from '../API/axios';
+import MyFooter from '../components/Footer.js';
 
 const { Footer, Content } = Layout;
 const { Meta } = Card;
@@ -117,13 +118,7 @@ export default function Menu(props) {
                 <br /><br />
 
             </Content>
-            <Footer>
-                <p>
-                    <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
+            <MyFooter></MyFooter>
         </Layout>
     )
 }
