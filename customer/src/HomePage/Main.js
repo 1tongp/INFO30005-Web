@@ -85,6 +85,8 @@ export default function CustomerMain (props) {
                 All Rights Reserved
                 </p>
             </Footer>
+
+     
         </Layout>
     )
 }
