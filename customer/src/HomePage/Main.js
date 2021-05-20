@@ -6,6 +6,7 @@ import discount from '../images/discount.png';
 import React from 'react';
 import LeafMap from '../components/LeafMap.js';
 import HeaderCus from '../components/HeaderCus.js';
+import MyFooter from '../components/Footer.js';
 import MapList from '../components/MapList.js';
 import '../ShoppingCart/styles.css';
 import './Main.css';
@@ -76,16 +77,11 @@ export default function CustomerMain (props) {
                             </div>
                     </div>
                 </div>     
-            </Content>     
+            </Content>  
 
-            <Footer>
-                <p>
-                <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
+            <MyFooter></MyFooter>   
 
+      
      
         </Layout>
     )

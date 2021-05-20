@@ -6,6 +6,7 @@ import '../ShoppingCart/styles.css';
 import OrderDetail from './OrderDetail.js';
 import {useHistory} from "react-router-dom";
 import logo from '../images/logo.png';
+import './myorderheader.css';
 const { Header, Footer, Content } = Layout;
 
 // function to loop particular custmomer's orders
@@ -22,19 +23,34 @@ export default function OrderList(props){
 
     return(
         <Layout>
-           <Header className='header_container'>                
-                <img src={logo} alt = 'logo image' className='logo'/>                
-                <div className='mid_nav'>
+
+           <Header id='header_container'>   
+                <div id = 'left_container'>
+                    <img src={logo} alt = 'logo image' id='logo'/> 
+                </div>             
+                               
+                <div className='mid_nav' id='right_container'>
                     <input type='checkbox' id='n_check'></input>
                     <div class='hamburger'>
                         <label for='n_check'>
                             <MenuOutlined className='icon'/>
                         </label>
                     </div>
-                    <div className='links'>
-                        <a className='header_text' href='../'>HOME</a>
-                        <Button onClick = {history.goBack} id='btnMenu'> MENU </Button>
-                        <a className='icon' href=''><ShoppingOutlined /></a>
+                    <div className='links ' id = 'link_container'>
+                        <a></a>
+                
+                            <a className='header_text' href='../'>HOME</a>
+                            <div> <Button onClick = {history.goBack} id='btnMenu'> MENU </Button></div>
+                    
+                   
+                            
+                   
+                
+                            <a className='icon' href=''><ShoppingOutlined /></a>
+                
+                        
+                        
+                        
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
