@@ -21,7 +21,6 @@ class Finished extends React.Component {
   constructor(props){
     super(props);
     console.log(this.props)
-    var children;
   }
   state = {
     collapsed: false,
@@ -51,15 +50,15 @@ class Finished extends React.Component {
           >
            
             {/* The finished orders page components */}
-            <Searchbar></Searchbar>
+            <Searchbar>{this.props}</Searchbar>
             <div className="cluster container--FinishedContent">
               <div className="container--FinishedOrderList">
-                <FinishedOrderList></FinishedOrderList>
+                <FinishedOrderList>{this.props}</FinishedOrderList>
               </div>
-              <div className="container--FinishedOrderDetail">
+              {/* <div className="container--FinishedOrderDetail">
                 <FinishedOrderDetail>{this.props}</FinishedOrderDetail>
                 <FinishedOrderDetailCancel>{this.props}</FinishedOrderDetailCancel>
-              </div>
+              </div> */}
 
               
               

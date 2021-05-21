@@ -35,7 +35,7 @@ class SiderDemo extends React.Component {
   render() {
     return (
       <Layout>
-        <Sidebar>{this.props}</Sidebar>
+        <Sidebar>{this.props.children}</Sidebar>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <p>SNACK IN A VAN</p>

@@ -10,33 +10,7 @@ class SingleOrder extends React.Component {
 
     render() {
         return (
-            // {
-            //     this.props.children.children.location.state.orders.map((order) => (
-            //         <div className="container--orderlist">
-
-
-            //             <div className="container--basicinfo">
-            //                 <p>ordernumber: 293y7458923y2</p>
-            //                 <p>Name</p>
-            //                 <p>00-00-0000</p>
-            //                 <p>00:00</p>
-            //             </div>
-            //             <div className="orderdetail">
-            //                 <li>num x Drink Name</li>
-            //                 <li>num x Snack Name</li>
-            //             </div>
-            //             <div>
-            //                 <p className="time">00:00:00</p>
-            //                 <CheckButton />
-            //             </div>
-
-            //         </div>
-            //     ))
-            // }
-
             <div className="container--orderlist">
-
-
                 <div className="container--basicinfo">
                     <p>Order ID: {this.props.children._id}</p>
                     <p>Customer ID: {this.props.children.customer}</p>
@@ -52,7 +26,7 @@ class SingleOrder extends React.Component {
                 </div>
                 <div>
                     <p className="time">00:00:00</p>
-                   <CheckButton />
+                    <CheckButton>{this.props}</CheckButton>
                 </div>
 
             </div>
