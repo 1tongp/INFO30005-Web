@@ -24,46 +24,52 @@ class Sidebar extends React.Component {
     this.setState({ modal1Visible });
 }
 
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
+  // toggle = () => {
+  //   this.setState({
+  //     collapsed: !this.state.collapsed,
+  //   });
+  // };
 
   toPrepar = () => {
-    axios.get('/order/' + this.props.children.children.location.state.vendor.id + '?status=outstanding').then(response =>{
+    axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=outstanding').then(response =>{
       console.log(response);
       if(!response.data.success){
-        this.props.children.children.history.push('/vendor/preparing/noorder', {vendor: this.props.children.children.location.state.vendor})
+        this.props.children.history.push('/vendor/preparing/noorder', {vendor: this.propschildren.location.state.vendor})
       }
       else{
-        this.props.children.children.history.push('/vendor/preparing', {vendor: this.props.children.children.location.state.vendor, orders: response.data.orders});
+        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders: response.data.orders});
       }
     })
   }
 
   toFulfilled = () => {
-    axios.get('/order/' + this.props.children.children.location.state.vendor.id + '?status=fulfilled').then(response =>{
+    axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=fulfilled').then(response =>{
       console.log(response);
+      console.log(this.props);
       if(!response.data.success){
-        this.props.children.children.history.push('/vendor/fulfilledNone', {vendor: this.props.children.children.location.state.vendor})
+        this.props.children.history.push('/vendor/fulfilledNone', {vendor: this.props.children.location.state.vendor})
       }
       else{
-        this.props.children.children.history.push('/vendor/fulfilled', {vendor: this.props.children.children.location.state.vendor, orders: response.data.orders});
+        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders: response.data.orders});
       }
     })
   }
 
   toFinished = () => {
-    axios.get('/order/' + this.props.children.children.location.state.vendor.id + '?status=finished').then(response =>{
+    axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=finished').then(response =>{
       console.log(response);
       if(!response.data.success){
-        this.props.children.children.history.push('/vendor/finished/empty', {vendor: this.props.children.children.location.state.vendor})
+        this.props.children.history.push('/vendor/finished/empty', {vendor: this.props.children.location.state.vendor})
       }
       else{
-        this.props.children.children.history.push('/vendor/fulfilled', {vendor: this.props.children.children.location.state.vendor, orders: response.data.orders});
+        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders: response.data.orders});
       }
     })
+  }
+
+  toClose = () =>{
+    alert("You've closed the snack van!")
+    this.props.children.history.push('../');
   }
   render() {
     return (
@@ -88,7 +94,7 @@ class Sidebar extends React.Component {
               centered
               closable={false}
               visible={this.state.modal1Visible}
-              onOk={() => this.setModal1Visible(false)}
+              onOk={() => this.setModal1Visible(false), this.toClose}
               onCancel={() => this.setModal1Visible(false)}
               okText={'Confirm and Logout'}
               >
