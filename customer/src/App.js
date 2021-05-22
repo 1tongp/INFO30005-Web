@@ -81,6 +81,30 @@ function App(props) {
 
 
   const [vendorDetail, setVendorDetail] = useState('');
+  // const onVendorLogin = () => {
+  //   axios.post('/vendor/login', {name : name, password: password}).then(response =>{
+  //     console.log(props);
+  //     console.log(response);
+  //     if(response.data.success){
+  //       setVendorDetail(response.data.vendor);
+  //       message.success('Logged in successfully!')        
+  //       axios.get('/order/' + response.data.vendor.id + '?status=outstanding').then(response2 =>{
+  //         console.log(response2);
+  //         if(!response2.data.success){
+  //           props.history.push('/vendor/preparing/noorder', {vendor: response.data.vendor})
+  //         }
+  //         else{
+  //           props.history.push('/vendor/preparing', {vendor: response.data.vendor, orders: response2.data.orders});
+  //         }
+  //       })
+  //     }
+  //     else{
+  //       message.error(response.data.error)
+  //     }
+  //   }).catch(error => {
+  //     console.log(error)
+  //   })
+  // }
   const onVendorLogin = () => {
     axios.post('/vendor/login', {name : name, password: password}).then(response =>{
       console.log(props);
@@ -88,15 +112,9 @@ function App(props) {
       if(response.data.success){
         setVendorDetail(response.data.vendor);
         message.success('Logged in successfully!')        
-        axios.get('/order/' + response.data.vendor.id + '?status=outstanding').then(response2 =>{
-          console.log(response2);
-          if(!response2.data.success){
-            props.history.push('/vendor', {vendor: response.data.vendor})
-          }
-          else{
-            props.history.push('/vendor/preparing', {vendor: response.data.vendor, orders: response2.data.orders});
-          }
-        })
+        props.history.push('/vendor', {
+          vendor: response.data.vendor,
+          position: [lat, lng]});
       }
       else{
         message.error(response.data.error)

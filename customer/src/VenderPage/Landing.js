@@ -16,7 +16,7 @@ import Sidebar from './Sider.js'
 
 import VendorMap from '../components/vendorMap';
 import { useState, useEffect } from 'react';
-
+import axios from '../API/axios.js';
 
 
 
@@ -25,6 +25,7 @@ const { Header, Sider, Content } = Layout;
 
 
 export default function VendorMain(props) {
+  console.log(props);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -58,11 +59,19 @@ export default function VendorMain(props) {
   // console.dir(props.location.state.position);
 
   const toLogin = () => {
-    props.history.push('/customer/login')
+    props.history.push('../')
   }
 
   const openVan = () => {
-    props.history.push('/preparing')
+    axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response =>{
+      console.log(response);
+      if(!response.data.success){
+        props.history.push('/vendor/preparing/noorder', {vendor: props.location.state.vendor})
+      }
+      else{
+        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders: response.data.orders});
+      }
+    })
   }
 
 
@@ -136,7 +145,7 @@ export default function VendorMain(props) {
               <p className="current-location-p">
                 <Form>
                   <Form.Label>Add Adress</Form.Label>
-                  <Form.Control type="text" placeholder="123 Street St, Melbourne" onChange={e => setAdress(e.target.value)}  />
+                  <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)}  />
                 </Form>
                 <br />
                 <span className="current-location-coords">
@@ -145,11 +154,11 @@ export default function VendorMain(props) {
               </ p>
             </div>
 
-            <div className="add-description" placeholder="Add description">
+            <div className="add-description" >
               <Form>
                 <Form.Group>
                   <Form.Label>Add description</Form.Label>
-                  <Form.Control as="textarea" rows={2} onChange={e => setDesc(e.target.value)} />
+                  <Form.Control type="desc" placeholder="Add address descriptions" rows={2} onChange={e => setDesc(e.target.value)} />
                 </Form.Group>
               </Form>
 
