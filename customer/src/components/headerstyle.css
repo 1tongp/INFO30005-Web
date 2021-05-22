@@ -69,9 +69,20 @@
 
 }
 
+.u_drop_content{
+    z-index: 4;
+}
+
 
 
 @media screen and (max-width:800px) {
+    .btn-primary{
+        margin: 0 !important;
+    }
+
+
+
+
     #header_container{
         padding-left: 20px !important;
         padding-right: 20px !important;
@@ -100,7 +111,7 @@
     }
 
     #right-container>*+*{
-        margin: 0;
+        margin: 0px;
     }
 
     
@@ -122,5 +133,15 @@
 
 #btnMenu{
     margin: 0 !important;
-    margin-left: 18px !important;
+    padding-left: 36px !important;
+  
 }
+
+.icon{
+    margin-left: 36px !important;
+}
+
+.drop{
+    margin-left: 0 !important;
+}
+

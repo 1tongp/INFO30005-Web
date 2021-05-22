@@ -215,6 +215,26 @@ a.btn-primary:hover{
 
 }
 
+.container--menu{
+    padding: 6%;
+}
+
+.ant-input-number{
+    border-radius: 50px !important;
+}
+
+.menu{
+    margin-top: 50px !important;
+
+}
+
+.card-info{
+    z-index: 1;
+}
+
+.menu-card{
+    z-index: 1;
+}
 
 
 @media (max-width:850px) { 

@@ -182,9 +182,16 @@ div.modal-content{
 }
 
 .about-card > h2{
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    margin: 0;
     white-space: nowrap;
 }
+
+.about-info{
+    width: 100% !important;
+    min-width: 300px;
+}
+
 
 
 @media (max-width:800px) {
@@ -212,7 +219,8 @@ div.modal-content{
 
     .about-card > div{
         width: 100%;
-        margin: 0px;
+
+
         /* border: black 1px solid; */
     }
 

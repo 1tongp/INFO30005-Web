@@ -69,8 +69,8 @@ export default function Menu(props) {
     }
     return (
         <Layout>
-            <Content className='container'>
-                <h1>MENU</h1>
+            <div className="container--menu">
+                <h1 classname="font--menu">MENU</h1>
                 {/* loop each snack in the database and show them out as a menu, the customer can choose the amount they want to order */}
                 <div className="menu">
                 {props.snacks.map((snack, index) => (
@@ -100,7 +100,7 @@ export default function Menu(props) {
                                 <p>{snack.snackDescription}</p>
                             </div>
                             <div className="card-btns">
-                            <InputNumber key={snack._id} min={0} defaultValue={0}  onChange={e=>onChange(index, e)} />
+                            <InputNumber classname="input--number" key={snack._id} min={0} defaultValue={0}  onChange={e=>onChange(index, e)} />
                                 {/* <img src={minus} alt="" />
                                     <p className="order-number">1</p>
                                     <img src={plus} alt="" />
@@ -118,7 +118,7 @@ export default function Menu(props) {
                 </button>
                 <br /><br />
 
-            </Content>
+            </div>
             <MyFooter></MyFooter>
         </Layout>
     )

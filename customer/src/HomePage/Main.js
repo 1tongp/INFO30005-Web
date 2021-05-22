@@ -34,7 +34,7 @@ export default function CustomerMain (props) {
         <Layout>
             <HeaderCus data = {props}/>
             
-            <Content className=''>
+            <div>
                 <img src={cart} className='main_img'/>
                 <div className="col-menu">
                     <div className="col-img"><img src={m} /></div>
@@ -77,7 +77,7 @@ export default function CustomerMain (props) {
                         </div>
                     </div>
                 </div>     
-            </Content>  
+            </div>  
 
 
             <MyFooter></MyFooter>   
