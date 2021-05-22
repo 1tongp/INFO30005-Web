@@ -134,11 +134,17 @@
 #btnMenu{
     margin: 0 !important;
     padding-left: 36px !important;
+    transition: 0.75s;
   
 }
 
 .icon{
-    margin-left: 36px !important;
+    margin-left: 0 !important;
+    padding-left: 36px !important;
+}
+
+.icon:hover{
+    color: white !important;
 }
 
 .drop{
