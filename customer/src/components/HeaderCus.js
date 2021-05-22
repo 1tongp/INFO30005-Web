@@ -21,7 +21,6 @@ export default function HeaderCus(props) {
     const [title, setTitle] = useState('');
     const [buttonMyOrder, setButtonMyOrder] = useState([]);
     const [buttonLogOut, setButtonLogOut] = useState([]);
-    const [buttonHome, setButtonHome] = useState([]);
     const [buttonMyProfile, setButtonProfile] = useState([]);
 
     const toLogin = () =>{
