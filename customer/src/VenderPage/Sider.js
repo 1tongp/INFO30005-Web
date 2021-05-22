@@ -76,6 +76,14 @@ class Sidebar extends React.Component {
 
   toClose = () =>{
     alert("You've closed the snack van!")
+    axios.post('/vendor/park/' + this.props.children.location.state.vendor.id,{
+      currentAddress: 'none',
+      parked: false,
+      readyForOrder: false,
+      location: ['0','0']
+    }).then(response1 =>{
+      console.log(response1);
+    })
     this.props.children.history.push('../');
   }
   render() {

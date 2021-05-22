@@ -63,6 +63,14 @@ export default function VendorMain(props) {
   }
 
   const openVan = () => {
+    axios.post('/vendor/park/' + props.location.state.vendor.id,{
+      currentAddress: adress,
+      parked: true,
+      readyForOrder: true,
+      location: [lat, lng]
+    }).then(response1 =>{
+      console.log(response1);
+    })
     axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response =>{
       console.log(response);
       if(!response.data.success){
