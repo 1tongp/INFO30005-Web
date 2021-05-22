@@ -29,12 +29,16 @@ import { Empty } from 'antd';
 
 function Orders(props) {
     const [orders, setOrders] = useState([])
+    const [status, setStatus] = useState('') 
     const id = props.id
     //console.log(id);
 
     useEffect(() => {
         console.log(id);
         console.log(props);
+        if (props.status) {
+            setStatus(props.status)
+        }
         // async function fetchData() {
         //     axios.get("/order?" + props.target + "=" + id + props.status).then(response => {
         //         console.log(response.data);
@@ -50,7 +54,7 @@ function Orders(props) {
         // }
         // fetchData()
         async function fetchData() {
-            axios.get("/order?" + props.target + "=" + id).then(response => {
+            axios.get("/order?" + props.target + "=" + id + status).then(response => {
                 if (response.data.success){
                     setOrders(response.data.customerOrders)
                 } else {
