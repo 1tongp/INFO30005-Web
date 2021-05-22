@@ -1,7 +1,6 @@
 import React from 'react';
 import './component.css'
-import FinishedOrderDetail from './FinishedOrderDetail.js'
-import FinishedOrderDetailCancel from './FinishedCancel'
+import DetailButton from './ViewDetail.js'
 
 // This is order list component for finished orders page 
 class FinishedOrderList extends React.Component {
@@ -11,23 +10,22 @@ class FinishedOrderList extends React.Component {
     }
     render() {
         return (
-            <div className="cluster container--finishedorderlist">
+            <div className="container--finishedorderlist">
                 {
                     this.props.children.location.state.orders.map((singleOrder) => (
-                        <>
-                            <div>
+                        <>  
+                            <div> 
                                 <p>Order Id: {singleOrder._id}</p>
                                 <p>Customer Id: {singleOrder.customer}</p>
-                            </div>
-                            <div>
                                 <p>{singleOrder.createTime.slice(0, 10)} {singleOrder.createTime.slice(11, 19)}</p>
                                 <p>Order Status: {singleOrder.status}</p>
+                            </div>
+                            <DetailButton> View Order Detail</DetailButton>
 
-                            </div>
-                            <div className="container--FinishedOrderDetail">
-                                <FinishedOrderDetail>{singleOrder}</FinishedOrderDetail>
+                            {/* <div className="container--FinishedOrderDetail"> */}
+                                {/* <FinishedOrderDetail>{singleOrder}</FinishedOrderDetail> */}
                                 {/* <FinishedOrderDetailCancel>{singleOrder}</FinishedOrderDetailCancel> */}
-                            </div>
+                            {/* </div> */}
                         </>
                     ))
                 }

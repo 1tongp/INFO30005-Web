@@ -111,7 +111,6 @@ li.ant-menu-item-selected{
 .check{
     margin-right: auto;
     margin-left: auto;
-   
     width: 95%;
     padding: 20px;
     border-radius: 15px;
@@ -207,13 +206,29 @@ li.ant-menu-item-selected{
     background-color: white;
     border-radius: 10px;
     border:solid 1px;
-    border-color: grey;
-    padding-top: 10px;
+    border-color: var(--darkblue);
     margin-bottom: 10px;
-  
-
+    width: 100%;
+    padding: 20px;
+    justify-content: space-between;
+    display: flex;
 }
 
+.container--finishedorderlist Button {
+    position: relative;
+    height: 100%;
+    margin-top: 90px;
+    /* margin-top: 45px; */
+    right: 0;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--green);
+    color: black;
+    border: none;
+    white-space: nowrap;
+    text-align: center;
+
+}
 .container--orderdetail{
     background-color: white;
     border-radius: 10px;
@@ -224,13 +239,10 @@ li.ant-menu-item-selected{
     height: fit-content;
     min-height: 400px;
     padding: 10px;
-   
- 
-
 }
 
 .container--FinishedOrderList{
-    width: 40%;
+    width: 100%;
     margin-right: 20px;
 }
 
@@ -239,16 +251,12 @@ li.ant-menu-item-selected{
 }
 
 .container--FinishedContent{
-
     justify-content: start !important;
-
-
 }
 
 .container--empty{
     padding-top: 150px;
     text-align: center;
-    
 }
 
 .child--FinishedDetail{
@@ -306,4 +314,7 @@ li.ant-menu-item-selected{
     width: 49%;
 }
 
+.detail-popup button {
+    width: 100%;
+}
 
