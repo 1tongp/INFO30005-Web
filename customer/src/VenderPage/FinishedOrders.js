@@ -51,9 +51,9 @@ class Finished extends React.Component {
            
             {/* The finished orders page components */}
             <Searchbar>{this.props}</Searchbar>
-            <div className="cluster container--FinishedContent">
+            {/* <div className="container--FinishedContent"> */}
               {/* <div className="container--FinishedOrderList"> */}
-                <FinishedOrderList>{this.props}</FinishedOrderList>
+            <FinishedOrderList>{this.props}</FinishedOrderList>
               {/* </div> */}
               {/* <div className="container--FinishedOrderDetail">
                 <FinishedOrderDetail>{this.props}</FinishedOrderDetail>
@@ -64,7 +64,7 @@ class Finished extends React.Component {
               
 
 
-            </div>
+            {/* </div> */}
           </Content>
         </Layout>
       </Layout>
