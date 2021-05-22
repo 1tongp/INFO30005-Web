@@ -16,6 +16,7 @@ import PrepareNoOrder from './VenderPage/PrepareNoOrder';
 import FinishedEmpty from './VenderPage/FinishedEmpty';
 import MyProfile from './MyProfile/MyProfile.js';
 import FulfilledNone from './VenderPage/FulfilledNone.js';
+import Vendor from './VenderPage/Landing'
 
 class Router extends React.Component{
     render(){
@@ -40,6 +41,7 @@ class Router extends React.Component{
                     <Route path="/vendor/finished" exact component={Finished}></Route>
                     <Route path="/vendor/preparing/noorder" exact component={PrepareNoOrder}></Route>
                     <Route path="/vendor/finished/empty" exact component={FinishedEmpty}></Route>
+                    <Route path="/vendor" exact component={Vendor}></Route>
                 </Switch>
             </BrowserRouter>
         )
