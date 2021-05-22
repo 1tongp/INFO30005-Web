@@ -1,0 +1,32 @@
+.comment-popup {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 8%;
+    padding: 50px;
+    background-color: white;
+    border: black 1px solid;
+    text-align: center;
+}
+
+.comment-popup form .input{
+    width: 100%;
+    border: rgb(176, 176, 176) 1px solid;
+    border-radius: 15px;
+    height: 150px;
+    text-align: left;
+    padding: 10px 20px;
+    color: rgb(186, 186, 186);
+    margin-bottom: 20px;
+}
+
+.comment-popup button {
+    width: 100%;
+    margin-top: 0;
+}
+
+.comment-popup .stars {
+    font-size: 18pt;
+    
+}
+

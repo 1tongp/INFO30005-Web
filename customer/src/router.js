@@ -17,6 +17,7 @@ import FinishedEmpty from './VenderPage/FinishedEmpty';
 import MyProfile from './MyProfile/MyProfile.js';
 import FulfilledNone from './VenderPage/FulfilledNone.js';
 import Vendor from './VenderPage/Landing'
+import CommentPop from './components/CommentPopup.js'
 
 class Router extends React.Component{
     render(){
@@ -42,6 +43,8 @@ class Router extends React.Component{
                     <Route path="/vendor/preparing/noorder" exact component={PrepareNoOrder}></Route>
                     <Route path="/vendor/finished/empty" exact component={FinishedEmpty}></Route>
                     <Route path="/vendor" exact component={Vendor}></Route>
+
+                    <Route path="/customer/comment" exact component={CommentPop}></Route>
                 </Switch>
             </BrowserRouter>
         )
