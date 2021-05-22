@@ -41,7 +41,7 @@ class DetailButton extends React.Component{
             ]}
             >
                 {/* place order details here */}
-                {/* <FinishedOrderDetail /> */}
+                <FinishedOrderDetail>{this.props.children[1]}</FinishedOrderDetail>
 
                 
           </Modal>

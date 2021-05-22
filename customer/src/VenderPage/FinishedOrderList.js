@@ -20,7 +20,7 @@ class FinishedOrderList extends React.Component {
                                 <p>{singleOrder.createTime.slice(0, 10)} {singleOrder.createTime.slice(11, 19)}</p>
                                 <p>Order Status: {singleOrder.status}</p>
                             </div>
-                            <DetailButton> View Order Detail</DetailButton>
+                            <DetailButton> View Order Detail{singleOrder}</DetailButton>
 
                             {/* <div className="container--FinishedOrderDetail"> */}
                                 {/* <FinishedOrderDetail>{singleOrder}</FinishedOrderDetail> */}
