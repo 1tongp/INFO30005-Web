@@ -20,15 +20,22 @@ class Sidebar extends React.Component {
     modal1Visible: false,
   };
 
+  // handleClick = e => {
+  //   console.log('click ', e);
+  //   this.setState({
+  //     current: e.key,
+  //   });
+  // };
+
   setModal1Visible(modal1Visible) {
     this.setState({ modal1Visible });
 }
 
-  // toggle = () => {
-  //   this.setState({
-  //     collapsed: !this.state.collapsed,
-  //   });
-  // };
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  };
 
   toPrepar = () => {
     axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=outstanding').then(response =>{
@@ -76,7 +83,14 @@ class Sidebar extends React.Component {
         <>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
         <img src={logo} className='logo'/>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu
+          defaultSelectedKeys={['1']}
+          mode="inline"
+          theme="dark"
+          // onClick={this.handleClick}
+          // selectedKeys={[this.state.current]}
+          // inlineCollapsed={this.state.collapsed}
+        >
             <Menu.Item key="1" onClick={this.toPrepar}>
               PREPARING
             </Menu.Item>

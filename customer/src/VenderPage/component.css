@@ -57,7 +57,7 @@ li.ant-menu-item{
 
 }
 
-li.ant-menu-item-selected{
+.ant-menu-item-selected{
     background-color: var(--blue) !important;
     margin: 0 !important;
     font-weight: bold;
@@ -159,7 +159,7 @@ li.ant-menu-item-selected{
 }
 
 .fulfilled{
-    background-color: #E5E5E5;
+    background-color: #e5e5e59e;
     border-color: grey;
 }
 
@@ -179,25 +179,30 @@ li.ant-menu-item-selected{
 
 /* searchbar */
 .container--search{
-    margin-bottom: 20px;
+    /* margin-bottom: 50px; */
+    display: inline;
 }
 
 .searchbar{
     padding: 4px 15px;
-    /* margin-bottom: 20px; */
-    display: inline-block;
+    margin-bottom: 20px;
+    display: inline;
+    width: 84%;
+    border-radius: 10px;
 }
 
 .btn--search{
-  
-    margin-left: 10px;
-    background-color: var(--green);
-    border:splid 2px;
-    border-color: darkgreen;
-    padding: 0 15px;
-    /* margin-bottom: 15px; */
+    display: inline;
     width: 15%;
+    /* position: relative; */
+    margin-left: 1%;
+    background-color: var(--green);
+    border:solid 1px;
+    border-color: darkgreen;
+    padding: 5px 15px;
+    /* margin-bottom: 15px; */
     border-radius: 10px;
+    white-space: nowrap;
 }
 
 
@@ -217,7 +222,7 @@ li.ant-menu-item-selected{
 .container--finishedorderlist Button {
     position: relative;
     height: 100%;
-    margin-top: 90px;
+    margin-top: 140px;
     /* margin-top: 45px; */
     right: 0;
     padding: 20px;
@@ -230,15 +235,24 @@ li.ant-menu-item-selected{
 
 }
 .container--orderdetail{
-    background-color: white;
-    border-radius: 10px;
+    /* background-color: white; */
+    /* border-radius: 10px;
     border:solid 1px;
-    border-color: grey;
+    border-color: grey; */
     padding-top: 10px;
-    margin-bottom: 10px;
+    margin: 0px;
     height: fit-content;
     min-height: 400px;
     padding: 10px;
+    width: 100%;
+    padding-bottom: 0px;
+}
+
+.container--orderdetail h3 {
+    margin-bottom: 15px;
+}
+.container--orderdetail li{
+    margin-bottom: 10px;
 }
 
 .container--FinishedOrderList{
@@ -261,8 +275,6 @@ li.ant-menu-item-selected{
 
 .child--FinishedDetail{
     list-style-type: none;
-    margin-left: 20px;
-    margin-bottom: 20px;
 
 }
 
@@ -271,7 +283,8 @@ li.ant-menu-item-selected{
 }
 
 .font--totalprice{
-    font-size:large;
+    font-size: 12pt;
+    font-weight: bold;
 }
 
 .font--cancel{
@@ -316,5 +329,9 @@ li.ant-menu-item-selected{
 
 .detail-popup button {
     width: 100%;
+    font-size: 14pt;
+    border-radius: 25px;
+    height: 30pt;
 }
+
 

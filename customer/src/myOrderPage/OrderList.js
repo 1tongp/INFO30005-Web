@@ -3,11 +3,12 @@ import './MyOrder.css';
 import { Layout, Button } from 'antd';
 import { ShoppingOutlined, UserOutlined, MenuOutlined, CopyrightOutlined } from '@ant-design/icons';
 import '../ShoppingCart/styles.css';
-import OrderDetail from './OrderDetail.js';
+import OrderListCom from '../components/OrderListCom.js'
 import { useHistory } from "react-router-dom";
 import logo from '../images/logo.png';
 import axios from '../API/axios.js';
 import './myorderheader.css';
+import { Component } from 'react';
 const { Header, Footer, Content } = Layout;
 
 // function to loop particular custmomer's orders
@@ -18,8 +19,14 @@ export default function OrderList(props) {
     const [lat, setLat] = useState('');
     const [lng, setLng] = useState('');
     const [vendors, setVendors] = useState([]);
-
+    // const [target, setTarget] = useState('');
+    // const [status, setStatus] = useState('');
+ 
     useEffect(() => {
+        // setTarget('customer');
+        // setStatus('&status=outstanding');
+        // console.log(target);
+        // console.log(status);
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position);
             setLat(position.coords.latitude)
@@ -47,13 +54,7 @@ export default function OrderList(props) {
         })
       }
 
-    const loopOrders = props.location.state.customerOrders.map((singleOrder) => {
-        return (
-            <OrderDetail
-                key={singleOrder._id}
-                order={singleOrder} />
-        )
-    })
+    //console.log(props);
 
 
     return (
@@ -106,7 +107,7 @@ export default function OrderList(props) {
                 </center>
 
                 <div>
-                    {loopOrders}
+                    <OrderListCom id = {props.location.state.customer.id} orders= {props.location.state.customerOrders} target = {props.location.state.target}/>
                 </div>
             </Content>
 

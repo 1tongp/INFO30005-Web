@@ -35,9 +35,10 @@ export default function HeaderCus(props) {
         console.log(response);
         if(response.data){
             // props push the useful data
-            props.data.history.push('/customer/order', {customer: props.data.location.state.customer, customerOrders: response.data.customerOrders});
+            props.data.history.push('/customer/order', {customer: props.data.location.state.customer, customerOrders: response.data.customerOrders, target: 'customer'});
         }
         else{
+          props.data.history.push('/customer/order', {target: 'customer'});
           message.error(response.data.error)
         }
       }).catch(error => {
