@@ -27,20 +27,20 @@ class DetailButton extends React.Component{
             <button onClick={() => this.setModal1Visible(true)}>
             <ContainerOutlined /> View Order Detail
             </button>
-            <Modal className='popup detail-popup'
+            <Modal className='detail-popup'
             centered
             closable={false}
             visible={this.state.modal1Visible}
             onOk={() => this.setModal1Visible(false)}
             cancelButtonProps={{ style: { display: 'none' } }}
             okText={'Close'}
+            width={600}
             footer={[
                 <Button className='close-detail-btn' type='primary' onClick={() => this.setModal1Visible(false)}>
                     Close
                 </Button>
             ]}
             >
-                {/* place order details here */}
                 <FinishedOrderDetail>{this.props.children[1]}</FinishedOrderDetail>
 
                 

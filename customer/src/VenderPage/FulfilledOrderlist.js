@@ -13,10 +13,10 @@ class FulfilledOrderlist extends React.Component {
     }
     render() {
         return (
-            <div className="cluster container--orderlist fulfilled">
+            <div >
             {
                 this.props.children.location.state.orders.map((order) => (
-                    <div className="cluster container--orderlist fulfilled">
+                    <div className=" container--orderlist fulfilled">
                         <div className="container--basicinfo">
                             <p>Order ID: {order._id}</p>
                             <p>Customer ID: {order.customer}</p>
@@ -34,9 +34,6 @@ class FulfilledOrderlist extends React.Component {
                         <div>
                             <p className="time">00:00:00</p>
                             <FulfilledCheckButton className="fulfilledCheck">{order}</FulfilledCheckButton>
-
-
-
                         </div>
 
 

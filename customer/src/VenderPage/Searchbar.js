@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './component.css'
+import {SearchOutlined} from '@ant-design/icons';
 
 
 
@@ -43,7 +44,7 @@ export default function Searchbar(props) {
 
 
 
-            <button className="btn--search">Search</button>
+            <button className="btn--search"> <SearchOutlined /> Search</button>
 
 
 
