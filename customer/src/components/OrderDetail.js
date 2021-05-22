@@ -1,8 +1,8 @@
 import React from 'react';
-import './MyOrder.css';
+import '../myOrderPage/MyOrder.css';
 import { Layout,Button } from 'antd';
 import {StarFilled, StarOutlined} from '@ant-design/icons';
-import CountUp from '../components/CountUp.js';
+import CountUp from './CountUp.js';
 import axios from '../API/axios.js';
 import {useHistory} from "react-router-dom";
 const {Content } = Layout;
@@ -10,8 +10,8 @@ const {Content } = Layout;
 // line 25 createTime -> updateTime
 
 export default function OrderDetail(props){
-    let history = useHistory();
-    console.log(props);
+    // let history = useHistory();
+    //console.log(props.order.snacksList);
     const snacks = props.order.snacksList.map(
         (singleSnack) => 
         <tr key={singleSnack.snackName}>
@@ -19,15 +19,15 @@ export default function OrderDetail(props){
             <td>{singleSnack.qty}</td>
             <td>{singleSnack.qty * singleSnack.snackPrice}</td>
         </tr>);
-    const changeOrder = () =>{
-        history.goBack();
-        axios.post('/change/:id' + props.order.id, {snacksList : props.order.snacksList, status: "outstanding"}).then(response => {
-            if(response.data.success){
-                // using socket to implement, have not finish yet
-            }
+    // const changeOrder = () =>{
+    //     history.goBack();
+    //     axios.post('/change/:id' + props.order.id, {snacksList : props.order.snacksList, status: "outstanding"}).then(response => {
+    //         if(response.data.success){
+    //             // using socket to implement, have not finish yet
+    //         }
 
-        })  
-    }
+    //     })  
+    // }
 
     return (
         <Content className="content">
@@ -124,3 +124,21 @@ export default function OrderDetail(props){
     </Content>
     )
 }
+
+// import React, {Component} from 'react'
+// export default class OrderDetail extends Component {
+
+//     constructor(props) {
+//         super();
+//         this.state = {
+//             diff: ""
+//         }
+//     }
+
+//     render(){
+//         return (
+//             <div>
+//             </div>
+//         )
+//     }
+// }
