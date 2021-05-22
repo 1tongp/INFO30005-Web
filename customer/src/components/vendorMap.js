@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Icon } from "leaflet" ;
 import logo from '../images/coffee-marker.png';
 import personlogo from '../images/map-marker.png';
+import axios from '../API/axios.js';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { useHistory } from 'react-router';
 
 export default function VendorMap(props) {
     console.log(props);
+
+    let history = useHistory();
+    const[show, setShow] = useState(false);
+    const[address, setAddress] = useState('');
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+
+    const [position, setPosition] = useState(props.data.center)
+    const eventHandlers = useMemo(
+        (e) => ({
+            
+        }
+        )
+    )
     const vendorIcon = new Icon({
         iconUrl: logo,
         iconSize: [55,55],
