@@ -17,6 +17,11 @@ import Sidebar from './Sider.js'
 const { Header, Sider, Content } = Layout;
 
 class FinishedEmpty extends React.Component {
+  constructor(props){
+    super(props);
+    console.log(this.props)
+  }
+
   state = {
     collapsed: false,
   };
@@ -30,7 +35,7 @@ class FinishedEmpty extends React.Component {
   render() {
     return (
       <Layout>
-        <Sidebar />
+        <Sidebar>{this.props}</Sidebar>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <p>SNACK IN A VAN</p>
@@ -45,10 +50,10 @@ class FinishedEmpty extends React.Component {
           >
            
             {/* The finished orders page components */}
-            <Searchbar></Searchbar>
+            <Searchbar>{this.props}</Searchbar>
             <div className="cluster container--FinishedContent">
               <div className="container--FinishedOrderList">
-                <FinishedOrderList></FinishedOrderList>
+                <FinishedOrderList>{this.props}</FinishedOrderList>
               </div>
               <div className="container--FinishedOrderDetail">
                 <div className="container--orderdetail container--empty">

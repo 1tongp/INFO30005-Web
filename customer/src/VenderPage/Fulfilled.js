@@ -30,7 +30,7 @@ class Fulfilled extends React.Component {
   render() {
     return (
       <Layout>
-        <Sidebar />
+        <Sidebar>{this.props}</Sidebar>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <p>SNACK IN A VAN</p>
@@ -45,7 +45,7 @@ class Fulfilled extends React.Component {
           >
            
             {/* The fulfilled orders page components(list) */}
-            <FulfilledOrderlist></FulfilledOrderlist>
+            <FulfilledOrderlist>{this.props}</FulfilledOrderlist>
 
 
          

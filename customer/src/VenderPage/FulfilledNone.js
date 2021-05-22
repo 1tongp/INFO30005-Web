@@ -21,6 +21,10 @@ class FulfilledNone extends React.Component {
   constructor(props){
     super(props);
     console.log(this.props);
+    this.state = {
+      children: [],
+    }
+    this.setState({children: [this.props]});
   }
   
 
