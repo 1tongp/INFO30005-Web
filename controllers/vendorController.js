@@ -115,23 +115,30 @@ exports.vendorNearestGet = function (req,res) {
         } else {
             var findDistance = []
             for (i=0; i < vendors.length; i++) {
-                if(vendors[i].location.coordinates != null){
-                    var distance = Math.sqrt(Math.hypot(
-                        req.query.lat - vendors[i].location.coordinates[0],
-                        req.query.lng - vendors[i].location.coordinates[1]
-                    ))
-                }
-                if (Number.isFinite(distance)){
-                    findDistance.push({
-                        "id": vendors[i].id,
-                        "name": vendors[i].name,
-                        "currentAddress": vendors[i].currentAddress,
-                        "distance": parseFloat(distance).toFixed(4),
-                        "location": vendors[i].location.coordinates
-                    })
+                if(vendors[i].readyForOrder === true){
+                    if(vendors[i].location.coordinates != null){
+                        var distance = Math.sqrt(Math.hypot(
+                            req.query.lat - vendors[i].location.coordinates[0],
+                            req.query.lng - vendors[i].location.coordinates[1]
+                        ))
+                    }
+                    if (Number.isFinite(distance)){
+                        findDistance.push({
+                            "id": vendors[i].id,
+                            "name": vendors[i].name,
+                            "currentAddress": vendors[i].currentAddress,
+                            "distance": parseFloat(distance).toFixed(4),
+                            "location": vendors[i].location.coordinates
+                        })
+                    }
                 }
             }
-            findDistance = findDistance.sort(({distance: a}, {distance: b}) => a - b).slice(0,5)
+            if(findDistance.length >= 5){
+                findDistance = findDistance.sort(({distance: a}, {distance: b}) => a - b).slice(0,5)
+            }
+            else{
+                findDistance = findDistance.sort(({distance: a}, {distance: b}) => a - b)
+            }
             res.status(200).json({success: true, vendors: findDistance})
         }
     })
