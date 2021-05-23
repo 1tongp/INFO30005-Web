@@ -96,7 +96,7 @@ export default function OrderList(props) {
 
             </Header>
 
-            <Content>
+            <div>
                 <br></br>
                 <h1>MY ORDERS</h1>
                 <tr>
@@ -112,7 +112,7 @@ export default function OrderList(props) {
                 <div>
                     <OrderListCom id = {props.location.state.customer.id} orders= {props.location.state.customerOrders} target = {props.location.state.target}/>
                 </div>
-            </Content>
+            </div>
 
             <MyFooter></MyFooter>
 
