@@ -26,6 +26,29 @@ align-items: center;
 justify-content: center;
 }
 
+/* pop up */
+.change-container {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.change-popup {
+    width: 50%;
+    padding: 30px;
+    position:relative;
+    background: white;
+    /* height: auto; */
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+
 
 
 
