@@ -2,11 +2,14 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import '../myOrderPage/MyOrder.css';
-import { Layout, Button, notification, InputNumber, Card } from 'antd';
+import { Layout, Button, notification, InputNumber, Card, Rate, Divider, Input } from 'antd';
 import { StarFilled, StarOutlined } from '@ant-design/icons';
 import CountUp from './CountUp.js';
 import { Model } from 'mongoose';
 import axios from '../API/axios.js';
+
+const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+const { TextArea } = Input;
 
 // import {useHistory} from "react-router-dom";
 const { Content } = Layout;
@@ -140,7 +143,9 @@ export default class OrderDetail extends Component {
             order: [],
             editModalVisible: false,
             modalBody: <></>,
-            diff: ""
+            diff: "",
+            ratings: 0,
+            comments: ""
         }
     }
 
@@ -152,6 +157,15 @@ export default class OrderDetail extends Component {
         let newArray = [...this.state.order];
         newArray[index] = event;
         this.setState({ order: newArray });
+    }
+
+    ratingsChange = (value) => {
+        console.log(value)
+        this.setState({ ratings: value })
+    };
+
+    commentChange = (value) => {
+        this.setState({ comments: value })
     }
 
     // 1. close用不了 2. total price没更新
@@ -172,10 +186,10 @@ export default class OrderDetail extends Component {
         }
 
         if (submitOrder.length === 0) {
-            this.setState({editModalVisible: false});
+            this.setState({ editModalVisible: false });
             alert("Please do not submit empty order")
         } else {
-            axios.post('/order/change/'+ this.props.order._id, {
+            axios.post('/order/change/' + this.props.order._id, {
                 // customer: this.props.order.customer._id,
                 // vendor: this.props.order.vendor._id, // will be changed in the future
                 snacksList: submitOrder,
@@ -186,7 +200,7 @@ export default class OrderDetail extends Component {
                 if (response.data.success) {
                     // change the message print to a pop up page
                     alert("Order has been updated")
-                    this.setState({editModalVisible: false});
+                    this.setState({ editModalVisible: false });
                 }
                 else {
                     // change the message print to a pop up page
@@ -194,6 +208,27 @@ export default class OrderDetail extends Component {
                 }
             })
         }
+    }
+
+    onCommentSubmit = () => {
+        axios.post('/order/change/' + this.props.order._id, {
+            // customer: this.props.order.customer._id,
+            // vendor: this.props.order.vendor._id, // will be changed in the future
+            comments: this.state.comments,
+            ratings: this.state.ratings
+            // totalPrice: sumPrice
+        }).then(response => {
+            console.log(response);
+            if (response.data.success) {
+                // change the message print to a pop up page
+                alert("Order has been commetned")
+                this.setState({ editModalVisible: false });
+            }
+            else {
+                // change the message print to a pop up page
+                alert("Order commenting errored!")
+            }
+        })
     }
 
     tick() {
@@ -235,7 +270,16 @@ export default class OrderDetail extends Component {
             });
         } else {
             console.log(this.props.order)
-            this.setState({ editModalVisible: true })
+            if (this.props.order.ratings === null ) {
+                this.setState({ editModalVisible: true })
+            } else {
+                notification.open({
+                    message: 'Please do not comment again',
+                    description: 'Enjoy your food, see you next time!',
+                    duration: 3
+                });
+            }
+            
         }
     }
 
@@ -280,12 +324,19 @@ export default class OrderDetail extends Component {
                             <Modal.Title>{"Your order id:" + this.props.order._id}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <p>comment and rating</p>
+                            <Divider>Rate on Our Services</Divider>
+                            <p>Ratings:</p><Rate onChange={(e) => this.ratingsChange(e)} />
+                            <Divider></Divider>
+                            <p>Comment</p><TextArea rows={4} onChange={(e) => this.commentChange(e.target.value)} />
+                            {/* {this.state.ratings ? <span className="ant-rate-text">{desc[this.state.ratings -1]}</span> : ''} */}
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button onClick={() => this.handleEditClose()}>
+                            <button className='primary-btn' variant="primary" onClick={() => this.onCommentSubmit()}>
+                                Submit
+                            </button>
+                            <button className='secondary-btn' variant="primary" onClick={() => this.handleEditClose()}>
                                 Close
-                            </Button>
+                            </button>
                         </Modal.Footer>
                     </div>
                 </div>
@@ -309,7 +360,7 @@ export default class OrderDetail extends Component {
                     <tr >
                         <th >{this.props.order.createTime.slice(0, 10)}</th>
                         <CountUp updatedAt={this.props.order.updateTime} />
-                        <Button key='1' onClick={() => this.handleEditOrder()}>Change Order</Button>
+                        <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button>
 
                     </tr>
                     <div className="flex">
@@ -384,10 +435,13 @@ export default class OrderDetail extends Component {
                             <div className="flex--column--child">
                                 <tr>
                                     <th>Service</th>
-                                    <th>Food</th>
+                                    {/* <th>Food</th> */}
+                                </tr>
+                                <tr>
+                                    <th>{this.props.order.ratings}</th>
                                 </tr>
 
-                                <tr>
+                                {/* <tr>
                                     <td>
                                         <StarFilled />
                                         <StarFilled />
@@ -402,7 +456,7 @@ export default class OrderDetail extends Component {
                                         <StarFilled />
                                         <StarOutlined />
                                     </td>
-                                </tr>
+                                </tr> */}
                             </div>
 
                             <div>
@@ -410,7 +464,7 @@ export default class OrderDetail extends Component {
                                     <th>Comment:</th>
                                 </tr>
                                 <tr>
-                                    <td>comments</td>
+                                    <td>{this.props.order.comments}</td>
                                 </tr>
                             </div>
                         </div>

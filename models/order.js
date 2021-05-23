@@ -49,9 +49,11 @@ var OrderSchema = new Schema({
 
     ratings:{
         type: Number,
+        default: null
     },
     comments:{
         type: String,
+        default: null
     }
 
 }, { timestamps: { createdAt: 'createTime', updatedAt: 'updateTime' }});

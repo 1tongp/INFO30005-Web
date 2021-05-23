@@ -43,7 +43,7 @@ exports.orderChangePost = function(req, res){
 
     // check validation of the order id
     Order.findById(req.params.id, function(err, orderDetail){
-        const{snacksList, status} = req.body;
+        //const{snacksList, status} = req.body;
         if(!orderDetail){
             res.status(404).send("order is not found!")
         }
@@ -52,7 +52,7 @@ exports.orderChangePost = function(req, res){
             // update the snack list and order status for the given order id
             Order.findByIdAndUpdate(
                 req.params.id,
-                {snacksList, status},
+                req.body,
                 {new: true},
                 function(err, changeOrderDetails){
                     if(err){
