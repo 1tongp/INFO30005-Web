@@ -35,6 +35,7 @@ justify-content: center;
     width:100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
+    overflow: scroll;
 }
 
 .change-popup {
@@ -43,11 +44,33 @@ justify-content: center;
     position:relative;
     background: white;
     /* height: auto; */
-    top:40%;
+    top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    overflow: scroll;
 }
 
+.change-popup .primary-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 8px;
+    font-size: 14pt;
+}
+
+.change-popup .secondary-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 0;
+    padding: 8px;
+    font-size: 14pt;
+    background-color: rgb(206, 206, 206);
+    border: gray 1px solid;
+}
+
+.pop-menu {
+    width: 49%;
+    float: left;
+}
 
 
 

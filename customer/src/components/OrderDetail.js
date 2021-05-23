@@ -7,6 +7,7 @@ import { StarFilled, StarOutlined } from '@ant-design/icons';
 import CountUp from './CountUp.js';
 import { Model } from 'mongoose';
 import axios from '../API/axios.js';
+
 // import {useHistory} from "react-router-dom";
 const { Content } = Layout;
 const { Meta } = Card;
@@ -245,7 +246,8 @@ export default class OrderDetail extends Component {
                         </Modal.Header>
                         <Modal.Body>
                             {this.state.menu.map((snack, index) => (
-                                <Card cover={<img alt="example" src={snack.snackPhotoPath} />} style={{ marginBottom: "1vh" }} size={"small"} key={snack._id}>
+                                // <Card cover={<img alt="example" src={snack.snackPhotoPath} />} style={{ marginBottom: "1vh" }} size={"small"} key={snack._id}>
+                                <Card className='pop-menu' style={{ marginBottom: "1vh" }} size={"small"} key={snack._id}>
                                     <Meta
                                         title={snack.snackName + "      $" + snack.snackPrice}
                                     />
@@ -254,12 +256,12 @@ export default class OrderDetail extends Component {
                             ))}
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="primary" onClick={() => this.onOrderSubmit()}>
+                            <button className='primary-btn' variant="primary" onClick={() => this.onOrderSubmit()}>
                                 Update
-                            </Button>
-                            <Button onClick={() => this.handleEditClose()}>
+                            </button>
+                            <button className='secondary-btn' onClick={() => this.handleEditClose()}>
                                 Close
-                            </Button>
+                            </button>
                         </Modal.Footer>
                     </div>
                 </div>
