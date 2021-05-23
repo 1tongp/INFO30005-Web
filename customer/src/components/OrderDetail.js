@@ -157,6 +157,7 @@ export default class OrderDetail extends Component {
     onOrderSubmit = () => {
         var submitOrder = []
         var sumPrice = 0;
+        console.log(sumPrice);
         for (var i = 0; i < this.state.order.length; i++) {
             if (Number.isFinite(this.state.order[i])) {
                 submitOrder.push({
@@ -164,7 +165,7 @@ export default class OrderDetail extends Component {
                     "qty": this.state.order[i],
                     "snackPrice": this.state.menu[i].snackPrice
                 })
-                sumPrice += this.state.menu[i].snackPrice * this.state.menu[i]
+                //sumPrice += this.state.menu[i].snackPrice * this.state.menu[i]
             }
         }
 
@@ -172,7 +173,6 @@ export default class OrderDetail extends Component {
             this.setState({editModalVisible: false});
             alert("Please do not submit empty order")
         } else {
-            console.log(this.props);
             axios.post('/order/create', {
                 customer: this.props.order.customer._id,
                 vendor: this.props.order.vendor._id, // will be changed in the future
