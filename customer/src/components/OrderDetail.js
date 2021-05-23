@@ -134,7 +134,7 @@ export default class OrderDetail extends Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props);
+        //console.log(this.props);
         this.state = {
             menu: [],
             order: [],
@@ -173,16 +173,17 @@ export default class OrderDetail extends Component {
             this.setState({editModalVisible: false});
             alert("Please do not submit empty order")
         } else {
-            axios.post('/order/create', {
-                customer: this.props.order.customer._id,
-                vendor: this.props.order.vendor._id, // will be changed in the future
+            axios.post('/order/change/'+ this.props.order._id, {
+                // customer: this.props.order.customer._id,
+                // vendor: this.props.order.vendor._id, // will be changed in the future
                 snacksList: submitOrder,
-                totalPrice: sumPrice
+                status: "outstanding",
+                // totalPrice: sumPrice
             }).then(response => {
                 console.log(response);
-                if (response.data.message === "created a new order") {
+                if (response.data.success) {
                     // change the message print to a pop up page
-                    alert("Order has been places! You can check your order and view previous orders in My Order page")
+                    alert("Order has been updated")
                     this.setState({editModalVisible: false});
                 }
                 else {
