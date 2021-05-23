@@ -359,7 +359,7 @@ export default class OrderDetail extends Component {
                 <Content className="content">
                     <tr >
                         <th >{this.props.order.createTime.slice(0, 10)}</th>
-                        <CountUp updatedAt={this.props.order.updateTime} />
+                        {( this.props.order.status ==="completed") ? "order has been finished" : <CountUp updatedAt={this.props.order.updateTime} />}
                         <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button>
 
                     </tr>
