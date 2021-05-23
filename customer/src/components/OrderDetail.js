@@ -154,6 +154,8 @@ export default class OrderDetail extends Component {
         this.setState({ order: newArray });
     }
 
+    // 1. close用不了 2. total price没更新
+
     onOrderSubmit = () => {
         var submitOrder = []
         var sumPrice = 0;
@@ -260,7 +262,7 @@ export default class OrderDetail extends Component {
                             <button className='primary-btn' variant="primary" onClick={() => this.onOrderSubmit()}>
                                 Update
                             </button>
-                            <button className='secondary-btn' onClick={() => this.handleEditClose()}>
+                            <button className='secondary-btn' variant="primary" onClick={() => this.handleEditClose()}>
                                 Close
                             </button>
                         </Modal.Footer>
