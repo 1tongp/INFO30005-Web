@@ -164,7 +164,7 @@ export default class OrderDetail extends Component {
     handleEditOrder = () => {
         console.log(this.state.diff)
         if (this.props.order.status === "outstanding" && this.state.diff <= 10) {
-            this.setState({editModalVisible: true});
+            this.setState({ editModalVisible: true });
         }
         if (this.props.order.status === "fulfilled") {
             notification.open({
@@ -172,7 +172,7 @@ export default class OrderDetail extends Component {
                 description: 'You cannot make any changes to a fulfilled order',
                 duration: 3
             });
-        } else if ( this.props.order.status === "outstanding" && this.state.diff > 10) {
+        } else if (this.props.order.status === "outstanding" && this.state.diff > 10) {
             notification.open({
                 message: 'Order is being processed!',
                 description: 'You can only updated your order within 10 min after placing order.',
@@ -180,8 +180,23 @@ export default class OrderDetail extends Component {
             });
         } else {
             console.log(this.props.order)
-            this.setState({editModalVisible: true})
+            this.setState({ editModalVisible: true })
         }
+    }
+
+    renderEditModelBody = () => {
+        return (
+            <>
+                <Modal.Header closeButton>
+                    <Modal.Title>{"Your order id:" + this.props.order._id}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>test</p>
+                </Modal.Body>
+
+            </>
+
+        )
     }
 
 
@@ -190,13 +205,8 @@ export default class OrderDetail extends Component {
     render() {
         return (
             <div>
-                <Modal show= {this.state.editModalVisible} onHide={() => this.handleEditClose()}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{"Your order id:" + this.props.order._id}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <p>test</p>
-                    </Modal.Body>
+                <Modal show={this.state.editModalVisible} onHide={() => this.handleEditClose()}>
+                    {this.renderEditModelBody()}
                 </Modal>
                 <Content className="content">
                     <tr >
@@ -248,18 +258,18 @@ export default class OrderDetail extends Component {
                                     <th>{props.order.totalPrice}</th>
                                 </tr> */}
 
-                                 {/* {renderOrder()} */}
+                                {/* {renderOrder()} */}
 
-                           
+
 
                                 <tr>
                                     {this.props.order.snacksList.map(
                                         (singleSnack) =>
-                                         <tr key={singleSnack.snackName}>
-                                        <td>{singleSnack.snackName}</td>
-                                        <td>{singleSnack.qty}</td>
-                                        <td>{singleSnack.qty * singleSnack.snackPrice}</td>
-                                    </tr>)}
+                                            <tr key={singleSnack.snackName}>
+                                                <td>{singleSnack.snackName}</td>
+                                                <td>{singleSnack.qty}</td>
+                                                <td>{singleSnack.qty * singleSnack.snackPrice}</td>
+                                            </tr>)}
 
                                 </tr>
 
@@ -268,7 +278,7 @@ export default class OrderDetail extends Component {
                                     <td></td>
                                     <th>$Total Price</th>
                                     <th>{this.props.order.totalPrice}</th>
-                                </tr> 
+                                </tr>
 
                             </table>
                         </div>
