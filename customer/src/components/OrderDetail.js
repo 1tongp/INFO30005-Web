@@ -304,7 +304,7 @@ export default class OrderDetail extends Component {
                 <Modal show={this.state.editModalVisible} onHide={() => this.handleEditClose()}>
                     {this.renderEditModelBody()}
                 </Modal>
-                <Content className="content">
+                <div className="content">
                     <tr >
                         <th >{this.props.order.createTime.slice(0, 10)}</th>
                         {( this.props.order.status ==="outstanding") ?  <CountUp updatedAt={this.props.order.updateTime} />: "order has been " + this.props.order.status}
@@ -360,7 +360,7 @@ export default class OrderDetail extends Component {
 
 
 
-                                <tr>
+                            
                                     {this.props.order.snacksList.map(
                                         (singleSnack) =>
                                             <tr key={singleSnack.snackName}>
@@ -369,14 +369,15 @@ export default class OrderDetail extends Component {
                                                 <td>{singleSnack.qty * singleSnack.snackPrice}</td>
                                             </tr>)}
 
-                                </tr>
 
                                 <tr>
                                     <td></td>
                                     <td></td>
+                                    
                                     <th>$Total Price</th>
                                     {/* <th>{this.props.order.totalPrice}</th> */}
                                     {(this.props.order.discount) ? <th>{this.props.order.totalPrice * 1.25} * 0.8 = {this.props.order.totalPrice}</th> : <th>{this.props.order.totalPrice}</th>}
+
                                 </tr>
 
                             </table>
@@ -424,7 +425,7 @@ export default class OrderDetail extends Component {
                     <center>
                         <hr></hr>
                     </center>
-                </Content>
+                </div>
 
             </div>
         )
