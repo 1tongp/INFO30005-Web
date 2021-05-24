@@ -13,9 +13,15 @@ export default function MyProfile (props) {
     console.log(props);
     console.log(props.history);
 
-    const [firstName, setfirsttName] = useState('');
+    const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [password, setPassword] = useState('');
+    // const [disable, setDisable] = useState(true);
+
+    // const enablePassword = () => {
+    //     if (disable) { setDisable(false)}
+    //     else {setDisable(true)}
+    // }
 
     const onChange = () => {
         console.log(props.history);
@@ -47,17 +53,18 @@ export default function MyProfile (props) {
             
             <Content >
                 <h2>Nice to see you, Change your details here:</h2>
+                <h2>Your Email Address (can not be changed): {props.location.state.customer.loginEmail}</h2>
                 <br/>
                 <div className="signupContainer">
                 <form >
-                    <input placeholder="First Name" className="fnameinput"
-                    onChange = {e => setfirsttName(e.target.value)}/>
-                    <input placeholder="Last Name" className="lnameinput"
+                    <input placeholder="First Name" className="fnameinput" defaultValue = {props.location.state.customer.givenName}
+                    onChange = {e => setfirstName(e.target.value)}/>
+                    <input placeholder="Last Name" className="lnameinput" defaultValue = {props.location.state.customer.familyName}
                     onChange = {e => setlastName(e.target.value)}/>
                     <br/>
                     <br/>
                     <br/>
-                    <input type="password" placeholder="New Password"
+                    <input type="password" placeholder="New Password" defaultValue = {props.location.state.customer.password}
                     onChange = {e => setPassword(e.target.value)}/>
                     <br/>
                     <br/>
