@@ -13,9 +13,9 @@ export default function MyProfile (props) {
     console.log(props);
     console.log(props.history);
 
-    const [firstName, setfirstName] = useState('');
-    const [lastName, setlastName] = useState('');
-    const [password, setPassword] = useState('');
+    const [firstName, setfirstName] = useState(props.location.state.customer.givenName);
+    const [lastName, setlastName] = useState(props.location.state.customer.familyName);
+    const [password, setPassword] = useState(props.location.state.customer.password);
     // const [disable, setDisable] = useState(true);
 
     // const enablePassword = () => {
