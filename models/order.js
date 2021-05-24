@@ -54,6 +54,11 @@ var OrderSchema = new Schema({
     comments:{
         type: String,
         default: null
+    },
+
+    discount:{
+        type: Boolean,
+        default: false
     }
 
 }, { timestamps: { createdAt: 'createTime', updatedAt: 'updateTime' }});

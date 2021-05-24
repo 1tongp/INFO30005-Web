@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import '../myOrderPage/MyOrder.css';
-import { Layout, Button, notification, InputNumber, Card, Rate, Divider, Input } from 'antd';
+import { Layout, Button, notification, InputNumber, Card, Rate, Divider, Input, Alert } from 'antd';
 import { StarFilled, StarOutlined } from '@ant-design/icons';
 import CountUp from './CountUp.js';
 import { Model } from 'mongoose';
@@ -15,123 +15,6 @@ const { TextArea } = Input;
 const { Content } = Layout;
 const { Meta } = Card;
 
-// // line 25 createTime -> updateTime
-
-// export default function OrderDetail(props){
-//     // let history = useHistory();
-//     //console.log(props.order.snacksList);
-// const snacks = props.order.snacksList.map(
-//     (singleSnack) => 
-//     <tr key={singleSnack.snackName}>
-//         <td>{singleSnack.snackName}</td> 
-//         <td>{singleSnack.qty}</td>
-//         <td>{singleSnack.qty * singleSnack.snackPrice}</td>
-//     </tr>);
-//     // const changeOrder = () =>{
-//     //     history.goBack();
-//     //     axios.post('/change/:id' + props.order.id, {snacksList : props.order.snacksList, status: "outstanding"}).then(response => {
-//     //         if(response.data.success){
-//     //             // using socket to implement, have not finish yet
-//     //         }
-
-//     //     })  
-//     // }
-
-//     return (
-{/* <Content className="content">
-    <tr >
-        <th >{props.order.createTime.slice(0, 10)}</th>
-        <CountUp updatedAt={props.order.createTime} />
-        <Button key='1'>Change Order</Button>
-
-    </tr>
-    <div className="flex">
-        <div className="flex--child">
-            <table>
-                <tr>
-                    <td>Time:</td>
-                    <td>{props.order.createTime.slice(11, 19)}</td>
-                </tr>
-                <tr>
-                    <td>Order Id:</td>
-                    <td>{props.order._id}</td>
-                </tr>
-                <tr>
-                    <td>Van Name:</td>
-                    <td>{props.order.vendor.name}</td>
-                </tr>
-                <tr>
-                    <td>Order Status:</td>
-                    <td>{props.order.status}</td>
-                </tr>
-
-            </table>
-        </div>
-
-        <div className="flex--child centertable">
-            <table >
-                <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>$Price</th>
-                </tr>
-
-    
-
-                {snacks}
-
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <th>$Total Price</th>
-                    <th>{props.order.totalPrice}</th>
-                </tr>
-
-            </table>
-        </div>
-
-        <div className="flex--child flex--column">
-            <div className="flex--column--child">
-                <tr>
-                    <th>Service</th>
-                    <th>Food</th>
-                </tr>
-
-                <tr>
-                    <td>
-                        <StarFilled />
-                        <StarFilled />
-                        <StarFilled />
-                        <StarFilled />
-                        <StarOutlined />
-                    </td>
-                    <td>
-                        <StarFilled />
-                        <StarFilled />
-                        <StarFilled />
-                        <StarFilled />
-                        <StarOutlined />
-                    </td>
-                </tr>
-            </div>
-
-            <div>
-                <tr>
-                    <th>Comment:</th>
-                </tr>
-                <tr>
-                    <td>comments</td>
-                </tr>
-            </div>
-        </div>
-    </div>
-    <br></br>
-    <center>
-        <hr></hr>
-    </center>
-</Content> */}
-//     )
-// }
 
 export default class OrderDetail extends Component {
 
@@ -168,7 +51,7 @@ export default class OrderDetail extends Component {
         this.setState({ comments: value })
     }
 
-    // 1. close用不了 2. total price没更新
+    // 1. close用不了 2. vendor discount没更新
 
     onOrderSubmit = () => {
         var submitOrder = []
@@ -185,6 +68,11 @@ export default class OrderDetail extends Component {
             }
         }
 
+        for (var j = 0; j < submitOrder.length; j++){
+            let update = sumPrice + submitOrder[j].snackPrice * submitOrder[j].qty
+            sumPrice = update
+        }
+
         if (submitOrder.length === 0) {
             this.setState({ editModalVisible: false });
             alert("Please do not submit empty order")
@@ -194,7 +82,7 @@ export default class OrderDetail extends Component {
                 // vendor: this.props.order.vendor._id, // will be changed in the future
                 snacksList: submitOrder,
                 status: "outstanding",
-                // totalPrice: sumPrice
+                totalPrice: sumPrice
             }).then(response => {
                 console.log(response);
                 if (response.data.success) {
@@ -283,6 +171,66 @@ export default class OrderDetail extends Component {
         }
     }
 
+    onMarkOrder = () => {
+        var statusToGo, discount
+        var totalSum = this.props.order.totalPrice
+        if (this.props.order.status === "outstanding") {
+            statusToGo = "fulfilled"
+            if (this.state.diff >15) {
+                discount = true
+                totalSum = totalSum * 0.8
+            } else {
+                discount = false
+            }
+            axios.post('/order/change/' + this.props.order._id, {
+                discount: discount,
+                status: statusToGo,
+                totalPrice: totalSum
+            }).then(response => {
+                console.log(response);
+                if (response.data.success) {
+                    alert("Order has been uppdated")
+                    this.setState({ editModalVisible: false });
+                }
+                else {
+                    alert("Order updating errored!")
+                }
+            })
+        } else if (this.props.order.status === "fulfilled") {
+            statusToGo = "completed"
+            axios.post('/order/change/' + this.props.order._id, {
+                status: statusToGo
+            }).then(response => {
+                console.log(response);
+                if (response.data.success) {
+                    alert("Order has been uppdated")
+                    this.setState({ editModalVisible: false });
+                }
+                else {
+                    alert("Order updating errored!")
+                }
+            })
+
+        }
+    }
+
+    renderVenCus = () => {
+        if (window.location.pathname === '/customer/order') {
+            return (
+                <>
+                <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button>
+                </> 
+            )
+
+        } else if (window.location.pathname === '/vendor/order'){
+            return (
+                <>
+                <Button key='1' onClick={() => this.onMarkOrder()}>Mark</Button>
+                </> 
+            )
+        }
+    }
+
     renderEditModelBody = () => {
         if (this.props.order.status === "outstanding") {
             return (
@@ -360,8 +308,10 @@ export default class OrderDetail extends Component {
                     <tr >
                         <th >{this.props.order.createTime.slice(0, 10)}</th>
                         {( this.props.order.status ==="outstanding") ?  <CountUp updatedAt={this.props.order.updateTime} />: "order has been " + this.props.order.status}
-                        <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button>
-
+                        {this.renderVenCus()}
+                        {/* <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button> */}
+                        <th >{(this.props.order.discount) ? <Alert message="discount applied" type="warning" showIcon/> : <></>}</th>
+                        <th >{(this.props.order.status === "outstanding") ? <Alert message="discount will apply if exceed 15min" type="info" showIcon closable/> : <></>}</th>
                     </tr>
                     <div className="flex">
                         <div className="flex--child">
@@ -425,7 +375,8 @@ export default class OrderDetail extends Component {
                                     <td></td>
                                     <td></td>
                                     <th>$Total Price</th>
-                                    <th>{this.props.order.totalPrice}</th>
+                                    {/* <th>{this.props.order.totalPrice}</th> */}
+                                    {(this.props.order.discount) ? <th>{this.props.order.totalPrice * 1.25} * 0.8 = {this.props.order.totalPrice}</th> : <th>{this.props.order.totalPrice}</th>}
                                 </tr>
 
                             </table>
