@@ -12,7 +12,31 @@ class Orderlist extends React.Component{
     constructor(props){
         super(props);
         console.log(this.props)
+
+        this.state = {
+            diff: "",
+        }
     }
+
+    // socket.io 
+    // update each second
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(), 1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        let now = new Date().getTime()
+        let upd = Date.parse(this.props.order.updateTime)
+        this.setState({ diff: ((now - upd) / 60000)})
+    }
+
+
     render(){
         return (
         <div className="cluster">
