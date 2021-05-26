@@ -218,14 +218,14 @@ export default class OrderDetail extends Component {
         if (window.location.pathname === '/customer/order') {
             return (
                 <>
-                <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button>
+                <Button id="btn--changeorder" key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button>
                 </> 
             )
 
         } else if (window.location.pathname === '/vendor/order'){
             return (
                 <>
-                <Button key='1' onClick={() => this.onMarkOrder()}>Mark</Button>
+                <Button  key='1' onClick={() => this.onMarkOrder()}>Mark</Button>
                 </> 
             )
         }
@@ -305,35 +305,63 @@ export default class OrderDetail extends Component {
                     {this.renderEditModelBody()}
                 </Modal>
                 <div className="content">
-                    <tr >
+                    <div className="flex">
+                        <div>
                         <th >{this.props.order.createTime.slice(0, 10)}</th>
-                        {( this.props.order.status ==="outstanding") ?  <CountUp updatedAt={this.props.order.updateTime} />: "order has been " + this.props.order.status}
+                        <p className="orderstatus">
+                        {( this.props.order.status ==="outstanding") ?  <CountUp updatedAt={this.props.order.updateTime} />: "Order has been " + this.props.order.status}
+
+                        </p>
+                        
                         {this.renderVenCus()}
                         {/* <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button> */}
-                        <th >{(this.props.order.discount) ? <Alert message="discount applied" type="warning" showIcon/> : <></>}</th>
-                        <th >{(this.props.order.status === "outstanding") ? <Alert message="discount will apply if exceed 15min" type="info" showIcon closable/> : <></>}</th>
-                    </tr>
+                        
+                            
+                        </div>
+
+                        <th >{(this.props.order.discount) ? <Alert message="Discount applied!" type="warning" showIcon/> : <></>}</th>
+                        
+                        <th >{(this.props.order.status === "outstanding") ? <Alert id="alert" message="Discount will apply if exceed 15min!" type="info" showIcon /> : <></>}</th>
+                    </div>
                     <div className="flex">
                         <div className="flex--child">
-                            <table>
+                       
                                 <tr>
-                                    <td>Time:</td>
+                                    <th>Time:</th>
                                     <td>{this.props.order.createTime.slice(11, 19)}</td>
                                 </tr>
+
+                                
                                 <tr>
-                                    <td>Order Id:</td>
-                                    <td>{this.props.order._id}</td>
+                                    <th>Order Id:</th>
+                
+                                    <div className="flex--child--orderid">
+                                    {this.props.order._id}
+
+                                    </div>
+
+
+                          
+                                    
+                                    
                                 </tr>
+
+                           
+                              
+                                
+
+                                
+                                
                                 <tr>
-                                    <td>Van Name:</td>
+                                    <th>Van Name:</th>
                                     <td>{this.props.order.vendor.name}</td>
                                 </tr>
                                 <tr>
-                                    <td>Order Status:</td>
+                                    <th>Order Status:</th>
                                     <td>{this.props.order.status}</td>
                                 </tr>
 
-                            </table>
+                     
                         </div>
 
                         <div className="flex--child centertable">
@@ -372,7 +400,7 @@ export default class OrderDetail extends Component {
 
                                 <tr>
                                     <td></td>
-                                    <td></td>
+                                
                                     
                                     <th>$Total Price</th>
                                     {/* <th>{this.props.order.totalPrice}</th> */}

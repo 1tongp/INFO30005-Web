@@ -96,7 +96,7 @@ export default function OrderList(props) {
 
             </Header>
 
-            <div>
+            <div className="minheight">
                 <br></br>
                 <h1>MY ORDERS</h1>
                 <tr>
