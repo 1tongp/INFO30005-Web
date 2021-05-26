@@ -102,6 +102,10 @@ label{
     cursor: pointer;
 }
 
+.btnSignup:hover{
+    background-color: #cba983 !important;
+}
+
 .btnCancel{
     border-color: #CCCCCC;
     background-color: #ECECEC;
@@ -111,6 +115,11 @@ label{
     padding-left: 20px;
     padding-right: 20px;
     cursor: pointer;
+}
+
+.btnCancel:hover{
+    background-color: #CCCCCC;
+
 }
 
 @media (max-width:800px) {
