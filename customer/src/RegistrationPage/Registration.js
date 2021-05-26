@@ -60,25 +60,50 @@ export default function RegistrationPage(props) {
         }
     }
     return (
-        <Layout>
-            <Header >
+        <Layout id="signupContainer">
+            <div className="header--nofunction">
 
-            </Header>
+            </div>
 
-            <Content >
+            <div>
                 <br /><br /><br />
                 <h1>CREATE AN ACCOUNT</h1>
                 <br />
                 <div className="signupContainer">
                     <form >
-                        <input type="firstName" placeholder="First Name" className="fnameinput" onChange={e => setFirstName(e.target.value)} />
-                        <input type="lastName" placeholder="Last Name" className="lnameinput" onChange={e => setLastName(e.target.value)} />
+
+                        <div className="cluster--signup">
+
+                        <div>
+                            <label for="firstName">First Name:</label><br></br>
+                            <input id="firstName" type="firstName" placeholder="First Name" className="nameinput" onChange={e => setFirstName(e.target.value)} />
+
+                        </div>
+
+                        <div>
+                            <label for="lastName">Last Name:</label><br></br>
+                            <input id="lastName" type="lastName" placeholder="Last Name" className="nameinput" onChange={e => setLastName(e.target.value)} />
+
+                        </div>
+
+
+
+                        </div>
+
+
                         
-                        <input type="loginEmail" placeholder="Email Address" onChange={e => setEmail(e.target.value)} />
                         
-                        <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+
+                        
+                        
+                        <label for="loginEmail">Email:</label>
+                        <input id="loginEmail" type="loginEmail" className="nameinput" placeholder="Email Address" onChange={e => setEmail(e.target.value)} />
+                        
+                        <label for="password">Password:</label>
+                        <input id="password" type="password" className="nameinput" placeholder="Set a password for your account." onChange={e => setPassword(e.target.value)} />
                        
-                        <input type="password" placeholder="Confirm Password" onChange={e => setPasswordConfirm(e.target.value)} />
+                        <label for="confiemPassword">Confirm Password:</label>
+                        <input id="confirmPassword" type="password" className="nameinput" placeholder="Input your password again" onChange={e => setPasswordConfirm(e.target.value)} />
                         <br />
                         <br />
 
@@ -95,7 +120,7 @@ export default function RegistrationPage(props) {
 
                 </div>
 
-            </Content>
+            </div>
 
             <MyFooter></MyFooter>
 

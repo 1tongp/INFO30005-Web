@@ -14,8 +14,42 @@ h1{
     font-weight: bold !important;
 }
 
+label{
+    font-size: medium;
+    margin:12px;
+ 
+
+}
+
+.nameinput{
+    margin-top: 8px;
+}
+
+#signupContainer{
+    background-color: #E8E6DF;
+}
+
+.header--nofunction{
+    background-color: #73412F;
+    width: 100%;
+    height: 60px;
+}
+
+.cluster--signup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between ;
+}
+
+.cluster--signup>div{
+    width: 47%;
+
+}
+
+
+
 .signupContainer form input{
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     height: 40px;
     background-color: white;
     border-color: #707070;
@@ -65,6 +99,7 @@ h1{
     float: right;
     font-weight: bold;
     padding: 0 !important;
+    cursor: pointer;
 }
 
 .btnCancel{
@@ -75,6 +110,7 @@ h1{
     font-weight: bold;
     padding-left: 20px;
     padding-right: 20px;
+    cursor: pointer;
 }
 
 @media (max-width:800px) {
