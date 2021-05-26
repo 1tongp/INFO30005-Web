@@ -37,9 +37,9 @@ export default function CustomerMain (props) {
             <div>
                 <img src={cart} className='main_img'/>
                 <div className="col-menu">
-                    <div className="col-img"><img src={m} /></div>
-                    <div className="col-img"><img src={click} alt="" /></div>
-                    <div className="col-img"><img src={discount} alt="" /></div>
+                    <img src={m} />
+                    <img src={click} alt="" />
+                    <img src={discount} alt="" />
                 </div>
                
                 <div className='section'>

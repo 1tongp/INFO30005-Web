@@ -9,6 +9,7 @@ import {ShoppingOutlined, UserOutlined, MenuOutlined} from '@ant-design/icons';
 import '../loginPage/Login.css';
 import {useHistory} from "react-router-dom";
 import './headerstyle.css';
+import '../ShoppingCart/styles.css'
 const { Header } = Layout;
 
 

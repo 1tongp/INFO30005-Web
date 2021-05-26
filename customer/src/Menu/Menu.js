@@ -110,7 +110,7 @@ export default function Menu(props) {
                 </div>
                 ))}
                 </div>
-                <br />
+                
                 {/* click the button and submit the order*/}
                 <button className='place' onClick={onSubmit}>
                     PLACE ORDER

@@ -237,13 +237,13 @@ export default class OrderDetail extends Component {
                 <>  <div className='change-container'>
                     <div className='change-popup'>
                         <Modal.Header>
-                            <Modal.Title>Menu</Modal.Title>
+                            <h3>UPDATE ORDER</h3>
                         </Modal.Header>
                         <Modal.Body>
                             {this.state.menu.map((snack, index) => (
                                 // <Card cover={<img alt="example" src={snack.snackPhotoPath} />} style={{ marginBottom: "1vh" }} size={"small"} key={snack._id}>
                                 <Card className='pop-menu' style={{ marginBottom: "1vh" }} size={"small"} key={snack._id}>
-                                    <Meta
+                                    <Meta style={{ marginBottom: "1vh" }} className='snack-name'
                                         title={snack.snackName + "      $" + snack.snackPrice}
                                     />
                                     <InputNumber key={snack._id} min={0} defaultValue={0} onChange={e => this.onChange(index, e)} />

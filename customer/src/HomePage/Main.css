@@ -32,12 +32,27 @@
     justify-content: space-evenly;
     background-color: #D9C2A7;
     align-items: center;
+    
 }
 
-.col-img img {
+.col-menu img {
+    width: 200px;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+/* .col-img img{
     width: 60%;
     padding: 20px;
-}
+    margin: 0;
+    border: red 1px solid;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+} */
 
 .about {
     background-image: url("../images/about.png");
@@ -197,6 +212,9 @@ div.modal-content{
 
 
 @media (max-width:800px) {
+    .col-menu img {
+        width: 25%
+    }
     .about {
         background-image: none;
         background-color: #f2d6b6;

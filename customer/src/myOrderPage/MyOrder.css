@@ -39,7 +39,7 @@ justify-content: center;
 }
 
 .change-popup {
-    width: 50%;
+    width: 55%;
     padding: 30px;
     position:relative;
     background: white;
@@ -48,13 +48,19 @@ justify-content: center;
     left:50%;
     transform: translate(-50%,-50%);
     overflow: scroll;
+    justify-content: space-evenly;
 }
 
+.change-popup h3 {
+    text-align: center;
+    font-weight: bold;
+}
 .change-popup .primary-btn {
     margin-top: 20px;
     width: 100%;
     padding: 8px;
     font-size: 14pt;
+    
 }
 
 .change-popup .secondary-btn {
@@ -65,15 +71,17 @@ justify-content: center;
     font-size: 14pt;
     background-color: rgb(206, 206, 206);
     border: gray 1px solid;
+    text-align: center;
 }
 
 .pop-menu {
-    width: 49%;
+    width: 50%;
     float: left;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
-
-
-
 
 .minheight{
     min-height: 700px;
@@ -199,7 +207,6 @@ text-decoration: none;
 Header .mid_nav {
 text-align: center;
 margin-left: auto;
-margin-right: 60px;
 display: block;
 }
 
@@ -227,6 +234,10 @@ border: #c2a88b 1px solid;
 box-shadow:#585555;
 width: auto;
 margin-top: 30px;
+top: 35%;
+left: 50%;
+transform: translateX(-50%);
+
 
 }
 
@@ -241,7 +252,7 @@ margin-right: auto;
 }
 
 .drop:hover .u_drop_content {
-display: block;
+display: block；
 
 }
 
@@ -449,6 +460,8 @@ Button {
     right: 0px;
     top: 0px;
 }
+
+
 Header .logo {
     margin-left: -40px;
 }
@@ -471,6 +484,7 @@ Header .logo {
     font-size: 30px;
     display: block;
     margin: 0;
+    right: 10px;
   }
 
 .mid_nav > .links {
@@ -479,7 +493,6 @@ Header .logo {
     width: 100%;
     background-color:  #d9c2a7;
     height: 0;
-    transition: all 0.2s ease-in;
     overflow-y: hidden;
     top: 60px;
     right: 0px;
@@ -504,7 +517,7 @@ Header .logo {
     display: block;
     width: 100%;
     float: left;
-    margin-top: 30px;
+    margin-top: 0px;
     color: #73412F;
     text-align: center;
     margin-left: auto;
@@ -517,17 +530,20 @@ Header .logo {
 }
 
 .mid_nav > #n_check:checked ~ .links {
-    height: 250px;
+    height: 350px;
     overflow-y: auto;
 }
 
 .mid_nav > .links > .drop {
     width: 100%;
+    margin-top: 20px;
 }
 
 .mid_nav > .links > .drop > .u_drop_content {
-    width: 101%;
+    width: auto;
     border: 0px;
+    width: 100%;
+    
 }
 
 .mid_nav > .links > .drop > .u_drop_content > a{
@@ -536,6 +552,17 @@ Header .logo {
     display: inline-block;
     position: relative;
     text-align: center;
+}
+
+.links .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    border:0 ;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    white-space: nowrap;
+    color: #8c5002;
+    width: 25%;
+    margin-top: 20px;
 }
 
 /* !!!!!!!!!!!!!! */
@@ -547,6 +574,41 @@ Header .logo {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     margin-right: 30px;
+}
+
+.change-popup {
+    width: 90%;
+    padding: 20px;
+    flex-direction: column;
+    font-size: 12pt;
+    
+}
+
+.change-popup .pop-menu {
+    width: 100%;
+    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    border: 0;
+}
+
+
+.pop-menu .ant-input-number, .snack-name {
+    display: inline-block;
+    /* border: solid 1px black; */
+    vertical-align: baseline; 
+}
+
+.pop-menu .ant-input-number {
+    position: absolute;
+    right: 10px;
+    margin-bottom: 2px;
+    /* border: black 1px solid; */
+}
+
+.pop-menu .snack-name {
+    margin-top: 3px;
 }
 
 
