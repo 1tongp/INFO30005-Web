@@ -5,6 +5,8 @@ import { CopyrightOutlined} from '@ant-design/icons';
 import axios from '../API/axios.js';
 import {useHistory} from "react-router-dom";
 
+import MyFooter from '../components/Footer.js';
+
 
 const { Header, Footer, Content } = Layout;
 
@@ -47,24 +49,32 @@ export default function MyProfile (props) {
     }
     return (
         <Layout className="signupBackground">
-            <Header >
-
-            </Header>
+            <div className="header--nofunction"></div>
             
-            <Content >
-                <h2>Nice to see you, Change your details here:</h2>
-                <h2>Your Email Address (can not be changed): {props.location.state.customer.loginEmail}</h2>
-                <br/>
+            <div >
+                <div className="profiletext">
+                    <p className="title">Nice to see you! You can change your details here...</p>
+                    <p className="warningtext">Your Email Address (can not be changed): </p>
+                    <p>{props.location.state.customer.loginEmail}</p>
+
+                </div>
+
+                
+        
                 <div className="signupContainer">
                 <form >
-                    <input placeholder="First Name" className="fnameinput" defaultValue = {props.location.state.customer.givenName}
+                    <label for="fname" className="label">First Name:</label>
+                    <input id="fname" placeholder="First Name" className="nameinput" defaultValue = {props.location.state.customer.givenName}
                     onChange = {e => setfirstName(e.target.value)}/>
-                    <input placeholder="Last Name" className="lnameinput" defaultValue = {props.location.state.customer.familyName}
+
+                    <label for="lname" className="label">Last Name:</label>
+                    <input id="lname" placeholder="Last Name" className="nameinput" defaultValue = {props.location.state.customer.familyName}
                     onChange = {e => setlastName(e.target.value)}/>
                     <br/>
                     <br/>
                     <br/>
-                    <input type="password" placeholder="New Password" defaultValue = {props.location.state.customer.password}
+                    <label for="password" className="label">Password:</label>
+                    <input id="password" type="password" className="nameinput" placeholder="New Password" defaultValue = {props.location.state.customer.password}
                     onChange = {e => setPassword(e.target.value)}/>
                     <br/>
                     <br/>
@@ -89,17 +99,9 @@ export default function MyProfile (props) {
 
              </div>
 
-            </Content>
+            </div>
 
-            <Footer className="footer"> 
-                <p>
-                <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
-            
-
-        </Layout>
+            <MyFooter></MyFooter>
+            </Layout>
     )
 }

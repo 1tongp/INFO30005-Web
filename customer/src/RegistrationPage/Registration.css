@@ -14,11 +14,25 @@ h1{
     font-weight: bold !important;
 }
 
-label{
+.label{
     font-size: medium;
     margin:12px;
  
 
+}
+
+.profiletext{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.title{
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+.warningtext{
+    font-size: 15px;
 }
 
 .nameinput{
