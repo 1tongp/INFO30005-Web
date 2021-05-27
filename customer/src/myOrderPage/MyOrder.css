@@ -125,8 +125,24 @@ word-wrap: break-word;
     font-weight: bold;
     margin-bottom: 14px;
     margin-left: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+   
+   
+
+    color: black !important;
+    transition: 0.3s;
 
 
+}
+
+#btn--changeorder:active{
+    color: white !important;
+    
+}
+
+#btn--changeorder:focus{
+    color: white;
 }
 
 #alert{
@@ -140,7 +156,7 @@ word-wrap: break-word;
 
 #btn--changeorder:hover{
     background-color: #73412F;
-    color:white;
+    color:white !important;
 }
 
 .ant-alert, .ant-alert-info{

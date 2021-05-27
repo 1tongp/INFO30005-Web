@@ -29,6 +29,9 @@ h1{
 .title{
     font-size: 26px;
     font-weight: bolder;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:#3d2218;
+
 }
 
 .warningtext{
@@ -84,7 +87,7 @@ h1{
 }
 
 .signupBackground{
-    background-color: #eeede9 !important;   
+    background-color: #f0ecdd !important;   
     /* background-image: url(background.png); */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -117,7 +120,8 @@ h1{
 }
 
 .btnSignup:hover{
-    background-color: #cba983 !important;
+    background-color:  #cba983 !important;
+    transition: 0.5s;
 }
 
 .btnCancel{
@@ -133,6 +137,7 @@ h1{
 
 .btnCancel:hover{
     background-color: #CCCCCC;
+    transition: 0.5s;
 
 }
 
