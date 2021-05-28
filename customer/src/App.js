@@ -5,6 +5,7 @@ import{Jumbotron, Button, Modal, Form} from 'react-bootstrap';
 import{message, Typography} from 'antd';
 import axios from './API/axios.js';
 import './landing.css';
+import { AlertFilled } from '@ant-design/icons';
 
 const {Link} = Typography;
 
@@ -72,7 +73,7 @@ function App(props) {
           position: [lat, lng]});
       } 
       else{
-        message.error(response.data.error)
+        alert(response.data.error)
       }
     }).catch(error => {
       console.log(error)
@@ -117,7 +118,7 @@ function App(props) {
           position: [lat, lng]});
       }
       else{
-        message.error(response.data.error)
+        alert(response.data.error)
       }
     }).catch(error => {
       console.log(error)
