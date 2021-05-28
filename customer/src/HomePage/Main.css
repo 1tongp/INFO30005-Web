@@ -7,7 +7,7 @@
     margin-left: 60px;
     margin-right: 60px;
     margin-bottom: 100px;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     z-index: 30;
 }
 
@@ -270,11 +270,12 @@ div.modal-content{
         border: solid 0px #A07D50;
         flex-direction: column;
         margin-bottom: 0;
+        width: 100vh;
         /* border: black 1px solid; */
     }
     
     .map-container {
-        width: 100%;
+        width: 100vh;
         float: left;
         height: 500px;
         margin-bottom: 0;

@@ -133,14 +133,13 @@ export default function VendorMain(props) {
         <h2>Confirm Location</h2>
       </Modal.Header>
       <Modal.Body>
-        <h4>{adress}</h4> 
+        <br />
+        <h3>Address: {adress}</h3> 
         <p className="current-location-coords">
           {position.lat} &#176; N, {position.lng} &#176; E
           </p >
 
-        <p>
-          {desc}
-        </p >
+        <h3>Adress Description: {desc}</h3>
 
       </Modal.Body>
       <Modal.Footer>

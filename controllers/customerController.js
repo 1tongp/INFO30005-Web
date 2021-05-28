@@ -111,7 +111,7 @@ exports.customerLoginPost = function(req, res){
         loginEmail: loginEmail,
     }).then((customer) => {
         if(!customer){
-            res.status(200).json({success: false, error: "Email not registered"});
+            res.status(200).json({success: false, error: "Email Not Registered"});
         }
         else{
             if(password === customer.password){
@@ -127,7 +127,7 @@ exports.customerLoginPost = function(req, res){
                 });
             }
             else{
-                res.status(200).json({success: false, error:'password incorrect'});
+                res.status(200).json({success: false, error:'Password Incorrect'});
             }      
         }
     })

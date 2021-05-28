@@ -86,7 +86,7 @@ exports.vendorLoginPost = function(req, res){
         name : name,
     }).then((vendor) => {
         if(!vendor){
-            res.status(200).json({success: false, error: "Name not registered"});
+            res.status(200).json({success: false, error: "Name Not Registered"});
         }
         else{
             if(password === vendor.password){
@@ -100,7 +100,7 @@ exports.vendorLoginPost = function(req, res){
                 });
             }
             else{
-                res.status(200).json({success: false, message:'password incorrect'});
+                res.status(200).json({success: false, error:'Password Incorrect'});
             }      
         }
     })
