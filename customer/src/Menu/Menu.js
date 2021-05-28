@@ -92,9 +92,9 @@ export default function Menu(props) {
                                 <h3>{snack.snackName}</h3>
                             </div>
                             <div className="cost-wrapper">
-                                <h4 className="cost">
+                                <h5 className="cost">
                                     $ {snack.snackPrice}
-                                </h4>
+                                </h5>
                             </div>
                             <div className="description-wrapper">
                                 <p>{snack.snackDescription}</p>

@@ -56,12 +56,23 @@
     padding: 0;
 }
 
+.primary-btn:hover{
+    transition:0.5s;
+    background-color: #B0936D;
+}
+
 .popup .secondary-btn {
     margin-top: 20px;
     width: 100%;
     padding: 0;
     background-color: rgb(206, 206, 206);
     border: gray 1px solid;
+    transition: 0.5s;
+}
+
+.secondary-btn:hover {
+    background-color: gray;
+    
 }
 
 
@@ -90,6 +101,13 @@
     margin-left: 30px;
     margin-right: 30px;
     width: 30%;
+}
+
+.landbtn:hover{
+    background-color: #73412f;
+    color: white;
+    transition: 0.5s;
+
 }
 
 @media (max-width:850px) {

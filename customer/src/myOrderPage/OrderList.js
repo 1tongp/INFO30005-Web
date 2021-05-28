@@ -78,8 +78,8 @@ export default function OrderList(props) {
                     <div className='links ' id = 'link_container'>
                         <a></a>
                 
-                            <div> <Button onClick = {onCustomerLogin} id='btnMenu'> HOME </Button></div>  
-                            <div> <Button onClick = {history.goBack} id='btnMenu'> MENU </Button></div>               
+                            <div> <button onClick = {onCustomerLogin} id='btnMenu'> HOME </button></div>  
+                            <div> <button onClick = {history.goBack} id='btnMenu'> MENU </button></div>               
                             <a className='icon' href=''><ShoppingOutlined /></a>
 
                         <div className='drop'>

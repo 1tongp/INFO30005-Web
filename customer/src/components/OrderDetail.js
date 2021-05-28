@@ -218,7 +218,7 @@ export default class OrderDetail extends Component {
         if (window.location.pathname === '/customer/order') {
             return (
                 <>
-                <Button id="btn--changeorder" key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button>
+                <button id="btn--changeorder" key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</button>
                 </> 
             )
 

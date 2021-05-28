@@ -21,6 +21,9 @@
 #right_container{
     height: inherit;
     width: 100%;
+    justify-content: flex-end;
+    margin-right: 0;
+    width: 400px;
 }
 
 #link_container{
@@ -28,6 +31,8 @@
     text-align: center;
     display: flex;
     justify-content: space-between;
+
+    margin-right: 0;
     
 }
 

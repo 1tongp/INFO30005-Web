@@ -4,6 +4,10 @@
     border: 0;
 }
 
+.container--menu>h1{
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
 .menu-card {
     width: 48%; 
     min-height: 15vw;
@@ -39,6 +43,7 @@
     padding-left: 20px;
     text-align: left;
     position: relative;
+    margin-left: 16px;
 }
     
 
@@ -49,13 +54,18 @@
 }
 
 .card-name h3,
-.cost-wrapper h4 {
+.cost-wrapper h5 {
     text-transform: uppercase;
     font-weight: 400;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 16pt;
     font-weight: bold;
     white-space: nowrap;
+}
+
+.cost-wrapper h5{
+    font-size: 14pt !important;
 }
 
 .cost-wrapper {
@@ -73,11 +83,13 @@
 }
 
 .description-wrapper p {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family:cursive;
     font-size: 11pt;
     /* white-space: initial; */
     /* white-space:normal; */
-    font-weight: 500;
+    font-weight:lighter;
+    line-height: 24px;
     
 }
 
@@ -97,6 +109,13 @@
 
 .card-btns img:hover {
     cursor: pointer;
+  
+}
+
+.place:hover{
+    background-color: #73412f;
+    color: white;
+    transition: 0.5s;
 }
 
 /* .container .place:hover {
