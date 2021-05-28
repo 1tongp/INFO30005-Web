@@ -1,22 +1,15 @@
-import React from 'react';
-import Orderlist from './Orderlist.js'
+import React, { useMemo, useState, useEffect} from 'react'
+import axios from '../API/axios.js';
 import 'antd/dist/antd.css';
 import { Jumbotron, Button, Modal, Form } from 'react-bootstrap';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import './component.css'
 import './FulfilledOrderlist'
 
 import './landing.css'
 
 import { Layout, Menu } from 'antd';
-import FulfilledOrderlist from './FulfilledOrderlist';
-import Searchbar from './Searchbar.js'
-import FinishedOrderList from './FinishedOrderList.js'
-import FinishedOrderDetail from './FinishedOrderDetail.js'
-import Sidebar from './Sider.js'
 
-import VendorMap from '../components/vendorMap';
-import { useState, useEffect } from 'react';
-import axios from '../API/axios.js';
 
 
 
@@ -25,11 +18,10 @@ const { Header, Sider, Content } = Layout;
 
 
 export default function VendorMain(props) {
+  console.log(props.location.state.position[0]);
   console.log(props);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const [desc, setDesc] = useState('Description required');
-  const [adress, setAdress] = useState('Adress required');
 
   const showModal = () => {
     setShow(true);
@@ -37,43 +29,66 @@ export default function VendorMain(props) {
 
   // console.log("below is landing.js");
   // console.log(props);
-  const [lat, setLat] = useState('');
-  const [lng, setLng] = useState('');
+  // const [lat, setLat] = useState('');
+  // const [lng, setLng] = useState('');
+  const [desc, setDesc] = useState('');
+  const [adress, setAdress] = useState('');
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      // console.log("position: "+ position);
-      setLat(position.coords.latitude)
-      setLng(position.coords.longitude)
-      // props.data.location.state.position = [lat, lng];
-      // props.location.state.vendor.location = position.coords;
-    });
-    // axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
-    //   console.log(response)
-    //   setVendors(response.data.vendors)
-    // })
-    // console.log([lat,lng]);
+  // this.center = latLng([this.lat,this.lng]);
+  // const [position, setPosition] = useState(props.location.state.position);
+  const [position, setPosition] = useState({lat: props.location.state.position[0], lng: props.location.state.position[1]});
 
-  }, [lat, lng])
 
-  // console.log("Props data:");
-  props.location.state.position = [lat, lng];
-  // console.dir(props.location.state.position);
+  const eventHandlers = useMemo(
+    (e) => ({
+      dragend(e) {
+        setPosition(e.target.getLatLng())
+      }
+    }),
+    [],
+  )
+
+  const rendervendor = (
+    <Marker
+      draggable={true}
+      eventHandlers={eventHandlers}
+      position={position}>
+    </Marker>
+  )
+
+  console.log(position);
+
+
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(function (position) {
+  //     // console.log("position: "+ position);
+  //     setLat(position.coords.latitude)
+  //     setLng(position.coords.longitude)
+  //     // props.data.location.state.position = [lat, lng];
+  //     // props.location.state.vendor.location = position.coords;
+  //   });
+  //   // axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
+  //   //   console.log(response)
+  //   //   setVendors(response.data.vendors)
+  //   // })
+  //   // console.log([lat,lng]);
+
+  // }, [lat, lng])
+
+  // // console.log("Props data:");
+  // props.location.state.position = [lat, lng];
+  // // console.dir(props.location.state.position);
 
   const toLogin = () => {
     props.history.push('../')
   }
 
   const openVan = () => {
-    if (desc === 'Description required' || adress === 'Adress required') {
-      alert("Please enter an adress and description");
-      return null;
-    }
     axios.post('/vendor/park/' + props.location.state.vendor.id, {
       currentAddress: adress,
       parked: true,
       readyForOrder: true,
-      location: [lat, lng]
+      location: [position.lat, position.lng]
     }).then(response1 => {
       console.log(response1);
     })
@@ -103,41 +118,34 @@ export default function VendorMain(props) {
   //     collapsed: !this.state.collapsed,
   //   });
   // };
-
+  // console.log(position.Lat);
+  
 
 
   const vendorModal = (
     <>
-      <Modal show={show} onHide={handleClose}>
-        <div className="login-container">
-          <div className="confirm">
-
-            <Modal.Header closeButton>
-              <Modal.Title>Confirm Location</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <h4>{adress}</h4> <br />
-              <p className="current-location-coords">
-                {lat} &#176; N, {lng} &#176; E
+      <Modal.Header closeButton>
+        <Modal.Title>Confirm Location</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>{adress}</h4> <br />
+        <p className="current-location-coords">
+          {position.lat} &#176; N, {position.lng} &#176; E
           </p>
-              <br></br>
-              <p>
-                {desc}
-              </p>
+        <br></br>
+        <p>
+          {desc}
+        </p>
 
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
             </Button>
-              <Button variant="outline-primary" onClick={openVan}>
-                Continue
+        <Button variant="outline-primary" onClick={openVan}>
+          Continue
             </Button>
-            </Modal.Footer>
-
-          </div>
-        </div>
-      </Modal>
+      </Modal.Footer>
     </>
   )
 
@@ -158,21 +166,32 @@ export default function VendorMain(props) {
         >
           <div className="landing-wrapper">
             <div className="map-wrapper">
-              <VendorMap data={props} />
+              <div>
+                {/* -37.5914496, 145.11636479999999 */}
+                {/* props.data.location.state.vendor.location */}
+                <MapContainer center={props.location.state.position} zoom={16} scrollWheelZoom={false}
+                  style={{ height: "59vh", objectFit: "cover" }}>
+                  <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  {rendervendor}
+                </MapContainer>
+              </div>
               {/* Map */}
             </div>
             <div className="current-location">
               <h4 className="current-location-title">CURRENT LOCATION: </h4>
-              {/* <p className="current-location-p"> */}
-              <Form>
-                <Form.Label>Add Adress</Form.Label>
-                <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)} />
-              </Form>
-              <br />
-              <span className="current-location-coords">
-                {lat} &#176; N, {lng} &#176; E
+              <p className="current-location-p">
+                <Form>
+                  <Form.Label>Add Address</Form.Label>
+                  <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)} />
+                </Form>
+                <br />
+                <span className="current-location-coords">
+                  {position.lat} &#176; N, {position.lng} &#176; E
                         </span>
-              {/* </ p> */}
+              </ p>
             </div>
 
             <div className="add-description" >
@@ -190,7 +209,9 @@ export default function VendorMain(props) {
               <Button variant="outline-primary" onClick={showModal} >Open for Business</Button>
             </div>
 
-            {vendorModal}
+            <Modal show={show} onHide={handleClose}>
+              {vendorModal}
+            </Modal>
 
             {/* <Modal className='popup'
             centered
@@ -212,5 +233,4 @@ export default function VendorMain(props) {
     </Layout>
   );
 }
-
 
