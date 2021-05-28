@@ -11,6 +11,7 @@ export default function VendorMap(props) {
 
     let history = useHistory();
     const[show, setShow] = useState(false);
+
     const[address, setAddress] = useState('');
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
@@ -26,22 +27,29 @@ export default function VendorMap(props) {
         iconUrl: logo,
         iconSize: [55,55],
     })
+
     const personIcon = new Icon({
         iconUrl: personlogo,
         iconSize: [55,55],
     })
 
-    // const toMenu = () =>{
-    //     // push the customer information
-    //     props.data.history.push('/customer/menu', {customer: props.data.location.state.customer});     
-    // }
+    const toMenu = () =>{
+        // push the customer information
+        props.data.history.push('/customer/menu', {customer: props.data.location.state.customer});     
+    }
 
-    const testLocation = [-37.5914496,145.11636479999999];
+
+    console.log("props.data is: "+ props.data.location.state.position[0]+ "," +props.data.location.state.position[1]);
+
+
+    // Checks if data loaded
+    if (props.data.location.state.position[0] === null || props.data.location.state.position[0] === "" 
+    ||props.data.location.state.position[1] === null || props.data.location.state.position[1] === "") {
+        return null;
+    }
     return (
         <div>
-            {/* -37.5914496, 145.11636479999999 */}
-            {/* props.data.location.state.vendor.location */}
-            <MapContainer center={props.data.location.state.position} zoom={16} scrollWheelZoom={false}
+            <MapContainer center={props.data.location.state.position}  zoom={10} scrollWheelZoom={false}
                 style={{height : "59vh", objectFit: "cover"}}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

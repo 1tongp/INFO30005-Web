@@ -28,6 +28,8 @@ export default function VendorMain(props) {
   console.log(props);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
+  const [desc, setDesc] = useState('Description required');
+  const [adress, setAdress] = useState('Adress required');
 
   const showModal = () => {
     setShow(true);
@@ -63,21 +65,25 @@ export default function VendorMain(props) {
   }
 
   const openVan = () => {
-    axios.post('/vendor/park/' + props.location.state.vendor.id,{
+    if (desc === 'Description required' || adress === 'Adress required') {
+      alert("Please enter an adress and description");
+      return null;
+    }
+    axios.post('/vendor/park/' + props.location.state.vendor.id, {
       currentAddress: adress,
       parked: true,
       readyForOrder: true,
       location: [lat, lng]
-    }).then(response1 =>{
+    }).then(response1 => {
       console.log(response1);
     })
-    axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response =>{
+    axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response => {
       console.log(response);
-      if(!response.data.success){
-        props.history.push('/vendor/preparing/noorder', {vendor: props.location.state.vendor})
+      if (!response.data.success) {
+        props.history.push('/vendor/preparing/noorder', { vendor: props.location.state.vendor })
       }
-      else{
-        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders: response.data.orders});
+      else {
+        props.history.push('/vendor/preparing', { vendor: props.location.state.vendor, orders: response.data.orders });
       }
     })
   }
@@ -97,34 +103,41 @@ export default function VendorMain(props) {
   //     collapsed: !this.state.collapsed,
   //   });
   // };
-  const [desc, setDesc] = useState('');
-  const [adress, setAdress] = useState('');
+
 
 
   const vendorModal = (
     <>
-      <Modal.Header closeButton>
-        <Modal.Title>Confirm Location</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>{adress}</h4> <br />
-        <p className="current-location-coords">
-          {lat} &#176; N, {lng} &#176; E
-          </p>
-        <br></br>
-        <p>
-          {desc}
-        </p>
+      <Modal show={show} onHide={handleClose}>
+        <div className="login-container">
+          <div className="confirm">
 
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
+            <Modal.Header closeButton>
+              <Modal.Title>Confirm Location</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <h4>{adress}</h4> <br />
+              <p className="current-location-coords">
+                {lat} &#176; N, {lng} &#176; E
+          </p>
+              <br></br>
+              <p>
+                {desc}
+              </p>
+
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
             </Button>
-        <Button variant="outline-primary" onClick={openVan}>
-          Continue
+              <Button variant="outline-primary" onClick={openVan}>
+                Continue
             </Button>
-      </Modal.Footer>
+            </Modal.Footer>
+
+          </div>
+        </div>
+      </Modal>
     </>
   )
 
@@ -150,16 +163,16 @@ export default function VendorMain(props) {
             </div>
             <div className="current-location">
               <h4 className="current-location-title">CURRENT LOCATION: </h4>
-              <p className="current-location-p">
-                <Form>
-                  <Form.Label>Add Adress</Form.Label>
-                  <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)}  />
-                </Form>
-                <br />
-                <span className="current-location-coords">
-                  {lat} &#176; N, {lng} &#176; E
+              {/* <p className="current-location-p"> */}
+              <Form>
+                <Form.Label>Add Adress</Form.Label>
+                <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)} />
+              </Form>
+              <br />
+              <span className="current-location-coords">
+                {lat} &#176; N, {lng} &#176; E
                         </span>
-              </ p>
+              {/* </ p> */}
             </div>
 
             <div className="add-description" >
@@ -177,9 +190,7 @@ export default function VendorMain(props) {
               <Button variant="outline-primary" onClick={showModal} >Open for Business</Button>
             </div>
 
-            <Modal show={show} onHide={handleClose}>
-              {vendorModal}
-            </Modal>
+            {vendorModal}
 
             {/* <Modal className='popup'
             centered
