@@ -4,39 +4,42 @@
     color: seashell;
 }
 
-.u_drop_content {
-    background-color: #d9c2a7;
-    border:#A07D50 1px solid;
-    cursor: pointer;
-    font-size: 12pt;
-    font-weight: bold;
-    top: 5px;
-}
+
 
 a .btn-primary .btn  {
-    background-color: #d9c2a7;
+    background-color: #713c00;
     padding: 0;
 }
 
 .links .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color:  #d9c2a7 ;
-    border: 0;
-    padding: 20px;
+    border:0 ;
+    padding: 0px;
+    /* border: 1px solid black; */
+    padding-left: 15px;
+    padding-right: 15px;
     white-space: nowrap;
-    color: #A07D50;
+    color: #8c5002;
     width: 100%;
     border-radius: 0;
+    transition: none !important;
+    
 }
 
-.links .btn-primary:hover {
-    color: white;
+.links .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    color:  #fffaf5 !important;
+    transition: none !important;
 }
+
+
 
 .hamburger ,label, span {
     right: 30px;
     bottom: 5px;
 }
 
+.place:hover {
+    background-color: #713c00;
+}
 
 @media (max-width:850px) {
     .links{
@@ -50,6 +53,7 @@ a .btn-primary .btn  {
         display: inline-block;
         position: relative;
         justify-content: space-evenly;
+        background-color: none;
     }
  
     .u_drop_content {
@@ -58,8 +62,14 @@ a .btn-primary .btn  {
     }
 
     .u_drop_content .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-        background-color:  #d9c2a7 !important;
+        color:  #fffaf5 !important;
     }
+
+    .u_drop_content .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        color: #713c00 !important;
+        transition: none;
+    }
+
 }
 
 .menu_container {
@@ -81,8 +91,8 @@ a .btn-primary .btn  {
     /* border: springgreen 1px solid; */
     display: flex;
     flex-direction: row;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
 
@@ -109,7 +119,7 @@ a .btn-primary .btn  {
     display: block;
     text-align: center;
     /* border: springgreen 1px solid; */
-    width: 50%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
 
@@ -130,6 +140,7 @@ a .btn-primary .btn  {
     width: 30%;
     float: right;
     text-align: center;
+    
 }
 
 .place_icon {
@@ -212,6 +223,26 @@ a.btn-primary:hover{
 
 }
 
+.container--menu{
+    padding: 6%;
+}
+
+.ant-input-number{
+    border-radius: 50px !important;
+}
+
+.menu{
+    margin-top: 50px !important;
+
+}
+
+.card-info{
+    z-index: 1;
+}
+
+.menu-card{
+    z-index: 1;
+}
 
 
 @media (max-width:850px) { 
@@ -257,7 +288,8 @@ a.btn-primary:hover{
     }
 
     .place {
-        margin-top: 30px;
+        /* margin-top: 10px; */
+        margin-bottom: 20px;
         width: 100%;
         padding: 15px;
     }

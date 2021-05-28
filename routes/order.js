@@ -15,4 +15,6 @@ orderRouter.post('/change/:id', orderController.orderChangePost)
 // GET request for customer to get their all order details
 orderRouter.get('/', orderController.customerOrderListGet);
 
+orderRouter.get('/search/:id', orderController.orderListGet);
+
 module.exports = orderRouter;

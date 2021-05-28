@@ -90,7 +90,6 @@ Header {
 Header .mid_nav {
     text-align: center;
     margin-left: auto;
-    margin-right: 60px;
     display: block;
 }
 
@@ -137,6 +136,7 @@ Header .mid_nav {
 .drop:hover .u_drop_content {
     display: block;
     margin-top: 25px;
+    
 }
 
 .mid_nav > .hamburger  {

@@ -6,6 +6,7 @@ import { Layout , Card } from 'antd';
 import { Button } from 'react-bootstrap';
 import { CopyrightOutlined , LikeOutlined } from '@ant-design/icons';
 import {useHistory} from "react-router-dom";
+import MyFooter from '../components/Footer.js';
 
 const { Footer, Content } = Layout;
 const {Meta} = Card;
@@ -33,13 +34,7 @@ export default function MenuPre (props) {
                 </Button>
                 <br /><br />
             </Content>
-            <Footer>
-                <p>
-                <CopyrightOutlined /> SNACKS IN A VAN
-                <br />
-                All Rights Reserved
-                </p>
-            </Footer>
+            <MyFooter></MyFooter>
         </Layout>
     )
 }

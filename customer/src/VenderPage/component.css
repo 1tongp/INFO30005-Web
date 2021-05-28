@@ -1,0 +1,361 @@
+:root{
+    --blue: #E3F4FF;
+    --orange: #FF5129;
+    --green: #C6EDCA;
+    --darkblue:#015EBA;
+}
+
+
+
+.trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .trigger:hover {
+    color: #1890ff;
+  }
+  
+  .logo {
+    height: 54px;
+    margin-bottom: 10px;
+    margin-left: 30%;
+  
+  }
+  
+  .site-layout .site-layout-background {
+    background: white;
+  }
+
+section.ant-layout{
+    background-color: white;
+}
+
+section.ant-layout-has-sider{
+    padding: 10px;
+    background: white;
+    height:fit-content;
+    min-height: 600px;
+}
+
+aside.ant-layout-sider{
+    background: white;
+    height:inherit;
+}
+
+li.ant-menu-item{
+    background: white;
+    margin: 0 !important;
+    color: gray !important;
+    margin-bottom: 10px !important;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.ant-menu-item-selected{
+    background-color: var(--blue) !important;
+    margin: 0 !important;
+    font-weight: bold;
+    color: #000 !important;
+    margin-bottom: 10px !important;
+    text-align: center;
+}
+
+.ant-menu.ant-menu-dark{
+    background: white !important;
+    color: #000;
+    
+}
+
+.site-layout-background-content{
+    background: var(--blue) !important;
+    overflow: scroll !important;
+    margin: '0px 0px';
+    padding: 24;
+    
+}
+
+.ant-layout-content{
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    height: 100% !important;
+    overflow: scroll !important;
+}
+
+.closevan{
+    margin-top:50px;
+    margin-right: auto;
+    margin-left: auto;
+   
+    width: 95%;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+
+}
+
+.secondary-btn {
+    padding: 5px 15px;
+    background-color: rgb(206, 206, 206);
+    border: gray 1px solid;
+}
+
+.secondary-btn:hover {
+    background-color: rgb(172, 172, 172);
+}
+
+.button-wrapper .primary{
+    background-color: var(--green);
+    border: #91cb97 1px solid;
+}
+
+.button-wrapper .primary:hover{
+    background-color: #b3e6b8;
+}
+
+.button-wrapper .secondary-btn{
+    background-color: rgb(213, 213, 213);
+    border:rgb(176, 176, 176)  1px solid;
+}
+
+.button-wrapper .secondary-btn:hover {
+    background-color: rgb(199, 199, 199);
+}
+
+/* orderlist */
+
+
+.check{
+    margin-right: auto;
+    margin-left: auto;
+    width: 95%;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--green);
+    color: black;
+    border: none;
+
+}
+
+.cluster{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.container--orderlist{
+    background-color: white;
+    border-radius: 10px;
+    border:solid 1px;
+    border-color: var(--darkblue);
+    padding: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.container--basicinfo{
+    color:grey ;
+    /* border: black 1px solid; */
+    width: 30%;
+    float: left;
+}
+
+.orderdetail{
+    list-style-type: none;
+    /* border: black 1px solid; */
+    width: 30%;
+    float: left;
+}
+
+.time{
+    font-size: large;
+    font-weight:bolder;
+}
+
+.fulfilled{
+    background-color: #e5e5e59e;
+    border-color: grey;
+}
+
+.fulfilledCheck{
+    margin-right: auto;
+    margin-left: auto;
+   
+    width: 95%;
+    padding: 20px;
+    border-radius: 15px;
+    
+    color: black;
+    border: none;
+    background-color: #B9D1BC;
+}
+
+
+/* searchbar */
+.container--search{
+    /* margin-bottom: 50px; */
+    display: inline;
+}
+
+.searchbar{
+    padding: 4px 15px;
+    margin-bottom: 20px;
+    display: inline;
+    width: 84%;
+    border-radius: 10px;
+}
+
+.btn--search{
+    display: inline;
+    width: 15%;
+    /* position: relative; */
+    margin-left: 1%;
+    background-color: var(--green);
+    border:solid 1px;
+    border-color: darkgreen;
+    padding: 5px 15px;
+    /* margin-bottom: 15px; */
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+
+/*Finished Orders*/
+.container--finishedorderlist{
+    background-color: white;
+    border-radius: 10px;
+    border:solid 1px;
+    border-color: var(--darkblue);
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 20px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.container--finishedorderlist Button {
+    position: relative;
+    height: 100%;
+    margin-top: 140px;
+    /* margin-top: 45px; */
+    right: 0;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--green);
+    color: black;
+    border: none;
+    white-space: nowrap;
+    text-align: center;
+
+}
+.container--orderdetail{
+    /* background-color: white; */
+    /* border-radius: 10px;
+    border:solid 1px;
+    border-color: grey; */
+    padding-top: 10px;
+    margin: 0px;
+    height: fit-content;
+    min-height: 400px;
+    padding: 10px;
+    width: 100%;
+    padding-bottom: 0px;
+}
+
+.container--orderdetail h3 {
+    margin-bottom: 15px;
+}
+.container--orderdetail li{
+    margin-bottom: 10px;
+}
+
+.container--FinishedOrderList{
+    width: 100%;
+    margin-right: 20px;
+}
+
+.container--FinishedOrderDetail{
+    width: 60%;
+}
+
+.container--FinishedContent{
+    justify-content: start !important;
+}
+
+.container--empty{
+    padding-top: 150px;
+    text-align: center;
+}
+
+.child--FinishedDetail{
+    list-style-type: none;
+
+}
+
+.font--discount{
+    color: #6DB100;
+}
+
+.font--totalprice{
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.font--cancel{
+   
+    color: red;
+}
+
+
+/* prepareing no order */
+.container--PrepareNoOrder{
+    text-align: center;
+    margin-top: 160px;
+  
+}
+
+.coffeeIcon{
+    font-size: x-large;
+    margin-bottom: 16px;
+}
+
+
+/* POP UP */
+.vendor-popup {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+.popup p{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.popup button{
+    font-size: 14pt;
+    border-radius: 25px;
+    height: 30pt;
+    width: 49%;
+}
+
+.detail-popup button {
+    width: 100%;
+    font-size: 14pt;
+    border-radius: 25px;
+    height: 30pt;
+}
+
+

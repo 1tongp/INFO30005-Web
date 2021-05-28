@@ -76,3 +76,71 @@ exports.vendorParkPost = function(req,res){
         }
     })
 }
+
+
+exports.vendorLoginPost = function(req, res){
+    const{name, password} = req.body;
+
+    // Match vendor
+    Vendor.findOne({
+        name : name,
+    }).then((vendor) => {
+        if(!vendor){
+            res.status(200).json({success: false, error: "Name Not Registered"});
+        }
+        else{
+            if(password === vendor.password){
+                res.status(200).json({
+                    success:true,
+                    vendor:{
+                        id: vendor.id,
+                        name: vendor.name,
+                        password : password,
+                    },
+                });
+            }
+            else{
+                res.status(200).json({success: false, error:'Password Incorrect'});
+            }      
+        }
+    })
+}
+
+// GET five nearest vendors
+// example : http://localhost:5000/vendor?lat=-37.7963&lng=144.9614
+exports.vendorNearestGet = function (req,res) {
+    Vendor.find().exec((err, vendors) => {
+        if (err) {
+            res.status(404).json({err: err})
+        } else {
+            var findDistance = []
+            for (i=0; i < vendors.length; i++) {
+                if(vendors[i].readyForOrder === true){
+                    if(vendors[i].location.coordinates != null){
+                        var distance = Math.sqrt(Math.hypot(
+                            req.query.lat - vendors[i].location.coordinates[0],
+                            req.query.lng - vendors[i].location.coordinates[1]
+                        ))
+                    }
+                    if (Number.isFinite(distance)){
+                        findDistance.push({
+                            "id": vendors[i].id,
+                            "name": vendors[i].name,
+                            "currentAddress": vendors[i].currentAddress,
+                            "distance": parseFloat(distance).toFixed(4),
+                            "location": vendors[i].location.coordinates
+                        })
+                    }
+                }
+            }
+            if(findDistance.length >= 5){
+                findDistance = findDistance.sort(({distance: a}, {distance: b}) => a - b).slice(0,5)
+            }
+            else{
+                findDistance = findDistance.sort(({distance: a}, {distance: b}) => a - b)
+            }
+            res.status(200).json({success: true, vendors: findDistance})
+        }
+    })
+};
+

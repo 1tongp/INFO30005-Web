@@ -49,15 +49,19 @@ var OrderSchema = new Schema({
 
     ratings:{
         type: Number,
+        default: null
     },
     comments:{
         type: String,
+        default: null
     },
-    createTime:{
-        type: Date,
-        default: Date.now
-    },
-});
+
+    discount:{
+        type: Boolean,
+        default: false
+    }
+
+}, { timestamps: { createdAt: 'createTime', updatedAt: 'updateTime' }});
 
 module.exports = mongoose.model("Order",OrderSchema);
 

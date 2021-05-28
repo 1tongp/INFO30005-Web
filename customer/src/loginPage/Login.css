@@ -33,6 +33,10 @@ input{
     
 }
 
+.btnContinue:hover{
+    background-color: #B0936D;
+}
+
 .btnBack{
     width: 45%;
     height: 30px;

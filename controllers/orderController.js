@@ -29,11 +29,11 @@ exports.vendorOrderListGet = function(req, res){
     Order.find({vendor:req.params.vendorId, status:req.query.status}, function(err, orders){
 
         //if for perticular vendor, the order list for required status is an empty list, return error message
-        if(orders.length == 0 ){
-            res.status(404).send("Order is not found")
+        if(orders.length === 0 ){
+            res.status(200).json({success: false, message:"Order is not found"})
         }
         else{
-           res.status(200).json({orders: orders})
+           res.status(200).json({success: true, orders: orders})
         }
     })       
 };
@@ -43,7 +43,7 @@ exports.orderChangePost = function(req, res){
 
     // check validation of the order id
     Order.findById(req.params.id, function(err, orderDetail){
-        const{snacksList, status} = req.body;
+        //const{snacksList, status} = req.body;
         if(!orderDetail){
             res.status(404).send("order is not found!")
         }
@@ -52,30 +52,45 @@ exports.orderChangePost = function(req, res){
             // update the snack list and order status for the given order id
             Order.findByIdAndUpdate(
                 req.params.id,
-                {snacksList, status},
+                req.body,
                 {new: true},
                 function(err, changeOrderDetails){
                     if(err){
-                        res.status(404).json({err})
+                        res.status(404).json({success: false, err})
                     }
                     else{
-                        res.status(200).json({changeOrderDetails: changeOrderDetails})
+                        res.status(200).json({success: true, changeOrderDetails: changeOrderDetails})
                     }
                 })    
         }
     })
 }
 
-/* url: http://localhost:8080/order?customer=:customerID&status=outstanding to get all outstanding orders */
+
+/* url: http://localhost:5000/order?customer=:customerID&status=outstanding to get all outstanding orders */
 // Get request for customer to get their order details
 exports.customerOrderListGet = function(req, res){
     Order.find(req.query).populate("vendor").populate("customer").then((orders)=>{
         //if for perticular vendor, the order list for required status is an empty list, return error message
-        if(orders.length == 0){
-            res.status(404).send("Order is not found. You don't have any orders.")
+        if (orders.length == 0){
+            res.status(200).json({ success: false, error: "no order found"})
+        } else {
+            res.status(200).json({ success: true, customerOrders: orders})
         }
-        else{
-           res.status(200).json({customerOrders: orders})
-        }
+        
     })       
 };
+
+// GET request for vendor to search orders
+exports.orderListGet = function(req, res){
+
+    // check validation of the order id
+    Order.findById(req.params.id, function(err, orderDetail){
+        if(!orderDetail){
+            res.status(404).json({success: false, message: "order is not found!"})
+        }
+        else{
+            res.status(200).json({success: true, orders: orderDetail})   
+        }
+    })
+}
