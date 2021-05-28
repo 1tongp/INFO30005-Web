@@ -18,23 +18,23 @@ class Orderlist extends React.Component{
         }
     }
 
-    // socket.io 
-    // update each second
-    componentDidMount() {
-        this.timerID = setInterval(
-            () => this.tick(), 1000
-        );
-    }
+    // // socket.io 
+    // // update each second
+    // componentDidMount() {
+    //     this.timerID = setInterval(
+    //         () => this.tick(), 1000
+    //     );
+    // }
 
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
+    // componentWillUnmount() {
+    //     clearInterval(this.timerID);
+    // }
 
-    tick() {
-        let now = new Date().getTime()
-        let upd = Date.parse(this.props.order.updateTime)
-        this.setState({ diff: ((now - upd) / 60000)})
-    }
+    // tick() {
+    //     let now = new Date().getTime()
+    //     let upd = Date.parse(this.props.order.updateTime)
+    //     this.setState({ diff: ((now - upd) / 60000)})
+    // }
 
 
     render(){
