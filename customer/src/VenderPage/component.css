@@ -101,9 +101,33 @@ li.ant-menu-item{
 
 }
 
+.secondary-btn {
+    padding: 5px 15px;
+    background-color: rgb(206, 206, 206);
+    border: gray 1px solid;
+}
 
+.secondary-btn:hover {
+    background-color: rgb(172, 172, 172);
+}
 
+.button-wrapper .primary{
+    background-color: var(--green);
+    border: #91cb97 1px solid;
+}
 
+.button-wrapper .primary:hover{
+    background-color: #b3e6b8;
+}
+
+.button-wrapper .secondary-btn{
+    background-color: rgb(213, 213, 213);
+    border:rgb(176, 176, 176)  1px solid;
+}
+
+.button-wrapper .secondary-btn:hover {
+    background-color: rgb(199, 199, 199);
+}
 
 /* orderlist */
 

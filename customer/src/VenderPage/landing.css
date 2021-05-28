@@ -27,6 +27,16 @@
 
 .map-wrapper {
     grid-area: map;
+    position: relative;
+
+}
+
+.map-wrapper .v-map {
+    position: relative;
+}
+
+.locationpop {
+    position: relative;
 }
 
 .current-location {
