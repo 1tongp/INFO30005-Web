@@ -130,26 +130,26 @@ export default function VendorMain(props) {
     <div className='login-container'>
       <div className='popup locationpop'>
       <Modal.Header>
-        <Modal.Title>Confirm Location</Modal.Title>
+        <h2>Confirm Location</h2>
       </Modal.Header>
       <Modal.Body>
-        <h4>{adress}</h4> <br />
+        <h4>{adress}</h4> 
         <p className="current-location-coords">
           {position.lat} &#176; N, {position.lng} &#176; E
-          </p>
-        <br></br>
+          </p >
+
         <p>
           {desc}
-        </p>
+        </p >
 
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-            </Button>
-        <Button variant="outline-primary" onClick={openVan}>
+      <button className="primary-btn" onClick={openVan}>
           Continue
-            </Button>
+        </button>
+        <button className="secondary-btn" onClick={handleClose}>
+          Close
+        </button>
       </Modal.Footer>
     </div>
     </div>
@@ -160,7 +160,7 @@ export default function VendorMain(props) {
       {/* <Sidebar /> */}
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
-          <p className="landing-title">CHOOSE LOCATION</p>
+          <p className="landing-title">CHOOSE LOCATION</p >
         </Header>
         <Content
           className="site-layout-background-content"
@@ -178,7 +178,7 @@ export default function VendorMain(props) {
                 <MapContainer className='v-map' center={props.location.state.position} zoom={16} scrollWheelZoom={false}
                   style={{ height: "59vh", objectFit: "cover" }}>
                   <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    attribution='&copy; < a href=" ">OpenStreetMap</ a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
                   {rendervendor}
@@ -227,7 +227,7 @@ export default function VendorMain(props) {
             onOk={() => this.setModal1Visible(false)}
             onCancel={() => this.setModal1Visible(false)}
             >
-            <p>Done for Today?</p>
+            <p>Done for Today?</p >
           </Modal> */}
           </div>
 
@@ -240,4 +240,3 @@ export default function VendorMain(props) {
     </Layout>
   );
 }
-
