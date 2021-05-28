@@ -1,7 +1,8 @@
-import React from 'react';
-import Orderlist from './Orderlist.js'
+import React, { useMemo, useState, useEffect} from 'react'
+import axios from '../API/axios.js';
 import 'antd/dist/antd.css';
 import { Jumbotron, Button, Modal, Form } from 'react-bootstrap';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import './component.css'
 import './FulfilledOrderlist'
 
@@ -25,6 +26,7 @@ const { Header, Sider, Content } = Layout;
 
 
 export default function VendorMain(props) {
+  console.log(props.location.state.position[0]);
   console.log(props);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -35,49 +37,77 @@ export default function VendorMain(props) {
 
   // console.log("below is landing.js");
   // console.log(props);
-  const [lat, setLat] = useState('');
-  const [lng, setLng] = useState('');
+  // const [lat, setLat] = useState('');
+  // const [lng, setLng] = useState('');
+  const [desc, setDesc] = useState('');
+  const [adress, setAdress] = useState('');
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      // console.log("position: "+ position);
-      setLat(position.coords.latitude)
-      setLng(position.coords.longitude)
-      // props.data.location.state.position = [lat, lng];
-      // props.location.state.vendor.location = position.coords;
-    });
-    // axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
-    //   console.log(response)
-    //   setVendors(response.data.vendors)
-    // })
-    // console.log([lat,lng]);
+  // this.center = latLng([this.lat,this.lng]);
+  // const [position, setPosition] = useState(props.location.state.position);
+  const [position, setPosition] = useState({lat: props.location.state.position[0], lng: props.location.state.position[1]});
 
-  }, [lat, lng])
 
-  // console.log("Props data:");
-  props.location.state.position = [lat, lng];
-  // console.dir(props.location.state.position);
+  const eventHandlers = useMemo(
+    (e) => ({
+      dragend(e) {
+        setPosition(e.target.getLatLng())
+      }
+    }),
+    [],
+  )
+
+  const rendervendor = (
+    <Marker
+      draggable={true}
+      eventHandlers={eventHandlers}
+      position={position}>
+    </Marker>
+  )
+
+  console.log(position);
+
+
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(function (position) {
+  //     // console.log("position: "+ position);
+  //     setLat(position.coords.latitude)
+  //     setLng(position.coords.longitude)
+  //     // props.data.location.state.position = [lat, lng];
+  //     // props.location.state.vendor.location = position.coords;
+  //   });
+  //   // axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
+  //   //   console.log(response)
+  //   //   setVendors(response.data.vendors)
+  //   // })
+  //   // console.log([lat,lng]);
+
+  // }, [lat, lng])
+
+  // // console.log("Props data:");
+  // props.location.state.position = [lat, lng];
+  // // console.dir(props.location.state.position);
 
   const toLogin = () => {
     props.history.push('../')
   }
 
   const openVan = () => {
-    axios.post('/vendor/park/' + props.location.state.vendor.id,{
+    axios.post('/vendor/park/' + props.location.state.vendor.id, {
       currentAddress: adress,
       parked: true,
       readyForOrder: true,
-      location: [lat, lng]
-    }).then(response1 =>{
+      location: [position.lat, position.lng]
+    }).then(response1 => {
       console.log(response1);
     })
-    axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response =>{
+    axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response => {
       console.log(response);
       if(!response.data.success){
         props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders:[], key:'1'})
       }
       else{
         props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders: response.data.orders, key:'1'});
+
       }
     })
   }
@@ -97,8 +127,8 @@ export default function VendorMain(props) {
   //     collapsed: !this.state.collapsed,
   //   });
   // };
-  const [desc, setDesc] = useState('');
-  const [adress, setAdress] = useState('');
+  // console.log(position.Lat);
+  
 
 
   const vendorModal = (
@@ -109,7 +139,7 @@ export default function VendorMain(props) {
       <Modal.Body>
         <h4>{adress}</h4> <br />
         <p className="current-location-coords">
-          {lat} &#176; N, {lng} &#176; E
+          {position.lat} &#176; N, {position.lng} &#176; E
           </p>
         <br></br>
         <p>
@@ -145,19 +175,30 @@ export default function VendorMain(props) {
         >
           <div className="landing-wrapper">
             <div className="map-wrapper">
-              <VendorMap data={props} />
+              <div>
+                {/* -37.5914496, 145.11636479999999 */}
+                {/* props.data.location.state.vendor.location */}
+                <MapContainer center={props.location.state.position} zoom={16} scrollWheelZoom={false}
+                  style={{ height: "59vh", objectFit: "cover" }}>
+                  <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  {rendervendor}
+                </MapContainer>
+              </div>
               {/* Map */}
             </div>
             <div className="current-location">
               <h4 className="current-location-title">CURRENT LOCATION: </h4>
               <p className="current-location-p">
                 <Form>
-                  <Form.Label>Add Adress</Form.Label>
-                  <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)}  />
+                  <Form.Label>Add Address</Form.Label>
+                  <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)} />
                 </Form>
                 <br />
                 <span className="current-location-coords">
-                  {lat} &#176; N, {lng} &#176; E
+                  {position.lat} &#176; N, {position.lng} &#176; E
                         </span>
               </ p>
             </div>
@@ -201,5 +242,4 @@ export default function VendorMain(props) {
     </Layout>
   );
 }
-
 

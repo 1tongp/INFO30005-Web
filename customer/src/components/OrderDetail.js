@@ -25,6 +25,7 @@ export default class OrderDetail extends Component {
             menu: [],
             order: [],
             editModalVisible: false,
+            cancelModalVisible:false,
             modalBody: <></>,
             diff: "",
             ratings: 0,
@@ -35,6 +36,9 @@ export default class OrderDetail extends Component {
 
     handleEditClose = () => this.setState([{ editModalVisible: false }]);
     handleEditShow = () => this.setState([{ editModalVisible: true }]);
+
+    handleCancelClose = () => this.setState([{ cancelModalVisible: false }]);
+    handleCancelShow = () => this.setState([{ cancelModalVisible: true }]);
 
     onChange = (index, event) => {
         let newArray = [...this.state.order];
@@ -119,6 +123,23 @@ export default class OrderDetail extends Component {
         })
     }
 
+    onCancelSubmit = () => {
+        axios.post('/order/change/' + this.props.order._id, {
+            status: "canceled"
+        }).then(response => {
+            console.log(response);
+            if (response.data.success) {
+                // change the message print to a pop up page
+                alert("Order has been canceled")
+                this.setState({ cancelModalVisible: false });
+            }
+            else {
+                // change the message print to a pop up page
+                alert("Order canceling errored!")
+            }
+        })
+    }
+
     tick() {
         let now = new Date().getTime()
         let upd = Date.parse(this.props.order.updateTime)
@@ -171,6 +192,32 @@ export default class OrderDetail extends Component {
         }
     }
 
+    handleCancelOrder = () => {
+        console.log(this.state.diff)
+        if (this.props.order.status === "outstanding" && this.state.diff <= 10) {
+            this.setState({ cancelModalVisible: true });
+        }
+        if (this.props.order.status === "outstanding" && this.state.diff > 10) {
+            notification.open({
+                message: 'Order is being processed!',
+                description: 'You can only canceled your order within 10 min after placing order.',
+                duration: 3
+            });
+        } else if (this.props.order.status === "fulfilled") {
+            notification.open({
+                message: 'Order is ready to be collected!',
+                description: 'You cannot make any changes to a fulfilled order',
+                duration: 3
+            });
+        } else if (this.props.order.status === "completed") {
+            notification.open({
+                message: 'Order is completed!',
+                description: 'Enjoy your food, see you next time!',
+                duration: 3
+            });
+        }
+    }
+
     onMarkOrder = () => {
         var statusToGo, discount
         var totalSum = this.props.order.totalPrice
@@ -219,6 +266,7 @@ export default class OrderDetail extends Component {
             return (
                 <>
                 <button id="btn--changeorder" key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</button>
+                <button id="btn--cancelorder" key='2' onClick={() => this.handleCancelOrder()}>Cancel Order</button>
                 </> 
             )
 
@@ -295,6 +343,37 @@ export default class OrderDetail extends Component {
         }
     }
 
+    renderCancelModelBody = () => {
+        return (
+            <>  <div className='change-container'>
+                <div className='change-popup'>
+                    <Modal.Header>
+                        <h3>CANCEL ORDER</h3>
+                        <br />
+                        
+                    </Modal.Header>
+                    <Modal.Body className='cancel-content'>
+                        {/* {"Order id:" + this.props.order._id} */}
+                        <p>Order id:</p>
+                        {/* <br /> */}
+                        <p className='order-id'> {this.props.order._id} </p>
+                        
+                        <p>Are you sure you want to cancel this order?</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className='primary-btn' variant="primary" onClick={() => this.onCancelSubmit()}>
+                            Cancel Order
+                        </button>
+                        <button className='secondary-btn' variant="primary" onClick={() => this.handleCancelClose()}>
+                            Close
+                        </button>
+                    </Modal.Footer>
+                </div>
+            </div>
+            </>
+        )
+    }
+
 
 
 
@@ -303,6 +382,9 @@ export default class OrderDetail extends Component {
             <div>
                 <Modal show={this.state.editModalVisible} onHide={() => this.handleEditClose()}>
                     {this.renderEditModelBody()}
+                </Modal>
+                <Modal show={this.state.cancelModalVisible} onHide={() => this.handleCancelClose()}>
+                    {this.renderCancelModelBody()}
                 </Modal>
                 <div className="content">
                     <div className="flex">
