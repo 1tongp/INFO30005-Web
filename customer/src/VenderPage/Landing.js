@@ -14,16 +14,10 @@ import Searchbar from './Searchbar.js'
 import FinishedOrderList from './FinishedOrderList.js'
 import FinishedOrderDetail from './FinishedOrderDetail.js'
 import Sidebar from './Sider.js'
-
 import VendorMap from '../components/vendorMap';
-import { useState, useEffect } from 'react';
-import axios from '../API/axios.js';
 import { Empty } from 'antd';
 
-
 const { Header, Sider, Content } = Layout;
-
-
 
 export default function VendorMain(props) {
   console.log(props.location.state.position[0]);
