@@ -129,7 +129,7 @@ export default function VendorMain(props) {
   const vendorModal = (
     <div className='login-container'>
       <div className='popup locationpop'>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Confirm Location</Modal.Title>
       </Modal.Header>
       <Modal.Body>
