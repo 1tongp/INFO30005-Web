@@ -12,10 +12,7 @@ import App from './App.js';
 import Component from './VenderPage/TestComponent.js';
 import Fulfilled from './VenderPage/Fulfilled.js';
 import Finished from './VenderPage/FinishedOrders';
-import PrepareNoOrder from './VenderPage/PrepareNoOrder';
-import FinishedEmpty from './VenderPage/FinishedEmpty';
 import MyProfile from './MyProfile/MyProfile.js';
-import FulfilledNone from './VenderPage/FulfilledNone.js';
 import Vendor from './VenderPage/Landing'
 import CommentPop from './components/CommentPopup.js'
 
@@ -34,16 +31,13 @@ class Router extends React.Component{
                     {/* below url haven't use */}
                     <Route path="/customer/shoppingcart/empty" exact component={ShoppingCartEmpty}></Route>
                     <Route path="/customershoppingcart" exact component={shoppingCart}></Route>
+
                     <Route path="/customer/signup" exact component={RegistrationPage}></Route>
                     <Route path="/customer/myprofile" exact component={MyProfile}></Route>
                     <Route path="/vendor/preparing" exact component={Component}></Route>
                     <Route path="/vendor/fulfilled" exact component={Fulfilled}></Route>
-                    <Route path="/vendor/fulfilledNone" exact component={FulfilledNone}></Route>
                     <Route path="/vendor/finished" exact component={Finished}></Route>
-                    <Route path="/vendor/preparing/noorder" exact component={PrepareNoOrder}></Route>
-                    <Route path="/vendor/finished/empty" exact component={FinishedEmpty}></Route>
                     <Route path="/vendor" exact component={Vendor}></Route>
-
                     <Route path="/customer/comment" exact component={CommentPop}></Route>
                 </Switch>
             </BrowserRouter>
