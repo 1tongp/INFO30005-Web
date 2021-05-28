@@ -67,7 +67,7 @@ export default function OrderList(props) {
                     <img src={logo} alt = 'logo image' id='logo'/> 
                 </div>             
                                
-                <div className='mid_nav' id='right_container'>
+                <div className='mid_nav'>
                     <input type='checkbox' id='n_check'></input>
                     <div class='hamburger'>
                         <label for='n_check'>
@@ -75,11 +75,11 @@ export default function OrderList(props) {
                         </label>
                     </div>
 
-                    <div className='links ' id = 'link_container'>
+                    <div className='links' id="right-container">
                         <a></a>
                 
-                            <div> <button onClick = {onCustomerLogin} id='btnMenu'> HOME </button></div>  
-                            <div> <button onClick = {history.goBack} id='btnMenu'> MENU </button></div>               
+                            <button onClick = {onCustomerLogin} id='btnMenu'> HOME </button>
+                            <button onClick = {history.goBack} id='btnMenu'> MENU </button>              
                             <a className='icon' href=''><ShoppingOutlined /></a>
 
                         <div className='drop'>
@@ -97,7 +97,7 @@ export default function OrderList(props) {
             </Header>
 
             <div className="minheight">
-                <br></br>
+                <br></br><br></br>
                 <h1>MY ORDERS</h1>
                 <tr>
                     <th></th>
@@ -105,9 +105,9 @@ export default function OrderList(props) {
 
                 <br></br>
 
-                <center>
+                {/* <center>
                     <hr></hr>
-                </center>
+                </center> */}
 
                 <div>
                     <OrderListCom id = {props.location.state.customer.id} orders= {props.location.state.customerOrders} target = {props.location.state.target}/>

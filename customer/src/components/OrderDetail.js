@@ -266,7 +266,7 @@ export default class OrderDetail extends Component {
             return (
                 <>
                 <button id="btn--changeorder" key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</button>
-                <button id="btn--changeorder" key='2' onClick={() => this.handleCancelOrder()}>Cancel Order</button>
+                <button id="btn--cancelorder" key='2' onClick={() => this.handleCancelOrder()}>Cancel Order</button>
                 </> 
             )
 
@@ -349,14 +349,20 @@ export default class OrderDetail extends Component {
                 <div className='change-popup'>
                     <Modal.Header>
                         <h3>CANCEL ORDER</h3>
-                        <Modal.Title>{"Your order id:" + this.props.order._id}</Modal.Title>
+                        <br />
+                        
                     </Modal.Header>
-                    <Modal.Body>
-                        {"Are you sure you want to cancel this order?"}
+                    <Modal.Body className='cancel-content'>
+                        {/* {"Order id:" + this.props.order._id} */}
+                        <p>Order id:</p>
+                        {/* <br /> */}
+                        <p className='order-id'> {this.props.order._id} </p>
+                        
+                        <p>Are you sure you want to cancel this order?</p>
                     </Modal.Body>
                     <Modal.Footer>
                         <button className='primary-btn' variant="primary" onClick={() => this.onCancelSubmit()}>
-                            Cancel
+                            Cancel Order
                         </button>
                         <button className='secondary-btn' variant="primary" onClick={() => this.handleCancelClose()}>
                             Close
