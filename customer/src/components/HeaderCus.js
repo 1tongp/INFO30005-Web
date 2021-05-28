@@ -23,6 +23,7 @@ export default function HeaderCus(props) {
     const [buttonMyOrder, setButtonMyOrder] = useState([]);
     const [buttonLogOut, setButtonLogOut] = useState([]);
     const [buttonMyProfile, setButtonProfile] = useState([]);
+    const [buttonCart, setButtonCart] = useState([]);
 
     const toLogin = () =>{
         props.data.history.push('../');
@@ -77,6 +78,7 @@ export default function HeaderCus(props) {
             setButtonMyOrder([<Button href='' key="1" onClick = {onOrder}>My Order</Button>])
             setButtonProfile([<Button href='' key="1" onClick = {onProfile}> My Profile</Button>])
             setButtonLogOut([<Button href='' key="1" onClick = {toLogin}>Log Out</Button>])
+            setButtonCart([<Button href='' key="1" onClick = {onOrder}><ShoppingOutlined /></Button>])
         }else{
             setTitle([<Button href='' key="1" onClick = {toLogin}>Log In</Button>])
         }
@@ -148,7 +150,7 @@ export default function HeaderCus(props) {
                     <input type='checkbox' id='n_check'></input>
                     <div className='hamburger' id="menubutton">
                         <label for='n_check'>
-                            <MenuOutlined className='icon'/>
+                            <MenuOutlined className='icon'/>                           
                         </label>
                     </div>
                     <div className='links' id="right-container">
@@ -156,15 +158,14 @@ export default function HeaderCus(props) {
                         <Button onClick={onCustomerLogin} id='btnMenu'> HOME </Button>
                         {/* {buttonHome} */}
                         <Button id='btnMenu'> MENU </Button>
-                        <a className='icon' href=''><ShoppingOutlined /></a>
+                        {buttonCart}
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
-                            <div className='u_drop_content' >
-                                
+                            <div className='u_drop_content' >                            
                                 {title}
                                 {buttonMyOrder}
                                 {buttonMyProfile}
-                                {buttonLogOut}                               
+                                {buttonLogOut}                                       
                             </div>
                         </div>
                     </div>

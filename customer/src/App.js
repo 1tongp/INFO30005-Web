@@ -72,7 +72,7 @@ function App(props) {
           position: [lat, lng]});
       } 
       else{
-        message.error(response.data.error)
+        alert(response.data.error)
       }
     }).catch(error => {
       console.log(error)
@@ -117,7 +117,7 @@ function App(props) {
           position: [lat, lng]});
       }
       else{
-        message.error(response.data.error)
+        alert(response.data.error)
       }
     }).catch(error => {
       console.log(error)
