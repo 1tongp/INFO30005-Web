@@ -19,23 +19,6 @@ exports.customerRegisterPost = function(req,res){
                 loginEmail,
                 password
             });
-            // bcrypt.getSalt(10, (err, salt) => {
-            //     bcrypt.hash(newCustomer.password, salt, (err, hash) => {
-            //         if (err) throw err;
-            //         newCustomer.password = hash;
-            //         newCustomer.save().then((customer) => {
-            //             res.json({
-            //                 customer:{
-            //                     id: customer.id,
-            //                     givenName: customer.givenName,
-            //                     familyName: customer.familyName,
-            //                     loginEmail: customer.loginEmail,
-            //                     password: customer.password,
-            //                 },
-            //             })
-            //         })
-            //     })
-            // })
 
             // save the new customer's informtion in database
             newCustomer.save(function(err, result){
@@ -127,7 +110,7 @@ exports.customerLoginPost = function(req, res){
                 });
             }
             else{
-                res.status(200).json({success: false, error:'password incorrect'});
+                res.status(200).json({success: false, error:'Password Incorrect'});
             }      
         }
     })
