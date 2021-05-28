@@ -7,7 +7,8 @@ import './component.css'
 import './FulfilledOrderlist'
 
 import './landing.css'
-
+import '../landing.css'
+import { CaretLeftOutlined, CaretRightOutlined} from '@ant-design/icons'
 import { Layout, Menu } from 'antd';
 import FulfilledOrderlist from './FulfilledOrderlist';
 import Searchbar from './Searchbar.js'
@@ -107,27 +108,13 @@ export default function VendorMain(props) {
   }
 
 
-  // state = {
-  //     collapsed: false,
-  //     modal1Visible: false,
-  //   };
-
-  //   setModal1Visible(modal1Visible) {
-  //     this.setState({ modal1Visible });
-  // }
-
-  // toggle = () => {
-  //   this.setState({
-  //     collapsed: !this.state.collapsed,
-  //   });
-  // };
-  // console.log(position.Lat);
   
 
 
   const vendorModal = (
-    <>
-      <Modal.Header closeButton>
+    <div className='login-container'>
+      <div className='popup locationpop'>
+      <Modal.Header>
         <Modal.Title>Confirm Location</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -149,7 +136,8 @@ export default function VendorMain(props) {
           Continue
             </Button>
       </Modal.Footer>
-    </>
+    </div>
+    </div>
   )
 
   return (
@@ -169,10 +157,10 @@ export default function VendorMain(props) {
         >
           <div className="landing-wrapper">
             <div className="map-wrapper">
-              <div>
+              
                 {/* -37.5914496, 145.11636479999999 */}
                 {/* props.data.location.state.vendor.location */}
-                <MapContainer center={props.location.state.position} zoom={16} scrollWheelZoom={false}
+                <MapContainer className='v-map' center={props.location.state.position} zoom={16} scrollWheelZoom={false}
                   style={{ height: "59vh", objectFit: "cover" }}>
                   <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -180,7 +168,7 @@ export default function VendorMain(props) {
                   />
                   {rendervendor}
                 </MapContainer>
-              </div>
+              
               {/* Map */}
             </div>
             <div className="current-location">
@@ -208,8 +196,9 @@ export default function VendorMain(props) {
             </div>
             <div className="button-wrapper">
               {/* onClick={} */}
-              <Button variant="outline-primary" onClick={toLogin} >Back To Login</Button>
-              <Button variant="outline-primary" onClick={showModal} >Open for Business</Button>
+              <button className='secondary-btn'  onClick={toLogin} ><CaretLeftOutlined />     Back To Login</button>
+              <button className='primary'  onClick={showModal} >Open For Business     <CaretRightOutlined /></button>
+            
             </div>
 
             <Modal show={show} onHide={handleClose}>
