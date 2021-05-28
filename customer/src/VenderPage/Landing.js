@@ -17,7 +17,7 @@ import Sidebar from './Sider.js'
 import VendorMap from '../components/vendorMap';
 import { useState, useEffect } from 'react';
 import axios from '../API/axios.js';
-
+import { Empty } from 'antd';
 
 
 const { Header, Sider, Content } = Layout;
@@ -74,10 +74,10 @@ export default function VendorMain(props) {
     axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response =>{
       console.log(response);
       if(!response.data.success){
-        props.history.push('/vendor/preparing/noorder', {vendor: props.location.state.vendor})
+        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders:[], key:'1'})
       }
       else{
-        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders: response.data.orders});
+        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders: response.data.orders, key:'1'});
       }
     })
   }

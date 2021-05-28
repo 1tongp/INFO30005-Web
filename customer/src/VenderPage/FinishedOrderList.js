@@ -1,6 +1,8 @@
 import React from 'react';
 import './component.css'
 import DetailButton from './ViewDetail.js'
+import FinishedEmpty from './FinishedEmpty.js'
+import Searchbar from './Searchbar.js'
 
 // This is order list component for finished orders page 
 class FinishedOrderList extends React.Component {
@@ -12,6 +14,11 @@ class FinishedOrderList extends React.Component {
         return (
             <div className="cluster">
                 {
+                    (this.props.children.location.state.orders.length > 0) ? <Searchbar>{this.props}</Searchbar>
+                    : <p></p>
+                }
+                {
+                    (this.props.children.location.state.orders.length > 0) ? 
                     this.props.children.location.state.orders.map((singleOrder) => (
                         <>  
                             <div className="container--finishedorderlist"> 
@@ -24,13 +31,9 @@ class FinishedOrderList extends React.Component {
                                 <DetailButton> View Order Detail{singleOrder}</DetailButton>
                             </div>
                             
-
-                            {/* <div className="container--FinishedOrderDetail"> */}
-                                {/* <FinishedOrderDetail>{singleOrder}</FinishedOrderDetail> */}
-                                {/* <FinishedOrderDetailCancel>{singleOrder}</FinishedOrderDetailCancel> */}
-                            {/* </div> */}
                         </>
                     ))
+                : <FinishedEmpty></FinishedEmpty>
                 }
             </div>
 

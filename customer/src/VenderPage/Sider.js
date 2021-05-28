@@ -41,10 +41,10 @@ class Sidebar extends React.Component {
     axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=outstanding').then(response =>{
       console.log(response);
       if(!response.data.success){
-        this.props.children.history.push('/vendor/preparing/noorder', {vendor: this.propschildren.location.state.vendor})
+        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders:[], key:'1'})
       }
       else{
-        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders: response.data.orders});
+        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'1'});
       }
     })
   }
@@ -54,22 +54,23 @@ class Sidebar extends React.Component {
       console.log(response);
       console.log(this.props);
       if(!response.data.success){
-        this.props.children.history.push('/vendor/fulfilledNone', {vendor: this.props.children.location.state.vendor})
+        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders:[], key:'2'})
       }
       else{
-        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders: response.data.orders});
+        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'2'});
       }
     })
   }
 
   toFinished = () => {
-    axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=finished').then(response =>{
+    axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=completed').then(response =>{
       console.log(response);
       if(!response.data.success){
-        this.props.children.history.push('/vendor/finished/empty', {vendor: this.props.children.location.state.vendor})
+        console.log("empty");
+        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders:[], key:'3'})
       }
       else{
-        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders: response.data.orders});
+        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'3'});
       }
     })
   }
@@ -92,20 +93,20 @@ class Sidebar extends React.Component {
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
         <img src={logo} className='logo'/>
           <Menu
-          defaultSelectedKeys={['1']}
+          selectedKeys={[this.props.children.location.state.key]}
           mode="inline"
           theme="dark"
           // onClick={this.handleClick}
           // selectedKeys={[this.state.current]}
           // inlineCollapsed={this.state.collapsed}
         >
-            <Menu.Item key="1" onClick={this.toPrepar}>
+            <Menu.Item key="1" onClick={this.toPrepar} selectedKeys={['1']}>
               PREPARING
             </Menu.Item>
-            <Menu.Item key="2" onClick={this.toFulfilled}>
+            <Menu.Item key="2" onClick={this.toFulfilled} selectedKeys={['2']}>
               FULFILLED
             </Menu.Item>
-            <Menu.Item key="3" onClick={this.toFinished} >
+            <Menu.Item key="3" onClick={this.toFinished} selectedKeys={['3']} >
               FINISHED 
               ORDERS
             </Menu.Item>

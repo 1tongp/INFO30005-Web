@@ -48,23 +48,8 @@ class Finished extends React.Component {
               minHeight: 280,
             }}
           >
-           
             {/* The finished orders page components */}
-            <Searchbar>{this.props}</Searchbar>
-            {/* <div className="container--FinishedContent"> */}
-              {/* <div className="container--FinishedOrderList"> */}
             <FinishedOrderList>{this.props}</FinishedOrderList>
-              {/* </div> */}
-              {/* <div className="container--FinishedOrderDetail">
-                <FinishedOrderDetail>{this.props}</FinishedOrderDetail>
-                <FinishedOrderDetailCancel>{this.props}</FinishedOrderDetailCancel>
-              </div> */}
-
-              
-              
-
-
-            {/* </div> */}
           </Content>
         </Layout>
       </Layout>

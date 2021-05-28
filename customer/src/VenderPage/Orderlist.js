@@ -2,8 +2,11 @@ import React from 'react';
 import './component.css'
 import CheckButton from './CheckButton.js'
 import SingleOrder from './SingleOrder.js'
-
-
+import PrepareNoOrder from './PrepareNoOrder.js'
+import {
+    CoffeeOutlined
+} from '@ant-design/icons';
+import { Empty } from 'antd';
 
 
 // This is the white order list for preparing page
@@ -37,13 +40,23 @@ class Orderlist extends React.Component{
     // }
 
 
+
     render(){
         return (
         <div className="cluster">
+            {/* {
+                (orders.length > 0) ? loopOrders
+                : <Empty image = "https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+                    description = {<span>Currently No Orders</span>} />
+            } */}
+            
             {
+                (this.props.children.children.location.state.orders.length > 0) ? 
                 this.props.children.children.location.state.orders.map((order) =>(
                     <SingleOrder>{order}</SingleOrder>
                 ))
+                : <PrepareNoOrder>{this.props}</PrepareNoOrder>
+              
             }
             {/* <SingleOrder>{this.props}</SingleOrder> */}
             {/* {
