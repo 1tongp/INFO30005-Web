@@ -156,13 +156,13 @@ export default function VendorMain(props) {
   )
 
   return (
-    <Layout>
+    <div>
       {/* <Sidebar /> */}
-      <Layout className="site-layout">
+      <div className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
           <p className="landing-title">CHOOSE LOCATION</p >
         </Header>
-        <Content
+        <div
           className="site-layout-background-content"
           style={{
             margin: '0px 0px',
@@ -233,10 +233,10 @@ export default function VendorMain(props) {
 
 
 
-        </Content>
+        </div>
 
 
-      </Layout>
-    </Layout>
+      </div>
+    </div>
   );
 }
