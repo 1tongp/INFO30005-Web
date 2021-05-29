@@ -40,7 +40,7 @@ section.ant-layout-has-sider{
     background: white;
     height:fit-content;
     min-height: 100vh;
-    overflow: scroll;
+    overflow: hidden;
     
 }
 
@@ -91,7 +91,9 @@ li.ant-menu-item{
     border-radius: 10px;
     border-top-left-radius: 0;
     height: 100% !important;
-    overflow: scroll !important;
+    max-height: 680px;
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
     /* margin-left: 200px !important; */
 }
 
@@ -397,6 +399,11 @@ li.ant-menu-item{
 .container--FinishedOrderDetail{
     margin-left: auto;
     margin-right: auto;
+}
+
+
+.reset-height{
+    /* min-height: 700 !important; */
 }
 
 
