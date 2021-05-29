@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Registration.css'
-import { Layout } from 'antd';
+import { Layout, message } from 'antd';
 import { CopyrightOutlined } from '@ant-design/icons';
 import axios from "../API/axios.js";
 import MyFooter from '../components/Footer.js';
@@ -63,7 +63,7 @@ export default function RegistrationPage(props) {
         // required password format
         var reg = /^(?=.*[a-zA-Z])(?=.*\d)[\s\S]{8,}$/
         if (password != passwordConfirm) {
-            alert("Password Inconsistent!");
+            message.error("Password Inconsistent!");
         }
         else {
             if(reg.test(password)){
@@ -84,7 +84,7 @@ export default function RegistrationPage(props) {
                         // props.history.push('../');
                     }
                     else {
-                        alert("This email has been registered! Please change another one")
+                        message.error("This email has been registered! Please change another one")
                     }
                 }).catch(error => {
                     console.log(error.response.data.message)
@@ -92,7 +92,7 @@ export default function RegistrationPage(props) {
                 })
             }
             else{
-                alert("Password should have at least one alphabet character, one numerical digit with length no less than 8 characters")
+                message.error("Password should have at least one alphabet character, one numerical digit with length no less than 8 characters")
             }
         }
     }
