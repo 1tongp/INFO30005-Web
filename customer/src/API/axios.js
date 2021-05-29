@@ -3,6 +3,8 @@ import _axios from 'axios';
 
 const axios = baseUrl => {
     const instance = _axios.create({
+
+        // connected to the heroku
         baseURL: 'https://frontend-keepitsimple.herokuapp.com/' || 'http://localhost:5000'
         // baseURL: baseUrl || 'http://localhost:5000'
 
