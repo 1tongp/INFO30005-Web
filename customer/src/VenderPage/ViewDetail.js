@@ -36,9 +36,9 @@ class DetailButton extends React.Component{
             okText={'Close'}
             width={600}
             footer={[
-                <Button className='close-detail-btn' type='primary' onClick={() => this.setModal1Visible(false)}>
+                <button className='close-detail-btn'  onClick={() => this.setModal1Visible(false)}>
                     Close
-                </Button>
+                </button>
             ]}
             >
                 <FinishedOrderDetail>{this.props.children[1]}</FinishedOrderDetail>

@@ -13,6 +13,7 @@
 
 .popup {
     margin-left: auto;
+    border-radius: 10px;
     margin-right: auto;
     width: 40%;
 
