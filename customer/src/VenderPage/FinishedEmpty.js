@@ -7,7 +7,7 @@ class FinishedEmpty extends React.Component {
     return (
       <div className="container--FinishedOrderDetail">
         <div className="container--orderdetail container--empty">
-          <p>NO FINISHED ORDERS</p>
+          <p className="align--center">NO FINISHED ORDERS</p>
         </div>
       </div>
     );
