@@ -50,7 +50,7 @@ class FulfilledCheckButton extends React.Component {
         return (
             <>
                 <button className="fulfilledCheck" onClick={() => this.setModal1Visible(true)}>
-                    <CheckOutlined />
+                    <CheckOutlined className="size"/>
                 </button>
                 <Modal className='popup vendor-popup'
                     centered

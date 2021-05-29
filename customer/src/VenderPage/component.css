@@ -405,9 +405,22 @@ li.ant-menu-item{
     margin-right: auto;
 }
 
+.close-detail-btn{
+    background-color: var(--orange);
+    border: none;
+    padding: 0;
+    color: white;
 
-.reset-height{
-    /* min-height: 700 !important; */
 }
+
+.size{
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+
+/* .reset-height{
+   
+} */
 
 
