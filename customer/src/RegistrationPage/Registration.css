@@ -21,6 +21,11 @@ h1{
 
 }
 
+.email-warning {
+    font-size: 12pt;
+    color: gray;
+    margin-bottom: 70px;
+}
 .profiletext{
     margin-top: 30px;
     text-align: center;
@@ -64,6 +69,10 @@ h1{
 }
 
 
+.cluster--signup .password-input{
+    width: 100%;
+
+}
 
 .signupContainer form input{
     margin-bottom: 60px;
@@ -82,8 +91,9 @@ h1{
 .signupContainer{
     position: relative;
     width: 100%;
-    height: auto;
-    padding: 60px;
+    height: 680px;
+    padding: 0 60px;
+    margin-top: 30px;
 }
 
 .signupBackground{
@@ -149,10 +159,24 @@ h1{
     }
 
     .signupContainer{
-        padding: 40px;
+        padding: 0 40px;
     }
 
     .btnSignup, .btnCancel{
         width: 100% !important;
+    }
+
+    .signupContainer {
+        height: 680px;
+    }
+
+    .cluster--signup {
+        flex-direction: column;
+    }
+
+    .cluster--signup div{
+        width: 100%;
+        flex-direction: column;
+    
     }
 }

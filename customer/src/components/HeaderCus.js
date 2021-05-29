@@ -78,7 +78,7 @@ export default function HeaderCus(props) {
             setButtonMyOrder([<Button href='' key="1" onClick = {onOrder}>My Order</Button>])
             setButtonProfile([<Button href='' key="1" onClick = {onProfile}> My Profile</Button>])
             setButtonLogOut([<Button href='' key="1" onClick = {toLogin}>Log Out</Button>])
-            setButtonCart([<Button href='' key="1" onClick = {onOrder}><ShoppingOutlined /></Button>])
+            setButtonCart([<Button className='icon' id='basket' href='' key="1" onClick = {onOrder}><ShoppingOutlined /></Button>])
         }else{
             setTitle([<Button href='' key="1" onClick = {toLogin}>Log In</Button>])
         }
@@ -154,12 +154,13 @@ export default function HeaderCus(props) {
                         </label>
                     </div>
                     <div className='links' id="right-container">
-                        <a></a>
+                        {/* <a></a> */}
                         <Button onClick={onCustomerLogin} id='btnMenu'> HOME </Button>
                         {/* {buttonHome} */}
                         <Button id='btnMenu'> MENU </Button>
                         {buttonCart}
                         <div className='drop'>
+                            
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content' >
                                 
