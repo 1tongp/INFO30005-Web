@@ -24,6 +24,7 @@ exports.customerOrderCreatePost = function(req, res){
     })   
 }
 
+
 // Get request for vendor to get the particular status' order list
 exports.vendorOrderListGet = function(req, res){
     Order.find({vendor:req.params.vendorId, status:req.query.status}, function(err, orders){
@@ -33,7 +34,28 @@ exports.vendorOrderListGet = function(req, res){
             res.status(200).json({success: false, message:"Order is not found"})
         }
         else{
-           res.status(200).json({success: true, orders: orders})
+            var sortOrder = []
+            for(i = 0; i < orders.length; i++){
+                sortOrder.push({
+                    "comments":orders[i].comments,
+                    "createTime":orders[i].createTime,
+                    "customer":orders[i].customer,
+                    "discount":orders[i].discount,
+                    "isCanceled":orders[i].isCanceled,
+                    "isChangeable":orders[i].isChangeable,
+                    "isDelivered":orders[i].isDelivered,
+                    "ratings":orders[i].ratings,
+                    "snacksList":orders[i].snacksList,
+                    "status":orders[i].outstanding,
+                    "totalPrice":orders[i].totalPrice,
+                    "updateTime":orders[i].updateTime,
+                    "vendor":orders[i].vendor,
+                    "_v":orders[i]._v,
+                    "_id":orders[i]._id
+                })
+            }
+            sortOrder = sortOrder.sort(({updateTime: a}, {updateTime: b}) => b - a)
+            res.status(200).json({success: true, orders: sortOrder})
         }
     })       
 };
