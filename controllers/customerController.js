@@ -69,7 +69,7 @@ exports.customerDetailGet = function (req, res){
             res.status(200).json({customer: customerDetail})
         }
         else{
-            res.status(400).send("customer is not found")
+            res.status(400).json({success: false, message: "getDetail customer is not found"})
         }
     })
 }
@@ -81,7 +81,7 @@ exports.customerChangeDetailsPost = function(req, res){
 
         // if customer id not exist in database, return the error message
         if(!customerId){
-            res.status(404).send("customer is not found")
+            res.status(404).json({success: false, message: "changeDetail customer is not found"})
         }
 
         // if id for perticular customer exist, based on the customer's id to update the personal detail for customer
