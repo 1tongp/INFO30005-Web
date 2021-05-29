@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import { CopyrightOutlined } from '@ant-design/icons';
 import axios from "../API/axios.js";
 import MyFooter from '../components/Footer.js';
+import{Jumbotron, Button, Modal, Form} from 'react-bootstrap';
 
 const { Header, Footer, Content } = Layout;
 
@@ -33,30 +34,66 @@ export default function RegistrationPage(props) {
     const toLogin = () => {
         props.history.push("../");
     }
+
+    const onSignUp2 = () =>{
+        axios.post('/customer/register', {givenName: firstName, familyName: lastName, loginEmail: loginEmail, password: password}).then(response => {
+            console.log("111");
+            if (response.data.success) {
+                console.log(response);
+                alert("Welcome! Thanks for joining us! You are all set");
+                console.log('success')
+                // push the customer information
+                props.history.push('/customer', {
+                    customer: response.data.customer,
+                    vendors: vendors,
+                    position: [lat, lng]
+                }); 
+                // props.history.push('../');
+            }
+            else {
+                alert("This email has been registered! Please change another one")
+            }
+        }).catch(error => {
+            console.log(error.response.data.message)
+            alert(error.response.data.message)
+        })
+    }
     const onSignUp = () => {
+
+        // required password format
+        var reg = /^(?=.*[a-zA-Z])(?=.*\d)[\s\S]{8,}$/
         if (password != passwordConfirm) {
             alert("Password Inconsistent!");
         }
         else {
-            axios.post('/customer/register', { givenName: firstName, familyName: lastName, loginEmail: loginEmail, password: password }).then(response => {
-                if (response.data.success) {
-                    console.log('success')
-                    alert("Welcome! Thanks for joining us! You are all set");
-                    // push the customer information
-                    // props.history.push('/customer', {
-                    //     customer: response.data.customer,
-                    //     vendors: vendors,
-                    //     position: [lat, lng]
-                    // }); 
-                    // props.history.push('../');
-                }
-                else {
-                    alert("This email has been registered! Please change another one")
-                }
-            }).catch(error => {
-                console.log(error.response.data.message)
-                alert(error.response.data.message)
-            })
+            if(reg.test(password)){
+                console.log("222");
+                axios.post('/customer/register', {givenName: firstName, familyName: lastName, loginEmail: loginEmail, password: password}).then(response => {
+                    console.log("111");
+                    if (response.data.success) {
+                        console.log("success");
+                        console.log(response);
+                        alert("Welcome! Thanks for joining us! You are all set");
+                        // console.log('success')
+                        // // push the customer information
+                        props.history.push('/customer', {
+                            customer: response.data.customer,
+                            vendors: vendors,
+                            position: [lat, lng]
+                        }); 
+                        // props.history.push('../');
+                    }
+                    else {
+                        alert("This email has been registered! Please change another one")
+                    }
+                }).catch(error => {
+                    console.log(error.response.data.message)
+                    alert(error.response.data.message)
+                })
+            }
+            else{
+                alert("Password should have at least one alphabet character, one numerical digit with length no less than 8 characters")
+            }
         }
     }
     return (
