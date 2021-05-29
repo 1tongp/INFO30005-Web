@@ -35,7 +35,7 @@ export default function MyProfile (props) {
                 if(response.data.changeDetails){
                 // push the customer information
                     alert("success! Please Login again using your new details");
-                    history.push({
+                    history.repalce({
                         pathname: '/',});
                 }
                 else{
