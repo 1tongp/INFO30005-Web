@@ -43,9 +43,9 @@ h1{
     font-size: 15px;
 }
 
-.nameinput{
+/* .nameinput{
     margin-top: 8px;
-}
+} */
 
 #signupContainer{
     background-color: #E8E6DF;
@@ -75,7 +75,7 @@ h1{
 }
 
 .signupContainer form input{
-    margin-bottom: 60px;
+    margin-bottom: 48px;
     height: 40px;
     background-color: white;
     border-color: #707070;
@@ -91,8 +91,8 @@ h1{
 .signupContainer{
     position: relative;
     width: 100%;
-    height: 680px;
-    padding: 0 60px;
+    height: 100%;
+    /* padding: 0 60px; */
     margin-top: 30px;
 }
 
@@ -108,6 +108,7 @@ h1{
 .fnameinput{
     width: 48%;   
     margin-right: 4%;
+ 
 }
 
 .lnameinput{
@@ -123,10 +124,11 @@ h1{
     background-color: #D9C2A7 !important;
     width: 250px !important;
     height: 40px !important;
-    float: right;
+    /* float: right; */
     font-weight: bold;
     padding: 0 !important;
     cursor: pointer;
+    /* margin-bottom: 100px !important;  */
 }
 
 .btnSignup:hover{
@@ -136,39 +138,136 @@ h1{
 
 .btnCancel{
     border-color: #CCCCCC;
-    background-color: #ECECEC;
+    background-color: #CCCCCC !important;
+    
     width: 200px;
     height: 40px;
     font-weight: bold;
     padding-left: 20px;
     padding-right: 20px;
     cursor: pointer;
+    margin-bottom: 20px !important;
 }
 
 .btnCancel:hover{
-    background-color: #CCCCCC;
+    background-color:#ECECEC !important;
+    
     transition: 0.5s;
 
 }
 
+
+
+.container--signup{
+    background-image: url(newBackground.PNG);
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    
+   
+    z-index: 0;
+
+}
+
+.subcontainer--signup{
+
+    /* position: fixed; */
+
+    padding: 5%;
+    /* margin-top: 5%;
+    margin-bottom: 5%; */
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 58%;
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 15px; */
+    box-shadow: rgb(128, 121, 110) 0px 12px 18px 8px;
+}
+
+.subcontainer--signup>h1{
+    color: rgb(236, 231, 221);
+}
+
+.container--signupbtn{
+    text-align: right;
+}
+
+.label{
+    color: rgb(236, 231, 221);
+}
+
+
+
+
+
 @media (max-width:800px) {
+
+    .label{
+        color: rgb(236, 231, 221);
+    }
+
+    .container--signup{
+        background-position-x: 600px;
+        background-position-y: -100px;
+        background-attachment: fixed;
+        
+        
+      
+    }
+
+
+    .subcontainer--signup{
+        /* border-top-left-radius: 15px; */
+        border-top-right-radius: 0px;
+        width: 100%;
+        padding: 9%;
+        /* margin-top: 100px; */
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .subcontainer--signup>h1{
+        color: rgb(236, 231, 221);
+    }
+
+    .signupContainer{
+        margin-top: 0;
+
+    }
+
+
+
     .signupContainer form input{
         margin-bottom: 30px;
         height: 40px;
         width: 100%;
     }
 
-    .signupContainer{
-        padding: 0 40px;
+    /* .container--signupbtn{
+        text-align: center;
     }
+
+    .container--cancelbtn{
+        text-align: center;
+    } */
+
+    .btnSignup{
+        margin-top: 38px;
+  
+    }
+
+    /* .signupContainer{
+        padding: 0 40px;
+    } */
 
     .btnSignup, .btnCancel{
         width: 100% !important;
+        
     }
 
-    .signupContainer {
+    /* .signupContainer {
         height: 680px;
-    }
+    } */
 
     .cluster--signup {
         flex-direction: column;

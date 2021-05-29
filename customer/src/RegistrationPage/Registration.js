@@ -98,12 +98,14 @@ export default function RegistrationPage(props) {
     }
     return (
         <Layout id="signupContainer">
-            <div className="header--nofunction">
+            {/* <div className="header--nofunction">
 
-            </div>
+            </div> */}
 
-            <div>
-                <br /><br /><br />
+            <div className="container--signup">
+
+            <div className="subcontainer--signup">
+       
                 <h1>CREATE AN ACCOUNT</h1>
                 <br />
                 <div className="signupContainer">
@@ -112,13 +114,13 @@ export default function RegistrationPage(props) {
                         <div className="cluster--signup">
 
                         <div>
-                            <label for="firstName" className="label">First Name:</label><br></br>
+                            <label for="firstName" className="label">First Name</label><br></br>
                             <input id="firstName" type="firstName" placeholder="First Name" className="nameinput" onChange={e => setFirstName(e.target.value)} />
 
                         </div>
 
                         <div>
-                            <label for="lastName" className="label">Last Name:</label><br></br>
+                            <label for="lastName" className="label">Last Name</label><br></br>
                             <input id="lastName" type="lastName" placeholder="Last Name" className="nameinput" onChange={e => setLastName(e.target.value)} />
 
                         </div>
@@ -133,33 +135,48 @@ export default function RegistrationPage(props) {
 
                         
                         
-                        <label for="loginEmail" className="label">Email:</label>
+                        <label for="loginEmail" className="label">Email</label>
                         <input id="loginEmail" type="loginEmail" className="nameinput" placeholder="Email Address" onChange={e => setEmail(e.target.value)} />
                         
-                        <label for="password" className="label">Password:</label>
+                        <label for="password" className="label">Password</label>
                         <input id="password" type="password" className="nameinput" placeholder="Set a password for your account." onChange={e => setPassword(e.target.value)} />
                        
-                        <label for="confiemPassword" className="label">Confirm Password:</label>
+                        <label for="confiemPassword" className="label">Confirm Password</label>
                         <input id="confirmPassword" type="password" className="nameinput" placeholder="Input your password again" onChange={e => setPasswordConfirm(e.target.value)} />
-                        <br />
-                        <br />
+                     
 
-                        <br />
+                        <div className="container--signupbtn">
+                            <input type="submit" value="SIGN UP NOW >>" className="btnSignup" onClick={onSignUp} />
+                            
+                        </div>
 
-                        <input type="submit" value="SIGN UP NOW >>" className="btnSignup" onClick={onSignUp} />
+                        <div className="container--cancelbtn">
+                            <input type="button" value="<< CANCEL" className="btnCancel" onClick={toLogin} />
+                            
+                        </div>
+
+                        
+
+                        
+                        
 
                     </form>
-                    <br />
-                    <br />
-                    <br />
-
-                    <input type="button" value="<< CANCEL" className="btnCancel" onClick={toLogin} />
+                
+                    
 
                 </div>
 
             </div>
 
-            <MyFooter></MyFooter>
+
+
+
+
+            </div>
+
+            
+
+            {/* <MyFooter></MyFooter> */}
 
 
         </Layout>
