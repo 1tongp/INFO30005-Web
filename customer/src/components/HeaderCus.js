@@ -96,6 +96,8 @@ export default function HeaderCus(props) {
     useEffect(() =>{
         navigator.geolocation.getCurrentPosition(function (position) {
           console.log(position);
+          console.log(position.coords.latitude);
+          console.log(position.coords.longitude);
           setLat(position.coords.latitude)
           setLng(position.coords.longitude)
         });
@@ -104,7 +106,9 @@ export default function HeaderCus(props) {
           setVendors(response.data.vendors)
         })
       },[lat, lng])
-
+    
+    console.log(lat);
+    console.log(lng);
     const onCustomerLogin = () => {
         axios.post('/customer/login', {loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.loginEmail}).then(response =>{
           console.log(props);

@@ -4,7 +4,7 @@ import '../ShoppingCart/styles.css';
 import './Menu.css';
 import './menu-new.css';
 import './menu-card.css';
-import { Layout, InputNumber, Card } from 'antd';
+import { Layout, InputNumber, Card , message} from 'antd';
 import { Button } from 'react-bootstrap';
 import { CopyrightOutlined, LikeOutlined } from '@ant-design/icons';
 import axios from '../API/axios';
@@ -23,6 +23,22 @@ export default function Menu(props) {
         newArray[index] = event;
         setOrders(newArray);
     }
+
+
+    // if (response.data.message === "created a new order") {
+    //     // change the message print to a pop up page
+    //     alert("Order has been places! You can check your order and view previous orders in My Order page")
+    //     axios.get('/order?customer=' + props.customer).then(response2 =>{
+    //         console.log(response2);
+    //         if(response2.data){
+    //             props.data.history.push('/customer/order', {customer: props.customer, customerOrders: response2.data.customerOrders, target: 'customer'});
+    //         }
+    //         else{
+    //             props.data.history.push('/customer/order', {target: 'customer'});
+    //             message.error(response.data.error)
+    //         }  
+    //     })
+    // }
 
     //record the action submit, which summary the order and price, then push the order to database
     const onSubmit = () => {
