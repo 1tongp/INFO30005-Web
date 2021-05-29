@@ -1,6 +1,5 @@
 const Customer = require('../models/customer');
 const bcrypt = require('bcryptjs');
-const { Hash } = require('crypto');
 
 // POST request for customer register 
 exports.customerRegisterPost = function(req,res){
