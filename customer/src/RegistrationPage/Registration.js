@@ -73,7 +73,7 @@ export default function RegistrationPage(props) {
                     if (response.data.success) {
                         console.log("success");
                         console.log(response);
-                        alert("Welcome! Thanks for joining us! You are all set");
+                        // alert("Welcome! Thanks for joining us! You are all set");
                         // console.log('success')
                         // // push the customer information
                         props.history.push('/customer', {
