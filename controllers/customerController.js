@@ -1,5 +1,6 @@
 const Customer = require('../models/customer');
 const bcrypt = require('bcryptjs');
+const { Hash } = require('crypto');
 
 // POST request for customer register 
 exports.customerRegisterPost = function(req,res){
@@ -61,8 +62,8 @@ exports.customerDetailGet = function (req, res){
 
 // Post request for customer to change their details
 exports.customerChangeDetailsPost = function(req, res){
+    const{givenName, familyName, password} = req.body;
     Customer.findById(req.params.id, function(err, customerId){
-        const{givenName, familyName, password} = req.body;
 
         // if customer id not exist in database, return the error message
         if(!customerId){
@@ -72,17 +73,23 @@ exports.customerChangeDetailsPost = function(req, res){
         // if id for perticular customer exist, based on the customer's id to update the personal detail for customer
         // special case: email address cannot be updated.
         else{
-            Customer.findByIdAndUpdate(
-                req.params.id,
-                {givenName, familyName, password},
-                {new: true},
-                function(err, changeDetails){
-                    if(err){
-                        res.status(404).json({err})
-                    }
-                    else{
-                        res.status(200).json({changeDetails: changeDetails})
-                    }
+            bcrypt.genSalt(10, (err, salt) =>{
+                bcrypt.hash(password, salt, (err, hash) =>{
+                    if (err) throw err;
+
+                    Customer.findByIdAndUpdate(
+                        req.params.id,
+                        {givenName, familyName, password: hash},
+                        {new: true},
+                        function(err, changeDetails){
+                            if(err){
+                                res.status(404).json({err})
+                            }
+                            else{
+                                res.status(200).json({changeDetails: changeDetails})
+                            }
+                    })
+                })
             })    
         }
     })
