@@ -26,23 +26,26 @@ export default function MyProfile (props) {
     // }
 
     const onChange = () => {
-        console.log(props.history);
-        axios.post('/customer/changeDetails/'+ props.location.state.customer._id, {givenName: firstName, familyName: 
+        var reg = /^(?=.*[a-zA-Z])(?=.*\d)[\s\S]{8,}$/
+        if(reg.test(password)){
+            console.log(props.history);
+            axios.post('/customer/changeDetails/'+ props.location.state.customer._id, {givenName: firstName, familyName: 
             lastName, password: password}).then(response =>{
-            console.log(response);
-            if(response.data.changeDetails){
-          // push the customer information
-                alert("success! Please Login again using your new details");
-                history.push({
-                    pathname: '/',});
-            }
-            else{
-                alert(response.data.error)
-            }
-        }).catch(error => {
-            console.log(error.response.data.message)
-            alert(error.response.data.message)
+                console.log(response);
+                if(response.data.changeDetails){
+                // push the customer information
+                    alert("success! Please Login again using your new details");
+                    history.push({
+                        pathname: '/',});
+                }
+                else{
+                    alert(response.data.error)
+                }
+            }).catch(error => {
+                console.log(error.response.data.message)
+                alert(error.response.data.message)
             })
+        }
     }
 
     const onBack = () => {
