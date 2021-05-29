@@ -21,6 +21,13 @@ export default function RegistrationPage(props) {
     const [lng, setLng] = useState('');
     const [vendors, setVendors] = useState([]);
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+
+    const handleShow = (e) => {
+      setShow(true)
+    };
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position);
@@ -65,7 +72,7 @@ export default function RegistrationPage(props) {
         // required password format
         var reg = /^(?=.*[a-zA-Z])(?=.*\d)[\s\S]{8,}$/
         if (password != passwordConfirm) {
-            message.error("Password Inconsistent!");
+            alert("Password Inconsistent!");
         }
         else {
             if(reg.test(password)){
@@ -75,7 +82,7 @@ export default function RegistrationPage(props) {
                     if (response.data.success) {
                         console.log("success");
                         console.log(response);
-                        message.success("Welcome! Thanks for joining us! You are all set");
+                        alert("Welcome! Thanks for joining us! You are all set");
                         // console.log('success')
                         // // push the customer information
                         // props.history.push('/customer', {
@@ -87,7 +94,7 @@ export default function RegistrationPage(props) {
                         history.goBack();
                     }
                     else {
-                        message.error("This email has been registered! Please change another one")
+                        alert("This email has been registered! Please change another one")
                     }
                 }).catch(error => {
                     console.log(error.response.data.message)
@@ -95,10 +102,51 @@ export default function RegistrationPage(props) {
                 })
             }
             else{
-                message.error("Password should have at least one alphabet character, one numerical digit with length no less than 8 characters")
+                alert("Password should have at least one alphabet character, one numerical digit with length no less than 8 characters")
             }
         }
     }
+
+    const customerModal = (
+        <div className='login-container'>
+          {/* <Modal.Header closeButton> */}
+                
+          {/* </Modal.Header> */}
+          <div className='popup'>
+            <h2>CREATE AN ACCOUNT</h2>
+            <br />
+              <Modal.Body>
+              <Form>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Label>First Name</Form.Label>
+                  <Form.Control type="loginEmail" placeholder="Enter email"
+                    onChange = {e => setEmail(e.target.value)} />
+                  <Form.Text className="text-mutes">
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                  </Form.Group>
+                  <br />
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label> 
+                    <Form.Control type="password" placeholder="Password"
+                      onChange={e => setPassword(e.target.value)} />
+                  </Form.Group>
+                </Form>
+                
+                <br /><br />
+              </Modal.Body>    
+                <Modal.Footer className='footer-container'>
+                  <Button className='primary-btn' variant="outline-primary" >
+                    Login
+                  </Button>
+                  <Button className='secondary-btn' variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+            </div>
+        </div>
+    ) 
+
     return (
         <Layout id="signupContainer">
             <div className="header--nofunction">
