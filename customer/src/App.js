@@ -213,15 +213,16 @@ function App(props) {
       <Modal show={show} onHide={handleClose}>
         {(modal ==="customer") ? customerModal : vendorModal}
       </Modal>
-      <div >
-        <h1> Welcome to KeepItSimple <br /> Snacks in a Van</h1>
+      <div className="landing-subcontainer">
+        <h3>Welcome to </h3>
+        <h1> KeepItSimple <br /> Snacks in a Van</h1>
         <br />
-        <p>
+        <p className="font--aboutus">
           Snacks in a Van runs a fleet of food vans that work as popup cafes. 
           Choose one of the options from below to continue!
         </p>
         <p>
-          <Button variant = "outline-primary" onClick={handleShow} className='landbtn'>Customer</Button>
+          <Button variant = "outline-primary" onClick={handleShow} className='landbtn btnCustomer'>Customer</Button>
           <Button variant ="outline-primary" onClick={handleShow} className='landbtn'>Vendor</Button>
         </p>
       </div>
