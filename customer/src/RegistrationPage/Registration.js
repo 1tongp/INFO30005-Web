@@ -73,15 +73,15 @@ export default function RegistrationPage(props) {
                     if (response.data.success) {
                         console.log("success");
                         console.log(response);
-                        // alert("Welcome! Thanks for joining us! You are all set");
+                        message.success("Welcome! Thanks for joining us! You are all set");
                         // console.log('success')
                         // // push the customer information
-                        props.history.push('/customer', {
-                            customer: response.data.customer,
-                            vendors: vendors,
-                            position: [lat, lng]
-                        }); 
-                        // props.history.push('../');
+                        // props.history.push('/customer', {
+                        //     customer: response.data.customer,
+                        //     vendors: vendors,
+                        //     position: [lat, lng]
+                        // }); 
+                        props.history.push('../');
                     }
                     else {
                         message.error("This email has been registered! Please change another one")
