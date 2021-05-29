@@ -19,42 +19,27 @@ exports.customerRegisterPost = function(req,res){
                 loginEmail,
                 password
             });
-            // bcrypt.getSalt(10, (err, salt) => {
-            //     bcrypt.hash(newCustomer.password, salt, (err, hash) => {
-            //         if (err) throw err;
-            //         newCustomer.password = hash;
-            //         newCustomer.save().then((customer) => {
-            //             res.json({
-            //                 customer:{
-            //                     id: customer.id,
-            //                     givenName: customer.givenName,
-            //                     familyName: customer.familyName,
-            //                     loginEmail: customer.loginEmail,
-            //                     password: customer.password,
-            //                 },
-            //             })
-            //         })
-            //     })
-            // })
-
+            
+            // hash the password
             // save the new customer's informtion in database
-            newCustomer.save(function(err, result){
-                if(err){
-                    res.status(400).json({err});
-                } 
-                else{
-                    res.status(200).json({
-                        success: true,
-                        message:"customer registered successfully",
-                        customer:{
-                            id: newCustomer.id,
-                            givenName: newCustomer.givenName,
-                            familyName: newCustomer.familyName,
-                            loginEmail: newCustomer.loginEmail,
-                            password : newCustomer.password,
-                        },
-                    });
-                }
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(newCustomer.password, salt, (err, hash) => {
+                    if (err) throw err;
+                    newCustomer.password = hash;
+                    newCustomer.save().then((customer) => {
+                        res.status(200).json({
+                            success: true,
+                            message: "customer registered successfully",
+                            customer:{
+                                id: customer.id,
+                                givenName: customer.givenName,
+                                familyName: customer.familyName,
+                                loginEmail: customer.loginEmail,
+                                password: customer.password,
+                            },
+                        })
+                    })
+                })
             })
         }
     });
@@ -114,21 +99,23 @@ exports.customerLoginPost = function(req, res){
             res.status(200).json({success: false, error: "Email Not Registered"});
         }
         else{
-            if(password === customer.password){
-                res.status(200).json({
-                    success:true,
-                    customer:{
-                        id: customer.id,
-                        givenName: customer.givenName,
-                        familyName: customer.familyName,
-                        loginEmail: customer.loginEmail,
-                        password : customer.password,
-                    },
-                });
-            }
-            else{
-                res.status(200).json({success: false, error:'Password Incorrect'});
-            }      
+            bcrypt.compare(password, customer.password, (err, isMatch) =>{
+                if(isMatch){
+                    res.status(200).json({
+                        success:true,
+                        customer:{
+                            id: customer.id,
+                            givenName: customer.givenName,
+                            familyName: customer.familyName,
+                            loginEmail: customer.loginEmail,
+                            password : customer.password,
+                        },
+                    });
+                }
+                else{
+                    res.status(200).json({success: false, error:'Password Incorrect'});
+                }
+            })      
         }
     })
 }
