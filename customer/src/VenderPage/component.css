@@ -123,6 +123,10 @@ li.ant-menu-item{
 
 .button-wrapper .primary{
     background-color: var(--green);
+    padding-left: 18px;
+    padding-right: 18px;
+  
+    
     border: #91cb97 1px solid;
 }
 
