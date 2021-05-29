@@ -5,11 +5,13 @@ import { CopyrightOutlined } from '@ant-design/icons';
 import axios from "../API/axios.js";
 import MyFooter from '../components/Footer.js';
 import{Jumbotron, Button, Modal, Form} from 'react-bootstrap';
+import { useHistory } from 'react-router';
 
 const { Header, Footer, Content } = Layout;
 
 export default function RegistrationPage(props) {
     console.log(props);
+    let history = useHistory();
     const [loginEmail, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -81,7 +83,8 @@ export default function RegistrationPage(props) {
                         //     vendors: vendors,
                         //     position: [lat, lng]
                         // }); 
-                        props.history.push('../');
+                        // props.history.push('../');
+                        history.goBack();
                     }
                     else {
                         message.error("This email has been registered! Please change another one")

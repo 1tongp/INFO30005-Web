@@ -72,7 +72,7 @@ class CheckButton extends React.Component {
         return (
             <>
                 <button className="check" onClick={() => this.setModal1Visible(true)}>
-                    <CheckOutlined />
+                    <CheckOutlined className="size"/>
                 </button>
                 <Modal className='popup vendor-popup'
                     centered
