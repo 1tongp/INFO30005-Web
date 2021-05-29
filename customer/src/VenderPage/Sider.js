@@ -41,10 +41,10 @@ class Sidebar extends React.Component {
     axios.get('/order/' + this.props.children.location.state.vendor.id + '?status=outstanding').then(response =>{
       console.log(response);
       if(!response.data.success){
-        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders:[], key:'1'})
+        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders:[], key:'1', position: this.props.children.location.state.position})
       }
       else{
-        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'1'});
+        this.props.children.history.push('/vendor/preparing', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'1', position: this.props.children.location.state.position});
       }
     })
   }
@@ -54,10 +54,10 @@ class Sidebar extends React.Component {
       console.log(response);
       console.log(this.props);
       if(!response.data.success){
-        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders:[], key:'2'})
+        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders:[], key:'2', position: this.props.children.location.state.position})
       }
       else{
-        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'2'});
+        this.props.children.history.push('/vendor/fulfilled', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'2', position: this.props.children.location.state.position});
       }
     })
   }
@@ -67,12 +67,16 @@ class Sidebar extends React.Component {
       console.log(response);
       if(!response.data.success){
         console.log("empty");
-        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders:[], key:'3'})
+        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders:[], key:'3', position: this.props.children.location.state.position})
       }
       else{
-        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'3'});
+        this.props.children.history.push('/vendor/finished', {vendor: this.props.children.location.state.vendor, orders: response.data.orders, key:'3', position: this.props.children.location.state.position});
       }
     })
+  }
+
+  toLocation = () => {
+    this.props.children.history.push('/vendor', {vendor: this.props.children.location.state.vendor, position: this.props.children.location.state.position})
   }
 
   toClose = () =>{
@@ -111,7 +115,7 @@ class Sidebar extends React.Component {
               ORDERS
             </Menu.Item>
             <div className='sider-btn'>
-            <button className="change-btn" >
+            <button className="change-btn" onClick={() => this.props.children.history.push('/vendor', {vendor: this.props.children.location.state.vendor, position: this.props.children.location.state.position})}>
               CHANGE LOCATION
             </button>
             <button className="closevan" onClick={() => this.setModal1Visible(true)}>
