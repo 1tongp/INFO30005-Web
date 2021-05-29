@@ -14,10 +14,6 @@ class FinishedOrderList extends React.Component {
         return (
             <div className="cluster">
                 {
-                    (this.props.children.location.state.orders.length > 0) ? <Searchbar>{this.props}</Searchbar>
-                    : <p></p>
-                }
-                {
                     (this.props.children.location.state.orders.length > 0) ? 
                     this.props.children.location.state.orders.map((singleOrder) => (
                         <>  
@@ -36,12 +32,7 @@ class FinishedOrderList extends React.Component {
                 : <FinishedEmpty></FinishedEmpty>
                 }
             </div>
-
         )
-
-
-
-
     }
 }
 
