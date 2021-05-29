@@ -130,16 +130,18 @@ export default function VendorMain(props) {
     <div className='login-container'>
       <div className='popup locationpop'>
       <Modal.Header>
-        <h2>Confirm Location</h2>
+        <h2>CONFIRM LOCATION</h2>
       </Modal.Header>
       <Modal.Body>
         <br />
-        <h3>Address: {adress}</h3> 
+        <h3>Address: </h3>
+        <p>{adress}</p>
         <p className="current-location-coords">
-          {position.lat} &#176; N, {position.lng} &#176; E
+          {position.lat} &#176; N <br />{position.lng} &#176; E
           </p >
 
-        <h3>Adress Description: {desc}</h3>
+        <h3>Adress Description: </h3>
+        <p>{desc}</p>
 
       </Modal.Body>
       <Modal.Footer>
@@ -186,24 +188,24 @@ export default function VendorMain(props) {
               {/* Map */}
             </div>
             <div className="current-location">
-              <h4 className="current-location-title">CURRENT LOCATION: </h4>
-              <p className="current-location-p">
+              <h4 className="current-location-title">CURRENT LOCATION </h4>
+              <div className="current-location-p">
                 <Form>
-                  <Form.Label>Add Address</Form.Label>
-                  <Form.Control type="adress" placeholder="Add address" onChange={e => setAdress(e.target.value)} />
+                  {/* <Form.Label>Add Address</Form.Label> */}
+                  <Form.Control type="adress" placeholder="Enter address..." onChange={e => setAdress(e.target.value)} />
                 </Form>
                 <br />
                 <span className="current-location-coords">
                   {position.lat} &#176; N, {position.lng} &#176; E
                         </span>
-              </ p>
+              </ div>
             </div>
 
             <div className="add-description" >
               <Form>
                 <Form.Group>
-                  <Form.Label>Add description</Form.Label>
-                  <Form.Control type="desc" placeholder="Add address descriptions" rows={2} onChange={e => setDesc(e.target.value)} />
+                  {/* <Form.Label>Location Description</Form.Label> */}
+                  <Form.Control type="desc" placeholder="Enter address descriptions..." rows={20} onChange={e => setDesc(e.target.value)} />
                 </Form.Group>
               </Form>
 
