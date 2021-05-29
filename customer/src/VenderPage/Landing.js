@@ -98,10 +98,10 @@ export default function VendorMain(props) {
     axios.get('/order/' + props.location.state.vendor.id + '?status=outstanding').then(response => {
       console.log(response);
       if(!response.data.success){
-        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders:[], key:'1'})
+        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders:[], key:'1', position: props.location.state.position})
       }
       else{
-        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders: response.data.orders, key:'1'});
+        props.history.push('/vendor/preparing', {vendor: props.location.state.vendor, orders: response.data.orders, key:'1', position: props.location.state.position});
 
       }
     })
