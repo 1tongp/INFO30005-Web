@@ -110,9 +110,14 @@ class Sidebar extends React.Component {
               FINISHED 
               ORDERS
             </Menu.Item>
+            <div className='sider-btn'>
+            <button className="change-btn" >
+              CHANGE LOCATION
+            </button>
             <button className="closevan" onClick={() => this.setModal1Visible(true)}>
               CLOSE VAN
             </button>
+            </div>
             <Modal className='popup vendor-popup'
               centered
               closable={false}

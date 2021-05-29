@@ -34,7 +34,7 @@ class SiderDemo extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <Layout className="reset-height">
         <Sidebar>{this.props.children}</Sidebar>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>

@@ -23,8 +23,8 @@ class FulfilledOrderlist extends React.Component {
                             <div className="container--basicinfo">
                                 <p>Order ID: {order._id}</p>
                                 <p>Customer ID: {order.customer}</p>
-                                <p>Order Create Time: {order.createTime.slice(0,10)} {order.createTime.slice(11,19)}</p>
-                                <p>Order Fulfilled Time: {order.updateTime.slice(0,10)} {order.updateTime.slice(11,19)}</p>
+                                <p>Order Create Time: <br /> {order.createTime.slice(0,10)} || {order.createTime.slice(11,19)}</p>
+                                <p>Order Fulfilled Time: {order.updateTime.slice(0,10)}  ||  {order.updateTime.slice(11,19)}</p>
                                 <p>Discount Applied: {order.discount ? 'Yes': 'No'}</p>
                             </div>
                             <div className="orderdetail">
@@ -35,7 +35,7 @@ class FulfilledOrderlist extends React.Component {
                                 }
             
                             </div>
-                            <div>
+                            <div className='container--button'>
                                 <FulfilledCheckButton className="fulfilledCheck">{order}</FulfilledCheckButton>
                             </div>
                         </div>
