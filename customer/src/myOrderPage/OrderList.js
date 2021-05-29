@@ -9,7 +9,7 @@ import logo from '../images/logo.png';
 import axios from '../API/axios.js';
 import './myorderheader.css';
 import MyFooter from '../components/Footer.js';
-
+import { message } from 'antd';
 import { Component } from 'react';
 
 const { Header, Footer, Content } = Layout;
@@ -55,11 +55,48 @@ export default function OrderList(props) {
         }).catch(error => {
           console.log(error)
         })
-      }
+    }
 
-    //console.log(props);
+    const toLogin = () =>{
+        props.history.push('../');
+    }
 
+    // get the current order from the customer
+    const onOrder = () => {
+        //orderListGet
+        axios.get('/order?customer=' + props.location.state.customer.id).then(response =>{
+        console.log(props.location.state.customer.id);
+        console.log(response);
+        if(response.data){
+            // props push the useful data
+            props.history.push('/customer/order', {customer: props.location.state.customer, customerOrders: response.data.customerOrders, target: 'customer'});
+        }
+        else{
+          props.history.push('/customer/order', {target: 'customer'});
+          message.error(response.data.error)
+        }
+      }).catch(error => {
+        console.log(error)
+      })
+    }
 
+    const onProfile = () => {
+        //orderListGet
+        axios.get('/customer/' + props.location.state.customer.id).then(response =>{
+        console.log(props.location.state.customer.id);
+        console.log(response);
+        if(response.data){
+            // props push the useful data
+            props.history.push('/customer/myprofile', {customer: response.data.customer});
+        }
+        else{
+          message.error(response.data.error)
+        }
+      }).catch(error => {
+        console.log(error)
+      })
+    }
+    
     return (
         <Layout>
            <Header id='header_container'>   
@@ -79,15 +116,16 @@ export default function OrderList(props) {
                         <a></a>
                 
                             <button onClick = {onCustomerLogin} id='btnMenu'> HOME </button>
-                            <button onClick = {history.goBack} id='btnMenu'> MENU </button>              
-                            <a className='icon' href=''><ShoppingOutlined /></a>
+                            <button onClick = {history.goBack} id='btnMenu'> MENU </button>     
+                            <Button onClick = {onOrder}><ShoppingOutlined /></Button>         
 
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <a href=''>Profile</a>
-                                <a href=''>My Orders</a>
-                                <a href=''>Log Out</a>
+                                <Button>Hi {props.location.state.customer.givenName}</Button>
+                                <Button onClick = {onOrder}>My Order</Button>
+                                <Button onClick = {onProfile}>My Profile</Button>
+                                <Button onClick = {toLogin}>Log Out</Button>
 
                             </div>
                         </div>
