@@ -108,21 +108,6 @@ export default function VendorMain(props) {
   }
 
 
-  // state = {
-  //     collapsed: false,
-  //     modal1Visible: false,
-  //   };
-
-  //   setModal1Visible(modal1Visible) {
-  //     this.setState({ modal1Visible });
-  // }
-
-  // toggle = () => {
-  //   this.setState({
-  //     collapsed: !this.state.collapsed,
-  //   });
-  // };
-  // console.log(position.Lat);
   
 
 

@@ -57,7 +57,11 @@ function App(props) {
   }
 
   const Signup = () =>{
-    props.history.push('/customer/signup');
+    props.history.push('/customer/signup', {
+      customer: [],
+      position: [lat, lng],
+      vendors: vendors
+    });
   } 
 
   // 用这个信息去跟后端核对

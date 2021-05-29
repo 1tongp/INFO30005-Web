@@ -72,8 +72,9 @@ export default function CustomerMain (props) {
                         <h2 >ABOUT US</h2>
                         <br/>
                         <div className='about-info'>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nulla pariatur! Laborum odit modi, sapiente ex soluta eum quos natus, optio architecto, porro ab qui corporis quas! Culpa, dolorem illum!
-                                </p>
+                            <p>Snacks in a Van runs a fleet of food vans that work as popup cafes. We operate in 
+                                different locations everyday, click the map to find the nearest van to order!
+                            </p>
                         </div>
                     </div>
                 </div>     

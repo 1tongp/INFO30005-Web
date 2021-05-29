@@ -60,6 +60,21 @@
     width: 100%;
 }
 
+.u_drop_content button{
+   padding-right: 15px !important;
+   font-weight: normal !important;
+}
+
+#basket {
+    background-color: #73412f;
+    color: #d9c2a7 !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#basket:hover {
+    color: white !important;
+}
 
 @media screen and (max-width:1000px){
     #loc-text , #loc-url {
@@ -105,7 +120,26 @@
       
     }
 
+    /* .u_drop_content button{
+        padding-right: 15px !important;
+        font-weight: normal !important;
+        margin-left: 40px !important;
+        
+     } */
+     
+    #basket {
+         background-color: #d9c2a7;
+         color: #73412f!important;
+         padding-left: 0;
+         padding-right: 0;
+
+        margin-left: auto!important;
+        margin-right: auto!important;
+        text-align: center!important;
+         
+     }
     
+     
 
     #loc-url>a{
         font-size: 2px;
