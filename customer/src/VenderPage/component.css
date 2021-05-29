@@ -419,6 +419,11 @@ li.ant-menu-item{
     
 }
 
+.ant-btn-primary{
+    background-color: var(--orange) !important;
+    border: solid var(--orange) !important;
+}
+
 /* .reset-height{
    
 } */

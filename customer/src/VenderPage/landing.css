@@ -110,7 +110,7 @@
     justify-content: space-between;
 }
 
-.site-layout-background-content{
+.remove-bar{
     overflow: hidden !important;
 }
 
