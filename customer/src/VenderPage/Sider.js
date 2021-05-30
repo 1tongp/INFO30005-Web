@@ -136,7 +136,7 @@ class Sidebar extends React.Component {
               visible={this.state.modal1Visible}
               onOk={() => this.setModal1Visible(false), this.toClose}
               onCancel={() => this.setModal1Visible(false)}
-              okText={'Confirm and Logout'}
+              okText={'Logout'}
               >
               <p>Done for Today?</p>
             </Modal>

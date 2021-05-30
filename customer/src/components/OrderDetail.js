@@ -300,7 +300,7 @@ export default class OrderDetail extends Component {
                             <button className='primary-btn' variant="primary" onClick={() => this.onCommentSubmit()}>
                                 Submit
                             </button>
-                            <button className='secondary-btn' variant="primary" onClick={() => this.handleEditClose()}>
+                            <button className='secondary-btn' variant="primary" onClick={() => this.closeModalEdit()}>
                                 Close
                             </button>
                         </Modal.Footer>
