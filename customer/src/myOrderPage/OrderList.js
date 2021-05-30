@@ -117,15 +117,15 @@ export default function OrderList(props) {
                 
                             <button onClick = {onCustomerLogin} id='btnMenu'> HOME </button>
                             <button onClick = {history.goBack} id='btnMenu'> MENU </button>     
-                            <Button onClick = {onOrder}><ShoppingOutlined /></Button>         
+                            <button onClick = {onOrder} id='btnMenu'><ShoppingOutlined /></button>         
 
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                <Button>Hi {props.location.state.customer.givenName}</Button>
-                                <Button onClick = {onOrder}>My Order</Button>
-                                <Button onClick = {onProfile}>My Profile</Button>
-                                <Button onClick = {toLogin}>Log Out</Button>
+                                {/* <button>Hi {props.location.state.customer.givenName}</button> */}
+                                <button onClick = {onOrder}>My Order</button>
+                                <button onClick = {onProfile}>My Profile</button>
+                                <button onClick = {toLogin}>Log Out</button>
 
                             </div>
                         </div>

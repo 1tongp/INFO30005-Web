@@ -453,6 +453,16 @@ li.ant-menu-item{
 
 
 
+.Vendorcluster{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+
 /* .reset-height{
    
 } */
