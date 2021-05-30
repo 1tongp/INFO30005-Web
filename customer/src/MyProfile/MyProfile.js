@@ -51,69 +51,85 @@ export default function MyProfile (props) {
         history.goBack()
     }
     return (
-        <Layout className="signupBackground">
+        <Layout className="signupBackground ">
         {/* <Layout> */}
             <div className="header--nofunction"></div>
-            <br /><br /><br /><br />
+         
                 
                 
                 
             
-            <div >
+            <div className="container--signup container--profile">
                 {/* <div className="profiletext">
                     <p className="title">Nice to see you! You can change your details here...</p>
                     <p className="warningtext">Your Email Address (can not be changed): </p>
                     <p>{props.location.state.customer.loginEmail}</p>
 
                 </div> */}
-                
 
+                <div className="profile--subcontainer">
                 <h1>MY PROFILE</h1>
         
-                <div className="signupContainer">
-                <p className='email-warning'>Your Email Address (cannot be changed): <br /> {props.location.state.customer.loginEmail}</p>
-                <form >
-                    <div className="cluster--signup">
+                        <div >
+                        <p className='email-warning'>Your Email Address (cannot be changed): <br /> {props.location.state.customer.loginEmail}</p>
+                        <form >
+                            <div className="cluster--signup">
 
-                    <div>
-                        <label for="fname" className="label">First Name:</label>
-                        <input id="fname" placeholder="First Name" className="nameinput" defaultValue = {props.location.state.customer.givenName}
-                        onChange = {e => setfirstName(e.target.value)}/>
-                        </div>
-                    <div>
-                        <label for="lname" className="label">Last Name:</label>
-                        <input id="lname" placeholder="Last Name" className="nameinput" defaultValue = {props.location.state.customer.familyName}
-                        onChange = {e => setlastName(e.target.value)}/>
-                    </div>
-                    </div>
+                            <div className="margintop">
+                                <label for="fname" className="label">First Name:</label>
+                                <input id="fname" placeholder="First Name" className="nameinput" defaultValue = {props.location.state.customer.givenName}
+                                onChange = {e => setfirstName(e.target.value)}/>
+                                </div>
+                            <div className="margintop">
+                                <label for="lname" className="label">Last Name:</label>
+                                <input id="lname" placeholder="Last Name" className="nameinput" defaultValue = {props.location.state.customer.familyName}
+                                onChange = {e => setlastName(e.target.value)}/>
+                            </div>
+                            </div>
 
-                    <div className='password-input'>
-                        <label for="password" className="label">Password:</label>
-                        <input id="password" type="password" className="nameinput" placeholder="New Password" defaultValue = {props.location.state.customer.password}
-                        onChange = {e => setPassword(e.target.value)}/>
-                    </div>
-                    
+                            <br></br>
 
-
-                    <br/>
-                  
-                    <input type="submit" value="Update Now ►" className="btnSignup" 
-                    onClick = {onChange}/>
-                    
+                            <div className='password-input'>
+                                <label for="password" className="label">Password:</label>
+                                <input id="password" type="password" className="nameinput" placeholder="New Password" defaultValue = {props.location.state.customer.password}
+                                onChange = {e => setPassword(e.target.value)}/>
+                            </div>
+                            
 
 
-                </form>
+                            <br/>
 
-           
-                    <br/>
-                    <br/>
-                    <br/>
+                            <br></br>
+                            <br></br>
+
+                            <div className="container--updatebtn">
+                                <input type="submit" value="Update Now ►" className="btnSignup" 
+                                onClick = {onChange}/>
+
+                            </div>
+                        
+                            
+                            
+
+
+                        </form>
+
                 
-                <input type="button" value="◀︎ Back" className="btnCancel" 
-                onClick = {onBack}
-                />
+                            <br/>
+                            <br/>
 
-             </div>
+                        
+                        <input type="button" value="◀︎ Back" className="btnCancel" 
+                        onClick = {onBack}
+                        />
+
+                    </div>
+
+
+                </div>
+                
+
+                
 
             </div>
 

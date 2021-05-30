@@ -22,9 +22,9 @@ h1{
 }
 
 .email-warning {
-    font-size: 12pt;
-    color: gray;
-    margin-bottom: 70px;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 40px;
 }
 .profiletext{
     margin-top: 30px;
@@ -49,6 +49,31 @@ h1{
 
 #signupContainer{
     background-color: #E8E6DF;
+}
+
+
+.container--profile{
+    padding: 5%;
+    padding-left: 10%;
+    background-attachment: scroll !important;
+}
+
+.profile--subcontainer{
+    min-width: 440px;
+    width: 40%;
+    background-color: rgba(115, 65, 47, 0.8);
+    border-radius: 15px;
+    padding: 36px;
+    /* box-shadow: rgb(70, 39, 30) 2px 0px 8px 1px; */
+
+}
+
+.margintop{
+    margin-top: 12px;
+}
+
+.profile--subcontainer>h1{
+    color: white;
 }
 
 .header--nofunction{
@@ -198,6 +223,11 @@ h1{
 }
 
 
+.container--updatebtn{
+    text-align: end;
+}
+
+
 
 
 
@@ -206,6 +236,26 @@ h1{
 
 
 @media (max-width:800px) {
+
+    .container--profile{
+        padding: 8%;
+        padding-left: 4%;
+        padding-right: 4%;
+        background-attachment: fixed !important;
+    }
+
+
+
+    .profile--subcontainer{
+        width: 100% !important;
+   
+        min-width: 100%;
+  
+        
+    }
+
+
+
 
     .label{
         color: rgb(236, 231, 221);

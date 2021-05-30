@@ -9,6 +9,9 @@ CustomerRouter.post('/register',customerController.customerRegisterPost);
 // GET request to get customer details
 CustomerRouter.get('/:id', customerController.customerDetailGet);
 
+
+CustomerRouter.post('/changeName/:id', customerController.customerChangeNamePost);
+
 // POST request to change the customer details
 CustomerRouter.post('/changeDetails/:id', customerController.customerChangeDetailsPost);
 
