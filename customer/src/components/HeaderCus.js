@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import { Jumbotron, Button, Modal, Form } from 'react-bootstrap';
 import axios from '../API/axios';
 import Menu from '../Menu/Menu.js';
-// import '../ShoppingCart/styles.css';
-// import '../landing.css';
 import logo from '../images/logo.png';
 import { Layout, message } from 'antd';
 import { ShoppingOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
@@ -46,7 +44,6 @@ export default function HeaderCus(props) {
         givenName: firstName, familyName:
           lastName
       }).then(response => {
-        console.log(response);
         if (response.data.changeName) {
           // push the customer information
           alert("success! Please Login again using your new details");
@@ -60,12 +57,10 @@ export default function HeaderCus(props) {
         alert(error.response.data.message)
       })
     } else if (reg.test(password)) {
-      console.log(props.data.history);
       axios.post('/customer/changeDetails/' + props.data.location.state.customer.id, {
         givenName: firstName, familyName:
           lastName, password: password
       }).then(response => {
-        console.log(response);
         if (response.data.changeDetails) {
           // push the customer information
           alert("success! Please Login again using your new details");
@@ -75,7 +70,6 @@ export default function HeaderCus(props) {
           alert(response.data.error)
         }
       }).catch(error => {
-        console.log(error.response.data.message)
         alert(error.response.data.message)
       })
     } else {
@@ -87,8 +81,7 @@ export default function HeaderCus(props) {
   const onOrder = () => {
     //orderListGet
     axios.get('/order?customer=' + props.data.location.state.customer.id).then(response => {
-      console.log(props.data.location.state.customer.id);
-      console.log(response);
+      
       if (response.data) {
         // props push the useful data
         props.data.history.push('/customer/order', { customer: props.data.location.state.customer, customerOrders: response.data.customerOrders, target: 'customer' });
@@ -126,25 +119,18 @@ export default function HeaderCus(props) {
   const [vendors, setVendors] = useState([]);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log(position);
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
       setLat(position.coords.latitude)
       setLng(position.coords.longitude)
     });
     axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
-      console.log(response)
       setVendors(response.data.vendors)
     })
   }, [lat, lng])
 
-  console.log(lat);
-  console.log(lng);
+
 
   const onCustomerLogin = () => {
         axios.post('/customer/loginhash', {loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.password}).then(response =>{
-          console.log(props);
-          console.log(response);
           if(response.data.success){
               props.data.history.push('/customer', {
               customer: response.data.customer,
