@@ -109,12 +109,34 @@ exports.customerOrderListGet = function(req, res){
 exports.orderListGet = function(req, res){
 
     // check validation of the order id
-    Order.findById(req.params.id, function(err, orderDetail){
-        if(!orderDetail){
+    Order.findById(req.params.id, function(err, orders){
+        if(!orders){
             res.status(404).json({success: false, message: "order is not found!"})
         }
         else{
-            res.status(200).json({success: true, orders: orderDetail})   
+            var sortOrder = []
+            for(i = 0; i < orders.length; i++){
+                sortOrder.push({
+                    "comments":orders[i].comments,
+                    "createTime":orders[i].createTime,
+                    "customer":orders[i].customer,
+                    "discount":orders[i].discount,
+                    "isCanceled":orders[i].isCanceled,
+                    "isChangeable":orders[i].isChangeable,
+                    "isDelivered":orders[i].isDelivered,
+                    "ratings":orders[i].ratings,
+                    "snacksList":orders[i].snacksList,
+                    "status":orders[i].outstanding,
+                    "totalPrice":orders[i].totalPrice,
+                    "updateTime":orders[i].updateTime,
+                    "vendor":orders[i].vendor,
+                    "_v":orders[i]._v,
+                    "_id":orders[i]._id,
+                    "customerName":orders[i].customerName
+                })
+            }
+            sortOrder = sortOrder.sort(({createTime: a}, {createTime: b}) => a - b)
+            res.status(200).json({success: true, orders: sortOrder})   
         }
     })
 }
