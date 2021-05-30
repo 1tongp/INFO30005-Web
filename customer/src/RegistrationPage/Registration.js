@@ -85,18 +85,25 @@ export default function RegistrationPage(props) {
                 {/* <Modal.Header closeButton> */}
 
                 {/* </Modal.Header> */}
-                <div className='popup'>
-                    <h2>Registration</h2>
+                <div className='popup registration-pop'>
+                    <h2>Sign Up</h2>
                     <br />
                     <Modal.Body>
                         <Form>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>First Name</Form.Label>
-                                <Form.Control type="firstName" placeholder="Enter Your First Name"
-                                    onChange={e => setFirstName(e.target.value)} />
-                                <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="lastName" placeholder="Enter Your Last Name"
-                                    onChange={e => setLastName(e.target.value)} />
+                                <div className='cluster--signup'>
+                                    <div className=' reg'>
+                                    <Form.Label >First Name</Form.Label>
+                                    <Form.Control className="nameinput" type="firstName" placeholder="Enter Your First Name"
+                                        onChange={e => setFirstName(e.target.value)} />
+                                    </div>
+                                    <div className=' reg'>
+                                    <Form.Label >Last Name</Form.Label>
+                                    <Form.Control className="nameinput" type="lastName" placeholder="Enter Your Last Name"
+                                        onChange={e => setLastName(e.target.value)} />
+                                    
+                                    </div>
+                                </div>
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control type="loginEmail" placeholder="Enter Name"
                                     onChange={e => setEmail(e.target.value)} />
@@ -104,23 +111,23 @@ export default function RegistrationPage(props) {
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password"
+                                <Form.Control className='no-margin' type="password" placeholder="Password"
                                     onChange={e => setPassword(e.target.value)} />
                                 <Form.Text className="text-mutes">
                                 Password should have at least one alphabet character, one numerical digit with length no less than 8 characters
                                 </Form.Text>
-                                <br />
-                                <Form.Label>Password Confirm</Form.Label>
+                                <br /> <div className='confirm'></div>
+                                <Form.Label > Confirm Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password"
                                     onChange={e => setPasswordConfirm(e.target.value)} />
                             </Form.Group>
                         </Form>
 
-                        <br /><br />
+                        
                     </Modal.Body>
                     <Modal.Footer className='footer-container'>
                         <Button className='primary-btn' variant="outline-primary" onClick = {onSignUp}>
-                            Login
+                            Sign Up Now
                   </Button>
                         <Button className='secondary-btn' variant="secondary" onClick={history.goBack}>
                             Close
