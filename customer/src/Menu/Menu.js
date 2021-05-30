@@ -4,14 +4,11 @@ import '../ShoppingCart/styles.css';
 import './Menu.css';
 import './menu-new.css';
 import './menu-card.css';
-import { Layout, InputNumber, Card , message} from 'antd';
-import { Button } from 'react-bootstrap';
-import { CopyrightOutlined, LikeOutlined } from '@ant-design/icons';
+import { Layout, InputNumber, message} from 'antd';
+import { LikeOutlined } from '@ant-design/icons';
 import axios from '../API/axios';
 import MyFooter from '../components/Footer.js';
 
-const { Footer, Content } = Layout;
-const { Meta } = Card;
 
 //this function will implement the Menu page strcture
 export default function Menu(props) {
@@ -71,7 +68,7 @@ export default function Menu(props) {
             } else {
                 axios.post('/order/create', {
                     customer: props.customer,
-                    vendor: props.vendor, // will be changed in the future
+                    vendor: props.vendor, 
                     snacksList: submitOrder,
                     totalPrice: sumPrice,
                     customerName: name
@@ -98,19 +95,8 @@ export default function Menu(props) {
         <Layout>
             <div className="container--menu">
                 <h1 classname="font--menu">MENU</h1>
-                {/* loop each snack in the database and show them out as a menu, the customer can choose the amount they want to order */}
                 <div className="menu">
                     {props.snacks.map((snack, index) => (
-                        // <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath} />} key={snack._id}>
-                        //     <div className='card-content'>
-                        //         <br />
-                        //         <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info' description={snack.snackDescription}/>
-                        //         <InputNumber key={snack._id} min={0} defaultValue={0} onChange={e => onChange(index, e)} className='input' />
-
-
-                        //     </div>
-                        // </Card>
-
                         <div className="menu-card">
 
                             <div className="card-image" style={{ backgroundImage: `url(${snack.snackPhotoPath})` }}></div>
@@ -128,10 +114,6 @@ export default function Menu(props) {
                                 </div>
                                 <div className="card-btns">
                                     <InputNumber classname="input--number" key={snack._id} min={0} defaultValue={0} onChange={e => onChange(index, e)} />
-                                    {/* <img src={minus} alt="" />
-                                    <p className="order-number">1</p>
-                                    <img src={plus} alt="" />
-                                        <img src={cart} alt="" /> */}
                                 </div>
                             </div>
                         </div>
