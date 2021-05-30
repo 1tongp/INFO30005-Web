@@ -47,7 +47,7 @@ exports.vendorOrderListGet = function(req, res){
                     "isDelivered":orders[i].isDelivered,
                     "ratings":orders[i].ratings,
                     "snacksList":orders[i].snacksList,
-                    "status":orders[i].outstanding,
+                    "status":orders[i].status,
                     "totalPrice":orders[i].totalPrice,
                     "updateTime":orders[i].updateTime,
                     "vendor":orders[i].vendor,
