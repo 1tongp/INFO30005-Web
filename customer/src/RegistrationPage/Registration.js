@@ -61,7 +61,7 @@ export default function RegistrationPage(props) {
                         }); 
                     }                        
                     else {
-                        alert("This email has been registered! Please change another one")
+                        alert("Sign Up Fail: This email has already been registered! Please change another one")
                     }
                 }).catch(error => {
                     console.log(error.response.data.message)
