@@ -51,7 +51,7 @@ exports.customerDetailGet = function (req, res){
 
         //if detail for perticular customer exist, print the detail to customer
         if(customerDetail){
-            res.status(200).json({customer: customerDetail})
+            res.status(200).json({success: true, customer: customerDetail})
         }
         else{
             res.status(400).json({success: false, message: "getDetail customer is not found"})
@@ -122,6 +122,36 @@ exports.customerLoginPost = function(req, res){
                     res.status(200).json({success: false, error:'Password Incorrect'});
                 }
             })      
+        }
+    })
+}
+
+exports.customerLoginUnhashPost = function(req, res){
+    const{loginEmail, password} = req.body;
+
+    // Match customer
+    Customer.findOne({
+        loginEmail: loginEmail,
+    }).then((customer) => {
+        if(!customer){
+            res.status(200).json({success: false, error: "Email Not Registered"});
+        }
+        else{
+            if(password === customer.password){
+                res.status(200).json({
+                    success:true,
+                    customer:{
+                        id: customer.id,
+                        givenName: customer.givenName,
+                        familyName: customer.familyName,
+                        loginEmail: customer.loginEmail,
+                        password : customer.password,
+                    },
+                });
+            }
+            else{
+                res.status(200).json({success: false, error:'Password Incorrect'});
+            }      
         }
     })
 }
