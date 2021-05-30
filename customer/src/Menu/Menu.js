@@ -27,10 +27,10 @@ export default function Menu(props) {
     //     axios.get('/order?customer=' + props.customer).then(response2 =>{
     //         console.log(response2);
     //         if(response2.data){
-    //             props.data.history.push('/customer/order', {customer: props.customer, customerOrders: response2.data.customerOrders, target: 'customer'});
+    //             props.history.push('/customer/order', {customer: props.customer, customerOrders: response2.data.customerOrders, target: 'customer'});
     //         }
     //         else{
-    //             props.data.history.push('/customer/order', {target: 'customer'});
+    //             props.history.push('/customer/order', {target: 'customer'});
     //             message.error(response.data.error)
     //         }  
     //     })
