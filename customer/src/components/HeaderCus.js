@@ -102,28 +102,10 @@ export default function HeaderCus(props) {
     })
   }
 
-  const onProfile = () => {
-    //orderListGet
-    axios.get('/customer/' + props.data.location.state.customer.id).then(response => {
-      console.log(props.data.location.state.customer.id);
-      console.log(response);
-      if (response.data) {
-        // props push the useful data
-        props.data.history.push('/customer/myprofile', { customer: response.data.customer });
-      }
-      else {
-        message.error(response.data.error)
-      }
-    }).catch(error => {
-      console.log(error)
-    })
-  }
-
-
 
   useEffect(() => {
     if (props.data.location.state.vendor) {
-      setVendorAddress(props.data.location.state.vendor.currentAddress)
+      setVendorAddress(props.data.location.state.vendor.name)
     } else {
       setVendorAddress("Please select your vendor first!")
     }
@@ -136,11 +118,6 @@ export default function HeaderCus(props) {
     } else {
       setTitle([<Button href='' key="1" onClick={toLogin}>Log In</Button>])
     }
-    // if(props.data.location.state.position){
-    //     setButtonHome([<Button href = '' key = "1" onClick = {history.goBack}>Back</Button>])
-    // }else{
-    //     setButtonHome([<Button href = '' key = "1" onClick = {history.goBack}>Home</Button>])
-    // }
 
   }, [props.data.location.state.vendor, props.data.location.state.customer]);
 
@@ -169,7 +146,6 @@ export default function HeaderCus(props) {
           console.log(props);
           console.log(response);
           if(response.data.success){
-            // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
               props.data.history.push('/customer', {
               customer: response.data.customer,
               vendors: vendors,
@@ -185,9 +161,6 @@ export default function HeaderCus(props) {
 
 
   const ProfileModal = (
-    /* <Modal.Header closeButton>
-          <Modal.Title>Vendor Login</Modal.Title>
-    </Modal.Header> */
     <div className='login-container'>
       <div className='popup profile'>
         <h2>MY PROFILE</h2>
@@ -203,9 +176,6 @@ export default function HeaderCus(props) {
               <Form.Label>Last Name</Form.Label>
               <Form.Control type="lastName" placeholder="Enter Your Last Name" defaultValue = {props.data.location.state.customer.familyName}
                 onChange={e => setLastName(e.target.value)} />
-              {/* <Form.Label>Email</Form.Label>
-              <Form.Control type="loginEmail" placeholder="Enter Name"
-                onChange={e => setEmail(e.target.value)} /> */}
 
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
@@ -214,9 +184,6 @@ export default function HeaderCus(props) {
                 onChange={e => setPassword(e.target.value)} />
               <Form.Text className="text-mutes">if you don't want to change password, just leave it blank and update</Form.Text>
               <br />
-              {/* <Form.Label>Password Confirm</Form.Label>
-              <Form.Control type="password" placeholder="Password"
-                onChange={e => setPasswordConfirm(e.target.value)} /> */}
             </Form.Group>
             </Form>
         </Modal.Body>
@@ -246,19 +213,16 @@ export default function HeaderCus(props) {
             <img src={logo} id='logo' />
             <div id="header_loc">
               <div id="loc-text">
-                <p >Current Location: </p>
+                <p >Current Van: </p>
               </div>
               <div id="loc-url">
                 <a className='lc_url'>{vendorAddress}</a>
 
               </div>
 
-
-
             </div>
 
           </div>
-
 
 
           <div className='mid_nav'>
@@ -269,17 +233,15 @@ export default function HeaderCus(props) {
               </label>
             </div>
             <div className='links' id="right-container">
-              {/* <a></a> */}
+
               <Button onClick={onCustomerLogin} id='btnMenu'> HOME </Button>
-              {/* {buttonHome} */}
+  
               <Button id='btnMenu'> MENU </Button>
               {buttonCart}
               <div className='drop'>
 
                 <a className='icon'><UserOutlined /></a>
                 <div className='u_drop_content' >
-
-                  {/* {title} */}
                   {buttonMyOrder}
                   {buttonMyProfile}
                   {buttonLogOut}
