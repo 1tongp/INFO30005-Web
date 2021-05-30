@@ -110,7 +110,7 @@ export default function HeaderCus(props) {
     console.log(lat);
     console.log(lng);
     const onCustomerLogin = () => {
-        axios.post('/customer/loginhash', {loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.loginEmail}).then(response =>{
+        axios.post('/customer/loginhash', {loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.password}).then(response =>{
           console.log(props);
           console.log(response);
           if(response.data.success){
