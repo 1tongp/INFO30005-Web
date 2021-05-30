@@ -8,9 +8,7 @@ import App from './App.js';
 import Component from './VenderPage/TestComponent.js';
 import Fulfilled from './VenderPage/Fulfilled.js';
 import Finished from './VenderPage/FinishedOrders';
-import MyProfile from './MyProfile/MyProfile.js';
 import Vendor from './VenderPage/Landing'
-
 class Router extends React.Component{
     render(){
         return(
@@ -20,9 +18,7 @@ class Router extends React.Component{
                     <Route path="/customer" exact component={CustomerMain}></Route>
                     <Route path="/customer/order" exact component={OrderList}></Route>
                     <Route path="/customer/menu" exact component={AfterLoginMain}></Route>
-
-                    {/* <Route path="/customer/signup" exact component={RegistrationPage}></Route>
-                    <Route path="/customer/myprofile" exact component={MyProfile}></Route> */}
+                    <Route path="/customer/signup" exact component={RegistrationPage}></Route>
                     <Route path="/vendor/preparing" exact component={Component}></Route>
                     <Route path="/vendor/fulfilled" exact component={Fulfilled}></Route>
                     <Route path="/vendor/finished" exact component={Finished}></Route>
