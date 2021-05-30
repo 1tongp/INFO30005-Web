@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Registration.css'
+import './signup.css'
 import { Layout, message } from 'antd';
 import { CopyrightOutlined } from '@ant-design/icons';
 import axios from "../API/axios.js";
@@ -81,51 +82,70 @@ export default function RegistrationPage(props) {
 
     return (
         <Modal show={handleShow} onHide ={handleClose}>
-            <div className='login-container'>
+            <div className='signup--container'>
                 {/* <Modal.Header closeButton> */}
 
                 {/* </Modal.Header> */}
-                <div className='popup'>
-                    <h2>Registration</h2>
+                <div className='popup registration-pop'>
+                    <h2>CREATE AN ACCOUNT</h2>
                     <br />
-                    <Modal.Body>
+
+                    <div className="flex--column">
+                    <Modal.Body >
                         <Form>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>First Name</Form.Label>
-                                <Form.Control type="firstName" placeholder="Enter Your First Name"
-                                    onChange={e => setFirstName(e.target.value)} />
-                                <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="lastName" placeholder="Enter Your Last Name"
-                                    onChange={e => setLastName(e.target.value)} />
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="loginEmail" placeholder="Enter Name"
+                                <div className='cluster--signup'>
+                                    <div className=' reg'>
+                                    <Form.Label >First Name</Form.Label>
+                                    <Form.Control className="nameinput" type="firstName" placeholder="Enter your first name"
+                                        onChange={e => setFirstName(e.target.value)} />
+                                    </div>
+                                    <div className=' reg'>
+                                    <Form.Label >Last Name</Form.Label>
+                                    <Form.Control className="nameinput" type="lastName" placeholder="Enter your last name"
+                                        onChange={e => setLastName(e.target.value)} />
+                                    
+                                    </div>
+                                </div>
+                                <Form.Label className="changelabelcolor">Email</Form.Label>
+                                <Form.Control type="loginEmail" placeholder="Enter your email"
                                     onChange={e => setEmail(e.target.value)} />
                                 
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password"
+                                <Form.Label className="changelabelcolor">Password</Form.Label>
+                                <Form.Control className='no-margin' type="password" placeholder="Enter your password"
                                     onChange={e => setPassword(e.target.value)} />
-                                <Form.Text className="text-mutes">
+                                <Form.Text className="text-mutesreg">
                                 Password should have at least one alphabet character, one numerical digit with length no less than 8 characters
                                 </Form.Text>
-                                <br />
-                                <Form.Label>Password Confirm</Form.Label>
-                                <Form.Control type="password" placeholder="Password"
+                                <br /> <div className='confirm'></div>
+                                <Form.Label className="changelabelcolor"> Confirm Password</Form.Label>
+                                <Form.Control type="password" placeholder="ENter your password again"
                                     onChange={e => setPasswordConfirm(e.target.value)} />
                             </Form.Group>
                         </Form>
 
-                        <br /><br />
+                        
                     </Modal.Body>
                     <Modal.Footer className='footer-container'>
                         <Button className='primary-btn' variant="outline-primary" onClick = {onSignUp}>
-                            Login
-                  </Button>
+                            Sign Up Now
+                        </Button>
                         <Button className='secondary-btn' variant="secondary" onClick={history.goBack}>
                             Close
-                  </Button>
+                        </Button>
                     </Modal.Footer>
+
+
+
+
+
+
+                    </div>
+
+
+                    
                 </div>
             </div>
         </Modal>
