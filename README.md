@@ -75,6 +75,6 @@ Backend code are written in the project-frontend-t03-keepsimple folder.
 - To order from a vendor, please zoom out on the map to find coffee icons. 
   Choose a vendor by clicking on one of the icons.
 - On the customer side, if a van is not selected, clicking on 'Menu' in the header will direct users to the main page to select a van from the map.
-- To view a newly placed order, click on the 'basket' icon in the header; once the My Order page appears, scroll to the bottom of the page to view the order.
+- To view a newly placed order, click on the 'basket' icon in the header.
 - Vendor does not have a sign up feature and they can only use the account provided by the company. This is to ensure the system is safe, clean and accounts would not be registered by random users.
 
