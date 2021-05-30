@@ -162,25 +162,26 @@ export default function HeaderCus(props) {
 
   console.log(lat);
   console.log(lng);
+
   const onCustomerLogin = () => {
-    axios.post('/customer/loginhash', { loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.loginEmail }).then(response => {
-      console.log(props);
-      console.log(response);
-      if (response.data.success) {
-        // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
-        props.data.history.push('/customer', {
-          customer: response.data.customer,
-          vendors: vendors,
-          position: [lat, lng]
-        });
+        axios.post('/customer/loginhash', {loginEmail: props.data.location.state.customer.loginEmail, password: props.data.location.state.customer.password}).then(response =>{
+          console.log(props);
+          console.log(response);
+          if(response.data.success){
+            // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
+              props.data.history.push('/customer', {
+              customer: response.data.customer,
+              vendors: vendors,
+              position: [lat, lng]});
+          } 
+          else{
+            message.error(response.data.error)
+          }
+        }).catch(error => {
+          console.log(error)
+        })
       }
-      else {
-        message.error(response.data.error)
-      }
-    }).catch(error => {
-      console.log(error)
-    })
-  }
+
 
   const ProfileModal = (
     /* <Modal.Header closeButton>

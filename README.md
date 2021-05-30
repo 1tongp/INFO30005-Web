@@ -6,12 +6,13 @@
 GROUP: 
 ## project-t03-keepsimple
 
-before run the code, please "npm install node" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple
+## Before running the code
+Before run the code, please "npm install node" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple
+
 
 **frontend and backend**
-
-
-all frontend code are written in the project-frontend-t03-keepsimple\customer folder, and all backend code are writtten in the project-frontend-t03-keepsimple folder
+Frontend code are written in the project-frontend-t03-keepsimple/customer folder. 
+Backend code are written in the project-frontend-t03-keepsimple folder.
 
 ## commit id in main branch which used for marking 
 -
@@ -29,9 +30,14 @@ all frontend code are written in the project-frontend-t03-keepsimple\customer fo
 ## unit and integration tests 
 - npm install --save-dev mocha chai request
 - you can run the integration tests and unit test for vendor parking at the same time by "npm test"
-- two test file under the "test" folder, 4 status of vendor we want to test whether they are successfully updated:
-- 1. currentAddress : a tring which vendor can type in by themselves 
-- 2. parked : true or false, represent the status of parking
-- 3. location : Point type, the lat and lng of vendor location
-- 4. readyForOrder: true or false, represent whehter it is open for business  
-- in our design, when vendor parked, the status of "parked" and "readyForOrder" are making as true at the same time, but when we find the five nearest vans, the vans which "readyForOrder" is true will be considered as valid vans that customer can placing orders from.
+- the two test files are under the "test" folder. These test whether the four status for vendor are successfully updated:
+    1. currentAddress : a string which vendor can type in by themselves 
+    2. parked : true or false, represent the status of parking
+    3. location : Point type, the lat and lng of vendor location
+    4. readyForOrder: true or false, represent whehter it is open for business  
+- in our design, when a vendor is parked, the status of "parked" and "readyForOrder" will be marked as 'true' at the same time. Within the five nearest vans, the vans that have "readyForOrder" as 'true' will be considered as valid vans that customer can order from.
+
+## Instruction Notes
+- Locating current location on the map may be effected by internet connection speed
+- To order from a vendor, please zoom out on the map to find coffee icons. 
+  Choose a vendor by clicking on one of the icons.
