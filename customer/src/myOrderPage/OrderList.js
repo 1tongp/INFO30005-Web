@@ -118,11 +118,13 @@ export default function OrderList(props) {
               <Modal.Title>Vendor Login</Modal.Title>
         </Modal.Header> */
         <div className='login-container'>
-            <div className='popup'>
+           <div className='popup profile'>
                 <h2>MY PROFILE</h2>
+                <p className='email-warning'>Your Email Address (cannot be changed): <br /> </p>
+                <p className='email'>{props.location.state.customer.loginEmail}</p>
                 <br />
                 <Modal.Body>
-                    <h2>Your Email Address (cannot be changed): <br /> {props.location.state.customer.loginEmail}</h2>
+                 
                     <Form>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>First Name</Form.Label>
@@ -149,12 +151,12 @@ export default function OrderList(props) {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button className='primary-btn' variant="outline-primary" onClick={onChange}>
+                    <button className='primary-btn' variant="outline-primary" onClick={onChange}>
                         Update
-                </Button>
-                    <Button className='secondary-btn' variant="secondary" onClick={handleClose}>
+                    </button>
+                    <button className='secondary-btn' variant="secondary" onClick={handleClose}>
                         Close
-                </Button>
+                    </button>
                 </Modal.Footer>
             </div>
         </div>

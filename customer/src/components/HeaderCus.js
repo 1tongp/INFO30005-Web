@@ -189,7 +189,7 @@ export default function HeaderCus(props) {
           <Modal.Title>Vendor Login</Modal.Title>
     </Modal.Header> */
     <div className='login-container'>
-      <div className='popup'>
+      <div className='popup profile'>
         <h2>MY PROFILE</h2>
         <p className='email-warning'>Your Email Address (cannot be changed): <br /> </p>
         <p className='email' >{props.data.location.state.customer.loginEmail}</p>

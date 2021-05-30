@@ -22,18 +22,26 @@ h1{
 }
 
 .email-warning {
-    font-size: 14px !important;
-    color: rgb(182, 182, 182);
+    font-size: 16px !important;
+    color: rgb(135, 135, 135);
     margin-bottom: 0px !important;
     margin-top: 0px !important;
     /* text-align: left !important; */
     font-weight: normal !important;
-
 }
 
 .email {
-    
+    margin-bottom: 20px !important;
+    margin-top: 0px !important;
+    font-size: 14px !important;
+    color: rgb(135, 135, 135);
 }
+
+.profile input {
+    margin-bottom: 15px;
+    margin-top: 8px;
+}
+
 .profiletext{
     margin-top: 30px;
     text-align: center;
@@ -298,7 +306,6 @@ h1{
 
 
 
-
     .label{
         color: rgb(236, 231, 221);
     }
@@ -391,5 +398,9 @@ h1{
     }
     .reg .nameinput{
         width: 100%;
+    }
+
+    .profile {
+        margin-top: 65px !important;
     }
 }
