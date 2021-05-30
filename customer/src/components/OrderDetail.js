@@ -55,7 +55,13 @@ export default class OrderDetail extends Component {
         this.setState({ comments: value })
     }
 
-    // 1. close用不了 2. vendor discount没更新
+    
+    closeModalEdit = () =>{
+        this.setState({ editModalVisible: false });
+    }
+    closeModalCancel = () =>{
+        this.setState({ cancelModalVisible: false });
+    }
 
     onOrderSubmit = () => {
         var submitOrder = []
@@ -218,48 +224,6 @@ export default class OrderDetail extends Component {
         }
     }
 
-    onMarkOrder = () => {
-        var statusToGo, discount
-        var totalSum = this.props.order.totalPrice
-        if (this.props.order.status === "outstanding") {
-            statusToGo = "fulfilled"
-            if (this.state.diff >15) {
-                discount = true
-                totalSum = totalSum * 0.8
-            } else {
-                discount = false
-            }
-            axios.post('/order/change/' + this.props.order._id, {
-                discount: discount,
-                status: statusToGo,
-                totalPrice: totalSum
-            }).then(response => {
-                console.log(response);
-                if (response.data.success) {
-                    alert("Order has been uppdated")
-                    this.setState({ editModalVisible: false });
-                }
-                else {
-                    alert("Order updating errored!")
-                }
-            })
-        } else if (this.props.order.status === "fulfilled") {
-            statusToGo = "completed"
-            axios.post('/order/change/' + this.props.order._id, {
-                status: statusToGo
-            }).then(response => {
-                console.log(response);
-                if (response.data.success) {
-                    alert("Order has been uppdated")
-                    this.setState({ editModalVisible: false });
-                }
-                else {
-                    alert("Order updating errored!")
-                }
-            })
-
-        }
-    }
 
     renderVenCus = () => {
         if (window.location.pathname === '/customer/order') {
@@ -282,7 +246,8 @@ export default class OrderDetail extends Component {
     renderEditModelBody = () => {
         if (this.props.order.status === "outstanding") {
             return (
-                <>  <div className='change-container'>
+                <> 
+                 <div className='change-container'>
                     <div className='change-popup'>
                         <Modal.Header>
                             <h3>UPDATE ORDER</h3>
@@ -302,7 +267,7 @@ export default class OrderDetail extends Component {
                             <button className='primary-btn' variant="primary" onClick={() => this.onOrderSubmit()}>
                                 Update
                             </button>
-                            <button className='secondary-btn' variant="primary" onClick={() => this.handleEditClose()}>
+                            <button className='secondary-btn' variant="primary" onClick={() => this.closeModalEdit()}>
                                 Close
                             </button>
                         </Modal.Footer>
@@ -364,7 +329,7 @@ export default class OrderDetail extends Component {
                         <button className='primary-btn' variant="primary" onClick={() => this.onCancelSubmit()}>
                             Cancel Order
                         </button>
-                        <button className='secondary-btn' variant="primary" onClick={() => this.handleCancelClose()}>
+                        <button className='secondary-btn' variant="primary" onClick={() => this.closeModalCancel()}>
                             Close
                         </button>
                     </Modal.Footer>
