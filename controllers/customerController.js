@@ -115,10 +115,10 @@ exports.customerChangeNamePost = function (req, res) {
                 { new: true },
                 function (err, changeName) {
                     if (err) {
-                        res.status(404).json({ err })
+                        res.status(404).json({ success: false, error: err })
                     }
                     else {
-                        res.status(200).json({ changeName: changeName })
+                        res.status(200).json({ success: true, changeName: changeName })
                     }
                 })
 
