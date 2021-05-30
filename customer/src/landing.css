@@ -131,6 +131,10 @@
 }
 
 .landing-subcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     width: 50%;
     height: 100%;
     min-height: 500px;
@@ -141,6 +145,7 @@
     background-color: rgba(231, 227, 222, 0.7);
     /* border: solid; */
     padding: 5%;
+    padding-top: 0;
     border-radius: 10px;
 
     
