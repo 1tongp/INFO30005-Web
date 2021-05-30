@@ -82,6 +82,7 @@ class SingleOrder extends React.Component {
                 <div className="container--basicinfo">
                     <p>Order ID: {this.props.children._id}</p>
                     <p>Customer ID: {this.props.children.customer}</p>
+                    <p>Customer Given Name: {this.props.children.customerName}</p>
                     <p>{this.props.children.createTime.slice(0,10)}</p>
                     <p>{this.props.children.createTime.slice(11,19)}</p>
                 </div>

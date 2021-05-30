@@ -110,6 +110,10 @@
     justify-content: space-between;
 }
 
+.remove-bar{
+    overflow: hidden !important;
+}
+
 
 /* .modal-footer {
 

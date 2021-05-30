@@ -12,6 +12,13 @@ var OrderSchema = new Schema({
         ref: 'Vendor'
     },
 
+    customerName: {
+        type: String,
+        default: "Customer",
+        required: true
+
+    },
+
     snacksList:{
         type: Array,
         required: true,

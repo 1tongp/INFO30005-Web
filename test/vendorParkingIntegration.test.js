@@ -26,7 +26,7 @@ describe("vendor integration tests", () => {
             },
             function (error, response, body) {
                 expect(response.statusCode).to.equal(200);
-                expect(body.updateVendor.parked).to.equal(true);
+                expect(body.updateVendor.readyForOrder).to.equal(true);
                 if (error) done (error);
                 else done();
             }

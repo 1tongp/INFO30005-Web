@@ -118,7 +118,6 @@ margin-bottom: 32px;
 .flex--child{
 /* margin-right: 32px; */
 
-margin-bottom: 42px;
 word-wrap: break-word;
 
 }
@@ -195,12 +194,30 @@ word-wrap: break-word;
 }
 
 .orderstatus{
-    padding: 10px;
+    padding: 0px;
     font-size: 12pt;
  
 }
 
+.right-buttons {
+    /* float: right; */
+    margin-top: 60px;
+}
 
+.time-date-container {
+    display: inline-block;
+    /* border: 1px solid black; */
+    width: 50%;
+}
+
+.time-date-container p{
+    display: inline-block;
+}
+
+.date {
+    font-weight: bold;
+    margin-right: 50px;
+}
 
 
 .flex--column{
@@ -209,7 +226,7 @@ flex-direction: column;
 }
 
 .flex--column--child{
-margin-bottom: 42px;
+
 }
 
 td,th{
@@ -604,7 +621,7 @@ Header .logo {
 }
 
 .mid_nav > .links > .drop > .u_drop_content > a{
-    width: 25%;
+    width: 30%;
     /* margin-left: 23%; */
     display: inline-block;
     position: relative;
@@ -618,9 +635,12 @@ Header .logo {
     padding-right: 15px;
     white-space: nowrap;
     color: #8c5002;
-    width: 25%;
+    width: 30%;
     margin-top: 20px;
+    
 }
+
+
 
 /* !!!!!!!!!!!!!! */
 #btnMenu{
@@ -650,7 +670,19 @@ Header .logo {
     border: 0;
 }
 
+.rating h2{
+    text-align: center;
+    font-weight: bold;
+}
 
+.o-id {
+    font-size: 12pt;
+}
+
+.stars {
+    text-align: center;
+
+}
 .pop-menu .ant-input-number, .snack-name {
     display: inline-block;
     /* border: solid 1px black; */
@@ -677,6 +709,26 @@ Header .logo {
     transition: none;
     
 }
+
+.time-date-container {
+    display: inline-block;
+    /* border: 1px solid black; */
+    width: 100%;
+}
+
+.time-date-container p{
+    display: inline-block;
+}
+
+.date {
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.snack-item {
+    margin-bottom: 30px;;
+    
+}    
 
 
 

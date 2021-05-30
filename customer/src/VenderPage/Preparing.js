@@ -49,12 +49,6 @@ class SiderDemo extends React.Component {
               maxHeight: 720,
             }}
           >
-            {/* {this.props.orderlist}
-            <br></br> */}
-
-
-
-            {/* The Preparing orders page component(list) */}
             <Orderlist>{this.props}</Orderlist>
 
          

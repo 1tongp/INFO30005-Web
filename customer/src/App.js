@@ -225,10 +225,10 @@ function App(props) {
           Snacks in a Van runs a fleet of food vans that work as popup cafes. 
           Choose one of the options from below to continue!
         </p>
-        <p>
+        <div className="container--btns">
           <Button variant = "outline-primary" onClick={handleShow} className='landbtn btnCustomer'>Customer</Button>
           <Button variant ="outline-primary" onClick={handleShow} className='landbtn'>Vendor</Button>
-        </p>
+        </div>
       </div>
     </div>
   );
