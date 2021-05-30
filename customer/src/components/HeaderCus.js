@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Jumbotron, Button, Modal, Form } from 'react-bootstrap';
+import { Jumbotron, Button, Modal, Form, PopoverTitle } from 'react-bootstrap';
 import axios from '../API/axios';
 import Menu from '../Menu/Menu.js';
 import logo from '../images/logo.png';
@@ -228,6 +228,7 @@ export default function HeaderCus(props) {
 
                 <a className='icon'><UserOutlined /></a>
                 <div className='u_drop_content' >
+                  {title}
                   {buttonMyOrder}
                   {buttonMyProfile}
                   {buttonLogOut}
