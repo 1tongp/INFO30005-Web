@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MyOrder.css';
 import { Jumbotron, Modal, Form } from 'react-bootstrap';
-import { Layout, Button } from 'antd';
+import { Layout, Button, BackTop} from 'antd';
 import { ShoppingOutlined, UserOutlined, MenuOutlined, CopyrightOutlined } from '@ant-design/icons';
 import '../ShoppingCart/styles.css';
 import OrderListCom from '../components/OrderListCom.js'
@@ -201,6 +201,7 @@ export default function OrderList(props) {
 
     return (
         <div>
+            <BackTop />
             <div >
                 <Modal show={show} onHide={handleClose}>
                     {ProfileModal}

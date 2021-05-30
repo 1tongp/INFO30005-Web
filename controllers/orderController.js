@@ -99,7 +99,29 @@ exports.customerOrderListGet = function(req, res){
         if (orders.length == 0){
             res.status(200).json({ success: false, error: "no order found"})
         } else {
-            res.status(200).json({ success: true, customerOrders: orders})
+            var sortOrder = []
+            for(i = 0; i < orders.length; i++){
+                sortOrder.push({
+                    "comments":orders[i].comments,
+                    "createTime":orders[i].createTime,
+                    "customer":orders[i].customer,
+                    "discount":orders[i].discount,
+                    "isCanceled":orders[i].isCanceled,
+                    "isChangeable":orders[i].isChangeable,
+                    "isDelivered":orders[i].isDelivered,
+                    "ratings":orders[i].ratings,
+                    "snacksList":orders[i].snacksList,
+                    "status":orders[i].status,
+                    "totalPrice":orders[i].totalPrice,
+                    "updateTime":orders[i].updateTime,
+                    "vendor":orders[i].vendor,
+                    "_v":orders[i]._v,
+                    "_id":orders[i]._id,
+                    "customerName":orders[i].customerName
+                })
+            }
+            sortOrder = sortOrder.sort(({createTime: a}, {createTime: b}) => b - a)
+            res.status(200).json({ success: true, customerOrders: sortOrder})
         }
         
     })       
@@ -114,29 +136,7 @@ exports.orderListGet = function(req, res){
             res.status(404).json({success: false, message: "order is not found!"})
         }
         else{
-            var sortOrder = []
-            for(i = 0; i < orders.length; i++){
-                sortOrder.push({
-                    "comments":orders[i].comments,
-                    "createTime":orders[i].createTime,
-                    "customer":orders[i].customer,
-                    "discount":orders[i].discount,
-                    "isCanceled":orders[i].isCanceled,
-                    "isChangeable":orders[i].isChangeable,
-                    "isDelivered":orders[i].isDelivered,
-                    "ratings":orders[i].ratings,
-                    "snacksList":orders[i].snacksList,
-                    "status":orders[i].outstanding,
-                    "totalPrice":orders[i].totalPrice,
-                    "updateTime":orders[i].updateTime,
-                    "vendor":orders[i].vendor,
-                    "_v":orders[i]._v,
-                    "_id":orders[i]._id,
-                    "customerName":orders[i].customerName
-                })
-            }
-            sortOrder = sortOrder.sort(({createTime: a}, {createTime: b}) => a - b)
-            res.status(200).json({success: true, orders: sortOrder})   
+            res.status(200).json({success: true, orders: orders})   
         }
     })
 }

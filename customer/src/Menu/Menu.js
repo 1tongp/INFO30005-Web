@@ -4,7 +4,7 @@ import '../ShoppingCart/styles.css';
 import './Menu.css';
 import './menu-new.css';
 import './menu-card.css';
-import { Layout, InputNumber, message} from 'antd';
+import { Layout, InputNumber, message, BackTop} from 'antd';
 import { LikeOutlined } from '@ant-design/icons';
 import axios from '../API/axios';
 import MyFooter from '../components/Footer.js';
@@ -92,6 +92,8 @@ export default function Menu(props) {
         }
     }
     return (
+        <div>
+        <BackTop />
         <Layout>
             <div className="container--menu">
                 <h1 classname="font--menu">MENU</h1>
@@ -130,5 +132,6 @@ export default function Menu(props) {
             </div>
             <MyFooter></MyFooter>
         </Layout>
+        </div>
     )
 }

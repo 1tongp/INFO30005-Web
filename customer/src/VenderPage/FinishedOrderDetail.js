@@ -22,6 +22,12 @@ class FinishedOrderDetail extends React.Component {
             </div>
 
             <div className="Vendorcluster">
+                <li>Customer Given Name:</li>
+                <li> {this.props.children.customerName}</li>
+                {/* <li>Customer Id: {this.props.children.customer}</li> */}
+            </div>
+
+            <div className="Vendorcluster">
                 <li>Order Create Time:</li>
                 <li>{this.props.children.createTime.slice(0, 10)} {this.props.children.createTime.slice(11, 19)}</li>
                 {/* <li>Order Create Time: {this.props.children.createTime.slice(0, 10)} {this.props.children.createTime.slice(11, 19)}</li> */}
