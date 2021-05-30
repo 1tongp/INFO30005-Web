@@ -8,24 +8,6 @@ import io from 'socket.io-client';
 import '../myOrderPage/myorderheader.css';
 import { Empty } from 'antd';
 
-// function to loop particular custmomer's orders
-// export default function OrderListCom(props) {
-//     const loopOrders = props.data.location.state.customerOrders.map((singleOrder) => {
-//         return (
-//             <OrderDetail
-//                 key={singleOrder._id}
-//                 order={singleOrder} />
-//         )
-//     })
-
-//     return (
-//         <div>
-//             {loopOrders}
-//         </div>
-//     )
-
-
-// }
 
 function Orders(props) {
     const [orders, setOrders] = useState([])
@@ -39,20 +21,7 @@ function Orders(props) {
         if (props.status) {
             setStatus(props.status)
         }
-        // async function fetchData() {
-        //     axios.get("/order?" + props.target + "=" + id + props.status).then(response => {
-        //         console.log(response.data);
-        //         if (response.data.success){
-        //             setOrders(response.data.customerOrders)
-        //         } else {
-        //             setOrders([])
-        //             message.info('No outstanding orders found');
-        //         }
-        //     }).catch(error =>{
-        //         setOrders([]);
-        //     })
-        // }
-        // fetchData()
+        
         async function fetchData() {
             axios.get("/order?" + props.target + "=" + id + status).then(response => {
                 if (response.data.success) {
