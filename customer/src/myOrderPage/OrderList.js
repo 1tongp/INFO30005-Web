@@ -42,7 +42,7 @@ export default function OrderList(props) {
     }, [lat, lng])
 
     const onCustomerLogin = () => {
-        axios.post('/customer/login', {loginEmail: props.location.state.customer.loginEmail, password: props.location.state.customer.password}).then(response =>{
+        axios.post('/customer/loginhash', {loginEmail: props.location.state.customer.loginEmail, password: props.location.state.customer.password}).then(response =>{
           console.log(props);
           console.log(response);
           if(response.data.success){
