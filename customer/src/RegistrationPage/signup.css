@@ -1,0 +1,112 @@
+.signup--container {
+    background-image: url(newBackground.PNG);
+    background-size: cover;
+    background-position:center;
+    width: 100%;
+    height: 100% !important;
+
+    display: inline-block;
+    padding-bottom: 10%;
+    /* padding-top: 10%; */
+
+
+    position:fixed;
+    top: 0;
+    left: 0;
+
+  
+    overflow: hidden;
+}
+
+.signup--container::before{
+    content: '';
+    top: 0;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100% !important;
+    z-index:-1;
+    background-image: url(newBackground.PNG);
+    filter: blur(3px);
+    background-position: center;
+    /* background-repeat: repeat-y; */
+    background-size: cover;
+
+}
+
+
+
+
+
+.registration-pop{
+    border-radius: 25px !important;
+    background-color: rgba(58,53,50,0.7) !important;
+    margin-top: 5% !important;
+    /* margin-top: 10% !important; */
+    width: 45% !important;
+    min-width: 680px;
+    margin-left: 8% !important;
+    border: none !important;
+  
+    height: 100%;
+    padding: 38px !important;
+  
+}
+
+.registration-pop>h2{
+    color: white;
+    font-size: 30px;
+}
+
+.flex--column{
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reg>label{
+    color: whitesmoke;
+}
+
+.changelabelcolor{
+    color: white !important;
+}
+
+.text-mutesreg{
+    color: rgb(212, 205, 205);
+}
+
+
+@media (max-width:850px){
+
+    /* .signup--container{
+        padding;
+    } */
+
+
+    .registration-pop{
+        width: 100% !important;
+        height: 100% !important;
+        margin-bottom: 0 !important;
+        min-width: 100%;
+    
+        margin-left: 0px !important;
+        /* margin-right: 18px !important; */
+        /* overflow-y: scroll; */
+        /* border-radius: 0 !important; */
+    
+    }
+
+    .registration-pop>h2{
+        font-size: 24px;
+    }
+
+
+
+    .signup--container>.popup{
+        margin-top: 18px !important;
+        height: 100% !important;
+    }
+
+}
