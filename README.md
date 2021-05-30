@@ -10,8 +10,6 @@ GROUP:
 username: keepitsimple@h1.com
 password: info30005
 
-Most of the vans are located near Melbourne University. You can manually set your location as '-37.7963，144.9614' to locate closer to the vendors.
-
 ## Vendor Account
 Vendor 1
   username: Spider-Man
@@ -70,6 +68,10 @@ Backend code are written in the project-frontend-t03-keepsimple folder.
 
 ## Instruction Notes
 - Locating current location on the map may be effected by internet connection speed.
+- Some of the vans are located near Melbourne University. 
+  You can manually set your location as '-37.7963，144.9614' to locate closer to the parked vendors. 
+  This can be done by right click in the browser --> Inspect --> Sensors --> Manage location.
+- You can zoom out on the map to see the five nearest vans, as some vans may locate further away from the current location.
 - To order from a vendor, please zoom out on the map to find coffee icons. 
   Choose a vendor by clicking on one of the icons.
 - On the customer side, if a van is not selected, clicking on 'Menu' in the header will direct users to the main page to select a van from the map.
