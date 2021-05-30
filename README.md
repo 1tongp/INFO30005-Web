@@ -43,9 +43,6 @@ Before run the code, please "npm install node" under the project-frontend-t03-ke
 Frontend code are written in the project-frontend-t03-keepsimple/customer folder. 
 Backend code are written in the project-frontend-t03-keepsimple folder.
 
-## commit id in main branch which used for marking 
-- 7600173d24b8da4359081b9d07ea1a59cea3c21b
-
 
 ## Heroku URL Link
 -Live URL : https://frontend-keepitsimple.herokuapp.com/
