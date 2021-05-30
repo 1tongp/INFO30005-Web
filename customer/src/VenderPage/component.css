@@ -440,10 +440,18 @@ li.ant-menu-item{
     
 }
 
+.ant-btn{
+    border: solid var(--orange) !important;
+    color: var(--orange) !important;
+}
+
 .ant-btn-primary{
     background-color: var(--orange) !important;
     border: solid var(--orange) !important;
+    color: white !important;
 }
+
+
 
 /* .reset-height{
    

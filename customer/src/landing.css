@@ -126,6 +126,7 @@
 .landing-subcontainer{
     width: 50%;
     height: 100%;
+    min-height: 500px;
     
     /* float: right; */
     /* margin: 10%; */
