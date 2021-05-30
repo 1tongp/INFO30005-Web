@@ -10,30 +10,16 @@ import MyFooter from '../components/Footer.js';
 import MapList from '../components/MapList.js';
 import '../ShoppingCart/styles.css';
 import './Main.css';
-import { Layout, Button} from 'antd';
-import {ShoppingOutlined, CopyrightOutlined, UserOutlined, MenuOutlined, ProfileOutlined} from '@ant-design/icons';
-//import Footer from '../components/Footer.js';
+import { Layout} from 'antd';
 
-const {Footer, Content } = Layout;
+
 
 //this function will implement the customer page strcture (the map and choosing vans have not been implemented yet)
 export default function CustomerMain (props) {
-    console.log(props);
-
-    // if customer want to view menu without loggin, the loggin step can be skip
-    // since the map feature has not been placed yet, we assume that customer will order the snacks from a given vendor
-    const toLogin = () =>{
-        props.history.push('/customer/login')
-    }
-    const onSkip = () => {
-        props.history.push('/customer/menupreview')
-            // vendor: "6082092adf7e59001590d377")
-    }
     
     return (
         <Layout>
-            <HeaderCus data = {props}/>
-            
+            <HeaderCus data = {props}/>           
             <div>
                 <img src={cart} className='main_img'/>
                 <div className="col-menu">
@@ -48,24 +34,8 @@ export default function CustomerMain (props) {
                     <h2>FIND A VAN</h2>
                     <div className='map'>
                      <LeafMap data = {props}/>
-                     <MapList data = {props}/>
-                    
-                        
+                     <MapList data = {props}/>                      
                     </div>
-
-                    {/* <div className='button_container'>
-                        <Button onClick={toLogin} className = 'btn'>
-                            <UserOutlined className='main_btn'/>
-                            Login and Order
-                        </Button> */}
-
-                        {/* click the button to skip the login step*/} 
-                        {/* <Button onClick={onSkip} className = 'btn'>     
-                            <ProfileOutlined className='main_btn'/>                      
-                            View Menu without Login
-                        </Button>
-                    </div> */}
-
                 </div>
                 <div className="about">
                     <div className="about-card">
@@ -79,11 +49,7 @@ export default function CustomerMain (props) {
                     </div>
                 </div>     
             </div>  
-
-
-            <MyFooter></MyFooter>   
-      
-     
+            <MyFooter></MyFooter>        
         </Layout>
     )
 }

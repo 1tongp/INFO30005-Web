@@ -1,21 +1,12 @@
 import React from 'react';
-import Orderlist from './Orderlist.js'
 import 'antd/dist/antd.css';
 import './component.css'
 import './FulfilledOrderlist'
-
-import { Layout, Menu } from 'antd';
-import FulfilledOrderlist from './FulfilledOrderlist';
-import Searchbar from './Searchbar.js'
+import { Layout} from 'antd';
 import FinishedOrderList from './FinishedOrderList.js'
-import FinishedOrderDetail from './FinishedOrderDetail.js'
-import FinishedOrderDetailCancel from './FinishedCancel'
 import Sidebar from './Sider.js'
 
-
-
-
-const { Header, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 
 class Finished extends React.Component {
   constructor(props){

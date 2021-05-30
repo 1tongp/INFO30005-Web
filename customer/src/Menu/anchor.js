@@ -25,30 +25,9 @@ function AfterLoginMain(props){
         })
     }, [props.location.state.position, props.location.state.vendor, props.location.state.customer]);
 
-
-
-    //get the current order from the customer
-    // const onOrder = () => {
-    //     //orderListGet
-    //     axios.get('/order?customer=' + props.location.state.customer.id).then(response =>{
-    //     console.log(props);
-    //     console.log(response);
-    //     if(response.data){
-    //         // props push the useful data
-    //         props.history.push('/customer/order', {customerOrders: response.data.customerOrders});
-    //     }
-    //     else{
-    //       message.error(response.data.error)
-    //     }
-    //   }).catch(error => {
-    //     console.log(error)
-    //   })
-    // }
-
     return (
         <Layout>
             <HeaderCus data = {props}/>
-
             {/* return the snacks and customer details */}
             <Menu key='0' history = {props.history} snacks={snacks} customer={customerId} vendor={props.location.state.vendor.id} />
         </Layout>

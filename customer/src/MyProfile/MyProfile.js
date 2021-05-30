@@ -1,14 +1,9 @@
 import React , {useState} from 'react'
 import '../RegistrationPage/Registration.css'
 import { Layout} from 'antd';
-import { CopyrightOutlined} from '@ant-design/icons';
 import axios from '../API/axios.js';
 import {useHistory} from "react-router-dom";
-
 import MyFooter from '../components/Footer.js';
-
-
-const { Header, Footer, Content } = Layout;
 
 export default function MyProfile (props) {
     let history = useHistory();
@@ -18,12 +13,6 @@ export default function MyProfile (props) {
     const [firstName, setfirstName] = useState(props.location.state.customer.givenName);
     const [lastName, setlastName] = useState(props.location.state.customer.familyName);
     const [password, setPassword] = useState(props.location.state.customer.password);
-    // const [disable, setDisable] = useState(true);
-
-    // const enablePassword = () => {
-    //     if (disable) { setDisable(false)}
-    //     else {setDisable(true)}
-    // }
 
     const onChange = () => {
         var reg = /^(?=.*[a-zA-Z])(?=.*\d)[\s\S]{8,}$/
@@ -54,19 +43,7 @@ export default function MyProfile (props) {
         <Layout className="signupBackground ">
         {/* <Layout> */}
             <div className="header--nofunction"></div>
-         
-                
-                
-                
-            
             <div className="container--signup container--profile">
-                {/* <div className="profiletext">
-                    <p className="title">Nice to see you! You can change your details here...</p>
-                    <p className="warningtext">Your Email Address (can not be changed): </p>
-                    <p>{props.location.state.customer.loginEmail}</p>
-
-                </div> */}
-
                 <div className="profile--subcontainer">
                 <h1>MY PROFILE</h1>
         
@@ -95,8 +72,6 @@ export default function MyProfile (props) {
                                 onChange = {e => setPassword(e.target.value)}/>
                             </div>
                             
-
-
                             <br/>
 
                             <br></br>
@@ -106,31 +81,20 @@ export default function MyProfile (props) {
                                 <input type="submit" value="Update Now ►" className="btnSignup" 
                                 onClick = {onChange}/>
 
-                            </div>
-                        
-                            
-                            
-
-
-                        </form>
-
-                
+                            </div>                                                   
+            
+                        </form>                
                             <br/>
                             <br/>
-
-                        
+                       
                         <input type="button" value="◀︎ Back" className="btnCancel" 
                         onClick = {onBack}
                         />
 
                     </div>
 
-
                 </div>
-                
-
-                
-
+                        
             </div>
 
             <MyFooter></MyFooter>

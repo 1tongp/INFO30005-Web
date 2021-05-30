@@ -2,7 +2,6 @@ import React from 'react';
 import './component.css'
 import DetailButton from './ViewDetail.js'
 import FinishedEmpty from './FinishedEmpty.js'
-import Searchbar from './Searchbar.js'
 
 // This is order list component for finished orders page 
 class FinishedOrderList extends React.Component {

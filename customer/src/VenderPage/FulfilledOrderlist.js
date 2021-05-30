@@ -3,9 +3,7 @@ import './component.css'
 import FulfilledCheckButton from './FulFilledCheck.js'
 import FulfilledNone from './FulfilledNone.js'
 
-
 // This is the gray orderlist in fulfilled page
-
 class FulfilledOrderlist extends React.Component {
     constructor(props) {
         super(props);
@@ -45,8 +43,7 @@ class FulfilledOrderlist extends React.Component {
                 
                 : <FulfilledNone></FulfilledNone>
                 }
-            </div>
-  
+            </div> 
         );
     }
 }
