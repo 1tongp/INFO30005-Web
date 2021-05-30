@@ -187,9 +187,6 @@ function App(props) {
             <Form.Label>Vendor Name</Form.Label>
             <Form.Control type="loginEmail" placeholder="Enter name"
               onChange = {e => setName(e.target.value)} />
-            <Form.Text className="text-mutes">
-              We'll never share your email with anyone else.
-            </Form.Text>
             </Form.Group>
             <br />
             <Form.Group controlId="formBasicPassword">
