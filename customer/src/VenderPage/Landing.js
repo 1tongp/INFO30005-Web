@@ -149,7 +149,7 @@ export default function VendorMain(props) {
           <p className="landing-title">CHOOSE LOCATION</p >
         </Header>
         <div
-          className="site-layout-background-content"
+          className="site-layout-background-content remove-bar"
           style={{
             margin: '0px 0px',
             padding: 24,

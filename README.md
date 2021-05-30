@@ -27,9 +27,11 @@ all frontend code are written in the project-frontend-t03-keepsimple\customer fo
 - password: 666
 
 ## unit and integration tests 
+- npm install --save-dev mocha chai request
 - you can run the integration tests and unit test for vendor parking at the same time by "npm test"
 - two test file under the "test" folder, 4 status of vendor we want to test whether they are successfully updated:
 - 1. currentAddress : a tring which vendor can type in by themselves 
 - 2. parked : true or false, represent the status of parking
 - 3. location : Point type, the lat and lng of vendor location
 - 4. readyForOrder: true or false, represent whehter it is open for business  
+- in our design, when vendor parked, the status of "parked" and "readyForOrder" are making as true at the same time, but when we find the five nearest vans, the vans which "readyForOrder" is true will be considered as valid vans that customer can placing orders from.

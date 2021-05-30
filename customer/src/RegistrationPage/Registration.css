@@ -201,6 +201,10 @@ h1{
 
 
 
+
+
+
+
 @media (max-width:800px) {
 
     .label{
@@ -221,6 +225,7 @@ h1{
         /* border-top-left-radius: 15px; */
         border-top-right-radius: 0px;
         width: 100%;
+
         padding: 9%;
         /* margin-top: 100px; */
         background-color: rgba(0, 0, 0, 0.6);
