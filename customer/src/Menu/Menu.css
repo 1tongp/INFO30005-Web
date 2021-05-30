@@ -59,8 +59,12 @@ a .btn-primary .btn  {
     .u_drop_content {
         width: 100%;
         justify-content: space-between;
+        
     }
 
+    .u_drop_content .btn-primary {
+        width: 30%;
+    }
     .u_drop_content .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
         color:  #fffaf5 !important;
     }

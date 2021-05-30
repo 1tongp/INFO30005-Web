@@ -168,7 +168,7 @@ export default function HeaderCus(props) {
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content' >
                                 
-                                {title}
+                                {/* {title} */}
                                 {buttonMyOrder}
                                 {buttonMyProfile}
                                 {buttonLogOut}                               

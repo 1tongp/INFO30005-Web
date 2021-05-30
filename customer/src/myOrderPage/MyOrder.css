@@ -604,7 +604,7 @@ Header .logo {
 }
 
 .mid_nav > .links > .drop > .u_drop_content > a{
-    width: 25%;
+    width: 30%;
     /* margin-left: 23%; */
     display: inline-block;
     position: relative;
@@ -618,9 +618,12 @@ Header .logo {
     padding-right: 15px;
     white-space: nowrap;
     color: #8c5002;
-    width: 25%;
+    width: 30%;
     margin-top: 20px;
+    
 }
+
+
 
 /* !!!!!!!!!!!!!! */
 #btnMenu{

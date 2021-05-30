@@ -496,7 +496,7 @@ export default class OrderDetail extends Component {
                         <div className="flex--child flex--column">
                             <div className="flex--column--child">
                                 <tr>
-                                    <th>Service: (1 is terrible, 5 is great!)</th>
+                                    <th>Service Rating: (1 is terrible, 5 is great!)</th>
                                     {/* <th>Food</th> */}
                                 </tr>
                                 <tr>
