@@ -10,6 +10,7 @@ import { ShoppingOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons'
 import '../loginPage/Login.css';
 import { useHistory } from "react-router-dom";
 import './headerstyle.css';
+import '../RegistrationPage/Registration.css'
 import '../ShoppingCart/styles.css'
 const { Header } = Layout;
 
@@ -190,9 +191,10 @@ export default function HeaderCus(props) {
     <div className='login-container'>
       <div className='popup'>
         <h2>MY PROFILE</h2>
-        <br />
+        <p className='email-warning'>Your Email Address (cannot be changed): <br /> </p>
+        <p className='email' >{props.data.location.state.customer.loginEmail}</p>
         <Modal.Body>
-          <h2>Your Email Address (cannot be changed): <br /> {props.data.location.state.customer.loginEmail}</h2>
+          
           <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>First Name</Form.Label>
