@@ -76,6 +76,14 @@ class Sidebar extends React.Component {
   }
 
   toLocation = () => {
+    axios.post('/vendor/park/' + this.props.children.location.state.vendor.id,{
+      currentAddress: 'none',
+      parked: false,
+      readyForOrder: false,
+      location: ['0','0']
+    }).then(response1 =>{
+      console.log(response1);
+    })
     this.props.children.history.push('/vendor', {vendor: this.props.children.location.state.vendor, position: this.props.children.location.state.position})
   }
 
