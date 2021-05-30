@@ -10,12 +10,42 @@ class FinishedOrderDetail extends React.Component {
     render() {
         return <div className="container--orderdetail">
             <center><h3>ORDER DETAILS</h3></center>
-            <li>Order Id: {this.props.children._id}</li>
-            <li>Customer Id: {this.props.children.customer}</li>
-            <li>Order Create Time: {this.props.children.createTime.slice(0, 10)} {this.props.children.createTime.slice(11, 19)}</li>
-            <li>Order Fulfilled Time: {this.props.children.updateTime.slice(0, 10)} {this.props.children.updateTime.slice(11, 19)}</li>
+            <div className="Vendorcluster">
+                <li>Order Id:</li>
+                <li> {this.props.children._id}</li>
+            </div>
+
+            <div className="Vendorcluster">
+                <li>Customer Id:</li>
+                <li> {this.props.children.customer}</li>
+                {/* <li>Customer Id: {this.props.children.customer}</li> */}
+            </div>
+
+            <div className="Vendorcluster">
+                <li>Order Create Time:</li>
+                <li>{this.props.children.createTime.slice(0, 10)} {this.props.children.createTime.slice(11, 19)}</li>
+                {/* <li>Order Create Time: {this.props.children.createTime.slice(0, 10)} {this.props.children.createTime.slice(11, 19)}</li> */}
+            </div>
+
+            <div className="Vendorcluster">
+                <li>Order Fulfilled Time:</li>
+                <li>{this.props.children.updateTime.slice(0, 10)} {this.props.children.updateTime.slice(11, 19)}</li>
+                {/* <li>Order Fulfilled Time: {this.props.children.updateTime.slice(0, 10)} {this.props.children.updateTime.slice(11, 19)}</li> */}
+            </div>
+
+            <div className="Vendorcluster">
+                <li><p className="font--discount">{(this.props.children.discount) ? "Discount Applied" : "No Discount Applied"}</p></li>
+                <li></li>
+                {/* <li>Order Fulfilled Time: {this.props.children.updateTime.slice(0, 10)} {this.props.children.updateTime.slice(11, 19)}</li> */}
+            </div>
+
+           
             
-            <p className="font--discount">{(this.props.children.discount) ? "Discount Applied" : "No Discount Applied"}</p>
+            
+           
+           
+            
+            {/* <p className="font--discount">{(this.props.children.discount) ? "Discount Applied" : "No Discount Applied"}</p> */}
             <div className="cluster ">
             
                 {/* <p className="font--totalprice">Order Items: </p> */}
