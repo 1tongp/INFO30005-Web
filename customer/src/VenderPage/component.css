@@ -169,7 +169,7 @@ li.ant-menu-item{
 .check{
     margin-right: auto;
     margin-left: auto;
-    width: 95%;
+    width: 130px;
     padding: 20px;
     border-radius: 15px;
     background-color: var(--green);
@@ -449,6 +449,11 @@ li.ant-menu-item{
     background-color: var(--orange) !important;
     border: solid var(--orange) !important;
     color: white !important;
+}
+
+.ant-modal-footer{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
 
 

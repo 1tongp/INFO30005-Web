@@ -104,11 +104,8 @@ exports.customerChangeNamePost = function (req, res) {
         }
 
         // if id for perticular customer exist, based on the customer's id to update the personal detail for customer
-        // special case: email address cannot be updated.
         else {
-
             if (err) throw err;
-
             Customer.findByIdAndUpdate(
                 req.params.id,
                 { givenName, familyName },
@@ -121,7 +118,6 @@ exports.customerChangeNamePost = function (req, res) {
                         res.status(200).json({ success: true, changeName: changeName })
                     }
                 })
-
         }
     })
 }

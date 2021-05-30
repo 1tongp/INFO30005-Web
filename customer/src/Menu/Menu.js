@@ -21,21 +21,6 @@ export default function Menu(props) {
         setOrders(newArray);
     }
 
-    // if (response.data.message === "created a new order") {
-    //     // change the message print to a pop up page
-    //     alert("Order has been places! You can check your order and view previous orders in My Order page")
-    //     axios.get('/order?customer=' + props.customer).then(response2 =>{
-    //         console.log(response2);
-    //         if(response2.data){
-    //             props.history.push('/customer/order', {customer: props.customer, customerOrders: response2.data.customerOrders, target: 'customer'});
-    //         }
-    //         else{
-    //             props.history.push('/customer/order', {target: 'customer'});
-    //             message.error(response.data.error)
-    //         }  
-    //     })
-    // }
-
     const [name, setCustomerName] = useState('');
     useEffect(() => {
         axios.get('/customer/' + props.customer).then(response => {
@@ -75,11 +60,11 @@ export default function Menu(props) {
                 }).then(response => {
                     console.log(response);
                     if (response.data.message === "created a new order") {
-                        // change the message print to a pop up page
+                        
                         alert("Order has been places! You can check your order and view previous orders in My Order page")
                     }
                     else {
-                        // change the message print to a pop up page
+                        
                         alert("Order placing errored!")
                     }
                 })

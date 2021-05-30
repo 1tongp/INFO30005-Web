@@ -1,5 +1,4 @@
 import React from 'react';
-import Orderlist from './Orderlist.js'
 import 'antd/dist/antd.css';
 import './component.css'
 import './FulfilledOrderlist'
@@ -7,25 +6,17 @@ import axios from '../API/axios.js';
 import { Layout, Menu, Modal} from 'antd';
 import logo from '../images/logo.png';
 
-const { Header, Sider, Content } = Layout;
+const { Sider } = Layout;
 
 class Sidebar extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props)
   }
 
   state = {
     collapsed: false,
     modal1Visible: false,
   };
-
-  // handleClick = e => {
-  //   console.log('click ', e);
-  //   this.setState({
-  //     current: e.key,
-  //   });
-  // };
 
   setModal1Visible(modal1Visible) {
     this.setState({ modal1Visible });
@@ -108,9 +99,6 @@ class Sidebar extends React.Component {
           selectedKeys={[this.props.children.location.state.key]}
           mode="inline"
           theme="dark"
-          // onClick={this.handleClick}
-          // selectedKeys={[this.state.current]}
-          // inlineCollapsed={this.state.collapsed}
         >
             <Menu.Item key="1" onClick={this.toPrepar} selectedKeys={['1']}>
               PREPARING
@@ -136,7 +124,7 @@ class Sidebar extends React.Component {
               visible={this.state.modal1Visible}
               onOk={() => this.setModal1Visible(false), this.toClose}
               onCancel={() => this.setModal1Visible(false)}
-              okText={'Confirm and Logout'}
+              okText={'Logout'}
               >
               <p>Done for Today?</p>
             </Modal>

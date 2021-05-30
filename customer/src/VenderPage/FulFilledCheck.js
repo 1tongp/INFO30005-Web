@@ -5,8 +5,6 @@ import { Modal } from 'antd';
 import axios from '../API/axios.js';
 // It is the dark green button for filfilled order lists.
 
-
-
 class FulfilledCheckButton extends React.Component {
     constructor(props) {
         super(props);
@@ -64,7 +62,6 @@ class FulfilledCheckButton extends React.Component {
 
                 </Modal>
             </>
-
         )
     }
 }

@@ -3,15 +3,12 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import '../myOrderPage/MyOrder.css';
 import { Layout, Button, notification, InputNumber, Card, Rate, Divider, Input, Alert } from 'antd';
-import { StarFilled, StarOutlined } from '@ant-design/icons';
 import CountUp from './CountUp.js';
-import { Model } from 'mongoose';
 import axios from '../API/axios.js';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 const { TextArea } = Input;
 
-// import {useHistory} from "react-router-dom";
 const { Content } = Layout;
 const { Meta } = Card;
 
@@ -63,6 +60,7 @@ export default class OrderDetail extends Component {
         this.setState({ cancelModalVisible: false });
     }
 
+    // the action function to submit order
     onOrderSubmit = () => {
         var submitOrder = []
         var sumPrice = 0;
@@ -108,13 +106,11 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // the action function to update the customer's comment 
     onCommentSubmit = () => {
         axios.post('/order/change/' + this.props.order._id, {
-            // customer: this.props.order.customer._id,
-            // vendor: this.props.order.vendor._id, // will be changed in the future
             comments: this.state.comments,
             ratings: this.state.ratings
-            // totalPrice: sumPrice
         }).then(response => {
             console.log(response);
             if (response.data.success) {
@@ -129,6 +125,7 @@ export default class OrderDetail extends Component {
         })
     }
 
+    //the action function to cancel the order 
     onCancelSubmit = () => {
         axios.post('/order/change/' + this.props.order._id, {
             status: "canceled"
@@ -166,6 +163,7 @@ export default class OrderDetail extends Component {
         clearInterval(this.timerID);
     }
 
+    // a function to check when the edit model can be visible
     handleEditOrder = () => {
         console.log(this.state.diff)
         if (this.props.order.status === "outstanding" && this.state.diff <= 10) {
@@ -198,6 +196,7 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // a function to check when the cancel model can be visible
     handleCancelOrder = () => {
         console.log(this.state.diff)
         if (this.props.order.status === "outstanding" && this.state.diff <= 10) {
@@ -225,6 +224,7 @@ export default class OrderDetail extends Component {
     }
 
 
+    // a function to check the routes to show different button
     renderVenCus = () => {
         if (window.location.pathname === '/customer/order') {
             return (
@@ -243,6 +243,7 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // two model can be show by the same button: update order and comment order, if the order is outstanding --> update, completed --> comment
     renderEditModelBody = () => {
         if (this.props.order.status === "outstanding") {
             return (
@@ -300,7 +301,7 @@ export default class OrderDetail extends Component {
                             <button className='primary-btn' variant="primary" onClick={() => this.onCommentSubmit()}>
                                 Submit
                             </button>
-                            <button className='secondary-btn' variant="primary" onClick={() => this.handleEditClose()}>
+                            <button className='secondary-btn' variant="primary" onClick={() => this.closeModalEdit()}>
                                 Close
                             </button>
                         </Modal.Footer>
@@ -313,6 +314,7 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // the cancal model body
     renderCancelModelBody = () => {
         return (
             <>  <div className='change-container'>
@@ -424,19 +426,7 @@ export default class OrderDetail extends Component {
                                     <th>$Price</th>
                                 </tr>
 
-                                {/* a function to fetch data? */}
-
-                                {/* {snacks}
-
-
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <th>$Total Price</th>
-                                    <th>{props.order.totalPrice}</th>
-                                </tr> */}
-
-                                {/* {renderOrder()} */}
+                                
 
 
 
@@ -473,22 +463,7 @@ export default class OrderDetail extends Component {
                                     <th>{this.props.order.ratings}</th>
                                 </tr>
 
-                                {/* <tr>
-                                    <td>
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarOutlined />
-                                    </td>
-                                    <td>
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarOutlined />
-                                    </td>
-                                </tr> */}
+                                
                             </div>
 
                             <div>

@@ -1,20 +1,13 @@
 import React from 'react';
-import Orderlist from './Orderlist.js'
 import 'antd/dist/antd.css';
 import './component.css'
 import './FulfilledOrderlist'
 
-import { Layout, Menu } from 'antd';
+import { Layout} from 'antd';
 import FulfilledOrderlist from './FulfilledOrderlist';
-import Searchbar from './Searchbar.js'
-import FinishedOrderList from './FinishedOrderList.js'
-import FinishedOrderDetail from './FinishedOrderDetail.js'
 import Sidebar from './Sider.js'
 
-
-
-
-const { Header, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 
 class Fulfilled extends React.Component {
   state = {
@@ -42,13 +35,9 @@ class Fulfilled extends React.Component {
               padding: 24,
               minHeight: 280,
             }}
-          >
-           
+          >           
             {/* The fulfilled orders page components(list) */}
-            <FulfilledOrderlist>{this.props}</FulfilledOrderlist>
-
-
-         
+            <FulfilledOrderlist>{this.props}</FulfilledOrderlist>        
           </Content>
         </Layout>
       </Layout>

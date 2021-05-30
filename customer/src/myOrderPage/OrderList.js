@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './MyOrder.css';
-import { Jumbotron, Modal, Form } from 'react-bootstrap';
-import { Layout, Button, BackTop} from 'antd';
-import { ShoppingOutlined, UserOutlined, MenuOutlined, CopyrightOutlined } from '@ant-design/icons';
+import { Modal, Form } from 'react-bootstrap';
+import { Layout, BackTop} from 'antd';
+import { ShoppingOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
 import '../ShoppingCart/styles.css';
 import OrderListCom from '../components/OrderListCom.js'
 import { useHistory } from "react-router-dom";
@@ -11,9 +11,7 @@ import axios from '../API/axios.js';
 import './myorderheader.css';
 import MyFooter from '../components/Footer.js';
 import { message } from 'antd';
-import { Component } from 'react';
-
-const { Header, Footer, Content } = Layout;
+const { Header} = Layout;
 
 // function to loop particular custmomer's orders
 export default function OrderList(props) {
@@ -23,8 +21,6 @@ export default function OrderList(props) {
     const [lat, setLat] = useState('');
     const [lng, setLng] = useState('');
     const [vendors, setVendors] = useState([]);
-    // const [target, setTarget] = useState('');
-    // const [status, setStatus] = useState('');
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -34,10 +30,6 @@ export default function OrderList(props) {
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        // setTarget('customer');
-        // setStatus('&status=outstanding');
-        // console.log(target);
-        // console.log(status);
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log(position);
             setLat(position.coords.latitude)
@@ -54,7 +46,6 @@ export default function OrderList(props) {
             console.log(props);
             console.log(response);
             if (response.data.success) {
-                // props 在这里用于页面和页面之间传递内容（也可以组件之间传递，大括号里是要传递的内容
                 props.history.push('/customer', {
                     customer: response.data.customer,
                     vendors: vendors,
@@ -114,9 +105,6 @@ export default function OrderList(props) {
     }
 
     const ProfileModal = (
-        /* <Modal.Header closeButton>
-              <Modal.Title>Vendor Login</Modal.Title>
-        </Modal.Header> */
         <div className='login-container'>
            <div className='popup profile'>
                 <h2>MY PROFILE</h2>
@@ -133,10 +121,6 @@ export default function OrderList(props) {
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control type="lastName" placeholder="Enter Your Last Name" defaultValue={props.location.state.customer.familyName}
                                 onChange={e => setLastName(e.target.value)} />
-                            {/* <Form.Label>Email</Form.Label>
-                  <Form.Control type="loginEmail" placeholder="Enter Name"
-                    onChange={e => setEmail(e.target.value)} /> */}
-
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
@@ -144,9 +128,6 @@ export default function OrderList(props) {
                                 onChange={e => setPassword(e.target.value)} />
                             <Form.Text className="text-mutes">if you don't want to change password, just leave it blank and update</Form.Text>
                             <br />
-                            {/* <Form.Label>Password Confirm</Form.Label>
-                  <Form.Control type="password" placeholder="Password"
-                    onChange={e => setPasswordConfirm(e.target.value)} /> */}
                         </Form.Group>
                     </Form>
                 </Modal.Body>
@@ -232,7 +213,6 @@ export default function OrderList(props) {
                         <div className='drop'>
                             <a className='icon'><UserOutlined /></a>
                             <div className='u_drop_content'>
-                                {/* <button>Hi {props.location.state.customer.givenName}</button> */}
                                 <button onClick={onOrder}>My Order</button>
                                 <button onClick={handleShow}>My Profile</button>
                                 <button onClick={toLogin}>Log Out</button>
@@ -253,17 +233,12 @@ export default function OrderList(props) {
 
                 <br></br>
 
-                {/* <center>
-                    <hr></hr>
-                </center> */}
-
                 <div>
                     <OrderListCom id={props.location.state.customer.id} orders={props.location.state.customerOrders} target={props.location.state.target} />
                 </div>
             </div>
 
             <MyFooter></MyFooter>
-
 
         </Layout>
         </div>

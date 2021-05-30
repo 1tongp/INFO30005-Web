@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Registration.css'
 import './signup.css'
-import { Layout, message } from 'antd';
-import { CopyrightOutlined } from '@ant-design/icons';
+import { Layout} from 'antd';
 import axios from "../API/axios.js";
-import MyFooter from '../components/Footer.js';
-import { Jumbotron, Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import '../landing.css';
-const { Header, Footer, Content } = Layout;
 
 export default function RegistrationPage(props) {
     console.log(props);
     let history = useHistory();
-
-
     const [lat, setLat] = useState('');
     const [lng, setLng] = useState('');
     const [vendors, setVendors] = useState([]);
@@ -83,9 +78,6 @@ export default function RegistrationPage(props) {
     return (
         <Modal show={handleShow} onHide ={handleClose}>
             <div className='signup--container'>
-                {/* <Modal.Header closeButton> */}
-
-                {/* </Modal.Header> */}
                 <div className='popup registration-pop'>
                     <h2>CREATE AN ACCOUNT</h2>
                     <br />
@@ -137,14 +129,7 @@ export default function RegistrationPage(props) {
                         </Button>
                     </Modal.Footer>
 
-
-
-
-
-
                     </div>
-
-
                     
                 </div>
             </div>

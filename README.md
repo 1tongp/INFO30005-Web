@@ -6,8 +6,37 @@
 GROUP: 
 ## project-t03-keepsimple
 
+## Customer Account
+username: keepitsimple@h1.com
+password: info30005
+
+## Vendor Account
+Vendor 1
+  username: Spider-Man
+  password: 666
+
+Vendor 2
+  username: KeepItSimple
+  password: 666
+
+Vendor 3
+  username: Black Pearl
+  password: 666
+
+Vendor 4
+  username: Happy Lemon
+  password: 666
+
+Vendor 5
+  username: Moonbucks
+  password: 666
+
+Vendor 6
+  username: Sunbucks
+  password: 666
+
 ## Before running the code
-Before run the code, please "npm install node" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple
+Before run the code, please "npm install node" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple.
 
 
 **frontend and backend**
@@ -38,6 +67,14 @@ Backend code are written in the project-frontend-t03-keepsimple folder.
 - in our design, when a vendor is parked, the status of "parked" and "readyForOrder" will be marked as 'true' at the same time. Within the five nearest vans, the vans that have "readyForOrder" as 'true' will be considered as valid vans that customer can order from.
 
 ## Instruction Notes
-- Locating current location on the map may be effected by internet connection speed
+- Locating current location on the map may be effected by internet connection speed.
+- Some of the vans are located near Melbourne University. 
+  You can manually set your location as '-37.7963，144.9614' to locate closer to the parked vendors. 
+  This can be done by right click in the browser --> Inspect --> Sensors --> Manage location.
+- You can zoom out on the map to see the five nearest vans, as some vans may locate further away from the current location.
 - To order from a vendor, please zoom out on the map to find coffee icons. 
   Choose a vendor by clicking on one of the icons.
+- On the customer side, if a van is not selected, clicking on 'Menu' in the header will direct users to the main page to select a van from the map.
+- To view a newly placed order, click on the 'basket' icon in the header.
+- Vendor does not have a sign up feature and they can only use the account provided by the company. This is to ensure the system is safe, clean and accounts would not be registered by random users.
+

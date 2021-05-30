@@ -47,7 +47,7 @@ exports.vendorOrderListGet = function(req, res){
                     "isDelivered":orders[i].isDelivered,
                     "ratings":orders[i].ratings,
                     "snacksList":orders[i].snacksList,
-                    "status":orders[i].outstanding,
+                    "status":orders[i].status,
                     "totalPrice":orders[i].totalPrice,
                     "updateTime":orders[i].updateTime,
                     "vendor":orders[i].vendor,
@@ -95,6 +95,7 @@ exports.orderChangePost = function(req, res){
 // Get request for customer to get their order details
 exports.customerOrderListGet = function(req, res){
     Order.find(req.query).populate("vendor").populate("customer").then((orders)=>{
+        
         //if for perticular vendor, the order list for required status is an empty list, return error message
         if (orders.length == 0){
             res.status(200).json({ success: false, error: "no order found"})

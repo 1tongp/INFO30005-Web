@@ -1,28 +1,18 @@
-import React, { useMemo, useState, useEffect} from 'react'
+import React, { useMemo, useState} from 'react'
 import axios from '../API/axios.js';
 import 'antd/dist/antd.css';
-import { Jumbotron, Button, Modal, Form } from 'react-bootstrap';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Modal, Form } from 'react-bootstrap';
+import { MapContainer, TileLayer, Marker} from 'react-leaflet'
 import './component.css'
 import './FulfilledOrderlist'
-
 import './landing.css'
 import '../landing.css'
 import { CaretLeftOutlined, CaretRightOutlined} from '@ant-design/icons'
-import { Layout, Menu } from 'antd';
-import FulfilledOrderlist from './FulfilledOrderlist';
-import Searchbar from './Searchbar.js'
-import FinishedOrderList from './FinishedOrderList.js'
-import FinishedOrderDetail from './FinishedOrderDetail.js'
-import Sidebar from './Sider.js'
-import VendorMap from '../components/vendorMap';
-import { Empty } from 'antd';
+import { Layout} from 'antd';
 
-const { Header, Sider, Content } = Layout;
+const { Header} = Layout;
 
 export default function VendorMain(props) {
-  console.log(props.location.state.position[0]);
-  console.log(props);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -30,15 +20,8 @@ export default function VendorMain(props) {
     setShow(true);
   };
 
-  // console.log("below is landing.js");
-  // console.log(props);
-  // const [lat, setLat] = useState('');
-  // const [lng, setLng] = useState('');
   const [desc, setDesc] = useState('');
   const [adress, setAdress] = useState('');
-
-  // this.center = latLng([this.lat,this.lng]);
-  // const [position, setPosition] = useState(props.location.state.position);
   const [position, setPosition] = useState({lat: props.location.state.position[0], lng: props.location.state.position[1]});
 
 
@@ -58,29 +41,6 @@ export default function VendorMain(props) {
       position={position}>
     </Marker>
   )
-
-  console.log(position);
-
-
-  // useEffect(() => {
-  //   navigator.geolocation.getCurrentPosition(function (position) {
-  //     // console.log("position: "+ position);
-  //     setLat(position.coords.latitude)
-  //     setLng(position.coords.longitude)
-  //     // props.data.location.state.position = [lat, lng];
-  //     // props.location.state.vendor.location = position.coords;
-  //   });
-  //   // axios.get('/vendor?lat=' + lat + '&lng=' + lng).then(response => {
-  //   //   console.log(response)
-  //   //   setVendors(response.data.vendors)
-  //   // })
-  //   // console.log([lat,lng]);
-
-  // }, [lat, lng])
-
-  // // console.log("Props data:");
-  // props.location.state.position = [lat, lng];
-  // // console.dir(props.location.state.position);
 
   const toLogin = () => {
     props.history.push('../')
@@ -106,10 +66,6 @@ export default function VendorMain(props) {
       }
     })
   }
-
-
-  
-
 
   const vendorModal = (
     <div className='login-container'>
@@ -158,9 +114,7 @@ export default function VendorMain(props) {
         >
           <div className="landing-wrapper">
             <div className="map-wrapper">
-              
-                {/* -37.5914496, 145.11636479999999 */}
-                {/* props.data.location.state.vendor.location */}
+
                 <MapContainer className='v-map' center={props.location.state.position} zoom={16} scrollWheelZoom={false}
                   style={{ height: "59vh", objectFit: "cover" }}>
                   <TileLayer
@@ -205,23 +159,8 @@ export default function VendorMain(props) {
             <Modal show={show} onHide={handleClose}>
               {vendorModal}
             </Modal>
-
-            {/* <Modal className='popup'
-            centered
-            closable={false}
-            visible={this.state.modal1Visible}
-            onOk={() => this.setModal1Visible(false)}
-            onCancel={() => this.setModal1Visible(false)}
-            >
-            <p>Done for Today?</p >
-          </Modal> */}
           </div>
-
-
-
         </div>
-
-
       </div>
     </div>
   );

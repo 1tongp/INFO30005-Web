@@ -2,19 +2,8 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './component.css'
 import './FulfilledOrderlist'
-import logo from '../images/logo.png';
-import Sidebar from './Sider.js'
-import { Layout, Menu } from 'antd';
-
-import {
-  CoffeeOutlined
-} from '@ant-design/icons';
-
-
-
-
-
-const { Header, Sider, Content } = Layout;
+import { Layout} from 'antd';
+import {CoffeeOutlined} from '@ant-design/icons';
 
 class FulfilledNone extends React.Component {
   render() {
