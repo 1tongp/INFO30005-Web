@@ -2,14 +2,15 @@ const Order = require('../models/order');
 
 // POST request for customer order create
 exports.customerOrderCreatePost = function(req, res){
-    const{customer, vendor, snacksList, totalPrice} = req.body;
+    const{customer, vendor, snacksList, totalPrice, customerName} = req.body;
 
     // create a new order
     const newOrder = new Order({
         customer,
         vendor,
         snacksList,
-        totalPrice
+        totalPrice,
+        customerName
     });
 
     // save new order's data
@@ -51,7 +52,8 @@ exports.vendorOrderListGet = function(req, res){
                     "updateTime":orders[i].updateTime,
                     "vendor":orders[i].vendor,
                     "_v":orders[i]._v,
-                    "_id":orders[i]._id
+                    "_id":orders[i]._id,
+                    "customerName":orders[i].customerName
                 })
             }
             sortOrder = sortOrder.sort(({updateTime: a}, {updateTime: b}) => b - a)
