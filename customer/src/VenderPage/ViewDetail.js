@@ -1,16 +1,14 @@
 import React from 'react';
 import './component.css'
 import {ContainerOutlined} from '@ant-design/icons';
-import { Modal, Button} from 'antd';
+import { Modal} from 'antd';
 import 'antd/dist/antd.css';
-import axios from '../API/axios.js';
 import FinishedOrderDetail from './FinishedOrderDetail.js';
 // It is the light green finish button for preparing order lists.
 
 class DetailButton extends React.Component{
     constructor(props) {
         super(props);
-        console.log(this.props)
     }
 
     state = {
@@ -36,14 +34,13 @@ class DetailButton extends React.Component{
             okText={'Close'}
             width={600}
             footer={[
-                <Button className='close-detail-btn' type='primary' onClick={() => this.setModal1Visible(false)}>
+                <button className='close-detail-btn'  onClick={() => this.setModal1Visible(false)}>
                     Close
-                </Button>
+                </button>
             ]}
             >
                 <FinishedOrderDetail>{this.props.children[1]}</FinishedOrderDetail>
-
-                
+               
           </Modal>
           </>
         )

@@ -1,17 +1,14 @@
 //import the functions will be used
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import '../ShoppingCart/styles.css';
 import './Menu.css';
 import './menu-new.css';
 import './menu-card.css';
-import { Layout, InputNumber, Card } from 'antd';
-import { Button } from 'react-bootstrap';
-import { CopyrightOutlined, LikeOutlined } from '@ant-design/icons';
+import { Layout, InputNumber, message, BackTop} from 'antd';
+import { LikeOutlined } from '@ant-design/icons';
 import axios from '../API/axios';
 import MyFooter from '../components/Footer.js';
 
-const { Footer, Content } = Layout;
-const { Meta } = Card;
 
 //this function will implement the Menu page strcture
 export default function Menu(props) {
@@ -24,9 +21,20 @@ export default function Menu(props) {
         setOrders(newArray);
     }
 
+    const [name, setCustomerName] = useState('');
+    useEffect(() => {
+        axios.get('/customer/' + props.customer).then(response => {
+            console.log(response);
+            console.log(response.data.customer.givenName);
+            console.log(props);
+            setCustomerName(response.data.customer.givenName);
+        })
+    })
+
+
     //record the action submit, which summary the order and price, then push the order to database
     const onSubmit = () => {
-        if(props.customer){
+        if (props.customer) {
             var submitOrder = []
             var sumPrice = 0;
             for (var i = 0; i < order.length; i++) {
@@ -45,17 +53,18 @@ export default function Menu(props) {
             } else {
                 axios.post('/order/create', {
                     customer: props.customer,
-                    vendor: props.vendor, // will be changed in the future
+                    vendor: props.vendor, 
                     snacksList: submitOrder,
-                    totalPrice: sumPrice
+                    totalPrice: sumPrice,
+                    customerName: name
                 }).then(response => {
                     console.log(response);
                     if (response.data.message === "created a new order") {
-                        // change the message print to a pop up page
+                        
                         alert("Order has been places! You can check your order and view previous orders in My Order page")
                     }
                     else {
-                        // change the message print to a pop up page
+                        
                         alert("Order placing errored!")
                     }
                 })
@@ -68,49 +77,36 @@ export default function Menu(props) {
         }
     }
     return (
+        <div>
+        <BackTop />
         <Layout>
             <div className="container--menu">
                 <h1 classname="font--menu">MENU</h1>
-                {/* loop each snack in the database and show them out as a menu, the customer can choose the amount they want to order */}
                 <div className="menu">
-                {props.snacks.map((snack, index) => (
-                    // <Card cover={< img className='card' alt={snack.snackName} src={snack.snackPhotoPath} />} key={snack._id}>
-                    //     <div className='card-content'>
-                    //         <br />
-                    //         <Meta title={snack.snackName + " :$" + snack.snackPrice} className='card-info' description={snack.snackDescription}/>
-                    //         <InputNumber key={snack._id} min={0} defaultValue={0} onChange={e => onChange(index, e)} className='input' />
-                            
+                    {props.snacks.map((snack, index) => (
+                        <div className="menu-card">
 
-                    //     </div>
-                    // </Card>
+                            <div className="card-image" style={{ backgroundImage: `url(${snack.snackPhotoPath})` }}></div>
+                            <div className="card-info">
+                                <div className="card-name">
+                                    <h3>{snack.snackName}</h3>
+                                </div>
+                                <div className="cost-wrapper">
+                                    <h5 className="cost">
+                                        $ {snack.snackPrice}
+                                    </h5>
+                                </div>
+                                <div className="description-wrapper">
+                                    <p>{snack.snackDescription}</p>
+                                </div>
+                                <div className="card-btns">
+                                    <InputNumber classname="input--number" key={snack._id} min={0} defaultValue={0} onChange={e => onChange(index, e)} />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
-                    <div className="menu-card">
-                    
-                        <div className="card-image"  style={{backgroundImage:  `url(${snack.snackPhotoPath})`}}></div>
-                        <div className="card-info">
-                            <div className="card-name">
-                                <h3>{snack.snackName}</h3>
-                            </div>
-                            <div className="cost-wrapper">
-                                <h5 className="cost">
-                                    $ {snack.snackPrice}
-                                </h5>
-                            </div>
-                            <div className="description-wrapper">
-                                <p>{snack.snackDescription}</p>
-                            </div>
-                            <div className="card-btns">
-                            <InputNumber classname="input--number" key={snack._id} min={0} defaultValue={0}  onChange={e=>onChange(index, e)} />
-                                {/* <img src={minus} alt="" />
-                                    <p className="order-number">1</p>
-                                    <img src={plus} alt="" />
-                                        <img src={cart} alt="" /> */}
-                            </div>
-                    </div>
-                </div>
-                ))}
-                </div>
-                
                 {/* click the button and submit the order*/}
                 <button className='place' onClick={onSubmit}>
                     PLACE ORDER
@@ -121,5 +117,6 @@ export default function Menu(props) {
             </div>
             <MyFooter></MyFooter>
         </Layout>
+        </div>
     )
 }

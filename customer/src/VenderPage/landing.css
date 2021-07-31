@@ -43,12 +43,34 @@
     position: relative;
 }
 
+.locationpop p {
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-weight: normal;
+    font-size: 16pt;
+}
+
+.locationpop h2 {
+    font-weight: bold;
+}
+
+.locationpop .current-location-coords {
+    font-size: 14pt;
+    margin-bottom: 18px;
+    white-space: nowrap;
+}
+
 .current-location {
     grid-area: current;
     padding: 10px;
     text-align: center;
 }
 
+.current-location-p input{
+    border: rgb(213, 213, 213) 1px solid;
+    /* margin: 0;
+    border-radius: 5px; */
+}
 .current-location-title {
     font-weight: 500;
 
@@ -56,11 +78,26 @@
 
 .current-location-coords {
     color: #C60000;
+    font-size: 14pt;
 }
 
 .add-description {
     grid-area: description;
     padding: 10px;
+    
+}
+
+.add-description input {
+    border: none;
+    margin: 0;
+    padding-bottom: 190px;
+    padding-left: 10px;
+    
+    height:220px;
+    border-radius: 5px;
+    /* border: 1px black solid; */
+    text-align: start;
+    /* line-height: 90px; */
 }
 
 [contentEditable=true]:empty:not(:focus):before{
@@ -72,8 +109,14 @@
     display: flex;
     justify-content: space-between;
 }
+.remove-bar{
+    overflow: hidden !important;
+}
+
 
 /* .modal-footer {
+
+.locationpop .modal-footer {
     display: flex;
     justify-content: space-between;
     width: 100%;

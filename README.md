@@ -6,18 +6,46 @@
 GROUP: 
 ## project-t03-keepsimple
 
-before run the code, please "npm install node" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple
+## Customer Account
+username: keepitsimple@h1.com
+password: info30005
+
+## Vendor Account
+Vendor 1
+  username: Spider-Man
+  password: 666
+
+Vendor 2
+  username: KeepItSimple
+  password: 666
+
+Vendor 3
+  username: Black Pearl
+  password: 666
+
+Vendor 4
+  username: Happy Lemon
+  password: 666
+
+Vendor 5
+  username: Moonbucks
+  password: 666
+
+Vendor 6
+  username: Sunbucks
+  password: 666
+
+## Before running the code
+Before run the code, please "npm install node" under the project-frontend-t03-keepsimple and project-frontend-t03-keepsimple\customer, then run the whole system by "npm run dev" under project-frontend-t03-keepsimple.
+
 
 **frontend and backend**
+Frontend code are written in the project-frontend-t03-keepsimple/customer folder. 
+Backend code are written in the project-frontend-t03-keepsimple folder.
 
-
-all frontend code are written in the project-frontend-t03-keepsimple\customer folder, and all backend code are writtten in the project-frontend-t03-keepsimple folder
 
 ## Heroku URL Link
 -Live URL : https://frontend-keepitsimple.herokuapp.com/
-
-
-(For the submission, the url link can not be shown on the PC side, but you can see the link through the mobile version canvas, or latest comment box in submission)
 
 ## MongoDB connection, below is the access link
 "mongodb+srv://Project-Connection:666@keepitsimple-project.zvwkr.mongodb.net/KeepItSimple-Project?retryWrites=true&w=majority"
@@ -25,51 +53,25 @@ all frontend code are written in the project-frontend-t03-keepsimple\customer fo
 - account name: Project-Connection
 - password: 666
 
-## Features: 
-- Customer login via log in form
-- View menu of snacks
-- Order three different snacks
-- View order details of all past orders
+## unit and integration tests 
+- npm install --save-dev mocha chai request
+- you can run the integration tests and unit test for vendor parking at the same time by "npm test"
+- the two test files are under the "test" folder. These test whether the four status for vendor are successfully updated:
+    1. currentAddress : a string which vendor can type in by themselves 
+    2. parked : true or false, represent the status of parking
+    3. location : Point type, the lat and lng of vendor location
+    4. readyForOrder: true or false, represent whehter it is open for business  
+- in our design, when a vendor is parked, the status of "parked" and "readyForOrder" will be marked as 'true' at the same time. Within the five nearest vans, the vans that have "readyForOrder" as 'true' will be considered as valid vans that customer can order from.
 
-## Customer Home page：
-(there should be a enter page which people can choose login as vendor or customer, and when customer enter current customer home page they should be logged in, as the vendor side not finished yet, we change the log in pop up window to a single page to show the log in process)
-When a user arrives at the home page, they can either login and place an order, or view menu without login. This can be done via the two buttons displayed on the page or through the user icon in the header, where a dropdown menu will occur, containing ‘log in’ and ‘sign up’. If the user has logged in, this dropdown will change to ‘Hi ''user first name''’, ‘My Order’ and ‘Log out’.
+## Instruction Notes
+- Locating current location on the map may be effected by internet connection speed.
+- Some of the vans are located near Melbourne University. 
+  You can manually set your location as '-37.7963，144.9614' to locate closer to the parked vendors. 
+  This can be done by right click in the browser --> Inspect --> Sensors --> Manage location.
+- You can zoom out on the map to see the five nearest vans, as some vans may locate further away from the current location.
+- To order from a vendor, please zoom out on the map to find coffee icons. 
+  Choose a vendor by clicking on one of the icons.
+- On the customer side, if a van is not selected, clicking on 'Menu' in the header will direct users to the main page to select a van from the map.
+- To view a newly placed order, click on the 'basket' icon in the header.
+- Vendor does not have a sign up feature and they can only use the account provided by the company. This is to ensure the system is safe, clean and accounts would not be registered by random users.
 
-Click ‘Log in and order’: it will lead customer to the log in page
-Click ‘View menu without logging in’: users get directed to the menu page but they cannot order
-
-
-## Feature 1: Customer login via log in form
-- Username: keepsimple@h1.com
-- Password: 666
-
-The login form is implemented as a single page(it should be popup window in the next due), which can be accessed through the ‘login and order’ button on the homepage. After a user submits the correct username and password (that is already stored in the database from sign up form), they will get redirected to the menu page, where they can view and order snacks.
-if you enter a wrong email address or password there will be a warning to alert you and you cannot login successfully.
-
-NOTE: the signup form is not yet implemented for the current site
-
-## Feature 2: View menu of snacks
-(for the design order in our due1, the order we will implement at the end is log in -> main page -> select vendor -> menu and place order, since the map not finished yet the order changed to log in -> menu and place order, we will change to correct order next time)
-The menu page shows all the available snacks that users can choose from; prices and images are also listed. Users will only be able to place an order if they have logged in. Therefore, the menu has two status:
-- Logged in status: the bottom button will display ‘Place Order’
-
-(since we use the loggin page at current stage, if the customer go back to home page from menu they need to login again, but we will fix this problem in next due so that when customer enter the customer main page they are logged in, and they can go back to choose vendor again from the menu page)
-
-- Not logged in status: the page title will show ‘view only’, no quantity input box is provided and button at the bottom will display ‘sign in to order’, which lead the customer to the main page (since the sign in pop up window not yet implemented, if the customer want to sign in they need to go back to enter page, but at current stage when log in at the customer main page so it will lead back to main)
-
-## Feature 3: Order three different snacks
-(as we not finished the choosing between 5 nearest vendor on the map at current stage, we will give a vendor id as a selected vendor)
-
-The current implementation assumes the user has already selected a vendor (ID: 6094951d171c4dcfb88a596f) and all orders will be sent to this particular vendor. 
-
-To order snacks from the menu, users will need to:
-Change the quantity of all desired foods via the up and down arrows, or directly type in the wished quantity
-Once all quantities are put in for the wanted foods, click ‘place order’ button at the bottom of the page
-
-The ordering process is implemented this way to allow users to check the quantity for specific food before ordering. 
-
-After clicking the ‘place order’ button, a pop up window will appear, informing the user that the order has been placed successfully. These data will be sent to the backend server with an unique order ID, which will then be sent to the vendor.
-
-## Feature 4: View order details of all past orders
-
-To access all the ongoing and completed orders, users need to click the user icon in the header and click on ‘My Orders’ (on the top right corner there is a icon looks like a person). This will take them to the My Order page, which lists all the information about every order. These include the order time, ID, van name, order status, ordered products, quantity, prices and finally rating/comments.

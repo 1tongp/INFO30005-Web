@@ -32,18 +32,24 @@
 
 section.ant-layout{
     background-color: white;
+    
 }
 
 section.ant-layout-has-sider{
     padding: 10px;
     background: white;
     height:fit-content;
-    min-height: 600px;
+    min-height: 100vh;
+    overflow: hidden;
+    
 }
 
 aside.ant-layout-sider{
     background: white;
-    height:inherit;
+    height:100vh;
+    /* overflow: auto;
+    position: fixed; */
+
 }
 
 li.ant-menu-item{
@@ -75,8 +81,9 @@ li.ant-menu-item{
 .site-layout-background-content{
     background: var(--blue) !important;
     overflow: scroll !important;
-    margin: '0px 0px';
+    /* margin: '0px 0px'; */
     padding: 24;
+    height: 100% !important;
     
 }
 
@@ -84,11 +91,14 @@ li.ant-menu-item{
     border-radius: 10px;
     border-top-left-radius: 0;
     height: 100% !important;
-    overflow: scroll !important;
+    max-height: 680px;
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+    /* margin-left: 200px !important; */
 }
 
 .closevan{
-    margin-top:50px;
+    margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
    
@@ -113,6 +123,10 @@ li.ant-menu-item{
 
 .button-wrapper .primary{
     background-color: var(--green);
+    padding-left: 18px;
+    padding-right: 18px;
+  
+    
     border: #91cb97 1px solid;
 }
 
@@ -129,13 +143,33 @@ li.ant-menu-item{
     background-color: rgb(199, 199, 199);
 }
 
+.change-btn {
+    margin-top: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    white-space: nowrap;
+    width: 95%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 15px;
+    background-color: white;
+    color: var(--orange);
+    border: var(--orange) 1px solid;
+}
+
+.sider-btn {
+    position: absolute;
+    bottom: 30px;
+}
+
 /* orderlist */
 
 
 .check{
     margin-right: auto;
     margin-left: auto;
-    width: 95%;
+    width: 130px;
     padding: 20px;
     border-radius: 15px;
     background-color: var(--green);
@@ -170,11 +204,17 @@ li.ant-menu-item{
     float: left;
 }
 
+.container--basicinfo p {
+    font-size: 10pt !important;
+    text-align: left;
+}
+
 .orderdetail{
     list-style-type: none;
     /* border: black 1px solid; */
-    width: 30%;
+    width: 20%;
     float: left;
+    font-size: 12pt !important;
 }
 
 .time{
@@ -190,17 +230,19 @@ li.ant-menu-item{
 .fulfilledCheck{
     margin-right: auto;
     margin-left: auto;
-   
-    width: 95%;
+    height: 100px;
+    width: 100%;
     padding: 20px;
     border-radius: 15px;
-    
+    bottom: 0;
     color: black;
     border: none;
     background-color: #B9D1BC;
 }
 
-
+.container--button {
+    width: 15%;
+}
 /* searchbar */
 .container--search{
     /* margin-bottom: 50px; */
@@ -272,11 +314,17 @@ li.ant-menu-item{
     padding-bottom: 0px;
 }
 
+
+.container--orderdetail .cluster p{
+   text-align: center;
+   margin: 5px;
+}
+
 .container--orderdetail h3 {
     margin-bottom: 15px;
 }
 .container--orderdetail li{
-    margin-bottom: 10px;
+    padding-top: 10px;
 }
 
 .container--FinishedOrderList{
@@ -294,7 +342,7 @@ li.ant-menu-item{
 
 .container--empty{
     padding-top: 150px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .child--FinishedDetail{
@@ -304,16 +352,31 @@ li.ant-menu-item{
 
 .font--discount{
     color: #6DB100;
+    font-size: 11pt;
+    text-align: left;
 }
 
 .font--totalprice{
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: bold;
+    text-align: center;
+    
 }
 
 .font--cancel{
    
     color: red;
+}
+
+.feedback {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.feedback p{
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 14pt !important;
 }
 
 
@@ -356,4 +419,50 @@ li.ant-menu-item{
     font-size: 14pt;
     border-radius: 25px;
     height: 30pt;
+
+.container--FinishedOrderDetail{
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.close-detail-btn{
+    background-color: var(--orange);
+    border: none;
+    padding: 0;
+    color: white;
+
+}
+
+.size{
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+
+.ant-btn{
+    border: solid var(--orange) !important;
+    color: var(--orange) !important;
+}
+
+.ant-btn-primary{
+    background-color: var(--orange) !important;
+    border: solid var(--orange) !important;
+    color: white !important;
+}
+
+.ant-modal-footer{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.Vendorcluster{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* .reset-height{
+   
+} */

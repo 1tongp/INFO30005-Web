@@ -5,7 +5,7 @@
 }
 
 .container--menu>h1{
-    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .menu-card {
@@ -58,8 +58,8 @@
 .cost-wrapper h5 {
     text-transform: uppercase;
     font-weight: 400;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    /* font-family: Arial, Helvetica, sans-serif; */
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16pt;
     font-weight: bold;
     white-space: nowrap;
@@ -80,17 +80,19 @@
     height: auto;
     width: 100%;
     max-height: 70%;
-    overflow:visible;
+    overflow: visible;
+
 }
 
 .description-wrapper p {
-    /* font-family: Arial, Helvetica, sans-serif; */
-    font-family:cursive;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-family:cursive; */
     font-size: 11pt;
-    /* white-space: initial; */
-    /* white-space:normal; */
+    white-space: initial;
+    white-space:normal;
     font-weight:lighter;
     line-height: 24px;
+    text-align: left;
     
 }
 

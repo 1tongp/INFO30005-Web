@@ -9,8 +9,15 @@ CustomerRouter.post('/register',customerController.customerRegisterPost);
 // GET request to get customer details
 CustomerRouter.get('/:id', customerController.customerDetailGet);
 
+
+CustomerRouter.post('/changeName/:id', customerController.customerChangeNamePost);
+
 // POST request to change the customer details
 CustomerRouter.post('/changeDetails/:id', customerController.customerChangeDetailsPost);
 
+// POST request to login as customer
 CustomerRouter.post('/login', customerController.customerLoginPost);
+
+// POST request for front end to go back to the home page
+CustomerRouter.post('/loginhash', customerController.customerLoginUnhashPost);
 module.exports = CustomerRouter;

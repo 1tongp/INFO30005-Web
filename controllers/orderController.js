@@ -2,14 +2,15 @@ const Order = require('../models/order');
 
 // POST request for customer order create
 exports.customerOrderCreatePost = function(req, res){
-    const{customer, vendor, snacksList, totalPrice} = req.body;
+    const{customer, vendor, snacksList, totalPrice, customerName} = req.body;
 
     // create a new order
     const newOrder = new Order({
         customer,
         vendor,
         snacksList,
-        totalPrice
+        totalPrice,
+        customerName
     });
 
     // save new order's data
@@ -24,6 +25,7 @@ exports.customerOrderCreatePost = function(req, res){
     })   
 }
 
+
 // Get request for vendor to get the particular status' order list
 exports.vendorOrderListGet = function(req, res){
     Order.find({vendor:req.params.vendorId, status:req.query.status}, function(err, orders){
@@ -33,7 +35,29 @@ exports.vendorOrderListGet = function(req, res){
             res.status(200).json({success: false, message:"Order is not found"})
         }
         else{
-           res.status(200).json({success: true, orders: orders})
+            var sortOrder = []
+            for(i = 0; i < orders.length; i++){
+                sortOrder.push({
+                    "comments":orders[i].comments,
+                    "createTime":orders[i].createTime,
+                    "customer":orders[i].customer,
+                    "discount":orders[i].discount,
+                    "isCanceled":orders[i].isCanceled,
+                    "isChangeable":orders[i].isChangeable,
+                    "isDelivered":orders[i].isDelivered,
+                    "ratings":orders[i].ratings,
+                    "snacksList":orders[i].snacksList,
+                    "status":orders[i].status,
+                    "totalPrice":orders[i].totalPrice,
+                    "updateTime":orders[i].updateTime,
+                    "vendor":orders[i].vendor,
+                    "_v":orders[i]._v,
+                    "_id":orders[i]._id,
+                    "customerName":orders[i].customerName
+                })
+            }
+            sortOrder = sortOrder.sort(({updateTime: a}, {updateTime: b}) => b - a)
+            res.status(200).json({success: true, orders: sortOrder})
         }
     })       
 };
@@ -71,11 +95,34 @@ exports.orderChangePost = function(req, res){
 // Get request for customer to get their order details
 exports.customerOrderListGet = function(req, res){
     Order.find(req.query).populate("vendor").populate("customer").then((orders)=>{
+        
         //if for perticular vendor, the order list for required status is an empty list, return error message
         if (orders.length == 0){
             res.status(200).json({ success: false, error: "no order found"})
         } else {
-            res.status(200).json({ success: true, customerOrders: orders})
+            var sortOrder = []
+            for(i = 0; i < orders.length; i++){
+                sortOrder.push({
+                    "comments":orders[i].comments,
+                    "createTime":orders[i].createTime,
+                    "customer":orders[i].customer,
+                    "discount":orders[i].discount,
+                    "isCanceled":orders[i].isCanceled,
+                    "isChangeable":orders[i].isChangeable,
+                    "isDelivered":orders[i].isDelivered,
+                    "ratings":orders[i].ratings,
+                    "snacksList":orders[i].snacksList,
+                    "status":orders[i].status,
+                    "totalPrice":orders[i].totalPrice,
+                    "updateTime":orders[i].updateTime,
+                    "vendor":orders[i].vendor,
+                    "_v":orders[i]._v,
+                    "_id":orders[i]._id,
+                    "customerName":orders[i].customerName
+                })
+            }
+            sortOrder = sortOrder.sort(({createTime: a}, {createTime: b}) => b - a)
+            res.status(200).json({ success: true, customerOrders: sortOrder})
         }
         
     })       
@@ -85,12 +132,12 @@ exports.customerOrderListGet = function(req, res){
 exports.orderListGet = function(req, res){
 
     // check validation of the order id
-    Order.findById(req.params.id, function(err, orderDetail){
-        if(!orderDetail){
+    Order.findById(req.params.id, function(err, orders){
+        if(!orders){
             res.status(404).json({success: false, message: "order is not found!"})
         }
         else{
-            res.status(200).json({success: true, orders: orderDetail})   
+            res.status(200).json({success: true, orders: orders})   
         }
     })
 }

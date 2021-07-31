@@ -3,15 +3,12 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import '../myOrderPage/MyOrder.css';
 import { Layout, Button, notification, InputNumber, Card, Rate, Divider, Input, Alert } from 'antd';
-import { StarFilled, StarOutlined } from '@ant-design/icons';
 import CountUp from './CountUp.js';
-import { Model } from 'mongoose';
 import axios from '../API/axios.js';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 const { TextArea } = Input;
 
-// import {useHistory} from "react-router-dom";
 const { Content } = Layout;
 const { Meta } = Card;
 
@@ -55,8 +52,15 @@ export default class OrderDetail extends Component {
         this.setState({ comments: value })
     }
 
-    // 1. close用不了 2. vendor discount没更新
+    
+    closeModalEdit = () =>{
+        this.setState({ editModalVisible: false });
+    }
+    closeModalCancel = () =>{
+        this.setState({ cancelModalVisible: false });
+    }
 
+    // the action function to submit order
     onOrderSubmit = () => {
         var submitOrder = []
         var sumPrice = 0;
@@ -102,13 +106,11 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // the action function to update the customer's comment 
     onCommentSubmit = () => {
         axios.post('/order/change/' + this.props.order._id, {
-            // customer: this.props.order.customer._id,
-            // vendor: this.props.order.vendor._id, // will be changed in the future
             comments: this.state.comments,
             ratings: this.state.ratings
-            // totalPrice: sumPrice
         }).then(response => {
             console.log(response);
             if (response.data.success) {
@@ -123,6 +125,7 @@ export default class OrderDetail extends Component {
         })
     }
 
+    //the action function to cancel the order 
     onCancelSubmit = () => {
         axios.post('/order/change/' + this.props.order._id, {
             status: "canceled"
@@ -160,6 +163,7 @@ export default class OrderDetail extends Component {
         clearInterval(this.timerID);
     }
 
+    // a function to check when the edit model can be visible
     handleEditOrder = () => {
         console.log(this.state.diff)
         if (this.props.order.status === "outstanding" && this.state.diff <= 10) {
@@ -192,6 +196,7 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // a function to check when the cancel model can be visible
     handleCancelOrder = () => {
         console.log(this.state.diff)
         if (this.props.order.status === "outstanding" && this.state.diff <= 10) {
@@ -218,49 +223,8 @@ export default class OrderDetail extends Component {
         }
     }
 
-    onMarkOrder = () => {
-        var statusToGo, discount
-        var totalSum = this.props.order.totalPrice
-        if (this.props.order.status === "outstanding") {
-            statusToGo = "fulfilled"
-            if (this.state.diff >15) {
-                discount = true
-                totalSum = totalSum * 0.8
-            } else {
-                discount = false
-            }
-            axios.post('/order/change/' + this.props.order._id, {
-                discount: discount,
-                status: statusToGo,
-                totalPrice: totalSum
-            }).then(response => {
-                console.log(response);
-                if (response.data.success) {
-                    alert("Order has been uppdated")
-                    this.setState({ editModalVisible: false });
-                }
-                else {
-                    alert("Order updating errored!")
-                }
-            })
-        } else if (this.props.order.status === "fulfilled") {
-            statusToGo = "completed"
-            axios.post('/order/change/' + this.props.order._id, {
-                status: statusToGo
-            }).then(response => {
-                console.log(response);
-                if (response.data.success) {
-                    alert("Order has been uppdated")
-                    this.setState({ editModalVisible: false });
-                }
-                else {
-                    alert("Order updating errored!")
-                }
-            })
 
-        }
-    }
-
+    // a function to check the routes to show different button
     renderVenCus = () => {
         if (window.location.pathname === '/customer/order') {
             return (
@@ -279,10 +243,12 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // two model can be show by the same button: update order and comment order, if the order is outstanding --> update, completed --> comment
     renderEditModelBody = () => {
         if (this.props.order.status === "outstanding") {
             return (
-                <>  <div className='change-container'>
+                <> 
+                 <div className='change-container'>
                     <div className='change-popup'>
                         <Modal.Header>
                             <h3>UPDATE ORDER</h3>
@@ -302,7 +268,7 @@ export default class OrderDetail extends Component {
                             <button className='primary-btn' variant="primary" onClick={() => this.onOrderSubmit()}>
                                 Update
                             </button>
-                            <button className='secondary-btn' variant="primary" onClick={() => this.handleEditClose()}>
+                            <button className='secondary-btn' variant="primary" onClick={() => this.closeModalEdit()}>
                                 Close
                             </button>
                         </Modal.Footer>
@@ -315,14 +281,19 @@ export default class OrderDetail extends Component {
         } else {
             return (
                 <>  <div className='change-container'>
-                    <div className='change-popup'>
+                    <div className='change-popup rating'>
                         <Modal.Header>
-                            <Modal.Title>{"Your order id:" + this.props.order._id}</Modal.Title>
+                            <h2>Rate on Our Services</h2>
+                            <p className='o-id'>{"Order id:"} <br />{this.props.order._id}</p>
                         </Modal.Header>
                         <Modal.Body>
-                            <Divider>Rate on Our Services</Divider>
-                            <p>Ratings:</p><Rate onChange={(e) => this.ratingsChange(e)} />
-                            <Divider></Divider>
+                            {/* <Divider>Rate on Our Services</Divider> */}
+                            <p>Rating</p>
+                            <div className='stars'>
+                            <Rate  onChange={(e) => this.ratingsChange(e)} />
+                            </div>
+                            <br /> <br />
+                            {/* <Divider></Divider> */}
                             <p>Comment</p><TextArea rows={4} onChange={(e) => this.commentChange(e.target.value)} />
                             {/* {this.state.ratings ? <span className="ant-rate-text">{desc[this.state.ratings -1]}</span> : ''} */}
                         </Modal.Body>
@@ -330,7 +301,7 @@ export default class OrderDetail extends Component {
                             <button className='primary-btn' variant="primary" onClick={() => this.onCommentSubmit()}>
                                 Submit
                             </button>
-                            <button className='secondary-btn' variant="primary" onClick={() => this.handleEditClose()}>
+                            <button className='secondary-btn' variant="primary" onClick={() => this.closeModalEdit()}>
                                 Close
                             </button>
                         </Modal.Footer>
@@ -343,6 +314,7 @@ export default class OrderDetail extends Component {
         }
     }
 
+    // the cancal model body
     renderCancelModelBody = () => {
         return (
             <>  <div className='change-container'>
@@ -364,7 +336,7 @@ export default class OrderDetail extends Component {
                         <button className='primary-btn' variant="primary" onClick={() => this.onCancelSubmit()}>
                             Cancel Order
                         </button>
-                        <button className='secondary-btn' variant="primary" onClick={() => this.handleCancelClose()}>
+                        <button className='secondary-btn' variant="primary" onClick={() => this.closeModalCancel()}>
                             Close
                         </button>
                     </Modal.Footer>
@@ -388,18 +360,18 @@ export default class OrderDetail extends Component {
                 </Modal>
                 <div className="content">
                     <div className="flex">
-                        <div>
-                        <th >{this.props.order.createTime.slice(0, 10)}</th>
+                        <div className='time-date-container'>
+                        <p className='date'>{this.props.order.createTime.slice(0, 10)}</p>
                         <p className="orderstatus">
                         {( this.props.order.status ==="outstanding") ?  <CountUp updatedAt={this.props.order.updateTime} />: "Order has been " + this.props.order.status}
 
                         </p>
-                        
-                        {this.renderVenCus()}
+                        </div>
+                       
                         {/* <Button key='1' onClick={() => this.handleEditOrder()}>Change Order/Comment</Button> */}
                         
                             
-                        </div>
+                        
 
                         <th >{(this.props.order.discount) ? <Alert message="Discount applied!" type="warning" showIcon/> : <></>}</th>
                         
@@ -447,26 +419,14 @@ export default class OrderDetail extends Component {
                         </div>
 
                         <div className="flex--child centertable">
-                            <table >
+                            <table className='snack-item'>
                                 <tr>
                                     <th>Item</th>
                                     <th>Quantity</th>
                                     <th>$Price</th>
                                 </tr>
 
-                                {/* a function to fetch data? */}
-
-                                {/* {snacks}
-
-
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <th>$Total Price</th>
-                                    <th>{props.order.totalPrice}</th>
-                                </tr> */}
-
-                                {/* {renderOrder()} */}
+                                
 
 
 
@@ -484,7 +444,7 @@ export default class OrderDetail extends Component {
                                     <td></td>
                                 
                                     
-                                    <th>$Total Price</th>
+                                    <th className='total'>$Total Price</th>
                                     {/* <th>{this.props.order.totalPrice}</th> */}
                                     {(this.props.order.discount) ? <th>{this.props.order.totalPrice * 1.25} * 0.8 = {this.props.order.totalPrice}</th> : <th>{this.props.order.totalPrice}</th>}
 
@@ -496,29 +456,14 @@ export default class OrderDetail extends Component {
                         <div className="flex--child flex--column">
                             <div className="flex--column--child">
                                 <tr>
-                                    <th>Service: (1 is terrible, 5 is great!)</th>
+                                    <th>Service Rating: (1 is terrible, 5 is great!)</th>
                                     {/* <th>Food</th> */}
                                 </tr>
                                 <tr>
                                     <th>{this.props.order.ratings}</th>
                                 </tr>
 
-                                {/* <tr>
-                                    <td>
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarOutlined />
-                                    </td>
-                                    <td>
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarFilled />
-                                        <StarOutlined />
-                                    </td>
-                                </tr> */}
+                                
                             </div>
 
                             <div>
@@ -529,8 +474,11 @@ export default class OrderDetail extends Component {
                                     <td>{this.props.order.comments}</td>
                                 </tr>
                             </div>
+                            
                         </div>
+                        
                     </div>
+                    <div className='right-buttons'>{this.renderVenCus()}</div>
                     <br></br>
                     <center>
                         <hr></hr>

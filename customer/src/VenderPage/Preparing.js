@@ -3,23 +3,14 @@ import Orderlist from './Orderlist.js'
 import 'antd/dist/antd.css';
 import './component.css';
 import './FulfilledOrderlist';
-
-import { Layout, Menu } from 'antd';
-import FulfilledOrderlist from './FulfilledOrderlist';
-import Searchbar from './Searchbar.js'
-import FinishedOrderList from './FinishedOrderList.js'
-import FinishedOrderDetail from './FinishedOrderDetail.js'
+import { Layout} from 'antd';
 import Sidebar from './Sider.js'
 
-
-
-
-const { Header, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 
 class SiderDemo extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props)
   }
   
   state = {
@@ -34,7 +25,7 @@ class SiderDemo extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <Layout className="reset-height">
         <Sidebar>{this.props.children}</Sidebar>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
@@ -49,15 +40,7 @@ class SiderDemo extends React.Component {
               maxHeight: 720,
             }}
           >
-            {/* {this.props.orderlist}
-            <br></br> */}
-
-
-
-            {/* The Preparing orders page component(list) */}
-            <Orderlist>{this.props}</Orderlist>
-
-         
+            <Orderlist>{this.props}</Orderlist>        
           </Content>
         </Layout>
       </Layout>

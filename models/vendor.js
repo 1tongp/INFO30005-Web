@@ -25,7 +25,7 @@ var VendorSchema = new Schema({
     parked: {
         type: Boolean,
         required: true,
-        default: true
+        default: false
     },
     readyForOrder: {
         type: Boolean,

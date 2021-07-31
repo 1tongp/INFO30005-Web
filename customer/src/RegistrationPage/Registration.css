@@ -21,6 +21,27 @@ h1{
 
 }
 
+.email-warning {
+    font-size: 16px !important;
+    color: rgb(135, 135, 135);
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    /* text-align: left !important; */
+    font-weight: normal !important;
+}
+
+.email {
+    margin-bottom: 20px !important;
+    margin-top: 0px !important;
+    font-size: 14px !important;
+    color: rgb(135, 135, 135);
+}
+
+.profile input {
+    margin-bottom: 15px;
+    margin-top: 8px;
+}
+
 .profiletext{
     margin-top: 30px;
     text-align: center;
@@ -34,16 +55,75 @@ h1{
 
 }
 
+.registration-pop {
+    margin-top: 150px !important;
+    width: 50% !important;
+}
+
+.registration-pop input{
+    margin-bottom: 15px;
+    margin-top: 8px;
+}
+
+.no-margin {
+    margin-bottom: 3px !important;
+}
+
+.confirm {
+    margin-top: 10px !important;
+}
+
+.reg {
+    width: 50%;
+    flex-direction: column;
+    /* border: gray 1px solid; */
+}
+.reg label{
+    color: #000;
+}
+.reg .nameinput{
+    width: 100%;
+}
+
+.text-mutes{
+    color: rgb(160, 160, 160);
+}
+
 .warningtext{
     font-size: 15px;
 }
 
-.nameinput{
+/* .nameinput{
     margin-top: 8px;
-}
+} */
 
 #signupContainer{
     background-color: #E8E6DF;
+}
+
+
+.container--profile{
+    padding: 5%;
+    padding-left: 10%;
+    background-attachment: scroll !important;
+}
+
+.profile--subcontainer{
+    min-width: 440px;
+    width: 40%;
+    background-color: rgba(115, 65, 47, 0.8);
+    border-radius: 15px;
+    padding: 36px;
+    /* box-shadow: rgb(70, 39, 30) 2px 0px 8px 1px; */
+
+}
+
+.margintop{
+    margin-top: 12px;
+}
+
+.profile--subcontainer>h1{
+    color: white;
 }
 
 .header--nofunction{
@@ -64,9 +144,13 @@ h1{
 }
 
 
+.cluster--signup .password-input{
+    width: 100%;
+
+}
 
 .signupContainer form input{
-    margin-bottom: 60px;
+    margin-bottom: 48px;
     height: 40px;
     background-color: white;
     border-color: #707070;
@@ -82,8 +166,9 @@ h1{
 .signupContainer{
     position: relative;
     width: 100%;
-    height: auto;
-    padding: 60px;
+    height: 100%;
+    /* padding: 0 60px; */
+    margin-top: 30px;
 }
 
 .signupBackground{
@@ -98,6 +183,7 @@ h1{
 .fnameinput{
     width: 48%;   
     margin-right: 4%;
+ 
 }
 
 .lnameinput{
@@ -113,10 +199,11 @@ h1{
     background-color: #D9C2A7 !important;
     width: 250px !important;
     height: 40px !important;
-    float: right;
+    /* float: right; */
     font-weight: bold;
     padding: 0 !important;
     cursor: pointer;
+    /* margin-bottom: 100px !important;  */
 }
 
 .btnSignup:hover{
@@ -126,33 +213,194 @@ h1{
 
 .btnCancel{
     border-color: #CCCCCC;
-    background-color: #ECECEC;
+    background-color: #CCCCCC !important;
+    
     width: 200px;
     height: 40px;
     font-weight: bold;
     padding-left: 20px;
     padding-right: 20px;
     cursor: pointer;
+    margin-bottom: 20px !important;
 }
 
 .btnCancel:hover{
-    background-color: #CCCCCC;
+    background-color:#ECECEC !important;
+    
     transition: 0.5s;
 
 }
 
+
+
+.container--signup{
+    background-image: url(newBackground.PNG);
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    
+   
+    z-index: 0;
+
+}
+
+.subcontainer--signup{
+
+    /* position: fixed; */
+
+    padding: 5%;
+    /* margin-top: 5%;
+    margin-bottom: 5%; */
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 58%;
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 15px; */
+    box-shadow: rgb(128, 121, 110) 0px 12px 18px 8px;
+}
+
+.subcontainer--signup>h1{
+    color: rgb(236, 231, 221);
+}
+
+.container--signupbtn{
+    text-align: right;
+}
+
+.label{
+    color: rgb(236, 231, 221);
+}
+
+
+.container--updatebtn{
+    text-align: end;
+}
+
+
+
+
+
+
+
+
+
 @media (max-width:800px) {
+
+    .container--profile{
+        padding: 8%;
+        padding-left: 4%;
+        padding-right: 4%;
+        background-attachment: fixed !important;
+    }
+
+
+
+    .profile--subcontainer{
+        width: 100% !important;
+   
+        min-width: 100%;
+  
+        
+    }
+
+
+
+    .label{
+        color: rgb(236, 231, 221);
+    }
+
+    .container--signup{
+        background-position-x: 600px;
+        background-position-y: -100px;
+        background-attachment: fixed;
+        
+        
+      
+    }
+
+
+    .subcontainer--signup{
+        /* border-top-left-radius: 15px; */
+        border-top-right-radius: 0px;
+        width: 100%;
+
+        padding: 9%;
+        /* margin-top: 100px; */
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .subcontainer--signup>h1{
+        color: rgb(236, 231, 221);
+    }
+
+    .signupContainer{
+        margin-top: 0;
+
+    }
+
+
+
     .signupContainer form input{
         margin-bottom: 30px;
         height: 40px;
         width: 100%;
     }
 
-    .signupContainer{
-        padding: 40px;
+    /* .container--signupbtn{
+        text-align: center;
     }
+
+    .container--cancelbtn{
+        text-align: center;
+    } */
+
+    .btnSignup{
+        margin-top: 38px;
+  
+    }
+
+    /* .signupContainer{
+        padding: 0 40px;
+    } */
 
     .btnSignup, .btnCancel{
         width: 100% !important;
+        
+    }
+
+    /* .signupContainer {
+        height: 680px;
+    } */
+
+    .cluster--signup {
+        flex-direction: column;
+    }
+
+    .cluster--signup div{
+        width: 100%;
+        flex-direction: column;
+    
+    }
+
+    .registration-pop {
+        margin-top: 25px !important;
+        width: 90% !important;
+    }
+    
+    .reg {
+        width: 50%;
+        flex-direction: column;
+        /* border: gray 1px solid; */
+    }
+    .reg label{
+        color: #000;
+    }
+    .reg .nameinput{
+        width: 100%;
+    }
+
+    .profile {
+        margin-top: 65px !important;
     }
 }
