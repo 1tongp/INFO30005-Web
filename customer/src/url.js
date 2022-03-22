@@ -3,7 +3,7 @@ let URLs = {};
 if (process.env.NODE_ENV === "production") {
     URLs = {
         baseURL : "/api",
-        socketURL: "https://frontend-keepitsimple.herokuapp.com/"
+        socketURL: "https://keepitsimple-snacksinvan.herokuapp.com/"
     };
 
 } else {
