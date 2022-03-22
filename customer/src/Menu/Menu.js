@@ -25,7 +25,7 @@ export default function Menu(props) {
     useEffect(() => {
         axios.get('/customer/' + props.customer).then(response => {
             console.log(response);
-            console.log(response.data.customer.givenName);
+            // console.log(response.data.customer.givenName);
             console.log(props);
             setCustomerName(response.data.customer.givenName);
         })
